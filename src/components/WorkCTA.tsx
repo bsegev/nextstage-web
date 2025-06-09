@@ -15,9 +15,9 @@ export default function WorkCTA() {
   
   // Assembly animations - elements come together as you scroll
   const centralScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1, 1.2]);
-  const orbitRadius = useMotionValue(80);
-  const connectionOpacity = useMotionValue(0.3);
-  const assemblyProgress = useMotionValue(0);
+  const orbitRadius = useTransform(scrollYProgress, [0, 0.6, 1], [120, 80, 40]);
+  const connectionOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [0, 0.3, 0.8]);
+  const assemblyProgress = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0, 0.5, 1]);
 
   // Move useTransform hooks outside of render callbacks
   const rotateTransform = useTransform(assemblyProgress, [0, 1], [0, 360]);
