@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useScroll, useTransform, useMotionValue } from 'motion/react';
+import { motion, useScroll, useTransform } from 'motion/react';
 
 export default function WorkCTA() {
   const sectionRef = useRef(null);
