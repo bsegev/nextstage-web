@@ -1,0 +1,479 @@
+"use client";
+
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { IconX } from "@tabler/icons-react";
+
+type Section = "strategy" | "design" | "technology";
+
+interface ContentData {
+  title: string;
+  description: string;
+}
+
+const content: Record<Section, ContentData> = {
+  strategy: {
+    title: "Strategy",
+    description: "Strategic excellence means seeing the full chess board while others focus on single moves. We identify market dynamics, competitive blind spots, and untapped opportunities that create sustainable advantage. Every strategy we craft is built to compound—not just solve today's problems, but position you three moves ahead."
+  },
+  design: {
+    title: "Design",
+    description: "Design is how strategy becomes tangible and technology becomes human. We don't just make things look better—we make complex systems feel intuitive, abstract value propositions feel concrete, and ambitious visions feel inevitable. Every pixel serves the bigger picture."
+  },
+  technology: {
+    title: "Technology",
+    description: "Technology is how vision becomes reality at scale. We build systems that don't just work today but evolve with tomorrow's demands. Whether it's custom platforms, API architectures, or digital experiences, we engineer solutions that turn your competitive advantage into market dominance."
+  }
+};
+
+export default function PowerInConvergence() {
+  const [selectedSection, setSelectedSection] = useState<Section | null>(null);
+  const [hoveredSection, setHoveredSection] = useState<Section | null>(null);
+
+  const isExpanded = selectedSection !== null;
+
+  // Define the exact positions for the Venn diagram
+  const positions = {
+    strategy: { x: -50, y: -35 },
+    design: { x: 50, y: -35 },
+    technology: { x: 0, y: 45 }
+  };
+
+  // When expanded, all circles move to center
+  const centerPosition = { x: 0, y: 0 };
+
+  return (
+    <section 
+      className="py-16 sm:py-20 md:py-24 bg-obsidian relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/images/venn-bg-2.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: '60% center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Subtle background overlay */}
+      <div className="absolute inset-0 bg-obsidian/60"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-4 sm:mb-6">
+          <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-bone/60 tracking-wide uppercase">
+            <span>Convergence</span>
+          </div>
+          
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
+            <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
+              Power in Convergence
+            </span>
+          </h2>
+          <p className="text-base sm:text-lg text-bone/75 font-light max-w-2xl mx-auto">
+            Where strategy, design, and technology unite to create exponential value.
+          </p>
+        </div>
+
+        {/* Main Interaction Area */}
+        <div className="relative max-w-2xl mx-auto aspect-square">
+          
+          {/* SVG Container */}
+          <svg
+            viewBox="0 0 400 400"
+            className="w-full h-full"
+            style={{ transform: "scale(1.1)" }}
+          >
+            {/* Gradient Definitions */}
+            <defs>
+              <radialGradient id="circleGradient" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#ffe0d7" stopOpacity="0.04" />
+                <stop offset="100%" stopColor="#ffe0d7" stopOpacity="0.08" />
+              </radialGradient>
+              
+              {/* Rotating Border Gradients */}
+              <radialGradient id="rotatingGradient1" cx="50%" cy="0%" r="50%">
+                <stop offset="0%" stopColor="#ffe0d7" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#ffe0d7" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#ffe0d7" stopOpacity="0" />
+              </radialGradient>
+              
+              <radialGradient id="rotatingGradient2" cx="0%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#ffe0d7" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#ffe0d7" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#ffe0d7" stopOpacity="0" />
+              </radialGradient>
+              
+              <radialGradient id="rotatingGradient3" cx="50%" cy="100%" r="50%">
+                <stop offset="0%" stopColor="#ffe0d7" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#ffe0d7" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#ffe0d7" stopOpacity="0" />
+              </radialGradient>
+              
+              <radialGradient id="rotatingGradient4" cx="100%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#ffe0d7" stopOpacity="0.8" />
+                <stop offset="50%" stopColor="#ffe0d7" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#ffe0d7" stopOpacity="0" />
+              </radialGradient>
+
+              {/* Hover Highlight */}
+              <radialGradient id="hoverHighlight" cx="50%" cy="50%" r="70%">
+                <stop offset="0%" stopColor="#ffe0d7" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#ffe0d7" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+
+            {/* Rotating Border Effect Circles */}
+            <g>
+              {/* Strategy Rotating Border */}
+              <motion.g
+                animate={{
+                  x: isExpanded ? centerPosition.x : positions.strategy.x,
+                  y: isExpanded ? centerPosition.y : positions.strategy.y,
+                  scale: isExpanded ? 1.92 : 1,
+                }}
+                transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+                style={{ transformOrigin: "200px 200px" }}
+              >
+                <motion.circle
+                  cx={200}
+                  cy={200}
+                  r={86}
+                  fill="none"
+                  stroke="url(#rotatingGradient1)"
+                  strokeWidth="3"
+                  opacity={0.8}
+                  animate={{ 
+                    rotate: 360,
+                    opacity: hoveredSection === "strategy" ? 1 : 0.4
+                  }}
+                  transition={{ 
+                    rotate: { duration: 4, ease: "linear", repeat: Infinity },
+                    opacity: { duration: 0.3 }
+                  }}
+                />
+                {hoveredSection === "strategy" && (
+                  <motion.circle
+                    cx={200}
+                    cy={200}
+                    r={86}
+                    fill="url(#hoverHighlight)"
+                    stroke="none"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.3 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </motion.g>
+
+              {/* Design Rotating Border */}
+              <motion.g
+                animate={{
+                  x: isExpanded ? centerPosition.x : positions.design.x,
+                  y: isExpanded ? centerPosition.y : positions.design.y,
+                  scale: isExpanded ? 1.92 : 1,
+                }}
+                transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+                style={{ transformOrigin: "200px 200px" }}
+              >
+                <motion.circle
+                  cx={200}
+                  cy={200}
+                  r={86}
+                  fill="none"
+                  stroke="url(#rotatingGradient2)"
+                  strokeWidth="3"
+                  opacity={0.8}
+                  animate={{ 
+                    rotate: -360,
+                    opacity: hoveredSection === "design" ? 1 : 0.4
+                  }}
+                  transition={{ 
+                    rotate: { duration: 5, ease: "linear", repeat: Infinity },
+                    opacity: { duration: 0.3 }
+                  }}
+                />
+                {hoveredSection === "design" && (
+                  <motion.circle
+                    cx={200}
+                    cy={200}
+                    r={86}
+                    fill="url(#hoverHighlight)"
+                    stroke="none"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.3 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </motion.g>
+
+              {/* Technology Rotating Border */}
+              <motion.g
+                animate={{
+                  x: isExpanded ? centerPosition.x : positions.technology.x,
+                  y: isExpanded ? centerPosition.y : positions.technology.y,
+                  scale: isExpanded ? 1.92 : 1,
+                }}
+                transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+                style={{ transformOrigin: "200px 200px" }}
+              >
+                <motion.circle
+                  cx={200}
+                  cy={200}
+                  r={86}
+                  fill="none"
+                  stroke="url(#rotatingGradient3)"
+                  strokeWidth="3"
+                  opacity={0.8}
+                  animate={{ 
+                    rotate: 360,
+                    opacity: hoveredSection === "technology" ? 1 : 0.4
+                  }}
+                  transition={{ 
+                    rotate: { duration: 3, ease: "linear", repeat: Infinity },
+                    opacity: { duration: 0.3 }
+                  }}
+                />
+                {hoveredSection === "technology" && (
+                  <motion.circle
+                    cx={200}
+                    cy={200}
+                    r={86}
+                    fill="url(#hoverHighlight)"
+                    stroke="none"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.3 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </motion.g>
+            </g>
+
+            {/* Main Circles */}
+            <motion.circle
+              cx={200}
+              cy={200}
+              r={84}
+              fill={isExpanded ? "url(#circleGradient)" : "transparent"}
+              stroke="#ffe0d7"
+              strokeWidth={1.5}
+              className="cursor-pointer"
+              style={{ 
+                opacity: 0.7
+              }}
+              animate={{
+                x: isExpanded ? centerPosition.x : positions.strategy.x,
+                y: isExpanded ? centerPosition.y : positions.strategy.y,
+                scale: isExpanded ? 1.92 : 1,
+              }}
+              transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+              onHoverStart={() => !isExpanded && setHoveredSection("strategy")}
+              onHoverEnd={() => !isExpanded && setHoveredSection(null)}
+              onClick={() => !isExpanded && setSelectedSection("strategy")}
+            />
+
+            {/* Design Circle */}
+            <motion.circle
+              cx={200}
+              cy={200}
+              r={84}
+              fill={isExpanded ? "url(#circleGradient)" : "transparent"}
+              stroke="#ffe0d7"
+              strokeWidth={1.5}
+              className="cursor-pointer"
+              style={{ 
+                opacity: 0.7
+              }}
+              animate={{
+                x: isExpanded ? centerPosition.x : positions.design.x,
+                y: isExpanded ? centerPosition.y : positions.design.y,
+                scale: isExpanded ? 1.92 : 1,
+              }}
+              transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+              onHoverStart={() => !isExpanded && setHoveredSection("design")}
+              onHoverEnd={() => !isExpanded && setHoveredSection(null)}
+              onClick={() => !isExpanded && setSelectedSection("design")}
+            />
+
+            {/* Technology Circle */}
+            <motion.circle
+              cx={200}
+              cy={200}
+              r={84}
+              fill={isExpanded ? "url(#circleGradient)" : "transparent"}
+              stroke="#ffe0d7"
+              strokeWidth={1.5}
+              className="cursor-pointer"
+              style={{ 
+                opacity: 0.7
+              }}
+              animate={{
+                x: isExpanded ? centerPosition.x : positions.technology.x,
+                y: isExpanded ? centerPosition.y : positions.technology.y,
+                scale: isExpanded ? 1.92 : 1,
+              }}
+              transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+              onHoverStart={() => !isExpanded && setHoveredSection("technology")}
+              onHoverEnd={() => !isExpanded && setHoveredSection(null)}
+              onClick={() => !isExpanded && setSelectedSection("technology")}
+            />
+
+            {/* Circle Labels */}
+            <AnimatePresence>
+              {!isExpanded && (
+                <>
+                  <motion.text
+                    x={96}
+                    y={151}
+                    textAnchor="start"
+                    className="text-sm font-display font-medium fill-current text-bone pointer-events-none"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    Strategy
+                  </motion.text>
+                  
+                  <motion.text
+                    x={304}
+                    y={151}
+                    textAnchor="end"
+                    className="text-sm font-display font-medium fill-current text-bone pointer-events-none"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    Design
+                  </motion.text>
+                  
+                  <motion.text
+                    x={200}
+                    y={274}
+                    textAnchor="middle"
+                    className="text-sm font-display font-medium fill-current text-bone pointer-events-none"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    Technology
+                  </motion.text>
+                </>
+              )}
+            </AnimatePresence>
+          </svg>
+
+          {/* Content Overlay */}
+          <AnimatePresence>
+            {isExpanded && selectedSection && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="absolute inset-0 flex items-center justify-center p-4 sm:p-8"
+              >
+                <div className="text-center max-w-xs sm:max-w-md relative">
+                  {/* Close Button - Inside Circle */}
+                  <motion.button
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.3, delay: 0.7 }}
+                    onClick={() => setSelectedSection(null)}
+                    className="absolute -top-6 -right-2 sm:-top-16 sm:right-6 flex items-center space-x-2 text-bone/70 hover:text-bone transition-colors duration-300 text-base sm:text-lg"
+                  >
+                    <IconX className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <span className="hidden sm:inline">close</span>
+                  </motion.button>
+
+                  <motion.h3
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                    className="font-display text-xl sm:text-2xl md:text-3xl font-medium text-bone mb-4 sm:mb-6"
+                  >
+                    {content[selectedSection].title}
+                  </motion.h3>
+                  
+                  <motion.p
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    className="text-sm md:text-base text-bone/80 leading-relaxed font-light px-2 sm:px-0"
+                  >
+                    {content[selectedSection].description}
+                  </motion.p>
+                </div>
+
+                {/* Navigation Arrows - Fixed Position, Outside Text Container */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className="absolute bottom-12 sm:bottom-24 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 text-bone/60"
+                >
+                  <button
+                    onClick={() => {
+                      const sections: Section[] = ["strategy", "design", "technology"];
+                      const currentIndex = sections.indexOf(selectedSection);
+                      const prevIndex = currentIndex === 0 ? sections.length - 1 : currentIndex - 1;
+                      setSelectedSection(sections[prevIndex]);
+                    }}
+                    className="hover:text-bone transition-colors duration-300"
+                  >
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  
+                  <span className="text-sm font-mono">
+                    {selectedSection === "strategy" ? "1" : selectedSection === "design" ? "2" : "3"}/3
+                  </span>
+                  
+                  <button
+                    onClick={() => {
+                      const sections: Section[] = ["strategy", "design", "technology"];
+                      const currentIndex = sections.indexOf(selectedSection);
+                      const nextIndex = currentIndex === sections.length - 1 ? 0 : currentIndex + 1;
+                      setSelectedSection(sections[nextIndex]);
+                    }}
+                    className="hover:text-bone transition-colors duration-300"
+                  >
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Mobile Cards */}
+        <div className="md:hidden mt-12 space-y-4">
+          {Object.entries(content).map(([key, data]) => (
+            <motion.div
+              key={key}
+              className="border border-accent/20 rounded-xl p-6 bg-obsidian/50 backdrop-blur-sm cursor-pointer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setSelectedSection(key as Section)}
+            >
+              <h3 className="font-display text-xl mb-3 text-bone">
+                {data.title}
+              </h3>
+              <p className="text-sm text-bone/70 font-light">
+                Tap to explore how {data.title.toLowerCase()} creates exponential value.
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+} 

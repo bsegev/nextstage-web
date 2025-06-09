@@ -1,0 +1,272 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+interface ClientStory {
+  id: string;
+  name: string;
+  industry: string;
+  quote: string;
+  logo: string; // This would be the logo path in a real implementation
+}
+
+const clientStories: ClientStory[] = [
+  {
+    id: "fortune1000",
+    name: "Fortune 1000",
+    industry: "Technology",
+    quote: "10x increase in qualified leads through AI strategy",
+    logo: "F1000"
+  },
+  {
+    id: "digitalbank",
+    name: "Digital Bank",
+    industry: "Financial Services", 
+    quote: "From concept to operational in 90 days",
+    logo: "DigiBank"
+  },
+  {
+    id: "healthcare",
+    name: "Healthcare Brand",
+    industry: "Healthcare",
+    quote: "Made our complex simple—and beautiful",
+    logo: "HealthCo"
+  },
+  {
+    id: "toycompany",
+    name: "Toy Company",
+    industry: "Consumer Goods",
+    quote: "Idea to shelf faster than we imagined possible",
+    logo: "ToyCore"
+  },
+  {
+    id: "retailtech",
+    name: "Retail Tech",
+    industry: "Retail Technology",
+    quote: "Transformed our customer experience overnight",
+    logo: "RetailX"
+  },
+  {
+    id: "proptech",
+    name: "PropTech",
+    industry: "Real Estate",
+    quote: "Strategy that actually moves markets",
+    logo: "PropFlow"
+  }
+];
+
+export default function LogoShowcase() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % clientStories.length);
+    }, 6000); // 6 second intervals
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const handleLogoClick = (index: number) => {
+    if (activeIndex === index) {
+      setIsPaused(!isPaused);
+    } else {
+      setActiveIndex(index);
+      setIsPaused(false);
+    }
+  };
+
+  return (
+    <section className="py-16 sm:py-20 md:py-24 bg-bone">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
+            <span>Trusted by leaders</span>
+          </div>
+          
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
+            <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
+              Results that speak
+            </span>
+          </h2>
+          <p className="text-base sm:text-lg text-obsidian/80 font-light max-w-2xl mx-auto">
+            Every partnership delivers measurable impact. See how we've accelerated growth across industries.
+          </p>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:block">
+          {/* Logo Grid */}
+          <div className="grid grid-cols-3 gap-8 lg:gap-12 max-w-4xl mx-auto mb-12">
+            {clientStories.map((client, index) => (
+              <motion.div
+                key={client.id}
+                className="relative aspect-square flex items-center justify-center cursor-pointer group"
+                onClick={() => handleLogoClick(index)}
+                onHoverStart={() => setHoveredIndex(index)}
+                onHoverEnd={() => setHoveredIndex(null)}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Logo Container */}
+                <motion.div
+                  className="w-full h-full rounded-2xl border flex items-center justify-center relative overflow-hidden"
+                  animate={{
+                    borderColor: activeIndex === index ? "#FFE0D7" : "rgba(10, 10, 10, 0.1)",
+                    backgroundColor: activeIndex === index ? "rgba(255, 224, 215, 0.1)" : "rgba(10, 10, 10, 0.02)",
+                    boxShadow: activeIndex === index 
+                      ? "0 10px 40px rgba(255, 224, 215, 0.3)" 
+                      : hoveredIndex === index 
+                        ? "0 5px 20px rgba(255, 224, 215, 0.2)"
+                        : "0 2px 10px rgba(10, 10, 10, 0.05)"
+                  }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {/* Subtle Background Pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="w-full h-full bg-gradient-to-br from-obsidian via-transparent to-accent"></div>
+                  </div>
+                  
+                  {/* Logo Text (placeholder for actual logos) */}
+                  <motion.div
+                    className="font-display text-lg font-bold text-center"
+                    animate={{
+                      color: activeIndex === index ? "#0A0A0A" : "rgba(10, 10, 10, 0.4)",
+                      scale: activeIndex === index ? 1.1 : 1
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {client.logo}
+                  </motion.div>
+
+                  {/* Hover Glow */}
+                  <AnimatePresence>
+                    {hoveredIndex === index && (
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-br from-accent/20 via-accent/10 to-transparent rounded-2xl"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                  </AnimatePresence>
+
+                  {/* Active Indicator */}
+                  {activeIndex === index && (
+                    <motion.div
+                      className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </motion.div>
+
+                {/* Industry Label */}
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-obsidian/50 font-medium whitespace-nowrap">
+                  {client.industry}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Quote Display */}
+          <div className="max-w-3xl mx-auto text-center min-h-[120px] flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                className="space-y-4"
+              >
+                <blockquote className="text-xl sm:text-2xl font-light text-obsidian/90 leading-relaxed">
+                  "{clientStories[activeIndex].quote}"
+                </blockquote>
+                <div className="flex items-center justify-center space-x-3">
+                  <div className="h-px w-8 bg-accent"></div>
+                  <cite className="text-sm font-medium text-obsidian/60 not-italic">
+                    {clientStories[activeIndex].name}
+                  </cite>
+                  <div className="h-px w-8 bg-accent"></div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Play/Pause Indicator */}
+          <div className="flex justify-center mt-8">
+            <motion.button
+              onClick={() => setIsPaused(!isPaused)}
+              className="flex items-center space-x-2 text-obsidian/60 hover:text-obsidian/80 transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="w-8 h-8 rounded-full border border-obsidian/20 flex items-center justify-center">
+                {isPaused ? (
+                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                  </svg>
+                ) : (
+                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                  </svg>
+                )}
+              </div>
+              <span className="text-xs font-medium uppercase tracking-wide">
+                {isPaused ? 'Play' : 'Pause'}
+              </span>
+            </motion.button>
+          </div>
+        </div>
+
+        {/* Mobile Stack */}
+        <div className="md:hidden space-y-6">
+          {clientStories.map((client, index) => (
+            <motion.div
+              key={client.id}
+              className="border border-obsidian/10 rounded-2xl p-6 bg-obsidian/2 cursor-pointer"
+              onClick={() => setActiveIndex(activeIndex === index ? -1 : index)}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="flex items-center space-x-4 mb-4">
+                <div className="w-12 h-12 rounded-xl border border-obsidian/10 flex items-center justify-center bg-white">
+                  <span className="font-display text-sm font-bold text-obsidian/60">
+                    {client.logo}
+                  </span>
+                </div>
+                <div>
+                  <div className="font-medium text-obsidian">{client.name}</div>
+                  <div className="text-sm text-obsidian/60">{client.industry}</div>
+                </div>
+              </div>
+              
+              <AnimatePresence>
+                {activeIndex === index && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <blockquote className="text-base text-obsidian/80 leading-relaxed italic">
+                      "{client.quote}"
+                    </blockquote>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+} 

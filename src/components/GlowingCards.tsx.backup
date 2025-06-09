@@ -1,0 +1,200 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { GlowingEffect } from './ui/glowing-effect';
+
+interface CardData {
+  title: string;
+  subtitle: string;
+  body: string;
+  examples: string[];
+}
+
+const cardData: CardData[] = [
+  {
+    title: 'CREATE',
+    subtitle: 'For what doesn\'t exist yet',
+    body: 'Transform ambitious ideas into market-ready realities. From strategy through launch, we build new ventures, digital products, and business models that compete from day one.',
+    examples: ['New venture launch', 'Digital product creation', 'Market entry strategy', 'Innovation sprints']
+  },
+  {
+    title: 'EVOLVE',
+    subtitle: 'For what needs reimagining',
+    body: 'Reinvent your business for the digital age. We orchestrate complete transformations—strategy, brand, and technology—that position you for sustainable growth.',
+    examples: ['Digital transformation', 'Brand evolution', 'Business model pivot', 'Platform modernization']
+  },
+  {
+    title: 'ACCELERATE',
+    subtitle: 'For what needs to scale',
+    body: 'Remove growth barriers with systems built for velocity. We design and deploy scalable solutions that multiply your impact without multiplying complexity.',
+    examples: ['Growth architecture', 'Performance optimization', 'Scale enablement', 'Expansion strategy']
+  }
+];
+
+interface GlowingCardProps {
+  card: CardData;
+  index: number;
+  isMobile: boolean;
+  activeMobileCard: number | null;
+  onMobileCardTap: (index: number) => void;
+}
+
+function GlowingCard({ card, index, isMobile, activeMobileCard, onMobileCardTap }: GlowingCardProps) {
+  const isActiveOnMobile = activeMobileCard === index;
+
+  return (
+    <div
+      className="relative group cursor-pointer"
+      onClick={() => isMobile && onMobileCardTap(index)}
+    >
+      {/* Card Container */}
+      <div className="relative bg-obsidian/60 backdrop-blur-sm border border-accent/10 rounded-xl p-8 lg:p-10 h-[420px] flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-accent/20">
+        
+        {/* Glowing Effect - Much more subtle */}
+        <GlowingEffect
+          variant="peach"
+          disabled={isMobile ? !isActiveOnMobile : false}
+          blur={0}
+          inactiveZone={0.7}
+          proximity={40}
+          spread={25}
+          movementDuration={4}
+          borderWidth={1}
+          className="rounded-xl"
+        />
+        
+        {/* Content */}
+        <div className="relative z-10">
+          {/* Title */}
+          <h3 className="font-display text-2xl lg:text-3xl font-semibold text-bone mb-4 tracking-[-0.01em] leading-[0.9]">
+            {card.title}
+          </h3>
+          
+          {/* Subtitle */}
+          <p className="font-sans text-bone/60 text-lg font-light mb-6 leading-relaxed">
+            {card.subtitle}
+          </p>
+          
+          {/* Body */}
+          <p className="font-sans text-bone/70 text-base leading-[1.6] font-light">
+            {card.body}
+          </p>
+        </div>
+        
+        {/* Examples - Clean list */}
+        <div className="relative z-10 space-y-2">
+          {card.examples.map((example, i) => (
+            <div key={i} className="text-bone/40 text-sm font-sans font-light">
+              {example}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function GlowingCards() {
+  const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [activeMobileCard, setActiveMobileCard] = useState<number | null>(null);
+
+  useEffect(() => {
+    setMounted(true);
+    
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const handleMobileCardTap = (index: number) => {
+    setActiveMobileCard(activeMobileCard === index ? null : index);
+  };
+
+  if (!mounted) {
+    return (
+      <section className="py-24 bg-obsidian">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="bg-obsidian/60 border border-accent/10 rounded-xl h-[420px] animate-pulse" />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="py-20 sm:py-24 md:py-32 bg-obsidian relative overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Section Header */}
+        <div className="text-center mb-16 sm:mb-20 lg:mb-24">
+          <div className="mb-6 sm:mb-8">
+            <span className="text-xs sm:text-sm font-medium text-bone/40 tracking-[0.2em] uppercase font-sans">
+              Transformation
+            </span>
+          </div>
+          
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-bone mb-6 sm:mb-8 tracking-[-0.02em] leading-[0.85]">
+            Your Transformation Path
+          </h2>
+          
+          <p className="font-sans text-xl sm:text-2xl text-bone/60 max-w-3xl mx-auto leading-relaxed font-light">
+            Every journey is unique. Every solution is complete.
+          </p>
+        </div>
+        
+        {/* Cards Grid */}
+        <div 
+          className={`grid lg:grid-cols-3 gap-8 lg:gap-10 xl:gap-12 transition-all duration-1000 ${
+            mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+          }`}
+        >
+          {cardData.map((card, index) => (
+            <GlowingCard
+              key={index}
+              card={card}
+              index={index}
+              isMobile={isMobile}
+              activeMobileCard={activeMobileCard}
+              onMobileCardTap={handleMobileCardTap}
+            />
+          ))}
+        </div>
+        
+        {/* Bottom Section */}
+        <div className="text-center mt-16 sm:mt-20 lg:mt-24">
+          <p className="font-sans text-lg text-bone/50 max-w-4xl mx-auto leading-relaxed font-light mb-12">
+            Each transformation integrates strategy, design, and technology. One team. One timeline. One vision.
+          </p>
+          
+          <div className="flex justify-center">
+            <button className="group relative">
+              <div className="relative inline-flex items-center gap-3 px-8 py-4 border border-accent/20 text-bone rounded-full text-lg font-light transition-all duration-300 group-hover:border-accent/40 font-sans tracking-wide">
+                Start Your Transformation
+                <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+        
+        {/* Mobile Instructions */}
+        {isMobile && (
+          <div className="text-center mt-12">
+            <p className="text-bone/30 text-sm font-sans font-light">
+              Tap cards for details
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+} 
