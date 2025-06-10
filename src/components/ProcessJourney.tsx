@@ -63,7 +63,7 @@ export default function ProcessJourney() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative">
         
         {/* Section Header */}
-        <div className={`text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
             <span>Your Transformation Journey</span>
           </div>
@@ -73,7 +73,7 @@ export default function ProcessJourney() {
               From First Contact to Lasting Impact
             </span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-2xl mx-auto leading-relaxed">
             Here&apos;s how your case study will read—the structured approach that turns ambitious visions into transformational reality.
           </p>
         </div>

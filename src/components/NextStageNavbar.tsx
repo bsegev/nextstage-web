@@ -34,22 +34,22 @@ export default function NextStageNavbar() {
         {
           name: "Business Strategy",
           description: "Comprehensive strategic planning and execution",
-          href: "#business-strategy"
+          href: "/services/strategy-consulting#business-strategy"
         },
         {
           name: "Brand Strategy", 
           description: "Position your brand for market leadership",
-          href: "#brand-strategy"
+          href: "/services/strategy-consulting#brand-strategy"
         },
         {
           name: "Go-to-Market Planning",
           description: "Launch strategies that drive adoption", 
-          href: "#gtm-planning"
+          href: "/services/strategy-consulting#gtm-planning"
         },
         {
           name: "Digital Transformation",
           description: "Modernize operations and technology",
-          href: "#digital-transformation"
+          href: "/services/strategy-consulting#digital-transformation"
         }
       ],
       cta: {
@@ -160,7 +160,8 @@ export default function NextStageNavbar() {
           </div>
           
                      <nav className="space-y-1 flex-1">
-             <button 
+             <a 
+               href="/services/strategy-consulting"
                onClick={() => setActiveService("strategy")}
                onMouseEnter={() => setActiveService("strategy")}
                className={`block w-full text-left px-4 py-3 hover:text-bone hover:bg-accent/10 rounded-lg transition-all duration-200 ${
@@ -170,7 +171,7 @@ export default function NextStageNavbar() {
                }`}
              >
                Strategy & Consulting
-             </button>
+             </a>
              <button 
                onClick={() => setActiveService("brand")}
                onMouseEnter={() => setActiveService("brand")}
