@@ -381,10 +381,21 @@ export default function ProcessJourney() {
                 "bg-[url(/images/showcase/process-journey/delivery-key.png)] bg-cover bg-center",
                 // Semi-transparent overlay for text readability
                 "before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/80 before:via-white/75 before:to-bone/70 before:rounded-2xl before:z-[1]",
-                // Hover effect - keep GIF for delivery since no video available
-                "hover:bg-[url(https://media.giphy.com/media/xT5LMHxhOfscxPfIfm/giphy.gif)]",
+                // Hover video overlay
+                "group-hover/bento:[&>video]:opacity-100",
                 "hover:before:bg-gradient-to-br hover:before:from-black/70 hover:before:to-black/50"
               )}>
+                
+                {/* Hover Video */}
+                <video
+                  className="absolute inset-0 w-full h-full object-cover rounded-2xl opacity-0 transition-opacity duration-700 z-0"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source src="/videos/delivery-video.mp4" type="video/mp4" />
+                </video>
                 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
                   
