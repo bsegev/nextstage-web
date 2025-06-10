@@ -54,8 +54,8 @@ export default function StrategyConsultingValueProp() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em]">
-                      Clear Ownership
+                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
+                      Clear<br/>Ownership
                     </h3>
                     <p className="text-sm sm:text-base text-obsidian/65 leading-[1.6] font-light">
                       Every strategic initiative has a named owner, clear accountabilities, and defined success metrics.
@@ -81,8 +81,8 @@ export default function StrategyConsultingValueProp() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em]">
-                      Actionable Roadmaps
+                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
+                      Actionable<br/>Roadmaps
                     </h3>
                     <p className="text-sm sm:text-base text-obsidian/65 leading-[1.6] font-light">
                       Step-by-step plans with clear next actions, not theoretical frameworks that gather dust.
@@ -108,8 +108,8 @@ export default function StrategyConsultingValueProp() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em]">
-                      Operational Foundation
+                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
+                      Operational<br/>Foundation
                     </h3>
                     <p className="text-sm sm:text-base text-obsidian/65 leading-[1.6] font-light">
                       Systems, processes, and structures that turn strategic decisions into daily operational reality.

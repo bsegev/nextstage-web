@@ -9,7 +9,7 @@ import {
 } from "motion/react";
 import Image from "next/image";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 
 interface NavbarProps {
@@ -118,6 +118,50 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
   const [active, setActive] = useState<string | null>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnterItem = (idx: number, itemName: string) => {
+    // Clear any pending close timeout
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setHovered(idx);
+    setActive(itemName);
+  };
+
+  const handleMouseLeaveItem = () => {
+    // Set a small delay before closing to allow smooth transition to dropdown
+    closeTimeoutRef.current = setTimeout(() => {
+      setActive(null);
+      setHovered(null);
+    }, 100);
+  };
+
+  const handleMouseEnterDropdown = (idx: number, itemName: string) => {
+    // Clear any pending close timeout when entering dropdown
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setHovered(idx);
+    setActive(itemName);
+  };
+
+  const handleMouseLeaveDropdown = () => {
+    // Close immediately when leaving dropdown area
+    setActive(null);
+    setHovered(null);
+  };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <motion.div
@@ -131,19 +175,8 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           return (
             <div
               key={`dropdown-${idx}`}
-              onMouseEnter={() => {
-                setHovered(idx);
-                setActive(item.name);
-              }}
-              onMouseLeave={(e) => {
-                // Only close if we're not moving to the dropdown
-                const rect = e.currentTarget.getBoundingClientRect();
-                const isMovingToDropdown = e.clientY > rect.bottom;
-                if (!isMovingToDropdown) {
-                  setActive(null);
-                  setHovered(null);
-                }
-              }}
+              onMouseEnter={() => handleMouseEnterItem(idx, item.name)}
+              onMouseLeave={handleMouseLeaveItem}
               className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300 cursor-pointer"
             >
               {hovered === idx && (
@@ -168,15 +201,9 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                       restDelta: 0.001,
                       restSpeed: 0.001,
                     }}
-                    onMouseEnter={() => {
-                      setHovered(idx);
-                      setActive(item.name);
-                    }}
-                    onMouseLeave={() => {
-                      setActive(null);
-                      setHovered(null);
-                    }}
-                    className="absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2 pt-2 z-50"
+                    onMouseEnter={() => handleMouseEnterDropdown(idx, item.name)}
+                    onMouseLeave={handleMouseLeaveDropdown}
+                    className="absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2 z-50"
                   >
                     <motion.div
                       layoutId="dropdown-active"
@@ -196,6 +223,11 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         return (
           <a
             onMouseEnter={() => {
+              // Clear any pending close timeout
+              if (closeTimeoutRef.current) {
+                clearTimeout(closeTimeoutRef.current);
+                closeTimeoutRef.current = null;
+              }
               setHovered(idx);
               setActive(null); // Close any open dropdowns
             }}

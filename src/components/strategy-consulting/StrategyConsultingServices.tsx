@@ -195,12 +195,11 @@ export default function StrategyConsultingServices() {
                     </CardItem>
                     
                     {/* Refined Context with branded styling */}
-                    <CardItem
-                      as="p"
-                      translateZ="50"
-                      className="text-obsidian/55 dark:text-white/55 text-sm font-light mb-4 leading-[1.5] tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500"
-                    >
-                      {service.context}
+                    <CardItem translateZ="50" className="w-full">
+                      <p 
+                        className="text-obsidian/55 dark:text-white/55 text-sm font-light mb-4 leading-[1.5] tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500"
+                        dangerouslySetInnerHTML={{ __html: service.context }}
+                      />
                     </CardItem>
 
                     {/* Enhanced Visual Element with branded styling */}
