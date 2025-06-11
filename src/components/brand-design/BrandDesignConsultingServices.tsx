@@ -135,7 +135,7 @@ export default function BrandDesignConsultingServices() {
           </h2>
           
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed">
-            Beautiful isn't enough. Every element we create drives recognition, builds trust, and converts prospects into customers.
+            Beautiful isn&apos;t enough. Every element we create drives recognition, builds trust, and converts prospects into customers.
           </p>
         </div>
 
