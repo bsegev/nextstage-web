@@ -172,7 +172,8 @@ export default function NextStageNavbar() {
              >
                Strategy & Consulting
              </a>
-             <button 
+             <a 
+               href="/services/brand-design"
                onClick={() => setActiveService("brand")}
                onMouseEnter={() => setActiveService("brand")}
                className={`block w-full text-left px-4 py-3 hover:text-bone hover:bg-accent/10 rounded-lg transition-all duration-200 ${
@@ -182,7 +183,7 @@ export default function NextStageNavbar() {
                }`}
              >
                Brand & Design
-             </button>
+             </a>
              <button 
                onClick={() => setActiveService("technology")}
                onMouseEnter={() => setActiveService("technology")}

@@ -1,0 +1,176 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { motion } from 'motion/react';
+
+export default function BrandDesignConsultingHero() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <section className="relative h-[75vh] flex items-center justify-center sm:justify-start px-4 sm:px-6 lg:px-8 overflow-hidden">
+      
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/images/brand-design.png)',
+        }}
+      />
+      
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-background/70 sm:bg-background/60 dark:bg-obsidian/70 dark:sm:bg-obsidian/60" />
+      
+      {/* Additional gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-accent/30 sm:from-background/80 sm:via-background/60 sm:to-accent/20" />
+      
+      {/* Dynamic floating orbs */}
+      <div className="absolute top-1/4 right-1/3 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full blur-2xl sm:blur-3xl opacity-40 dark:opacity-20 animate-pulse" 
+           style={{ animationDuration: '4s' }} />
+      <div className="absolute bottom-1/4 left-1/3 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-tr from-accent/15 to-accent/8 rounded-full blur-2xl sm:blur-3xl opacity-30 dark:opacity-15 animate-pulse" 
+           style={{ animationDuration: '6s', animationDelay: '1s' }} />
+      
+      {/* Creative Flow Lines */}
+      <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="designFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0" />
+            <stop offset="30%" stopColor="#FFE0D7" stopOpacity="0.3" />
+            <stop offset="70%" stopColor="#FFE0D7" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        
+        {/* Creative Design Flow Lines */}
+        {Array.from({ length: 6 }).map((_, i) => (
+          <motion.path
+            key={i}
+            d={`M${-100 + i * 120} ${200 + i * 80} Q${500 + i * 150} ${250 + i * 60} ${1400 + i * 100} ${220 + i * 70}`}
+            stroke="url(#designFlowGradient)"
+            strokeWidth={1 + (i % 2)}
+            fill="none"
+            opacity={0.4 - i * 0.05}
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ 
+              pathLength: [0, 1, 0],
+              opacity: [0, 0.4 - i * 0.05, 0]
+            }}
+            transition={{
+              duration: 8 + i * 0.8,
+              repeat: Infinity,
+              delay: i * 0.6,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </svg>
+      
+      {/* Subtle grid pattern overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(10,10,10,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(10,10,10,0.015)_1px,transparent_1px)] bg-[size:4rem_4rem] sm:bg-[size:6rem_6rem] dark:bg-[linear-gradient(rgba(245,244,241,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(245,244,241,0.015)_1px,transparent_1px)]" />
+
+      {/* Main content */}
+      <div className="relative z-10 w-full">
+        <div className="max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto sm:mx-0 sm:ml-8 md:ml-16 lg:ml-32 xl:ml-40 2xl:ml-48 px-4 sm:px-0">
+          {/* Service Category Badge */}
+          <div className={`transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full border border-accent/20 mb-6 sm:mb-8">
+              <div className="w-2 h-2 bg-accent rounded-full" />
+              <span className="text-xs sm:text-sm font-medium text-obsidian/70 tracking-wide uppercase">
+                Brand & Design
+              </span>
+            </div>
+          </div>
+
+          {/* Headline with staggered animation */}
+          <div className={`transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <h1 className="font-display tracking-tight leading-[0.95] mb-6 sm:mb-8 text-center sm:text-left">
+              <span className="block text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm mb-2 sm:mb-3">
+                Design for brands that
+              </span>
+              <span className="block relative">
+                <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian dark:from-bone dark:via-accent dark:to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm">
+                  drive real growth
+                </span>
+                <span className="absolute -inset-1 bg-gradient-to-r from-accent/15 to-accent/30 rounded-xl blur-lg opacity-20 animate-pulse block" />
+              </span>
+            </h1>
+          </div>
+          
+          {/* Subheadline with delayed animation */}
+          <div className={`transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className="mb-8 sm:mb-10 lg:mb-12 relative">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-[1.5] text-foreground/80 font-light text-center sm:text-left">
+                Transform how customers see and interact with your business. From brand identity to digital experiences, we create cohesive design systems that drive recognition, trust, and conversions.
+              </p>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className={`transition-all duration-1000 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-4 sm:gap-6">
+              {/* Primary CTA */}
+              <button className="group relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
+                <div className="relative inline-flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-accent text-obsidian rounded-full text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1">
+                  <span className="relative">
+                    Schedule Design Discovery
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                  </span>
+                  
+                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5">
+                    <svg 
+                      className="absolute w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:translate-x-6 group-hover:opacity-0" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                    <svg 
+                      className="absolute w-4 h-4 sm:w-5 sm:h-5 -translate-x-6 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </button>
+
+              {/* Secondary CTA */}
+              <button className="group relative">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-obsidian/20 to-obsidian/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
+                <div className="relative inline-flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-transparent border border-obsidian/20 text-obsidian rounded-full text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-obsidian group-hover:text-bone group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-obsidian/10 group-hover:-translate-y-1">
+                  <span className="relative">
+                    View Design Portfolio
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                  </span>
+                  
+                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5">
+                    <svg 
+                      className="absolute w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:rotate-45 group-hover:scale-110" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            {/* Social Proof Hint */}
+            <p className="text-xs sm:text-sm text-foreground/50 font-light italic mt-6 sm:mt-8 text-center sm:text-left">
+              Trusted by brands who understand that design drives business results
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+} 

@@ -1,0 +1,69 @@
+# Fibonacci Spiral Animation - Brand Design CTA
+## Planning Notes - UPDATED: Classic Rectangle Spiral Design
+
+### Animation Approach: Shape Animation (not Assembly)
+- Classic Fibonacci rectangle spiral with dots following the curved path
+- Similar to StrategyCTA.tsx DNA helix approach
+- Scroll-based transformations applied to the entire formed spiral
+
+### Visual Structure - NEW DESIGN
+1. **Fibonacci Rectangles**: Subtle outline rectangles (1x1, 1x1, 2x2, 3x3, 5x5, 8x8, 13x13)
+2. **Golden Spiral Curve**: Dots following the classic curved path through rectangles
+3. **Central Design Core**: Pulsing center point representing brand foundation
+4. **Progressive Dot Sizing**: Larger dots at key fibonacci transitions
+5. **Rectangle Outlines**: Faint grid showing the mathematical structure
+
+### Mathematical Foundation - UPDATED
+```javascript
+// Fibonacci sequence for rectangles
+const fibSequence = [1, 1, 2, 3, 5, 8, 13, 21];
+
+// Rectangle positioning (cumulative)
+// 1x1, 1x1 (side by side) = 2x1 total
+// Add 2x2 below = 2x3 total  
+// Add 3x3 to right = 5x3 total
+// Add 5x5 below = 5x8 total
+// Add 8x8 to left = 13x8 total
+
+// Curved spiral path through rectangle quarters
+for each rectangle in sequence:
+  quarterArc = 90° arc through that rectangle's corner
+  dots positioned along this arc path
+  
+// Dot count per rectangle proportional to fibonacci number
+const dotsPerRect = [3, 3, 5, 8, 12, 18, 24]; // roughly fib/2
+```
+
+### Scroll-Based Animation Phases - UPDATED
+1. **Phase 1 (0-30% scroll)**: Rectangle outlines fade in, dots begin subtle pulsing
+2. **Phase 2 (30-70% scroll)**: Spiral path becomes prominent, dots flow along curve
+3. **Phase 3 (70-100% scroll)**: Full rotation, rectangle highlights, mathematical perfection
+
+### Animation Properties - UPDATED
+- **Spiral Rotation**: Entire structure rotates 0° to 180°
+- **Rectangle Fade**: Outlines fade from 0 to 0.3 opacity
+- **Dot Flow**: Dots appear to "flow" along the spiral path with wave animation
+- **Progressive Reveal**: Rectangles and dots reveal in fibonacci sequence order
+- **Scale Breathing**: Gentle scale 0.9x to 1.1x for organic feel
+
+### Design Philosophy - ENHANCED
+- **Instantly Recognizable**: The classic golden ratio symbol everyone knows
+- **Mathematical Perfection**: Shows precise fibonacci/golden ratio relationships
+- **Design Heritage**: References centuries of design and art principles
+- **Brand Foundation**: Rectangle structure = systematic brand building
+- **Organic Growth**: Spiral represents natural, sustainable brand evolution
+
+### Implementation Steps - UPDATED
+1. Create fibonacci rectangle grid structure
+2. Calculate curved spiral path through rectangle quarters  
+3. Position dots along the spiral curve
+4. Add rectangle outline animations
+5. Implement progressive reveal and flow effects
+6. Add scroll-based transformations
+
+### Color Scheme - REFINED
+- **Rectangle Outlines**: #FFE0D7 with 0.2 opacity (barely visible structure)
+- **Spiral Dots**: Alternating #FFE0D7 and #FFFFFF with size progression
+- **Central Core**: Radial gradient accent (design foundation)
+- **Flow Effect**: Subtle gradient along spiral path
+- **Mathematical Grid**: Ultra-subtle grid lines showing proportions 
