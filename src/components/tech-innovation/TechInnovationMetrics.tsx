@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-export default function BrandDesignMetrics() {
+export default function TechInnovationMetrics() {
   const [mounted, setMounted] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [displayNumbers, setDisplayNumbers] = useState<number[]>([0, 0, 0]);
@@ -33,16 +33,13 @@ export default function BrandDesignMetrics() {
           let currentValue;
           
           if (metric.value.includes('x')) {
-            // For 5x, animate as integer
+            // For 2x, animate as integer
             currentValue = Math.round(startNumber + (targetNumber - startNumber) * easeProgress);
-          } else if (metric.value.includes('s')) {
-            // For 0.05s, animate as decimal with 2 places
-            currentValue = parseFloat((startNumber + (targetNumber - startNumber) * easeProgress).toFixed(2));
           } else if (metric.value.includes('+')) {
-            // For 15,000+, animate as integer
+            // For 6+, animate as integer
             currentValue = Math.round(startNumber + (targetNumber - startNumber) * easeProgress);
           } else {
-            // For 33%, animate as integer
+            // For 30%, animate as integer
             currentValue = Math.round(startNumber + (targetNumber - startNumber) * easeProgress);
           }
           
@@ -69,22 +66,22 @@ export default function BrandDesignMetrics() {
 
   const metrics = [
     {
-      value: "33%",
-      number: 33,
-      label: "Revenue\nIncrease", 
-      description: "from consistent brand presentation across all touchpoints."
+      value: "30%",
+      number: 30,
+      label: "Cost\nReduction", 
+      description: "through automated processes that improve operational efficiency."
     },
     {
-      value: "0.05s",
-      number: 0.05,
-      label: "To Win\nAttention",
-      description: "and create lasting positive first impressions that matter."
+      value: "6+",
+      number: 6,
+      label: "Hours Weekly\nTime Savings",
+      description: "achieved by eliminating repetitive manual tasks completely."
     },
     {
-      value: "5x",
-      number: 5,
-      label: "Higher\nConversions",
-      description: "achieved through superior design and user experience."
+      value: "2x",
+      number: 2,
+      label: "Faster\nDevelopment",
+      description: "with AI-powered tools that accelerate coding workflows."
     }
   ];
 
@@ -195,13 +192,13 @@ export default function BrandDesignMetrics() {
             >
               <h2 className="font-display text-xl sm:text-2xl md:text-3xl tracking-[-0.02em] leading-[0.9] mb-2 sm:mb-3">
                 <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                  Why Brand & Design Matters
+                  Why Technology & Innovation Matters
                 </span>
               </h2>
               
               <div className="max-w-2xl mx-auto">
                 <p className="text-sm sm:text-base leading-[1.4] text-bone/80 font-light">
-                  Research-backed results from strategic design
+                  Research-backed results from strategic technology
                 </p>
               </div>
             </motion.div>
@@ -256,10 +253,8 @@ export default function BrandDesignMetrics() {
                           <span className="bg-gradient-to-br from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
                             {metric.value.includes('x') 
                               ? `${displayNumbers[index] || 0}x`
-                              : metric.value.includes('s') 
-                              ? `${displayNumbers[index] || 0}s`
                               : metric.value.includes('+') 
-                              ? `${(displayNumbers[index] || 0).toLocaleString()}+`
+                              ? `${displayNumbers[index] || 0}+`
                               : `${displayNumbers[index] || 0}%`
                             }
                           </span>
@@ -308,9 +303,9 @@ export default function BrandDesignMetrics() {
             >
               <div className="max-w-4xl mx-auto">
                 <p className="text-sm sm:text-base leading-[1.5] text-bone font-medium">
-                  Great design isn&apos;t decoration—it&apos;s{' '}
+                  Great technology isn&apos;t just efficiency—it&apos;s{' '}
                   <span className="bg-gradient-to-r from-accent via-accent/90 to-accent bg-clip-text text-transparent font-semibold">
-                    a strategic advantage that drives measurable business results
+                    a competitive advantage that drives exponential business growth
                   </span>.
                 </p>
               </div>
@@ -333,21 +328,21 @@ export default function BrandDesignMetrics() {
               >
                 <h2 className="font-display text-2xl xl:text-3xl 2xl:text-4xl tracking-[-0.02em] leading-[0.9] mb-4">
                   <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                    Why Brand & Design Matters
+                    Why Technology & Innovation Matters
                   </span>
                 </h2>
                 
                 <div className="mb-6">
                   <p className="text-base xl:text-lg leading-[1.4] text-bone/80 font-light">
-                    Research-backed results from strategic design
+                    Research-backed results from strategic technology
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <p className="text-sm xl:text-base leading-[1.6] text-bone/70 font-light">
-                    Great design isn&apos;t decoration—it&apos;s{' '}
+                    Great technology isn&apos;t just efficiency—it&apos;s{' '}
                     <span className="bg-gradient-to-r from-accent via-accent/90 to-accent bg-clip-text text-transparent font-semibold">
-                      a strategic advantage that drives measurable business results
+                      a competitive advantage that drives exponential business growth
                     </span>.
                   </p>
                 </div>
@@ -455,10 +450,8 @@ export default function BrandDesignMetrics() {
                             <span className="bg-gradient-to-br from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
                               {metric.value.includes('x') 
                                 ? `${displayNumbers[index] || 0}x`
-                                : metric.value.includes('s') 
-                                ? `${displayNumbers[index] || 0}s`
                                 : metric.value.includes('+') 
-                                ? `${(displayNumbers[index] || 0).toLocaleString()}+`
+                                ? `${displayNumbers[index] || 0}+`
                                 : `${displayNumbers[index] || 0}%`
                               }
                             </span>

@@ -3,7 +3,7 @@
 import { useRef, useMemo } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 
-export default function BrandDesignCTA() {
+export default function TechInnovationCTA() {
   const sectionRef = useRef(null);
   
   const { scrollYProgress } = useScroll({
@@ -107,11 +107,11 @@ export default function BrandDesignCTA() {
           <div className="mb-12">
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                Ready to elevate your brand?
+                Ready to accelerate your business?
               </span>
             </h2>
             <p className="text-base sm:text-lg text-bone/75 font-light max-w-2xl mx-auto">
-              Transform your vision into extraordinary design that captivates and converts.
+              Transform your operations with technology that scales exponentially.
             </p>
           </div>
 
@@ -342,7 +342,7 @@ export default function BrandDesignCTA() {
                   );
                 })}
               </svg>
-          </motion.div>
+            </motion.div>
 
             {/* Floating Project Elements */}
             <motion.div
@@ -451,14 +451,14 @@ export default function BrandDesignCTA() {
             
             {/* Header */}
             <div className="text-left">
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
-                <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                  Ready to elevate your brand?
-                </span>
-              </h2>
-              <p className="text-base sm:text-lg text-bone/75 font-light max-w-2xl">
-                Transform your vision into extraordinary design that captivates and converts.
-              </p>
+                          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
+              <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
+                Ready to accelerate your business?
+              </span>
+            </h2>
+            <p className="text-base sm:text-lg text-bone/75 font-light max-w-2xl">
+              Transform your operations with technology that scales exponentially.
+            </p>
             </div>
 
             {/* Convergence Statement */}
@@ -470,7 +470,7 @@ export default function BrandDesignCTA() {
               className="max-w-2xl"
             >
               <p className="text-base sm:text-lg text-bone/70 font-light leading-relaxed">
-                From concept to completion, we orchestrate every element of your brand transformation with precision and purpose.
+                From concept to deployment, we engineer every element of your technology transformation with precision and purpose.
               </p>
             </motion.div>
 
@@ -544,13 +544,13 @@ export default function BrandDesignCTA() {
               className="pt-8"
             >
               <p className="text-sm text-bone/50 font-light italic">
-                Where creativity meets precision
+                Where innovation meets execution
               </p>
             </motion.div>
           </div>
 
-                      {/* Visual Side - Right (Desktop Only) */}
-            <div className="col-span-5 relative h-96 lg:h-full">
+          {/* Visual Side - Right (Desktop Only) */}
+          <div className="col-span-5 relative h-96 lg:h-full">
             <motion.div className="absolute inset-0 flex items-center justify-center">
               {/* Enhanced SVG with Assembly Rings - Desktop */}
               <svg className="w-full h-full max-w-md" viewBox="0 0 400 400" suppressHydrationWarning>
@@ -831,7 +831,7 @@ export default function BrandDesignCTA() {
               }}
               transition={{ duration: 6, repeat: Infinity, delay: 2 }}
             />
-            </div>
+          </div>
         </div>
       </div>
     </section>

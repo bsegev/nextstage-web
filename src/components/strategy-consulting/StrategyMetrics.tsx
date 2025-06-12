@@ -68,20 +68,20 @@ export default function StrategyMetrics() {
     {
       value: "30%",
       number: 30,
-      label: "Faster Business Growth", 
-      description: "Businesses with formal strategic plans achieve 30% faster growth rates than those without structured planning."
+      label: "Faster Business\nGrowth", 
+      description: "with formal strategic planning versus unstructured approaches."
     },
     {
       value: "1.6x",
       number: 1.6,
-      label: "Higher Success Rate",
-      description: "Companies with strategic planning are 1.6x more likely to successfully scale their operations and maintain market position."
+      label: "Higher Success\nRate",
+      description: "for companies that implement comprehensive strategic planning."
     },
     {
       value: "15,000+",
       number: 15000,
-      label: "New Businesses Daily",
-      description: "Over 15,000 new businesses launch every day—strategic differentiation is essential for standing out and succeeding."
+      label: "New Businesses\nDaily",
+      description: "making strategic differentiation essential for standing out."
     }
   ];
 
@@ -263,14 +263,14 @@ export default function StrategyMetrics() {
 
                       {/* Metric Label */}
                       <div className="mb-2 sm:mb-3">
-                        <h3 className="text-sm sm:text-base font-display font-semibold text-bone tracking-[-0.01em] leading-tight">
+                        <h3 className="text-sm sm:text-base font-display font-semibold text-bone tracking-[-0.01em] leading-tight whitespace-pre-line">
                           {metric.label}
                         </h3>
                       </div>
 
                       {/* Description */}
                       <div className="max-w-xs mx-auto">
-                        <p className="text-xs sm:text-sm text-bone/70 leading-[1.4] font-light group-hover:text-bone/90 transition-colors duration-500">
+                        <p className="text-xs sm:text-sm text-bone/70 leading-[1.4] font-light group-hover:text-bone/90 transition-colors duration-500 line-clamp-3">
                           {metric.description}
                         </p>
                       </div>
@@ -460,7 +460,7 @@ export default function StrategyMetrics() {
 
                         {/* Metric Label */}
                         <div className="mb-3">
-                          <h3 className="text-base xl:text-lg font-display font-semibold text-bone tracking-[-0.01em] leading-tight">
+                          <h3 className="text-base xl:text-lg font-display font-semibold text-bone tracking-[-0.01em] leading-tight whitespace-pre-line">
                             {metric.label}
                           </h3>
                         </div>
