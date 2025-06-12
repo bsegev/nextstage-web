@@ -275,8 +275,9 @@ export default function HandoffProblem() {
                      <div className="absolute inset-0 bg-gradient-to-br from-bone/5 to-transparent rounded-2xl" />
                     
                     {/* Content */}
-                                         <div className="relative space-y-6 sm:space-y-8">
-                       <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+                    <div className="relative space-y-6 sm:space-y-8">
+                      {/* Mobile: Vertical Layout */}
+                      <div className="flex flex-col items-center gap-4 sm:hidden">
                         {/* Idea */}
                         <motion.div 
                           className="text-center"
@@ -284,88 +285,88 @@ export default function HandoffProblem() {
                           animate={mounted ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
                           transition={{ delay: 2, duration: 0.6 }}
                         >
-                                                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-bone/20 to-bone/10 rounded-full flex items-center justify-center mb-2 sm:mb-3 border border-bone/20 shadow-sm">
-                             <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-gradient-to-br from-bone to-bone/80 rounded-full" />
-                           </div>
-                           <span className="text-xs font-semibold text-bone/90 tracking-wider">IDEA</span>
+                          <div className="w-12 h-12 bg-gradient-to-br from-bone/20 to-bone/10 rounded-full flex items-center justify-center mb-2 border border-bone/20 shadow-sm">
+                            <div className="w-2.5 h-2.5 bg-gradient-to-br from-bone to-bone/80 rounded-full" />
+                          </div>
+                          <span className="text-xs font-semibold text-bone/90 tracking-wider">IDEA</span>
                         </motion.div>
                         
-                                                 {/* Enhanced Arrow */}
-                         <motion.div 
-                           className="flex items-center justify-center gap-1 w-5 sm:w-6 md:w-8"
-                           initial={{ opacity: 0, x: -10 }}
-                           animate={mounted ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                           transition={{ delay: 2.2, duration: 0.6 }}
-                         >
-                           <div className="w-3 sm:w-4 md:w-5 h-px bg-gradient-to-r from-bone/60 to-bone/40" />
-                           <div className="w-0 h-0 border-l-[3px] sm:border-l-[4px] border-l-bone/60 border-y-[1.5px] sm:border-y-[2px] border-y-transparent" />
-                         </motion.div>
-                        
-                                                 {/* Enhanced Venn Diagram */}
-                         <motion.div 
-                           className="relative flex flex-col items-center"
-                           initial={{ scale: 0.8, opacity: 0 }}
-                           animate={mounted ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
-                           transition={{ delay: 2.4, duration: 0.8 }}
-                         >
-                                                     <svg width="80" height="60" viewBox="0 0 100 70" className="sm:w-[90px] sm:h-[65px] md:w-[100px] md:h-[70px] overflow-visible drop-shadow-sm">
-                             {/* Strategy Circle */}
-                             <circle 
-                               cx="35" 
-                               cy="25" 
-                               r="18" 
-                               fill="rgb(255 224 215 / 0.1)" 
-                               stroke="rgb(255 224 215 / 0.7)" 
-                               strokeWidth="2.5"
-                               className="animate-pulse"
-                             />
-                             {/* Design Circle */}
-                             <circle 
-                               cx="65" 
-                               cy="25" 
-                               r="18" 
-                               fill="rgb(255 224 215 / 0.1)" 
-                               stroke="rgb(255 224 215 / 0.7)" 
-                               strokeWidth="2.5"
-                               className="animate-pulse"
-                               style={{ animationDelay: '0.5s' }}
-                             />
-                             {/* Technology Circle */}
-                             <circle 
-                               cx="50" 
-                               cy="40" 
-                               r="18" 
-                               fill="rgb(255 224 215 / 0.1)" 
-                               stroke="rgb(255 224 215 / 0.7)" 
-                               strokeWidth="2.5"
-                               className="animate-pulse"
-                               style={{ animationDelay: '1s' }}
-                             />
-                             {/* Center highlight */}
-                             <circle 
-                               cx="50" 
-                               cy="30" 
-                               r="4" 
-                               fill="rgb(255 224 215 / 0.5)" 
-                               className="animate-pulse"
-                               style={{ animationDelay: '1.5s' }}
-                             />
-                           </svg>
-                                                     <div className="mt-2">
-                             <span className="text-xs font-semibold text-bone/90 tracking-wider">INTEGRATION</span>
-                           </div>
+                        {/* Vertical Arrow */}
+                        <motion.div 
+                          className="flex flex-col items-center justify-center gap-1"
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+                          transition={{ delay: 2.2, duration: 0.6 }}
+                        >
+                          <div className="w-px h-4 bg-gradient-to-b from-bone/60 to-bone/40" />
+                          <div className="w-0 h-0 border-t-[3px] border-t-bone/60 border-x-[1.5px] border-x-transparent" />
                         </motion.div>
                         
-                                                 {/* Enhanced Arrow */}
-                         <motion.div 
-                           className="flex items-center justify-center gap-1 w-5 sm:w-6 md:w-8"
-                           initial={{ opacity: 0, x: -10 }}
-                           animate={mounted ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                           transition={{ delay: 2.6, duration: 0.6 }}
-                         >
-                           <div className="w-3 sm:w-4 md:w-5 h-px bg-gradient-to-r from-bone/60 to-bone/40" />
-                           <div className="w-0 h-0 border-l-[3px] sm:border-l-[4px] border-l-bone/60 border-y-[1.5px] sm:border-y-[2px] border-y-transparent" />
-                         </motion.div>
+                        {/* Integration */}
+                        <motion.div 
+                          className="relative flex flex-col items-center"
+                          initial={{ scale: 0.8, opacity: 0 }}
+                          animate={mounted ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+                          transition={{ delay: 2.4, duration: 0.8 }}
+                        >
+                          <svg width="60" height="45" viewBox="0 0 100 70" className="overflow-visible drop-shadow-sm">
+                            {/* Strategy Circle */}
+                            <circle 
+                              cx="35" 
+                              cy="25" 
+                              r="15" 
+                              fill="rgb(255 224 215 / 0.1)" 
+                              stroke="rgb(255 224 215 / 0.7)" 
+                              strokeWidth="2"
+                              className="animate-pulse"
+                            />
+                            {/* Design Circle */}
+                            <circle 
+                              cx="65" 
+                              cy="25" 
+                              r="15" 
+                              fill="rgb(255 224 215 / 0.1)" 
+                              stroke="rgb(255 224 215 / 0.7)" 
+                              strokeWidth="2"
+                              className="animate-pulse"
+                              style={{ animationDelay: '0.5s' }}
+                            />
+                            {/* Technology Circle */}
+                            <circle 
+                              cx="50" 
+                              cy="40" 
+                              r="15" 
+                              fill="rgb(255 224 215 / 0.1)" 
+                              stroke="rgb(255 224 215 / 0.7)" 
+                              strokeWidth="2"
+                              className="animate-pulse"
+                              style={{ animationDelay: '1s' }}
+                            />
+                            {/* Center highlight */}
+                            <circle 
+                              cx="50" 
+                              cy="30" 
+                              r="3" 
+                              fill="rgb(255 224 215 / 0.5)" 
+                              className="animate-pulse"
+                              style={{ animationDelay: '1.5s' }}
+                            />
+                          </svg>
+                          <div className="mt-2">
+                            <span className="text-xs font-semibold text-bone/90 tracking-wider">INTEGRATION</span>
+                          </div>
+                        </motion.div>
+                        
+                        {/* Vertical Arrow */}
+                        <motion.div 
+                          className="flex flex-col items-center justify-center gap-1"
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+                          transition={{ delay: 2.6, duration: 0.6 }}
+                        >
+                          <div className="w-px h-4 bg-gradient-to-b from-bone/60 to-bone/40" />
+                          <div className="w-0 h-0 border-t-[3px] border-t-bone/60 border-x-[1.5px] border-x-transparent" />
+                        </motion.div>
                         
                         {/* Launch */}
                         <motion.div 
@@ -374,23 +375,133 @@ export default function HandoffProblem() {
                           animate={mounted ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
                           transition={{ delay: 2.8, duration: 0.6 }}
                         >
-                                                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-bone/20 to-bone/10 rounded-full flex items-center justify-center mb-2 sm:mb-3 border border-bone/20 shadow-sm">
-                             <motion.div 
-                               className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-gradient-to-br from-bone to-bone/80 rounded-full"
-                               animate={{ scale: [1, 1.2, 1] }}
-                               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                             />
-                           </div>
-                           <span className="text-xs font-semibold text-bone/90 tracking-wider">LAUNCH</span>
+                          <div className="w-12 h-12 bg-gradient-to-br from-bone/20 to-bone/10 rounded-full flex items-center justify-center mb-2 border border-bone/20 shadow-sm">
+                            <motion.div 
+                              className="w-2.5 h-2.5 bg-gradient-to-br from-bone to-bone/80 rounded-full"
+                              animate={{ scale: [1, 1.2, 1] }}
+                              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                            />
+                          </div>
+                          <span className="text-xs font-semibold text-bone/90 tracking-wider">LAUNCH</span>
+                        </motion.div>
+                      </div>
+
+                      {/* Desktop: Horizontal Layout */}
+                      <div className="hidden sm:flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+                        {/* Idea */}
+                        <motion.div 
+                          className="text-center"
+                          initial={{ scale: 0.8, opacity: 0 }}
+                          animate={mounted ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+                          transition={{ delay: 2, duration: 0.6 }}
+                        >
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-bone/20 to-bone/10 rounded-full flex items-center justify-center mb-2 sm:mb-3 border border-bone/20 shadow-sm">
+                            <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-gradient-to-br from-bone to-bone/80 rounded-full" />
+                          </div>
+                          <span className="text-xs font-semibold text-bone/90 tracking-wider">IDEA</span>
+                        </motion.div>
+                        
+                        {/* Enhanced Arrow */}
+                        <motion.div 
+                          className="flex items-center justify-center gap-1 w-5 sm:w-6 md:w-8"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={mounted ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                          transition={{ delay: 2.2, duration: 0.6 }}
+                        >
+                          <div className="w-3 sm:w-4 md:w-5 h-px bg-gradient-to-r from-bone/60 to-bone/40" />
+                          <div className="w-0 h-0 border-l-[3px] sm:border-l-[4px] border-l-bone/60 border-y-[1.5px] sm:border-y-[2px] border-y-transparent" />
+                        </motion.div>
+                        
+                        {/* Enhanced Venn Diagram */}
+                        <motion.div 
+                          className="relative flex flex-col items-center"
+                          initial={{ scale: 0.8, opacity: 0 }}
+                          animate={mounted ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+                          transition={{ delay: 2.4, duration: 0.8 }}
+                        >
+                          <svg width="80" height="60" viewBox="0 0 100 70" className="sm:w-[90px] sm:h-[65px] md:w-[100px] md:h-[70px] overflow-visible drop-shadow-sm">
+                            {/* Strategy Circle */}
+                            <circle 
+                              cx="35" 
+                              cy="25" 
+                              r="18" 
+                              fill="rgb(255 224 215 / 0.1)" 
+                              stroke="rgb(255 224 215 / 0.7)" 
+                              strokeWidth="2.5"
+                              className="animate-pulse"
+                            />
+                            {/* Design Circle */}
+                            <circle 
+                              cx="65" 
+                              cy="25" 
+                              r="18" 
+                              fill="rgb(255 224 215 / 0.1)" 
+                              stroke="rgb(255 224 215 / 0.7)" 
+                              strokeWidth="2.5"
+                              className="animate-pulse"
+                              style={{ animationDelay: '0.5s' }}
+                            />
+                            {/* Technology Circle */}
+                            <circle 
+                              cx="50" 
+                              cy="40" 
+                              r="18" 
+                              fill="rgb(255 224 215 / 0.1)" 
+                              stroke="rgb(255 224 215 / 0.7)" 
+                              strokeWidth="2.5"
+                              className="animate-pulse"
+                              style={{ animationDelay: '1s' }}
+                            />
+                            {/* Center highlight */}
+                            <circle 
+                              cx="50" 
+                              cy="30" 
+                              r="4" 
+                              fill="rgb(255 224 215 / 0.5)" 
+                              className="animate-pulse"
+                              style={{ animationDelay: '1.5s' }}
+                            />
+                          </svg>
+                          <div className="mt-2">
+                            <span className="text-xs font-semibold text-bone/90 tracking-wider">INTEGRATION</span>
+                          </div>
+                        </motion.div>
+                        
+                        {/* Enhanced Arrow */}
+                        <motion.div 
+                          className="flex items-center justify-center gap-1 w-5 sm:w-6 md:w-8"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={mounted ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                          transition={{ delay: 2.6, duration: 0.6 }}
+                        >
+                          <div className="w-3 sm:w-4 md:w-5 h-px bg-gradient-to-r from-bone/60 to-bone/40" />
+                          <div className="w-0 h-0 border-l-[3px] sm:border-l-[4px] border-l-bone/60 border-y-[1.5px] sm:border-y-[2px] border-y-transparent" />
+                        </motion.div>
+                        
+                        {/* Launch */}
+                        <motion.div 
+                          className="text-center"
+                          initial={{ scale: 0.8, opacity: 0 }}
+                          animate={mounted ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+                          transition={{ delay: 2.8, duration: 0.6 }}
+                        >
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-bone/20 to-bone/10 rounded-full flex items-center justify-center mb-2 sm:mb-3 border border-bone/20 shadow-sm">
+                            <motion.div 
+                              className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-gradient-to-br from-bone to-bone/80 rounded-full"
+                              animate={{ scale: [1, 1.2, 1] }}
+                              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                            />
+                          </div>
+                          <span className="text-xs font-semibold text-bone/90 tracking-wider">LAUNCH</span>
                         </motion.div>
                       </div>
                       
-                                             {/* Enhanced Description */}
-                       <div className="text-center pt-4 sm:pt-6 border-t border-bone/30">
-                         <p className="text-xs sm:text-sm font-medium text-bone/90 tracking-wide">
-                           Everything stays intact from start to finish
-                         </p>
-                       </div>
+                      {/* Enhanced Description */}
+                      <div className="text-center pt-4 sm:pt-6 border-t border-bone/30">
+                        <p className="text-xs sm:text-sm font-medium text-bone/90 tracking-wide">
+                          Everything stays intact from start to finish
+                        </p>
+                      </div>
                     </div>
                   </motion.div>
                 </div>
