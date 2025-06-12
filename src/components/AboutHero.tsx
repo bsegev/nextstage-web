@@ -39,7 +39,7 @@ export default function AboutHero() {
         <div className="max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto sm:mx-0 sm:ml-8 md:ml-16 lg:ml-32 xl:ml-40 2xl:ml-48 px-4 sm:px-0">
           {/* Headline with staggered animation */}
           <div className={`transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                        <h1 className="font-display tracking-tight leading-[0.95] mb-6 sm:mb-8 text-center sm:text-left">
+                        <h1 className="font-display tracking-tight leading-[0.9] sm:leading-[0.95] mb-4 sm:mb-6 lg:mb-8 text-center sm:text-left">
               <span className="block text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm mb-2 sm:mb-3">
                 We help leaders turn
               </span>
@@ -55,7 +55,7 @@ export default function AboutHero() {
           {/* Subheadline with delayed animation */}
            <div className={`transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
              <div className="mb-8 sm:mb-10 lg:mb-12 relative">
-               <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-[1.5] text-foreground/80 font-light text-center sm:text-left">
+               <p className="text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] sm:leading-[1.5] text-foreground/80 font-light text-center sm:text-left max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto sm:mx-0">
                  NextStage partners with those building what&apos;s next—bringing sharp thinking, lean systems, and decisive momentum when it counts most.
                </p>
              </div>

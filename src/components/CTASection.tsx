@@ -50,54 +50,16 @@ export default function CTASection() {
     return { number: 0, numberDisplay: "0%", text: stat };
   };
 
-  // Smart line breaking - Desktop: 2 lines, Mobile: 3 lines
+  // Simplified text formatting for mobile
   const formatStatText = (text: string, isMobile = false) => {
     const words = text.split(' ');
     
     if (isMobile) {
-      // Mobile: 3 evenly balanced lines - force better distribution
-      if (words.length <= 6) {
-        // Short text: distribute as evenly as possible
-        const firstLine = words.slice(0, 2).join(' ');
-        const secondLine = words.slice(2, 4).join(' ');
-        const thirdLine = words.slice(4).join(' ');
-        return [firstLine, secondLine, thirdLine];
-      } else {
-        // Longer text: aim for roughly equal length lines
-        const totalChars = text.length;
-        const targetCharsPerLine = Math.ceil(totalChars / 3);
-        
-        const lines = [];
-        let currentLine = '';
-        let currentLength = 0;
-        
-        for (let i = 0; i < words.length; i++) {
-          const word = words[i];
-          const wordWithSpace = (currentLine ? ' ' : '') + word;
-          
-          // If adding this word would exceed target and we have room for more lines
-          if (currentLength + wordWithSpace.length > targetCharsPerLine && lines.length < 2 && currentLine) {
-            lines.push(currentLine);
-            currentLine = word;
-            currentLength = word.length;
-          } else {
-            currentLine += wordWithSpace;
-            currentLength += wordWithSpace.length;
-          }
-        }
-        
-        // Add the final line
-        if (currentLine) {
-          lines.push(currentLine);
-        }
-        
-        // Ensure we have exactly 3 lines
-        while (lines.length < 3) {
-          lines.push('');
-        }
-        
-        return lines.slice(0, 3);
-      }
+      // Mobile: Simple 2-line split for better readability
+      const midPoint = Math.ceil(words.length / 2);
+      const firstLine = words.slice(0, midPoint).join(' ');
+      const secondLine = words.slice(midPoint).join(' ');
+      return [firstLine, secondLine];
     } else {
       // Desktop: 2 lines
       const midPoint = Math.ceil(words.length / 2);
@@ -111,12 +73,8 @@ export default function CTASection() {
   const mobileFormattedLines = formatStatText(currentStat.text, true);
   const desktopFormattedLines = formatStatText(currentStat.text, false);
 
-  // Calculate container width based on longest line + number width
-  const mobileMaxLineLength = Math.max(...mobileFormattedLines.map(line => line.length));
+  // Calculate container width for desktop stats ticker
   const desktopMaxLineLength = Math.max(desktopFormattedLines[0].length, desktopFormattedLines[1].length);
-  
-  // Mobile needs wider container to prevent natural wrapping
-  const mobileWidth = Math.min(Math.max(mobileMaxLineLength * 10 + 120, 350), 500);
   const desktopWidth = Math.min(Math.max(desktopMaxLineLength * 12 + 120, 600), 1100);
 
   // Counter animation
@@ -165,7 +123,7 @@ export default function CTASection() {
   }, [isPaused]);
 
   return (
-    <section ref={sectionRef} className="py-20 sm:py-24 md:py-32 bg-obsidian relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 sm:py-20 md:py-32 bg-obsidian relative overflow-hidden">
       {/* Static Gradient Overlay - Same layer as obsidian background */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/8 via-transparent to-accent/12"></div>
       
@@ -240,120 +198,97 @@ export default function CTASection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
         
-        {/* Header - Mobile Only (shows above everything) */}
-        <div className="lg:hidden text-center mb-12 order-1">
-          <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-bone/60 tracking-wide uppercase">
+        {/* Mobile Layout - Streamlined and Touch-Optimized */}
+        <div className="lg:hidden space-y-8">
+          
+          {/* Header */}
+          <div className="text-center">
+            <div className="mb-4 text-xs sm:text-sm font-medium text-bone/60 tracking-wide uppercase">
             <span>Ready to Begin</span>
           </div>
           
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl tracking-[-0.02em] leading-[0.9] mb-6">
             <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
               Ready to reinvent your business?
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-bone/75 font-light max-w-2xl mx-auto">
+            <p className="text-lg text-bone/75 font-light max-w-2xl mx-auto leading-relaxed">
             The pace of change is not slowing down—it is accelerating. The question is not whether to reinvent, but how fast you can move.
           </p>
         </div>
 
-        {/* Stats - Mobile positioned after header */}
-        <div className="lg:hidden mb-12 order-2">
+          {/* Simplified Stats Display - Mobile */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative flex justify-center"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
+            className="bg-bone/8 border border-accent/30 rounded-2xl p-6 backdrop-blur-md mx-auto max-w-sm"
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
           >
+            <div className="text-center space-y-4">
+              {/* Large Number Display */}
             <motion.div 
-              className="flex items-center space-x-3 bg-bone/8 border border-accent/30 rounded-full px-4 py-6 backdrop-blur-md cursor-pointer group transition-all duration-300 hover:border-accent/50"
-              animate={{
-                width: `${mobileWidth}px`
-              }}
-              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-            >
-              <motion.div 
-                className="w-2 h-2 bg-accent rounded-full flex-shrink-0"
-                animate={{ 
-                  scale: isPaused ? [1, 1.2, 1] : [1, 1.5, 1],
-                  opacity: isPaused ? 0.8 : [0.8, 1, 0.8]
-                }}
-                transition={{ duration: isPaused ? 1 : 2, repeat: Infinity }}
-              />
-              
-              {/* Large Number Display - Scaled for 3-line height */}
-              {displayNumber > 0 && (
-                <motion.div 
-                  className="text-4xl font-mono font-black text-accent flex-shrink-0 leading-none"
+                className="text-6xl font-mono font-black text-accent leading-none"
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   {displayNumber}%
                 </motion.div>
-              )}
               
-              <div className="flex-1 min-w-0">
+              {/* Stat Text */}
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentStatIndex}
-                    initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
-                    transition={{ 
-                      duration: 0.8, 
-                      ease: [0.4, 0, 0.2, 1],
-                      filter: { duration: 0.6 }
-                    }}
-                    className="space-y-1"
-                  >
-                    {/* Three Lines for Mobile */}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.6 }}
+                  className="space-y-2"
+                >
                     {mobileFormattedLines.map((line, index) => (
-                      <motion.div
+                    <div
                         key={index}
-                        className="text-xs font-mono text-bone/90 tracking-wide leading-tight whitespace-nowrap"
-                        initial={{ x: 10 + index * 5, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
+                      className="text-sm font-mono text-bone/90 tracking-wide leading-relaxed"
                       >
                         {line}
-                      </motion.div>
+                    </div>
                     ))}
                   </motion.div>
                 </AnimatePresence>
+
+              {/* Dot Indicator */}
+              <div className="flex justify-center space-x-2 pt-2">
+                {Array.from({ length: Math.min(transformationStats.length, 5) }).map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      i === currentStatIndex % 5 ? 'bg-accent' : 'bg-bone/20'
+                    }`}
+                  />
+                ))}
+              </div>
               </div>
             </motion.div>
 
-            {/* Stat Counter */}
-            <motion.div
-              className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-bone/40 font-mono"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isPaused ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {currentStatIndex + 1} / {transformationStats.length}
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Visual Side - Mobile positioned after stats */}
-        <div className="lg:hidden relative h-96 mb-12 order-3">
+          {/* Mobile Convergence Geometry - Restored */}
+          <div className="relative h-80 mb-8">
           <motion.div
             className="absolute inset-0 flex items-center justify-center"
             style={{ rotate: geometryRotate, scale: geometryScale }}
           >
-            {/* Convergence Geometry */}
-            <svg className="w-full h-full max-w-md" viewBox="0 0 400 400">
+              {/* Convergence Geometry - Mobile Optimized */}
+              <svg className="w-full h-full max-w-sm" viewBox="0 0 400 400">
               <defs>
-                <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
+                  <radialGradient id="mobilecentergradient" cx="50%" cy="50%" r="50%">
                   <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0.8" />
                   <stop offset="70%" stopColor="#FFE0D7" stopOpacity="0.3" />
                   <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0" />
                 </radialGradient>
                 
-                <linearGradient id="edgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient id="mobileedgegradient" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0.6" />
                   <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0.1" />
                 </linearGradient>
@@ -364,57 +299,59 @@ export default function CTASection() {
                 cx="200"
                 cy="200"
                 r="20"
-                fill="url(#centerGradient)"
+                  fill="url(#mobilecentergradient)"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: [0, 1.5, 1] }}
                 viewport={{ once: true }}
                 transition={{ duration: 2, delay: 0.5 }}
               />
 
-              {/* Orbiting Elements */}
-              {Array.from({ length: 8 }).map((_, i) => {
-                const angle = (i * 45) * (Math.PI / 180);
-                const radius = 120 + (i % 3) * 20;
+                {/* Orbiting Elements - Reduced count for mobile */}
+                {Array.from({ length: 6 }).map((_, i) => {
+                  const angle = (i * 60) * (Math.PI / 180);
+                  const radius = 100 + (i % 2) * 25;
                 const x = 200 + Math.cos(angle) * radius;
                 const y = 200 + Math.sin(angle) * radius;
                 
                 return (
-                  <motion.g key={i}>
+                  <motion.g key={i} suppressHydrationWarning>
                     <motion.circle
                       cx={x}
                       cy={y}
-                      r={3 + (i % 3)}
+                        r={4 + (i % 2)}
                       fill="#FFE0D7"
-                      opacity={0.7 - i * 0.05}
+                        opacity={0.8 - i * 0.08}
                       animate={{
                         scale: [1, 1.5, 1],
-                        opacity: [0.7 - i * 0.05, 0.9 - i * 0.05, 0.7 - i * 0.05]
+                          opacity: [0.8 - i * 0.08, 1 - i * 0.08, 0.8 - i * 0.08]
                       }}
                       transition={{
-                        duration: 3 + i * 0.2,
+                          duration: 3 + i * 0.3,
                         repeat: Infinity,
-                        delay: i * 0.3
+                          delay: i * 0.4
                       }}
+                      suppressHydrationWarning
                     />
                     <motion.line
                       x1="200"
                       y1="200"
                       x2={x}
                       y2={y}
-                      stroke="url(#edgeGradient)"
+                        stroke="url(#mobileedgegradient)"
                       strokeWidth="1"
-                      opacity={0.3}
+                        opacity={0.4}
                       initial={{ pathLength: 0 }}
                       whileInView={{ pathLength: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 1.5, delay: 0.8 + i * 0.1 }}
+                        transition={{ duration: 1.5, delay: 0.8 + i * 0.15 }}
+                      suppressHydrationWarning
                     />
                   </motion.g>
                 );
               })}
 
-              {/* Acceleration Rings */}
-              {[60, 100, 140, 180].map((radius, i) => (
+                {/* Acceleration Rings - Simplified for mobile */}
+                {[70, 110, 150].map((radius, i) => (
                 <motion.circle
                   key={radius}
                   cx="200"
@@ -423,130 +360,112 @@ export default function CTASection() {
                   fill="none"
                   stroke="#FFE0D7"
                   strokeWidth="1"
-                  opacity={0.2 - i * 0.03}
+                    opacity={0.25 - i * 0.05}
                   strokeDasharray="4 8"
                   initial={{ scale: 0, rotate: 0 }}
                   whileInView={{ scale: 1, rotate: 360 }}
                   viewport={{ once: true }}
                   transition={{
                     scale: { duration: 1.5, delay: 0.6 + i * 0.2 },
-                    rotate: { duration: 20 + i * 5, repeat: Infinity, ease: "linear" }
+                      rotate: { duration: 20 + i * 8, repeat: Infinity, ease: "linear" }
                   }}
                 />
               ))}
             </svg>
           </motion.div>
 
-          {/* Floating Elements */}
+            {/* Floating Elements - Mobile sized */}
           <motion.div
-            className="absolute top-10 right-10 w-4 h-4 bg-accent/60 rounded-full"
+              className="absolute top-8 right-8 w-3 h-3 bg-accent/60 rounded-full"
             animate={{
-              y: [0, -20, 0],
+                y: [0, -15, 0],
               opacity: [0.6, 1, 0.6]
             }}
             transition={{ duration: 4, repeat: Infinity }}
           />
           <motion.div
-            className="absolute bottom-20 left-10 w-3 h-3 bg-accent/40 rounded-full"
+              className="absolute bottom-16 left-8 w-2 h-2 bg-accent/40 rounded-full"
             animate={{
-              y: [0, -15, 0],
-              x: [0, 10, 0],
+                y: [0, -10, 0],
+                x: [0, 8, 0],
               opacity: [0.4, 0.8, 0.4]
             }}
             transition={{ duration: 5, repeat: Infinity, delay: 1 }}
           />
         </div>
 
-        {/* Body Text - Mobile positioned after visual */}
-        <div className="lg:hidden text-center mb-12 order-4">
+          {/* Convergence Statement */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-2xl mx-auto"
+            className="text-center"
           >
-            <p className="text-base sm:text-lg text-bone/70 font-light leading-relaxed">
+            <p className="text-lg text-bone/70 font-light leading-relaxed max-w-lg mx-auto">
               When strategy, design, and technology converge at NextStage velocity, 
-              transformation happens in weeks, not quarters.
+              transformation happens in <strong className="text-accent font-semibold">weeks, not quarters</strong>.
             </p>
           </motion.div>
-        </div>
 
-        {/* CTA Buttons - Mobile */}
-        <div className="lg:hidden order-5 mb-12">
+          {/* Enhanced CTA Buttons - Mobile */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col items-center space-y-4"
+            className="space-y-4"
           >
-            {/* Primary CTA */}
-            <button className="group relative w-full">
-              {/* Button background with gradient border */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-accent/90 backdrop-blur-sm border border-accent/20 text-obsidian rounded-full text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-accent group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 w-full">
-                <span className="relative">
-                  Start your reinvention
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
-                </span>
-                
-                {/* Animated arrow */}
-                <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5">
-                  <svg 
-                    className="absolute w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:translate-x-6 group-hover:opacity-0" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                  <svg 
-                    className="absolute w-4 h-4 sm:w-5 sm:h-5 -translate-x-6 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
+            {/* Primary CTA - Enhanced */}
+            <motion.button 
+              className="group relative w-full min-h-[56px] touch-manipulation"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/60 to-accent/40 rounded-2xl blur opacity-0 group-hover:opacity-100 group-active:opacity-100 transition duration-500" />
+              <div className="relative flex items-center justify-center gap-4 px-8 py-4 bg-accent backdrop-blur-sm border border-accent/20 text-obsidian rounded-2xl text-lg font-semibold transition-all duration-300 group-hover:bg-accent/90 group-hover:shadow-2xl group-hover:shadow-accent/30 group-active:scale-95 w-full">
+                <span>Start your reinvention</span>
+                <motion.div 
+                  className="w-6 h-6"
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
+                </motion.div>
                 </div>
-              </div>
-            </button>
+            </motion.button>
 
-            {/* Secondary CTA */}
-            <button className="group relative w-full">
-              {/* Button background with gradient border */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/20 to-bone/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-obsidian/90 backdrop-blur-sm border border-bone/20 text-bone rounded-full text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-bone group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-bone/10 group-hover:-translate-y-1 w-full">
-                <span className="relative">
-                  See our process
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
-                </span>
-                
-                {/* Animated arrow */}
-                <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5">
-                  <svg 
-                    className="absolute w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:rotate-45 group-hover:scale-110" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
+            {/* Secondary CTA - Enhanced */}
+            <motion.button 
+              className="group relative w-full min-h-[56px] touch-manipulation"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/30 to-bone/20 rounded-2xl blur opacity-0 group-hover:opacity-100 group-active:opacity-100 transition duration-500" />
+              <div className="relative flex items-center justify-center gap-4 px-8 py-4 bg-bone/10 backdrop-blur-sm border border-bone/20 text-bone rounded-2xl text-lg font-medium transition-all duration-300 group-hover:bg-bone/20 group-hover:border-bone/40 group-active:scale-95 w-full">
+                <span>See our process</span>
+                <motion.div 
+                  className="w-6 h-6"
+                  whileHover={{ rotate: 45 }}
+                  transition={{ duration: 0.3 }}
                 >
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
-                </div>
-              </div>
-            </button>
           </motion.div>
         </div>
+            </motion.button>
+          </motion.div>
 
-        {/* Final Line - Mobile */}
-        <div className="lg:hidden text-center order-6">
+          {/* Final Line */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.4 }}
+            className="text-center pt-4"
           >
             <p className="text-sm text-bone/50 font-light italic">
               Join the leaders who refuse to wait for tomorrow
@@ -554,7 +473,7 @@ export default function CTASection() {
           </motion.div>
         </div>
 
-        {/* Desktop Layout */}
+        {/* Desktop Layout - Unchanged */}
         <div className="hidden lg:grid grid-cols-12 gap-16 items-center min-h-[60vh]">
           
           {/* Content Side - Left */}

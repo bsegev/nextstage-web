@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -25,28 +25,73 @@ export const Tabs = ({
 }) => {
   const [active, setActive] = useState<Tab>(propTabs[0]);
   const [hovering, setHovering] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const activeTabRef = useRef<HTMLButtonElement>(null);
 
-  const handleTabClick = (idx: number) => {
-    setActive(propTabs[idx]);
+  // Scroll active tab into view
+  const scrollToActiveTab = () => {
+    if (activeTabRef.current && scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const activeTab = activeTabRef.current;
+      
+      // Find the index of the active tab
+      const activeIndex = propTabs.findIndex(tab => tab.value === active.value);
+      
+      let scrollLeft;
+      
+      if (activeIndex === 0) {
+        // For the first tab, scroll to the very beginning
+        scrollLeft = 0;
+      } else if (activeIndex === propTabs.length - 1) {
+        // For the last tab, scroll to show it fully on the right
+        scrollLeft = container.scrollWidth - container.offsetWidth;
+      } else {
+        // For middle tabs, center them
+        scrollLeft = activeTab.offsetLeft - (container.offsetWidth / 2) + (activeTab.offsetWidth / 2);
+      }
+      
+      container.scrollTo({
+        left: Math.max(0, Math.min(scrollLeft, container.scrollWidth - container.offsetWidth)),
+        behavior: 'smooth'
+      });
+    }
   };
+
+  // Scroll to active tab on mount and when active tab changes
+  useEffect(() => {
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(scrollToActiveTab, 100);
+    return () => clearTimeout(timer);
+  }, [active]);
 
   return (
     <>
       <div
+        ref={scrollContainerRef}
         className={cn(
-          "flex flex-row items-center justify-start [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
+          "flex flex-row items-center justify-start [perspective:1000px] relative overflow-x-auto overflow-y-visible scrollbar-hide max-w-full w-full",
+          "snap-x snap-mandatory scroll-smooth",
+          "pb-2 sm:pb-0", // Add padding bottom for mobile scroll indicator
           containerClassName
         )}
       >
-        {propTabs.map((tab, idx) => (
+        <div className="flex flex-row items-center gap-1 sm:gap-2 min-w-max px-2 sm:px-4">
+        {propTabs.map((tab) => (
           <button
             key={tab.title}
+              ref={active.value === tab.value ? activeTabRef : null}
             onClick={() => {
-              handleTabClick(idx);
+              setActive(tab);
             }}
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
-            className={cn("relative px-4 py-2 rounded-full", tabClassName)}
+              className={cn(
+                "relative rounded-full snap-center flex-shrink-0",
+                "touch-manipulation select-none", // Better touch behavior
+                "focus:outline-none focus:ring-2 focus:ring-accent/20 focus:ring-offset-2 focus:ring-offset-obsidian", // Better focus states
+                "active:scale-95 transition-transform", // Touch feedback
+                tabClassName
+              )}
             style={{
               transformStyle: "preserve-3d",
             }}
@@ -63,13 +108,14 @@ export const Tabs = ({
             )}
 
             <span className={cn(
-              "relative block transition-colors duration-300",
+                "relative block transition-colors duration-300 px-1",
               active.value === tab.value ? "text-bone" : "text-bone/70 hover:text-bone/90"
             )}>
               {tab.title}
             </span>
           </button>
         ))}
+        </div>
       </div>
       <FadeInDiv
         tabs={propTabs}
@@ -121,7 +167,7 @@ export const FadeInDiv = ({
   
   return (
     <>
-      {/* Mobile: Simple fade transition */}
+      {/* Mobile: Simple fade transition with swipe hint */}
       <div className="block lg:hidden relative w-full">
         <motion.div
           key={active.value}
@@ -133,6 +179,21 @@ export const FadeInDiv = ({
         >
           {active.content}
         </motion.div>
+        
+        {/* Mobile tab indicator dots */}
+        <div className="flex justify-center mt-4 sm:mt-6 gap-2">
+          {tabs.map((tab) => (
+            <div
+              key={tab.value}
+              className={cn(
+                "w-2 h-2 rounded-full transition-all duration-300",
+                active.value === tab.value 
+                  ? "bg-accent/60 scale-125" 
+                  : "bg-bone/20 hover:bg-bone/40"
+              )}
+            />
+          ))}
+        </div>
       </div>
       
       {/* Desktop: 3D stacked effect */}

@@ -13,11 +13,12 @@
     "@fontsource/geist-sans": "^5.2.5",
     "@tabler/icons-react": "^3.33.0",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.15.0",
+    "framer-motion": "^12.17.3",
     "motion": "^12.15.0",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-swipeable": "^7.0.2",
     "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {

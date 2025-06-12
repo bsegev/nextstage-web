@@ -123,6 +123,10 @@ export default function TrustBanner() {
                            scale: 1.05,
                            rotateY: 5,
                            rotateX: 5,
+                           transition: {
+                             duration: 0.3,
+                             ease: [0.22, 1, 0.36, 1]
+                           }
                          }}
                          animate={{
                            y: [0, -2, 0],
@@ -133,10 +137,6 @@ export default function TrustBanner() {
                              repeat: Infinity,
                              ease: "easeInOut",
                              delay: index * 0.3
-                           },
-                           hover: {
-                             duration: 0.3,
-                             ease: [0.22, 1, 0.36, 1]
                            }
                          }}
                          className="relative flex items-center justify-center w-full h-full bg-gradient-to-br from-obsidian via-obsidian/95 to-obsidian/90 border border-accent/30 rounded-3xl shadow-xl shadow-obsidian/20 backdrop-blur-sm"

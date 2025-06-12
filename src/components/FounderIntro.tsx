@@ -48,11 +48,11 @@ export default function FounderIntro() {
             transition={{ delay: 0.3, duration: 1.2, ease: "easeOut" }}
             className="relative mb-20 sm:mb-24 md:mb-28"
           >
-            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16">
               
               {/* Photo */}
               <div className="relative flex-shrink-0">
-                <div className="relative w-80 h-96 sm:w-96 sm:h-[28rem] bg-gradient-to-br from-obsidian/8 to-accent/8 rounded-[2rem] overflow-hidden border border-obsidian/15 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.15)]">
+                <div className="relative w-72 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[28rem] bg-gradient-to-br from-obsidian/8 to-accent/8 rounded-[2rem] overflow-hidden border border-obsidian/15 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.15)]">
                   <Image
                     src="/images/headshot_web.png"
                     alt="Ben Segev, Founder of NextStage"
@@ -66,7 +66,7 @@ export default function FounderIntro() {
                 </div>
                 
                 {/* Minimal accent element */}
-                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full border border-accent/30 backdrop-blur-sm" />
+                <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full border border-accent/30 backdrop-blur-sm" />
               </div>
               
               {/* Content */}
@@ -75,10 +75,10 @@ export default function FounderIntro() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-                  className="space-y-8"
+                  className="space-y-6 sm:space-y-8"
                 >
                   {/* Story */}
-                  <div className="space-y-6 text-obsidian/75 font-light text-lg sm:text-xl leading-relaxed max-w-2xl lg:max-w-none">
+                  <div className="space-y-4 sm:space-y-6 text-obsidian/75 font-light text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl lg:max-w-none">
                     <p>
                       I&apos;ve launched a digital bank from zero, steered product lines in consumer tech, and rebuilt brands across healthcare, real estate, and AI.
                     </p>
@@ -91,8 +91,8 @@ export default function FounderIntro() {
                   </div>
                   
                   {/* Signature Quote */}
-                  <div className="pt-8 border-t border-obsidian/10">
-                    <blockquote className="text-2xl sm:text-3xl font-light text-obsidian/90 leading-tight mb-4">
+                  <div className="pt-6 sm:pt-8 border-t border-obsidian/10">
+                    <blockquote className="text-xl sm:text-2xl md:text-3xl font-light text-obsidian/90 leading-tight mb-3 sm:mb-4">
                       &ldquo;I&apos;m here to make sure your next stage isn&apos;t a slogan—it&apos;s a milestone.&rdquo;
                     </blockquote>
                     <div className="flex items-center justify-center lg:justify-start gap-4">
@@ -110,13 +110,13 @@ export default function FounderIntro() {
             initial={{ opacity: 0, y: 30 }}
             animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
-            className="bg-gradient-to-br from-obsidian/3 to-accent/3 border border-obsidian/8 rounded-3xl p-8 sm:p-12 mb-16 sm:mb-20"
+            className="bg-gradient-to-br from-obsidian/3 to-accent/3 border border-obsidian/8 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mb-16 sm:mb-20"
           >
             <div className="max-w-4xl mx-auto text-center">
-              <h3 className="text-2xl sm:text-3xl font-display text-obsidian mb-8">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-display text-obsidian mb-6 sm:mb-8">
                 The Team We&apos;ve Built
               </h3>
-              <div className="space-y-6 text-obsidian/70 font-light text-lg sm:text-xl leading-relaxed">
+              <div className="space-y-4 sm:space-y-6 text-obsidian/70 font-light text-base sm:text-lg md:text-xl leading-relaxed">
                 <p>
                   We work with a tight bench of multidisciplinary experts—designers who code, technologists who speak brand, strategists who&apos;ve run their own companies.
                 </p>

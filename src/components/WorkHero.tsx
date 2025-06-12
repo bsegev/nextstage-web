@@ -1,72 +1,199 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function WorkHero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
-    <section className="relative h-[75vh] flex items-center justify-center sm:justify-start px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Background image */}
+    <section className="relative min-h-[75vh] lg:min-h-[85vh] flex items-center justify-center sm:justify-start px-3 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background image with modern loading pattern */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700"
         style={{
           backgroundImage: 'url(/images/workhero.png)',
         }}
       />
       
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-white/70 sm:bg-white/60" />
+      {/* Enhanced overlay system for better text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/75 to-transparent dark:from-obsidian/95 dark:via-obsidian/75 dark:to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-tl from-accent/20 via-transparent to-transparent opacity-60" />
       
-      {/* Additional gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/70 to-accent/30 sm:from-white/80 sm:via-white/60 sm:to-accent/20" />
+      {/* Dynamic floating orbs with reduced motion preference support */}
+      <motion.div 
+        className="absolute top-1/4 right-1/4 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full blur-xl sm:blur-2xl lg:blur-3xl opacity-40 dark:opacity-20"
+        animate={{ scale: [1, 1.1, 1] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div 
+        className="absolute bottom-1/3 left-1/4 w-40 h-40 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-gradient-to-tr from-accent/15 to-accent/8 rounded-full blur-xl sm:blur-2xl lg:blur-3xl opacity-30 dark:opacity-15"
+        animate={{ scale: [1.1, 1, 1.1] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
       
-      {/* Dynamic floating orbs */}
-      <div className="absolute top-1/4 right-1/3 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full blur-2xl sm:blur-3xl opacity-40 animate-pulse" 
-           style={{ animationDuration: '4s' }} />
-      <div className="absolute bottom-1/4 left-1/3 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-tr from-accent/15 to-accent/8 rounded-full blur-2xl sm:blur-3xl opacity-30 animate-pulse" 
-           style={{ animationDuration: '6s', animationDelay: '1s' }} />
-      
-      {/* Subtle grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(10,10,10,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(10,10,10,0.015)_1px,transparent_1px)] bg-[size:4rem_4rem] sm:bg-[size:6rem_6rem]" />
+      {/* Subtle grid pattern with reduced opacity */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(10,10,10,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(10,10,10,0.015)_1px,transparent_1px)] bg-[size:2rem_2rem] sm:bg-[size:4rem_4rem] lg:bg-[size:6rem_6rem] dark:bg-[linear-gradient(rgba(245,244,241,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(245,244,241,0.015)_1px,transparent_1px)]" />
 
-      {/* Main content */}
+      {/* Main content with semantic HTML structure */}
       <div className="relative z-10 w-full">
-        <div className="max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto sm:mx-0 sm:ml-8 md:ml-16 lg:ml-32 xl:ml-40 2xl:ml-48 px-4 sm:px-0">
-          {/* Headline with staggered animation */}
-          <div className={`transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h1 className="font-display tracking-tight leading-[0.95] mb-6 sm:mb-8 text-center sm:text-left">
-              <span className="block text-obsidian text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm mb-2 sm:mb-3">
-                Transformations
+        <div className="max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto sm:mx-0 sm:ml-6 md:ml-12 lg:ml-24 xl:ml-32 2xl:ml-40 px-2 sm:px-0">
+          {/* Headline with enhanced typography and animations */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="font-display tracking-tight leading-[0.9] sm:leading-[0.95] mb-4 sm:mb-6 lg:mb-8 text-center sm:text-left">
+              <span className="block text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-1 sm:mb-2 lg:mb-3 drop-shadow-sm">
+                Transformations{' '}
               </span>
               <span className="block relative">
-                <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm">
+                <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian dark:from-bone dark:via-accent dark:to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm">
                   in Action
                 </span>
-                <span className="absolute -inset-1 bg-gradient-to-r from-accent/15 to-accent/30 rounded-xl blur-lg opacity-20 animate-pulse block" />
+                <span className="absolute -inset-1 bg-gradient-to-r from-accent/15 to-accent/30 rounded-lg sm:rounded-xl blur-md sm:blur-lg opacity-20 animate-pulse block" />
               </span>
             </h1>
-          </div>
+          </motion.div>
           
-          {/* Subheadline with delayed animation */}
-          <div className={`transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="mb-8 sm:mb-10 lg:mb-12 relative">
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-[1.5] text-obsidian/80 font-light text-center sm:text-left">
-                Complete solutions delivered in weeks, not months—see how we help ambitious leaders transform their vision into measurable impact.
+          {/* Subheadline with semantic markup and enhanced readability */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 relative">
+              <p className="text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] sm:leading-[1.5] text-foreground/80 font-light text-center sm:text-left max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto sm:mx-0">
+                Complete solutions delivered in{' '}
+                <span className="relative inline-block">
+                  <span className="text-foreground font-medium">weeks</span>
+                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/50 to-accent/25 block" />
+                </span>
+                , not{' '}
+                <span className="relative inline-block">
+                  <span className="text-foreground font-medium">months</span>
+                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/25 to-accent/50 block" />
+                </span>
+                —see how we help ambitious leaders transform their vision into{' '}
+                <span className="relative inline-block">
+                  <span className="text-foreground font-medium">measurable impact</span>
+                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/50 to-accent/25 block" />
+                </span>
+                .
               </p>
             </div>
-          </div>
+          </motion.div>
+          
+          {/* Enhanced CTAs with semantic buttons and accessibility improvements */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
+              {/* Primary CTA */}
+              <Link href="/contact" className="group relative min-h-[48px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
+                {/* Button background with enhanced gradient */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
+                <div className="relative inline-flex items-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-accent text-obsidian rounded-full text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95">
+                  <span className="relative">
+                    Start your project
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                  </span>
+                  
+                  {/* Animated arrow with reduced motion support */}
+                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                    <motion.svg 
+                      className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </motion.svg>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Secondary CTA */}
+              <Link href="/work" className="group relative min-h-[48px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2 rounded-full">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/40 to-bone/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
+                <div className="relative inline-flex items-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-bone text-obsidian rounded-full text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-bone/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-bone/20 group-hover:-translate-y-1 group-active:scale-95">
+                  <span className="relative">
+                    View case studies
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                  </span>
+                  
+                  {/* Animated arrow */}
+                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                    <motion.svg 
+                      className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </motion.svg>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </motion.div>
+          
+          {/* Mobile feature highlights with semantic list structure */}
+          <motion.div 
+            className="block sm:hidden mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <ul className="flex justify-center items-center gap-6 text-foreground/60" role="list">
+              <li className="flex flex-col items-center gap-1">
+                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                  <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <span className="text-sm font-medium">Fast</span>
+              </li>
+              <li className="flex flex-col items-center gap-1">
+                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                  <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <span className="text-sm font-medium">Complete</span>
+              </li>
+              <li className="flex flex-col items-center gap-1">
+                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                  <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 18l3-3 3 3 6-6" />
+                  </svg>
+                </div>
+                <span className="text-sm font-medium">Proven</span>
+              </li>
+            </ul>
+          </motion.div>
         </div>
       </div>
       
-      {/* Subtle scroll indicator */}
-      <div className={`absolute bottom-6 sm:bottom-8 lg:bottom-12 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-700 ${mounted ? 'opacity-40 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-        <div className="w-[1px] h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-transparent via-obsidian/30 to-transparent animate-pulse" />
-      </div>
+      {/* Enhanced scroll indicator with reduced motion support */}
+      <motion.div 
+        className="absolute bottom-4 sm:bottom-6 lg:bottom-8 xl:bottom-12 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 0.4, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+      >
+        <motion.div 
+          className="w-[1px] h-8 sm:h-12 lg:h-16 xl:h-20 bg-gradient-to-b from-transparent via-foreground/30 to-transparent"
+          animate={{ scaleY: [1, 0.8, 1] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </motion.div>
     </section>
   );
 } 

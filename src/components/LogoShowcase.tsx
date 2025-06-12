@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import Image from "next/image";
 
 interface ClientStory {
@@ -97,7 +97,9 @@ export default function LogoShowcase() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [mobileDialogOpen, setMobileDialogOpen] = useState(false);
   const [mobileSelectedIndex, setMobileSelectedIndex] = useState<number | null>(null);
+  const [mobileActiveIndex, setMobileActiveIndex] = useState(0);
 
+  // Desktop auto-rotation
   useEffect(() => {
     if (isPaused) return;
 
@@ -127,6 +129,26 @@ export default function LogoShowcase() {
     setMobileSelectedIndex(null);
   };
 
+  // Mobile swipe navigation
+  const handleSwipe = (direction: "left" | "right") => {
+    if (direction === "left") {
+      setMobileActiveIndex((prev) => (prev + 1) % clientStories.length);
+    } else {
+      setMobileActiveIndex((prev) => (prev - 1 + clientStories.length) % clientStories.length);
+    }
+  };
+
+  const handlePanEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const swipeThreshold = 50;
+    if (Math.abs(info.offset.x) > swipeThreshold) {
+      if (info.offset.x > 0) {
+        handleSwipe("right");
+      } else {
+        handleSwipe("left");
+      }
+    }
+  };
+
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-bone">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
@@ -147,7 +169,7 @@ export default function LogoShowcase() {
           </p>
         </div>
 
-        {/* Desktop Grid */}
+        {/* DESKTOP LAYOUT - 3-column grid (hidden on mobile) */}
         <div className="hidden md:block">
           {/* Logo Grid */}
           <div className="grid grid-cols-3 gap-8 lg:gap-12 max-w-4xl mx-auto mb-12">
@@ -266,7 +288,7 @@ export default function LogoShowcase() {
                   className="space-y-4"
                 >
                   <blockquote className="text-xl sm:text-2xl font-light text-obsidian/90 leading-relaxed">
-                    &quot;{clientStories[activeIndex].quote}&quot;
+                    &ldquo;{clientStories[activeIndex].quote}&rdquo;
                   </blockquote>
                   <div className="flex items-center justify-center space-x-3">
                     <div className="h-px w-8 bg-accent"></div>
@@ -306,27 +328,140 @@ export default function LogoShowcase() {
           </div>
         </div>
 
-        {/* Mobile Grid */}
-        <div className="md:hidden">
-          {/* Mobile Logo Grid */}
-          <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto mb-8">
-            {clientStories.map((client, index) => (
+        {/* MOBILE LAYOUT - Single column with swipe (visible on mobile only) */}
+        <div className="block md:hidden">
+          {/* Mobile Instructions */}
+          <div className="text-center mb-8">
+            <p className="text-sm text-obsidian/60 font-medium">
+              Swipe or tap to explore client stories
+            </p>
+          </div>
+
+          {/* Mobile Single Logo Display */}
+          <div className="max-w-sm mx-auto mb-8">
+            <motion.div
+              className="relative"
+              onPanEnd={handlePanEnd}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={mobileActiveIndex}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative"
+                >
+                  {/* Main Logo Card */}
               <motion.div
-                key={client.id}
-                className="relative aspect-square flex items-center justify-center cursor-pointer"
-                onClick={() => handleMobileLogoClick(index)}
+                    className="aspect-square bg-white/60 backdrop-blur-sm border border-obsidian/10 rounded-2xl p-8 shadow-lg cursor-pointer"
+                    onClick={() => handleMobileLogoClick(mobileActiveIndex)}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
               >
                 {/* Logo Container */}
-                <div className="w-full h-full rounded-xl border border-obsidian/10 flex items-center justify-center relative overflow-hidden bg-white/50">
-                  {/* Subtle Background Pattern */}
-                  <div className="absolute inset-0 opacity-5">
-                    <div className="w-full h-full bg-gradient-to-br from-obsidian via-transparent to-accent"></div>
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      <Image
+                        src={clientStories[mobileActiveIndex].logo}
+                        alt={`${clientStories[mobileActiveIndex].name} logo`}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+
+                    {/* Touch indicator */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 rounded-2xl pointer-events-none" />
+                  </motion.div>
+
+                  {/* Company Info */}
+                  <div className="text-center mt-6 space-y-2">
+                    <h3 className="font-display text-lg font-semibold text-obsidian">
+                      {clientStories[mobileActiveIndex].name}
+                    </h3>
+                    <p className="text-sm text-obsidian/60 font-medium">
+                      {clientStories[mobileActiveIndex].industry}
+                    </p>
+                    <button
+                      onClick={() => handleMobileLogoClick(mobileActiveIndex)}
+                      className="inline-flex items-center space-x-2 text-sm text-accent font-medium hover:text-accent/80 transition-colors mt-3"
+                    >
+                      <span>Read their story</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </motion.div>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="flex items-center justify-center space-x-6">
+            {/* Previous Button */}
+            <motion.button
+              onClick={() => handleSwipe("right")}
+              className="w-12 h-12 rounded-full bg-white/60 backdrop-blur-sm border border-obsidian/10 flex items-center justify-center text-obsidian/60 hover:text-obsidian hover:bg-white/80 transition-all duration-300 shadow-sm"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </motion.button>
+
+            {/* Progress Dots */}
+            <div className="flex space-x-2">
+              {clientStories.map((_, index) => (
+                <motion.button
+                  key={index}
+                  onClick={() => {
+                    setMobileActiveIndex(index);
+                  }}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === mobileActiveIndex 
+                      ? 'bg-accent w-6' 
+                      : 'bg-obsidian/20 hover:bg-obsidian/40'
+                  }`}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                />
+              ))}
+            </div>
+
+            {/* Next Button */}
+            <motion.button
+              onClick={() => handleSwipe("left")}
+              className="w-12 h-12 rounded-full bg-white/60 backdrop-blur-sm border border-obsidian/10 flex items-center justify-center text-obsidian/60 hover:text-obsidian hover:bg-white/80 transition-all duration-300 shadow-sm"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </motion.button>
                   </div>
                   
-                  {/* Logo Image */}
-                  <div className="relative w-full h-full flex items-center justify-center p-4">
+          {/* Mobile Grid Fallback */}
+          <div className="mt-12 pt-8 border-t border-obsidian/10">
+            <div className="text-center mb-6">
+              <p className="text-sm text-obsidian/60 font-medium">
+                Or view all clients
+              </p>
+            </div>
+            <div className="grid grid-cols-3 gap-3 max-w-xs mx-auto">
+              {clientStories.map((client, index) => (
+                <motion.div
+                  key={client.id}
+                  className="aspect-square bg-white/40 backdrop-blur-sm border border-obsidian/10 rounded-xl p-3 cursor-pointer"
+                  onClick={() => handleMobileLogoClick(index)}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="relative w-full h-full flex items-center justify-center">
                     <Image
                       src={client.logo}
                       alt={`${client.name} logo`}
@@ -336,23 +471,14 @@ export default function LogoShowcase() {
                         filter: "grayscale(0.6) opacity(0.8)"
                       }}
                     />
-                  </div>
-                </div>
-
-                {/* Industry Label */}
-                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-obsidian/50 font-medium whitespace-nowrap">
-                  {client.industry}
                 </div>
               </motion.div>
             ))}
           </div>
-
-          <div className="text-center text-sm text-obsidian/60">
-            Tap any logo to see their story
           </div>
         </div>
 
-        {/* Mobile Dialog */}
+        {/* Enhanced Mobile Dialog */}
         <AnimatePresence>
           {mobileDialogOpen && mobileSelectedIndex !== null && (
             <>
@@ -367,7 +493,7 @@ export default function LogoShowcase() {
               
               {/* Dialog */}
               <motion.div
-                className="fixed inset-x-4 top-1/2 -translate-y-1/2 bg-bone rounded-2xl p-6 z-50 md:hidden border border-obsidian/10 shadow-2xl"
+                className="fixed inset-x-4 top-1/2 -translate-y-1/2 bg-bone rounded-3xl p-8 z-50 md:hidden border border-obsidian/10 shadow-2xl max-w-sm mx-auto"
                 initial={{ opacity: 0, scale: 0.9, y: "-50%" }}
                 animate={{ opacity: 1, scale: 1, y: "-50%" }}
                 exit={{ opacity: 0, scale: 0.9, y: "-50%" }}
@@ -376,18 +502,18 @@ export default function LogoShowcase() {
                 {/* Close Button */}
                 <button
                   onClick={closeMobileDialog}
-                  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-obsidian/10 flex items-center justify-center text-obsidian/60 hover:text-obsidian hover:bg-obsidian/20 transition-colors"
+                  className="absolute top-6 right-6 w-10 h-10 rounded-full bg-obsidian/10 flex items-center justify-center text-obsidian/60 hover:text-obsidian hover:bg-obsidian/20 transition-colors"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
 
                 {/* Content */}
-                <div className="space-y-4 pr-8">
-                  {/* Company Info */}
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 rounded-xl border border-obsidian/10 flex items-center justify-center bg-white relative overflow-hidden p-2">
+                <div className="space-y-6 pr-4">
+                  {/* Company Logo & Info */}
+                  <div className="text-center">
+                    <div className="w-20 h-20 mx-auto rounded-2xl border border-obsidian/10 flex items-center justify-center bg-white/60 backdrop-blur-sm mb-4 p-3">
                       <Image
                         src={clientStories[mobileSelectedIndex].logo}
                         alt={`${clientStories[mobileSelectedIndex].name} logo`}
@@ -395,20 +521,55 @@ export default function LogoShowcase() {
                         className="object-contain"
                       />
                     </div>
-                    <div>
-                      <div className="font-display font-semibold text-obsidian">
+                    <h3 className="font-display text-xl font-semibold text-obsidian mb-1">
                         {clientStories[mobileSelectedIndex].name}
-                      </div>
-                      <div className="text-sm text-obsidian/60">
+                    </h3>
+                    <p className="text-sm text-obsidian/60 font-medium">
                         {clientStories[mobileSelectedIndex].industry}
-                      </div>
-                    </div>
+                    </p>
                   </div>
 
                   {/* Quote */}
-                  <blockquote className="text-base text-obsidian/90 leading-relaxed italic pt-2">
-                    &quot;{clientStories[mobileSelectedIndex].quote}&quot;
+                  <div className="relative">
+                    <div className="absolute -top-2 -left-2 text-3xl text-accent/30 font-serif">&ldquo;</div>
+                    <blockquote className="text-base text-obsidian/90 leading-relaxed font-light pl-4">
+                      {clientStories[mobileSelectedIndex].quote}
                   </blockquote>
+                    <div className="absolute -bottom-2 -right-2 text-3xl text-accent/30 font-serif">&rdquo;</div>
+                  </div>
+
+                  {/* Navigation */}
+                  <div className="flex items-center justify-between pt-4 border-t border-obsidian/10">
+                    <button
+                      onClick={() => {
+                        const prevIndex = (mobileSelectedIndex - 1 + clientStories.length) % clientStories.length;
+                        setMobileSelectedIndex(prevIndex);
+                      }}
+                      className="flex items-center space-x-2 text-sm text-obsidian/60 hover:text-obsidian transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                      <span>Previous</span>
+                    </button>
+
+                    <div className="text-xs text-obsidian/40 font-mono">
+                      {mobileSelectedIndex + 1} / {clientStories.length}
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        const nextIndex = (mobileSelectedIndex + 1) % clientStories.length;
+                        setMobileSelectedIndex(nextIndex);
+                      }}
+                      className="flex items-center space-x-2 text-sm text-obsidian/60 hover:text-obsidian transition-colors"
+                    >
+                      <span>Next</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             </>

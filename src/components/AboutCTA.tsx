@@ -93,247 +93,234 @@ export default function AboutCTA() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
         
-        {/* Availability Badge - Mobile */}
-        <div className="lg:hidden flex justify-center mb-8 order-1">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-accent/30 backdrop-blur-md"
-          >
-            <motion.div className="relative">
-              <div className="w-3 h-3 bg-accent rounded-full" />
-              <motion.div 
-                className="absolute inset-0 w-3 h-3 bg-accent rounded-full"
-                animate={{ scale: [1, 2, 1], opacity: [0.6, 0, 0.6] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
+        {/* Mobile Layout - Streamlined and Touch-Optimized */}
+        <div className="lg:hidden space-y-8">
+          
+          {/* Availability Badge */}
+          <div className="flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-accent/30 backdrop-blur-md"
+            >
+              <motion.div className="relative">
+                <div className="w-3 h-3 bg-accent rounded-full" />
+                <motion.div 
+                  className="absolute inset-0 w-3 h-3 bg-accent rounded-full"
+                  animate={{ scale: [1, 2, 1], opacity: [0.6, 0, 0.6] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+              </motion.div>
+              <span className="text-bone text-sm font-medium tracking-wide">Currently accepting new clients</span>
             </motion.div>
-            <span className="text-bone text-sm font-medium tracking-wide">Currently accepting new clients</span>
-          </motion.div>
-        </div>
+          </div>
 
-        {/* Header - Mobile Only (shows above everything) */}
-        <div className="lg:hidden text-center mb-12 order-2">
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
-            <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-              Working on something interesting?
-            </span>
-          </h2>
-          <p className="text-base sm:text-lg text-bone/75 font-light max-w-2xl mx-auto">
-            I work with a <span className="text-bone/90 font-medium">select group of clients</span> to ensure each transformation gets the focus it deserves.
-          </p>
-        </div>
+          {/* Header */}
+          <div className="text-center">
+            <h2 className="font-display text-3xl sm:text-4xl tracking-[-0.02em] leading-[0.9] mb-6">
+              <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
+                Working on something interesting?
+              </span>
+            </h2>
+            <p className="text-lg text-bone/75 font-light max-w-2xl mx-auto leading-relaxed">
+              I work with a <span className="text-bone/90 font-medium">select group of clients</span> to ensure each transformation gets the focus it deserves.
+            </p>
+          </div>
 
-        {/* Visual Side - Mobile positioned after header */}
-        <div className="lg:hidden relative h-96 mb-12 order-3">
-          <motion.div
-            className="absolute inset-0 flex items-center justify-center"
-            style={{ rotate: geometryRotate, scale: geometryScale }}
-          >
-            {/* Convergence Geometry */}
-            <svg className="w-full h-full max-w-md" viewBox="0 0 400 400">
-              <defs>
-                <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0.8" />
-                  <stop offset="70%" stopColor="#FFE0D7" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0" />
-              </radialGradient>
-                
-                <linearGradient id="edgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0.1" />
-                </linearGradient>
-            </defs>
-            
-              {/* Central Core */}
-              <motion.circle
-                cx="200"
-                cy="200"
-                r="20"
-                fill="url(#centerGradient)"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: [0, 1.5, 1] }}
-                viewport={{ once: true }}
-                transition={{ duration: 2, delay: 0.5 }}
-              />
+          {/* Mobile Convergence Geometry */}
+          <div className="relative h-80">
+            <motion.div
+              className="absolute inset-0 flex items-center justify-center"
+              style={{ rotate: geometryRotate, scale: geometryScale }}
+            >
+              {/* Convergence Geometry - Mobile Optimized */}
+              <svg className="w-full h-full max-w-sm" viewBox="0 0 400 400">
+                <defs>
+                  <radialGradient id="mobilecentergradient" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0.8" />
+                    <stop offset="70%" stopColor="#FFE0D7" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0" />
+                  </radialGradient>
+                  
+                  <linearGradient id="mobileedgegradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0.1" />
+                  </linearGradient>
+                </defs>
 
-              {/* Orbiting Elements */}
-              {Array.from({ length: 8 }).map((_, i) => {
-                const angle = (i * 45) * (Math.PI / 180);
-                const radius = 120 + (i % 3) * 20;
-                const x = 200 + Math.cos(angle) * radius;
-                const y = 200 + Math.sin(angle) * radius;
-                
-                return (
-              <motion.g key={i}>
+                {/* Central Core */}
                 <motion.circle
-                      cx={x}
-                      cy={y}
-                      r={3 + (i % 3)}
-                      fill="#FFE0D7"
-                      opacity={0.7 - i * 0.05}
-                  animate={{ 
-                        scale: [1, 1.5, 1],
-                        opacity: [0.7 - i * 0.05, 0.9 - i * 0.05, 0.7 - i * 0.05]
-                  }}
-                  transition={{
-                        duration: 3 + i * 0.2,
-                        repeat: Infinity,
-                        delay: i * 0.3
-                      }}
-                    />
-                    <motion.line
-                      x1="200"
-                      y1="200"
-                      x2={x}
-                      y2={y}
-                      stroke="url(#edgeGradient)"
-                      strokeWidth="1"
-                      opacity={0.3}
-                      initial={{ pathLength: 0 }}
-                      whileInView={{ pathLength: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, delay: 0.8 + i * 0.1 }}
-                    />
-                  </motion.g>
-                );
-              })}
-
-              {/* Acceleration Rings */}
-              {[60, 100, 140, 180].map((radius, i) => (
-                <motion.circle
-                  key={radius}
                   cx="200"
                   cy="200"
-                  r={radius}
-                  fill="none"
-                  stroke="#FFE0D7"
-                  strokeWidth="1"
-                  opacity={0.2 - i * 0.03}
-                  strokeDasharray="4 8"
-                  initial={{ scale: 0, rotate: 0 }}
-                  whileInView={{ scale: 1, rotate: 360 }}
+                  r="20"
+                  fill="url(#mobilecentergradient)"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: [0, 1.5, 1] }}
                   viewport={{ once: true }}
-                  transition={{
-                    scale: { duration: 1.5, delay: 0.6 + i * 0.2 },
-                    rotate: { duration: 20 + i * 5, repeat: Infinity, ease: "linear" }
-                }}
-              />
-            ))}
-          </svg>
-        </motion.div>
+                  transition={{ duration: 2, delay: 0.5 }}
+                />
 
-          {/* Floating Elements */}
-        <motion.div
-            className="absolute top-10 right-10 w-4 h-4 bg-accent/60 rounded-full"
-          animate={{
-              y: [0, -20, 0],
-              opacity: [0.6, 1, 0.6]
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
-          />
-        <motion.div
-            className="absolute bottom-20 left-10 w-3 h-3 bg-accent/40 rounded-full"
-          animate={{
-              y: [0, -15, 0],
-              x: [0, 10, 0],
-              opacity: [0.4, 0.8, 0.4]
-            }}
-            transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-        />
-      </div>
+                {/* Orbiting Elements - Reduced count for mobile */}
+                {Array.from({ length: 6 }).map((_, i) => {
+                  const angle = (i * 60) * (Math.PI / 180);
+                  const radius = 100 + (i % 2) * 25;
+                  const x = 200 + Math.cos(angle) * radius;
+                  const y = 200 + Math.sin(angle) * radius;
+                  
+                  return (
+                    <motion.g key={i} suppressHydrationWarning>
+                      <motion.circle
+                        cx={x}
+                        cy={y}
+                        r={4 + (i % 2)}
+                        fill="#FFE0D7"
+                        opacity={0.8 - i * 0.08}
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [0.8 - i * 0.08, 1 - i * 0.08, 0.8 - i * 0.08]
+                        }}
+                        transition={{
+                          duration: 3 + i * 0.3,
+                          repeat: Infinity,
+                          delay: i * 0.4
+                        }}
+                        suppressHydrationWarning
+                      />
+                      <motion.line
+                        x1="200"
+                        y1="200"
+                        x2={x}
+                        y2={y}
+                        stroke="url(#mobileedgegradient)"
+                        strokeWidth="1"
+                        opacity={0.4}
+                        initial={{ pathLength: 0 }}
+                        whileInView={{ pathLength: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, delay: 0.8 + i * 0.15 }}
+                        suppressHydrationWarning
+                      />
+                    </motion.g>
+                  );
+                })}
 
-        {/* Body Text - Mobile positioned after visual */}
-        <div className="lg:hidden text-center mb-12 order-4">
+                {/* Acceleration Rings - Simplified for mobile */}
+                {[70, 110, 150].map((radius, i) => (
+                  <motion.circle
+                    key={radius}
+                    cx="200"
+                    cy="200"
+                    r={radius}
+                    fill="none"
+                    stroke="#FFE0D7"
+                    strokeWidth="1"
+                    opacity={0.25 - i * 0.05}
+                    strokeDasharray="4 8"
+                    initial={{ scale: 0, rotate: 0 }}
+                    whileInView={{ scale: 1, rotate: 360 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      scale: { duration: 1.5, delay: 0.6 + i * 0.2 },
+                      rotate: { duration: 20 + i * 8, repeat: Infinity, ease: "linear" }
+                    }}
+                  />
+                ))}
+              </svg>
+            </motion.div>
+
+            {/* Floating Elements - Mobile sized */}
+            <motion.div
+              className="absolute top-8 right-8 w-3 h-3 bg-accent/60 rounded-full"
+              animate={{
+                y: [0, -15, 0],
+                opacity: [0.6, 1, 0.6]
+              }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute bottom-16 left-8 w-2 h-2 bg-accent/40 rounded-full"
+              animate={{
+                y: [0, -10, 0],
+                x: [0, 8, 0],
+                opacity: [0.4, 0.8, 0.4]
+              }}
+              transition={{ duration: 5, repeat: Infinity, delay: 1 }}
+            />
+          </div>
+
+          {/* Convergence Statement */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-2xl mx-auto"
+            className="text-center"
           >
-            <p className="text-base sm:text-lg text-bone/70 font-light leading-relaxed">
+            <p className="text-lg text-bone/70 font-light leading-relaxed max-w-lg mx-auto">
               When strategy, design, and technology converge at NextStage velocity, 
-              transformation happens in weeks, not quarters.
+              transformation happens in <strong className="text-accent font-semibold">weeks, not quarters</strong>.
             </p>
           </motion.div>
-        </div>
 
-        {/* CTA Buttons - Mobile */}
-        <div className="lg:hidden order-5 mb-12">
+          {/* Enhanced CTA Buttons - Mobile */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col items-center space-y-4"
+            className="space-y-4"
           >
-            {/* Primary CTA */}
-            <button className="group relative w-full">
-              {/* Button background with gradient border */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-accent/90 backdrop-blur-sm border border-accent/20 text-obsidian rounded-full text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-accent group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 w-full">
-                <span className="relative">
-                  Let&apos;s talk
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
-                </span>
-                
-                {/* Animated arrow */}
-                <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5">
-                  <svg 
-                    className="absolute w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:translate-x-6 group-hover:opacity-0" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
+            {/* Primary CTA - Enhanced */}
+            <motion.button 
+              className="group relative w-full min-h-[56px] touch-manipulation"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/60 to-accent/40 rounded-2xl blur opacity-0 group-hover:opacity-100 group-active:opacity-100 transition duration-500" />
+              <div className="relative flex items-center justify-center gap-4 px-8 py-4 bg-accent backdrop-blur-sm border border-accent/20 text-obsidian rounded-2xl text-lg font-semibold transition-all duration-300 group-hover:bg-accent/90 group-hover:shadow-2xl group-hover:shadow-accent/30 group-active:scale-95 w-full">
+                <span>Let&apos;s talk</span>
+                <motion.div 
+                  className="w-6 h-6"
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                  <svg 
-                    className="absolute w-4 h-4 sm:w-5 sm:h-5 -translate-x-6 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                </div>
+                </motion.div>
               </div>
-            </button>
+            </motion.button>
 
-            {/* Secondary CTA */}
-            <button className="group relative w-full">
-              {/* Button background with gradient border */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/20 to-bone/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-obsidian/90 backdrop-blur-sm border border-bone/20 text-bone rounded-full text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-bone group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-bone/10 group-hover:-translate-y-1 w-full">
-                <span className="relative">
-                  See process
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
-                </span>
-                
-                {/* Animated arrow */}
-                <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5">
-                  <svg 
-                    className="absolute w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:rotate-45 group-hover:scale-110" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
+            {/* Secondary CTA - Enhanced */}
+            <motion.button 
+              className="group relative w-full min-h-[56px] touch-manipulation"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/30 to-bone/20 rounded-2xl blur opacity-0 group-hover:opacity-100 group-active:opacity-100 transition duration-500" />
+              <div className="relative flex items-center justify-center gap-4 px-8 py-4 bg-bone/10 backdrop-blur-sm border border-bone/20 text-bone rounded-2xl text-lg font-medium transition-all duration-300 group-hover:bg-bone/20 group-hover:border-bone/40 group-active:scale-95 w-full">
+                <span>See process</span>
+                <motion.div 
+                  className="w-6 h-6"
+                  whileHover={{ rotate: 45 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                </div>
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" className="w-full h-full">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </motion.div>
               </div>
-            </button>
+            </motion.button>
           </motion.div>
-            </div>
 
-        {/* Final Line - Mobile */}
-        <div className="lg:hidden text-center order-6">
+          {/* Final Line */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.4 }}
+            className="text-center pt-4"
           >
             <p className="text-sm text-bone/50 font-light italic">
               Join the leaders who refuse to wait for tomorrow
@@ -511,7 +498,7 @@ export default function AboutCTA() {
                   const y = 200 + Math.sin(angle) * radius;
                   
                   return (
-                    <motion.g key={i}>
+                    <motion.g key={i} suppressHydrationWarning>
                       <motion.circle
                         cx={x}
                         cy={y}
@@ -527,6 +514,7 @@ export default function AboutCTA() {
                           repeat: Infinity,
                           delay: i * 0.3
                         }}
+                        suppressHydrationWarning
                       />
                       <motion.line
                         x1="200"
@@ -540,6 +528,7 @@ export default function AboutCTA() {
                         whileInView={{ pathLength: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.5, delay: 0.8 + i * 0.1 }}
+                        suppressHydrationWarning
                       />
                     </motion.g>
                   );

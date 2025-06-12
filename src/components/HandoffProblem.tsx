@@ -109,7 +109,7 @@ function DynamicProgressBars({ mounted }: { mounted: boolean }) {
           initial={{ opacity: 0, x: -30 }}
           animate={mounted ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           transition={{ delay: 0.8 + index * 0.15, duration: 0.8, ease: "easeOut" }}
-          className="flex items-center gap-4 sm:gap-6"
+          className="flex items-center gap-3 sm:gap-4 md:gap-6"
         >
           <div className="w-16 sm:w-20 text-right">
             <span className="text-xs sm:text-sm font-medium text-obsidian/80">{phase.label}</span>
@@ -276,7 +276,7 @@ export default function HandoffProblem() {
                     
                     {/* Content */}
                                          <div className="relative space-y-6 sm:space-y-8">
-                       <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6">
+                       <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
                         {/* Idea */}
                         <motion.div 
                           className="text-center"
@@ -292,7 +292,7 @@ export default function HandoffProblem() {
                         
                                                  {/* Enhanced Arrow */}
                          <motion.div 
-                           className="flex items-center justify-center gap-1 w-6 sm:w-8"
+                           className="flex items-center justify-center gap-1 w-5 sm:w-6 md:w-8"
                            initial={{ opacity: 0, x: -10 }}
                            animate={mounted ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                            transition={{ delay: 2.2, duration: 0.6 }}
@@ -358,7 +358,7 @@ export default function HandoffProblem() {
                         
                                                  {/* Enhanced Arrow */}
                          <motion.div 
-                           className="flex items-center justify-center gap-1 w-6 sm:w-8"
+                           className="flex items-center justify-center gap-1 w-5 sm:w-6 md:w-8"
                            initial={{ opacity: 0, x: -10 }}
                            animate={mounted ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                            transition={{ delay: 2.6, duration: 0.6 }}

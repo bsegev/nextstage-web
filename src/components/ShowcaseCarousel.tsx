@@ -1,8 +1,9 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useCallback } from "react"
 import Image from "next/image"
-import { motion, useInView } from "motion/react"
+import { motion, useInView, PanInfo } from "framer-motion"
+import { useSwipeable } from "react-swipeable"
 
 type ShowcaseItem = {
   title: string
@@ -59,26 +60,44 @@ const showcaseItems: ShowcaseItem[] = [
 export default function ShowcaseCarousel() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { amount: 0.3, once: true })
+
+  const handleDragEnd = useCallback((e: PointerEvent, info: PanInfo) => {
+    if (Math.abs(info.offset.x) > 100) {
+      if (info.offset.x > 0) {
+        handlePrev()
+      } else {
+        handleNext()
+      }
+    }
+  }, [])
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => handleNext(),
+    onSwipedRight: () => handlePrev(),
+    trackMouse: true
+  })
 
   const handleNext = () => {
     if (isAnimating) return
     setIsAnimating(true)
     const nextIndex = (activeIndex + 1) % showcaseItems.length
-    console.log(`Moving to next slide: ${nextIndex} of ${showcaseItems.length}`)
     setActiveIndex(nextIndex)
-    setTimeout(() => setIsAnimating(false), 1500)
+    setTimeout(() => setIsAnimating(false), 1000)
   }
 
   const handlePrev = () => {
     if (isAnimating) return
     setIsAnimating(true)
     const prevIndex = (activeIndex - 1 + showcaseItems.length) % showcaseItems.length
-    console.log(`Moving to previous slide: ${prevIndex} of ${showcaseItems.length}`)
     setActiveIndex(prevIndex)
-    setTimeout(() => setIsAnimating(false), 1500)
+    setTimeout(() => setIsAnimating(false), 1000)
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') handlePrev()
+    if (e.key === 'ArrowRight') handleNext()
   }
 
   return (
@@ -93,42 +112,48 @@ export default function ShowcaseCarousel() {
           ease: [0.22, 1, 0.36, 1],
         }
       } : { opacity: 0, scale: 0.98 }}
-      className="relative w-full h-[100vh] overflow-hidden bg-obsidian"
+      className="relative w-full h-[85vh] md:h-[100vh] overflow-hidden bg-obsidian"
+      role="region"
+      aria-label="Project Showcase Carousel"
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
     >
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
       </div>
+
       {/* Heading Section */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute top-10 left-4 md:left-10 text-bone z-10"
+        className="absolute top-6 md:top-10 left-4 md:left-10 text-bone z-10"
       >
-        <div className="mb-4 sm:mb-6 text-xs sm:text-sm font-medium text-bone/60 tracking-wide uppercase">
+        <div className="mb-2 md:mb-4 text-xs sm:text-sm font-medium text-bone/60 tracking-wide uppercase">
           <span>Showcase</span>
         </div>
         
-        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl tracking-[-0.02em] leading-[0.9]">
+        <h2 className="font-display text-3xl sm:text-3xl md:text-4xl tracking-[-0.02em] leading-[0.9]">
           <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
             Recent Projects
           </span>
         </h2>
       </motion.div>
 
-      {/* Title showing current slide for debugging */}
-      <div className="absolute top-4 right-4 text-bone/50 text-sm z-50 font-mono">
-        Slide {activeIndex + 1} of {showcaseItems.length}
-      </div>
-      
-      <div ref={containerRef} className="relative w-full h-full">
+      <div 
+        className="relative w-full h-full"
+        {...handlers}
+      >
         {showcaseItems.map((item, index) => (
           <div
             key={index}
             className="absolute inset-0"
             style={{ pointerEvents: index === activeIndex ? 'auto' : 'none' }}
+            role="tabpanel"
+            aria-label={`Project: ${item.title}`}
+            aria-hidden={index !== activeIndex}
           >
             {/* Background Image with Parallax */}
             <motion.div 
@@ -145,7 +170,9 @@ export default function ShowcaseCarousel() {
                 alt=""
                 fill
                 className="object-cover opacity-30"
-                priority
+                priority={index === activeIndex}
+                sizes="100vw"
+                quality={60}
               />
             </motion.div>
             
@@ -159,15 +186,19 @@ export default function ShowcaseCarousel() {
                 ease: [0.22, 1, 0.36, 1]
               }}
               className="absolute inset-0"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.1}
+              onDragEnd={handleDragEnd}
             >
               {/* Main Image */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center px-4 md:px-0">
                 <div className="relative group">
                   {/* Enhanced card with gradient border and effects */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 rounded-[2.2rem] blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/30 via-transparent to-accent/30 rounded-[2.1rem] opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  <div className="relative w-[80vw] md:w-[65vw] h-[42.5vw] md:h-[34.5vw] rounded-[2rem] overflow-hidden">
+                  <div className="relative w-[90vw] md:w-[65vw] h-[50vw] md:h-[34.5vw] rounded-[2rem] overflow-hidden">
                     {/* Background glow effect */}
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/5 rounded-[2rem]"></div>
                     
@@ -176,7 +207,9 @@ export default function ShowcaseCarousel() {
                       alt={item.title}
                       fill
                       className="object-cover object-top rounded-[2rem] shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
-                      priority
+                      priority={index === activeIndex}
+                      sizes="(max-width: 768px) 90vw, 65vw"
+                      quality={90}
                     />
                     
                     {/* Subtle overlay */}
@@ -190,11 +223,11 @@ export default function ShowcaseCarousel() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={index === activeIndex ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ delay: 0.3, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute bottom-16 md:bottom-10 left-4 md:left-10 text-bone z-10"
+                className="absolute bottom-20 md:bottom-10 left-4 md:left-10 text-bone z-10"
               >
                 <p className="text-sm font-medium tracking-wider mb-2 text-accent">{item.descr}</p>
                 <h3 className="font-display text-2xl md:text-3xl mb-3 tracking-[-0.02em]">{item.title}</h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 max-w-[90vw] md:max-w-[50vw]">
                   {index === 0 && (
                     <>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Website</span>
@@ -273,6 +306,7 @@ export default function ShowcaseCarousel() {
           onClick={handlePrev}
           className="group relative w-12 h-12 md:w-14 md:h-14"
           disabled={isAnimating}
+          aria-label="Previous project"
         >
           {/* Button background with gradient border */}
           <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
@@ -285,6 +319,7 @@ export default function ShowcaseCarousel() {
           onClick={handleNext}
           className="group relative w-12 h-12 md:w-14 md:h-14"
           disabled={isAnimating}
+          aria-label="Next project"
         >
           {/* Button background with gradient border */}
           <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
@@ -300,8 +335,10 @@ export default function ShowcaseCarousel() {
         animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
         transition={{ delay: 0.7, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="absolute top-1/2 right-3 md:right-10 -translate-y-1/2 flex flex-col space-y-3"
+        role="tablist"
+        aria-label="Project navigation"
       >
-        {showcaseItems.map((_, index) => (
+        {showcaseItems.map((item, index) => (
           <motion.button
             key={index}
             onClick={() => !isAnimating && setActiveIndex(index)}
@@ -311,6 +348,9 @@ export default function ShowcaseCarousel() {
             whileHover={{ scale: index === activeIndex ? 1.1 : 1.05 }}
             whileTap={{ scale: 0.95 }}
             disabled={isAnimating}
+            role="tab"
+            aria-selected={index === activeIndex}
+            aria-label={`View ${item.title}`}
           >
             {/* Active indicator with gradient */}
             {index === activeIndex && (

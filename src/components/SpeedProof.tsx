@@ -90,8 +90,8 @@ export default function SpeedProof() {
           </p>
         </div>
 
-        {/* Comparison Grid */}
-        <div className="max-w-6xl mx-auto">
+        {/* DESKTOP LAYOUT - Side by side comparison (hidden on mobile) */}
+        <div className="hidden md:block max-w-6xl mx-auto">
           {/* Column Headers */}
           <div className="grid grid-cols-2 gap-8 lg:gap-16 mb-12 sm:mb-16">
             <div>
@@ -209,7 +209,7 @@ export default function SpeedProof() {
             ))}
           </div>
 
-          {/* Summary */}
+          {/* Desktop Summary */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -261,6 +261,192 @@ export default function SpeedProof() {
                 </div>
                 <div className="text-xs text-obsidian font-semibold tracking-wide uppercase">
                   NextStage delivery
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* MOBILE LAYOUT - Stacked comparison cards (visible on mobile only) */}
+        <div className="block md:hidden max-w-2xl mx-auto">
+          <div className="space-y-8">
+            {comparisonData.map((moment, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="space-y-6"
+              >
+                {/* Comparison Card */}
+                <div className="bg-white/50 backdrop-blur-sm border border-obsidian/10 rounded-2xl p-6 shadow-sm">
+                  {/* Phase Title */}
+                  <div className="text-center mb-6">
+                    <h3 className="font-display text-lg font-semibold text-obsidian mb-2">
+                      Phase {index + 1}
+                    </h3>
+                    <div className="h-px bg-obsidian/10 w-16 mx-auto"></div>
+                  </div>
+
+                  {/* Traditional Approach */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+                    className="mb-8"
+                  >
+                    <div className="mb-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <h4 className="font-display text-base font-semibold text-obsidian">
+                          {moment.traditional.phase}
+                        </h4>
+                        <span className="text-xs text-obsidian/50 font-medium tracking-wide uppercase">
+                          Traditional
+                        </span>
+                      </div>
+                      
+                      <div className="flex items-center space-x-3 mb-4">
+                        <span className="font-mono text-sm font-bold text-obsidian bg-gray-200 px-4 py-2 rounded-full border-2 border-gray-300 shadow-sm min-w-[100px] text-center">
+                          {moment.traditional.duration}
+                        </span>
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "4rem" }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay: index * 0.1 + 0.4 }}
+                          className="h-1.5 bg-gray-400 rounded-full shadow-sm flex-1 max-w-[4rem]"
+                        ></motion.div>
+                      </div>
+                      
+                      <p className="text-sm text-obsidian/80 leading-relaxed">
+                        {moment.traditional.description}
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* VS Divider */}
+                  <div className="relative mb-8">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-obsidian/20"></div>
+                    </div>
+                    <div className="relative flex justify-center">
+                      <span className="bg-bone px-4 py-1.5 text-xs font-bold text-obsidian/60 tracking-wider uppercase rounded-full border border-obsidian/10">
+                        vs
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* NextStage Approach */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
+                  >
+                    <div className="mb-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <h4 className="font-display text-base font-semibold text-obsidian">
+                          {moment.nextstage.phase}
+                        </h4>
+                        <span className="text-xs text-accent font-semibold tracking-wide uppercase">
+                          NextStage
+                        </span>
+                      </div>
+                      
+                      <div className="flex items-center space-x-3 mb-4">
+                        <span className="font-mono text-sm font-bold text-obsidian bg-accent/30 px-4 py-2 rounded-full border-2 border-accent/50 shadow-sm min-w-[100px] text-center">
+                          {moment.nextstage.duration}
+                        </span>
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "4rem" }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay: index * 0.1 + 0.6 }}
+                          className="h-1.5 bg-accent rounded-full shadow-sm flex-1 max-w-[4rem]"
+                        ></motion.div>
+                        {moment.nextstage.highlight && (
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.1 + 0.8 }}
+                            className="flex-shrink-0 w-6 h-6 rounded-full bg-accent flex items-center justify-center"
+                          >
+                            <svg className="w-3.5 h-3.5 text-obsidian" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </motion.div>
+                        )}
+                      </div>
+                      
+                      <p className="text-sm text-obsidian/80 leading-relaxed">
+                        {moment.nextstage.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Mobile Summary */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-12"
+          >
+            <div className="bg-gradient-to-br from-accent/5 to-accent/10 border border-accent/20 rounded-2xl p-6">
+              <div className="text-center mb-6">
+                <h3 className="font-display text-lg font-semibold text-obsidian mb-2">
+                  Total Time Comparison
+                </h3>
+                <div className="h-px bg-accent/30 w-20 mx-auto"></div>
+              </div>
+
+              <div className="space-y-6">
+                {/* Traditional Total */}
+                <div className="text-center">
+                  <div className="text-xs text-obsidian/60 font-medium tracking-wide uppercase mb-2">
+                    Traditional Timeline
+                  </div>
+                  <span className="font-display text-xl font-bold text-obsidian bg-gray-200 px-6 py-3 rounded-full border-2 border-gray-300 shadow-sm inline-block">
+                    30-42 weeks
+                  </span>
+                </div>
+
+                {/* VS Divider */}
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-obsidian/20"></div>
+                  </div>
+                  <div className="relative flex justify-center">
+                    <span className="bg-bone px-4 py-1.5 text-xs font-bold text-obsidian/60 tracking-wider uppercase rounded-full border border-obsidian/10">
+                      vs
+                    </span>
+                  </div>
+                </div>
+
+                {/* NextStage Total */}
+                <div className="text-center">
+                  <div className="text-xs text-accent font-semibold tracking-wide uppercase mb-2">
+                    NextStage Delivery
+                  </div>
+                  <div className="space-y-3">
+                    <span className="font-display text-xl font-bold text-obsidian bg-accent/30 px-6 py-3 rounded-full border-2 border-accent/50 shadow-lg inline-block">
+                      4 weeks
+                    </span>
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-emerald-500/90 text-white font-mono text-sm font-bold px-6 py-2 rounded-full shadow-md inline-block"
+                    >
+                      87% faster
+                    </motion.div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -306,6 +306,7 @@ export const MobileNavMenu = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          key="mobile-nav-menu"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -320,6 +321,7 @@ export const MobileNavMenu = ({
       )}
       {isOpen && (
         <motion.div
+          key="mobile-nav-backdrop"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
