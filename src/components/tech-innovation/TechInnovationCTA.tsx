@@ -13,7 +13,7 @@ export default function TechInnovationCTA() {
 
   // Enhanced scroll-based animations
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const galaxyRotation = useTransform(scrollYProgress, [0, 1], [0, Math.PI * 2]);
+  const galaxyRotation = useTransform(scrollYProgress, [0, 1], [0, Math.PI * 6]);
   const centralPulse = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 1]);
   
   // Assembly-style animations like WorkCTA
@@ -197,87 +197,166 @@ export default function TechInnovationCTA() {
 
 
                 {/* eslint-disable react-hooks/rules-of-hooks */}
-                <motion.g style={{ rotate: galaxyRotation }}>
-                  {/* Impossible Circle/Penrose Ring - Mobile */}
-                  {Array.from({ length: 30 }).map((_, i) => {
-                    // Pre-calculate static values once
-                    const staticValues = useMemo(() => {
-                      const t = (i / 30) * Math.PI * 2;
-                      return {
-                        t,
-                        majorRadius: 80,
-                        tubeRadius: 20,
-                        twist: t * 0.5,
-                        baseDepthOffset: Math.PI * 0.5
-                      };
-                    }, [i]);
-                    
-                    // Create cross-section dots around the tube
-                    return Array.from({ length: 6 }).map((_, j) => {
-                      // Pre-calculate tube-specific values
-                      const tubeValues = useMemo(() => {
-                        const tubeAngle = (j / 6) * Math.PI * 2;
-                        const twistedAngle = tubeAngle + staticValues.twist;
-                        const depth = Math.sin(twistedAngle) * Math.cos(staticValues.t + staticValues.baseDepthOffset);
-                        const lighting = Math.max(0.4, (depth + 1) * 0.5);
-                        return {
-                          tubeAngle,
-                          twistedAngle,
-                          depth,
-                          lighting,
-                          isVisible: depth > -0.3,
-                          isHighlight: lighting > 0.8
-                        };
-                      }, [j]);
-                      
-                      if (!tubeValues.isVisible) return null;
-                      
-                      return (
-                        <motion.circle
-                          key={`impossible-${i}-${j}`}
-                          cx="160"
-                          cy="160"
-                          r={1 + tubeValues.lighting * 1.5}
-                          style={{
-                            x: useTransform(galaxyRotation, (rotation) => {
-                              const rotT = staticValues.t + rotation * 0.5;
-                              const rotCenterX = staticValues.majorRadius * Math.cos(rotT);
-                              const rotTwist = rotT * 0.5;
-                              const rotTwistedAngle = tubeValues.tubeAngle + rotTwist;
-                              const rotLocalX = staticValues.tubeRadius * Math.cos(rotTwistedAngle);
-                              const rotLocalY = staticValues.tubeRadius * Math.sin(rotTwistedAngle);
-                              const rotRotatedX = rotLocalX * Math.cos(rotT) - rotLocalY * Math.sin(rotT);
-                              return rotCenterX + rotRotatedX;
-                            }),
-                            y: useTransform(galaxyRotation, (rotation) => {
-                              const rotT = staticValues.t + rotation * 0.5;
-                              const rotCenterY = staticValues.majorRadius * Math.sin(rotT);
-                              const rotTwist = rotT * 0.5;
-                              const rotTwistedAngle = tubeValues.tubeAngle + rotTwist;
-                              const rotLocalX = staticValues.tubeRadius * Math.cos(rotTwistedAngle);
-                              const rotLocalY = staticValues.tubeRadius * Math.sin(rotTwistedAngle);
-                              const rotRotatedY = rotLocalX * Math.sin(rotT) + rotLocalY * Math.cos(rotT);
-                              return rotCenterY + rotRotatedY;
-                            }),
-                            opacity: tubeValues.lighting * 0.7
-                          }}
-                          fill={tubeValues.isHighlight ? "#FFE0D7" : "#FFFFFF"}
-                          filter={tubeValues.isHighlight ? "url(#softGlow)" : "none"}
-                          animate={{
-                            scale: [1, 1.05 + tubeValues.lighting * 0.1, 1],
-                          }}
-                          transition={{
-                            duration: 3 + (i + j) * 0.05,
-                            repeat: Infinity,
-                            delay: (i + j) * 0.02
-                          }}
-                          suppressHydrationWarning
-                        />
-                      );
-                    });
-                  })}
+                <motion.g>
+                  {/* Quantum Crystal Lattice - Mobile */}
+                  {Array.from({ length: 4 }).map((_, x) =>
+                    Array.from({ length: 4 }).map((_, y) =>
+                      Array.from({ length: 4 }).map((_, z) => {
+                        const i = x;
+                        const j = y;
+                        const k = z;
+                        const index = i * 16 + j * 4 + k;
+                        
+                        // Pre-calculate static lattice values
+                        const latticeValues = useMemo(() => {
+                          const spacing = 25;
+                          const centerOffset = 1.5 * spacing;
+                          return {
+                            baseX: (i - 1.5) * spacing,
+                            baseY: (j - 1.5) * spacing,
+                            baseZ: (k - 1.5) * spacing,
+                            spacing,
+                            centerOffset,
+                            quantumPhase: (i + j + k) * 0.3,
+                            energyLevel: Math.sin(i * 0.5) * Math.cos(j * 0.7) * Math.sin(k * 0.4)
+                          };
+                        }, [i, j, k]);
+                        
+                        // Calculate quantum tunneling offset
+                        const tunnelOffset = useMemo(() => ({
+                          x: Math.sin(index * 0.1) * 2,
+                          y: Math.cos(index * 0.15) * 2,
+                          z: Math.sin(index * 0.08) * 2
+                        }), [index]);
+                        
+                        return (
+                          <motion.circle
+                            key={`lattice-${i}-${j}-${k}`}
+                            cx="160"
+                            cy="160"
+                            r={1.2 + Math.abs(latticeValues.energyLevel) * 1.5}
+                            style={{
+                              x: useTransform(galaxyRotation, (rotation) => {
+                                // 3D rotation matrices
+                                const rotX = rotation * 0.3;
+                                const rotY = rotation * 0.5;
+                                
+                                // Apply quantum tunneling
+                                const x = latticeValues.baseX + tunnelOffset.x * Math.sin(rotation * 2 + latticeValues.quantumPhase);
+                                const y = latticeValues.baseY + tunnelOffset.y * Math.cos(rotation * 1.5 + latticeValues.quantumPhase);
+                                const z = latticeValues.baseZ + tunnelOffset.z * Math.sin(rotation * 1.8 + latticeValues.quantumPhase);
+                                
+                                // 3D to 2D projection with rotation
+                                const rotatedX = x * Math.cos(rotY) - z * Math.sin(rotY);
+                                const rotatedZ = x * Math.sin(rotY) + z * Math.cos(rotY);
+                                const finalY = y * Math.cos(rotX) - rotatedZ * Math.sin(rotX);
+                                
+                                return rotatedX;
+                              }),
+                              y: useTransform(galaxyRotation, (rotation) => {
+                                const rotX = rotation * 0.3;
+                                const rotY = rotation * 0.5;
+                                
+                                const x = latticeValues.baseX + tunnelOffset.x * Math.sin(rotation * 2 + latticeValues.quantumPhase);
+                                const y = latticeValues.baseY + tunnelOffset.y * Math.cos(rotation * 1.5 + latticeValues.quantumPhase);
+                                const z = latticeValues.baseZ + tunnelOffset.z * Math.sin(rotation * 1.8 + latticeValues.quantumPhase);
+                                
+                                const rotatedX = x * Math.cos(rotY) - z * Math.sin(rotY);
+                                const rotatedZ = x * Math.sin(rotY) + z * Math.cos(rotY);
+                                const finalY = y * Math.cos(rotX) - rotatedZ * Math.sin(rotX);
+                                
+                                return finalY;
+                              }),
+                              opacity: useTransform(galaxyRotation, (rotation) => {
+                                const rotX = rotation * 0.3;
+                                const rotY = rotation * 0.5;
+                                
+                                const x = latticeValues.baseX;
+                                const y = latticeValues.baseY;
+                                const z = latticeValues.baseZ;
+                                
+                                const rotatedZ = x * Math.sin(rotY) + z * Math.cos(rotY);
+                                const finalZ = y * Math.sin(rotX) + rotatedZ * Math.cos(rotX);
+                                
+                                // Depth-based opacity + quantum energy states
+                                const depthOpacity = Math.max(0.2, (finalZ + 50) / 100);
+                                const quantumState = 0.4 + Math.abs(latticeValues.energyLevel) * 0.6;
+                                return depthOpacity * quantumState;
+                              })
+                            }}
+                            fill={Math.abs(latticeValues.energyLevel) > 0.5 ? "#FFE0D7" : "#FFFFFF"}
+                            filter={Math.abs(latticeValues.energyLevel) > 0.7 ? "url(#softGlow)" : "none"}
+                            animate={{
+                              scale: [1, 1.1 + Math.abs(latticeValues.energyLevel) * 0.3, 1],
+                            }}
+                            transition={{
+                              duration: 2.5 + index * 0.02,
+                              repeat: Infinity,
+                              delay: index * 0.01
+                            }}
+                            suppressHydrationWarning
+                          />
+                        );
+                      })
+                    )
+                  )}
                   
-                  {/* Central reference point with premium glow */}
+                  {/* Quantum Bonds - Connection lines between adjacent lattice points */}
+                  {Array.from({ length: 3 }).map((_, x) =>
+                    Array.from({ length: 3 }).map((_, y) =>
+                      Array.from({ length: 3 }).map((_, z) => {
+                        const i = x;
+                        const j = y;
+                        const k = z;
+                        const bondIndex = i * 9 + j * 3 + k;
+                        
+                        const bondValues = useMemo(() => {
+                          const spacing = 25;
+                          return {
+                            x1: (i - 1) * spacing,
+                            y1: (j - 1) * spacing,
+                            z1: (k - 1) * spacing,
+                            x2: (i - 1) * spacing + spacing,
+                            y2: (j - 1) * spacing,
+                            z2: (k - 1) * spacing,
+                            bondStrength: Math.random() * 0.3 + 0.1
+                          };
+                        }, [i, j, k]);
+                        
+                        return (
+                          <motion.line
+                            key={`bond-${i}-${j}-${k}`}
+                            x1={useTransform(galaxyRotation, (rotation) => {
+                              const rotY = rotation * 0.5;
+                              return 160 + bondValues.x1 * Math.cos(rotY) - bondValues.z1 * Math.sin(rotY);
+                            })}
+                            y1={useTransform(galaxyRotation, (rotation) => {
+                              const rotX = rotation * 0.3;
+                              const rotY = rotation * 0.5;
+                              const rotatedZ = bondValues.x1 * Math.sin(rotY) + bondValues.z1 * Math.cos(rotY);
+                              return 160 + bondValues.y1 * Math.cos(rotX) - rotatedZ * Math.sin(rotX);
+                            })}
+                            x2={useTransform(galaxyRotation, (rotation) => {
+                              const rotY = rotation * 0.5;
+                              return 160 + bondValues.x2 * Math.cos(rotY) - bondValues.z2 * Math.sin(rotY);
+                            })}
+                            y2={useTransform(galaxyRotation, (rotation) => {
+                              const rotX = rotation * 0.3;
+                              const rotY = rotation * 0.5;
+                              const rotatedZ = bondValues.x2 * Math.sin(rotY) + bondValues.z2 * Math.cos(rotY);
+                              return 160 + bondValues.y2 * Math.cos(rotX) - rotatedZ * Math.sin(rotX);
+                            })}
+                            stroke="#FFE0D7"
+                            strokeWidth="0.5"
+                            opacity={bondValues.bondStrength}
+                            suppressHydrationWarning
+                          />
+                        );
+                      })
+                    )
+                  )}
+                  
+                  {/* Central quantum core with premium glow */}
                   <motion.circle
                     cx="160"
                     cy="160"
@@ -631,87 +710,160 @@ export default function TechInnovationCTA() {
 
 
                 {/* eslint-disable react-hooks/rules-of-hooks */}
-                <motion.g style={{ rotate: galaxyRotation }}>
-                  {/* Impossible Circle/Penrose Ring - Desktop */}
-                  {Array.from({ length: 30 }).map((_, i) => {
-                    // Pre-calculate static values once
-                    const staticValues = useMemo(() => {
-                      const t = (i / 30) * Math.PI * 2;
-                      return {
-                        t,
-                        majorRadius: 80,
-                        tubeRadius: 20,
-                        twist: t * 0.5,
-                        baseDepthOffset: Math.PI * 0.5
-                      };
-                    }, [i]);
-                    
-                    // Create cross-section dots around the tube
-                    return Array.from({ length: 6 }).map((_, j) => {
-                      // Pre-calculate tube-specific values
-                      const tubeValues = useMemo(() => {
-                        const tubeAngle = (j / 6) * Math.PI * 2;
-                        const twistedAngle = tubeAngle + staticValues.twist;
-                        const depth = Math.sin(twistedAngle) * Math.cos(staticValues.t + staticValues.baseDepthOffset);
-                        const lighting = Math.max(0.4, (depth + 1) * 0.5);
-                        return {
-                          tubeAngle,
-                          twistedAngle,
-                          depth,
-                          lighting,
-                          isVisible: depth > -0.3,
-                          isHighlight: lighting > 0.8
-                        };
-                      }, [j]);
-                      
-                      if (!tubeValues.isVisible) return null;
-                      
-                      return (
-                        <motion.circle
-                          key={`impossible-${i}-${j}`}
-                          cx="200"
-                          cy="200"
-                          r={1.2 + tubeValues.lighting * 1.8}
-                          style={{
-                            x: useTransform(galaxyRotation, (rotation) => {
-                              const rotT = staticValues.t + rotation * 0.5;
-                              const rotCenterX = staticValues.majorRadius * Math.cos(rotT);
-                              const rotTwist = rotT * 0.5;
-                              const rotTwistedAngle = tubeValues.tubeAngle + rotTwist;
-                              const rotLocalX = staticValues.tubeRadius * Math.cos(rotTwistedAngle);
-                              const rotLocalY = staticValues.tubeRadius * Math.sin(rotTwistedAngle);
-                              const rotRotatedX = rotLocalX * Math.cos(rotT) - rotLocalY * Math.sin(rotT);
-                              return rotCenterX + rotRotatedX;
-                            }),
-                            y: useTransform(galaxyRotation, (rotation) => {
-                              const rotT = staticValues.t + rotation * 0.5;
-                              const rotCenterY = staticValues.majorRadius * Math.sin(rotT);
-                              const rotTwist = rotT * 0.5;
-                              const rotTwistedAngle = tubeValues.tubeAngle + rotTwist;
-                              const rotLocalX = staticValues.tubeRadius * Math.cos(rotTwistedAngle);
-                              const rotLocalY = staticValues.tubeRadius * Math.sin(rotTwistedAngle);
-                              const rotRotatedY = rotLocalX * Math.sin(rotT) + rotLocalY * Math.cos(rotT);
-                              return rotCenterY + rotRotatedY;
-                            }),
-                            opacity: tubeValues.lighting * 0.7
-                          }}
-                          fill={tubeValues.isHighlight ? "#FFE0D7" : "#FFFFFF"}
-                          filter={tubeValues.isHighlight ? "url(#softGlowDesktop)" : "none"}
-                          animate={{
-                            scale: [1, 1.06 + tubeValues.lighting * 0.12, 1],
-                          }}
-                          transition={{
-                            duration: 3 + (i + j) * 0.05,
-                            repeat: Infinity,
-                            delay: (i + j) * 0.02
-                          }}
-                          suppressHydrationWarning
-                        />
-                      );
-                    });
-                  })}
+                <motion.g>
+                  {/* Quantum Crystal Lattice - Desktop */}
+                  {Array.from({ length: 5 }).map((_, x) =>
+                    Array.from({ length: 5 }).map((_, y) =>
+                      Array.from({ length: 5 }).map((_, z) => {
+                        const i = x;
+                        const j = y;
+                        const k = z;
+                        const index = i * 25 + j * 5 + k;
+                        
+                        // Pre-calculate static lattice values
+                        const latticeValues = useMemo(() => {
+                          const spacing = 30;
+                          return {
+                            baseX: (i - 2) * spacing,
+                            baseY: (j - 2) * spacing,
+                            baseZ: (k - 2) * spacing,
+                            spacing,
+                            quantumPhase: (i + j + k) * 0.25,
+                            energyLevel: Math.sin(i * 0.4) * Math.cos(j * 0.6) * Math.sin(k * 0.35)
+                          };
+                        }, [i, j, k]);
+                        
+                        // Calculate quantum tunneling offset
+                        const tunnelOffset = useMemo(() => ({
+                          x: Math.sin(index * 0.08) * 3,
+                          y: Math.cos(index * 0.12) * 3,
+                          z: Math.sin(index * 0.06) * 3
+                        }), [index]);
+                        
+                        return (
+                          <motion.circle
+                            key={`lattice-desktop-${i}-${j}-${k}`}
+                            cx="200"
+                            cy="200"
+                            r={1.5 + Math.abs(latticeValues.energyLevel) * 2}
+                            style={{
+                              x: useTransform(galaxyRotation, (rotation) => {
+                                // 3D rotation matrices
+                                const rotX = rotation * 0.25;
+                                const rotY = rotation * 0.4;
+                                
+                                // Apply quantum tunneling
+                                const x = latticeValues.baseX + tunnelOffset.x * Math.sin(rotation * 1.8 + latticeValues.quantumPhase);
+                                const y = latticeValues.baseY + tunnelOffset.y * Math.cos(rotation * 1.3 + latticeValues.quantumPhase);
+                                const z = latticeValues.baseZ + tunnelOffset.z * Math.sin(rotation * 1.6 + latticeValues.quantumPhase);
+                                
+                                // 3D to 2D projection with rotation
+                                const rotatedX = x * Math.cos(rotY) - z * Math.sin(rotY);
+                                return rotatedX;
+                              }),
+                              y: useTransform(galaxyRotation, (rotation) => {
+                                const rotX = rotation * 0.25;
+                                const rotY = rotation * 0.4;
+                                
+                                const x = latticeValues.baseX + tunnelOffset.x * Math.sin(rotation * 1.8 + latticeValues.quantumPhase);
+                                const y = latticeValues.baseY + tunnelOffset.y * Math.cos(rotation * 1.3 + latticeValues.quantumPhase);
+                                const z = latticeValues.baseZ + tunnelOffset.z * Math.sin(rotation * 1.6 + latticeValues.quantumPhase);
+                                
+                                const rotatedX = x * Math.cos(rotY) - z * Math.sin(rotY);
+                                const rotatedZ = x * Math.sin(rotY) + z * Math.cos(rotY);
+                                const finalY = y * Math.cos(rotX) - rotatedZ * Math.sin(rotX);
+                                
+                                return finalY;
+                              }),
+                              opacity: useTransform(galaxyRotation, (rotation) => {
+                                const rotX = rotation * 0.25;
+                                const rotY = rotation * 0.4;
+                                
+                                const x = latticeValues.baseX;
+                                const y = latticeValues.baseY;
+                                const z = latticeValues.baseZ;
+                                
+                                const rotatedZ = x * Math.sin(rotY) + z * Math.cos(rotY);
+                                const finalZ = y * Math.sin(rotX) + rotatedZ * Math.cos(rotX);
+                                
+                                // Depth-based opacity + quantum energy states
+                                const depthOpacity = Math.max(0.15, (finalZ + 80) / 160);
+                                const quantumState = 0.3 + Math.abs(latticeValues.energyLevel) * 0.7;
+                                return depthOpacity * quantumState;
+                              })
+                            }}
+                            fill={Math.abs(latticeValues.energyLevel) > 0.4 ? "#FFE0D7" : "#FFFFFF"}
+                            filter={Math.abs(latticeValues.energyLevel) > 0.6 ? "url(#softGlowDesktop)" : "none"}
+                            animate={{
+                              scale: [1, 1.15 + Math.abs(latticeValues.energyLevel) * 0.4, 1],
+                            }}
+                            transition={{
+                              duration: 2.8 + index * 0.015,
+                              repeat: Infinity,
+                              delay: index * 0.008
+                            }}
+                            suppressHydrationWarning
+                          />
+                        );
+                      })
+                    )
+                  )}
                   
-                  {/* Central reference point with premium glow */}
+                  {/* Quantum Bonds - Desktop */}
+                  {Array.from({ length: 4 }).map((_, x) =>
+                    Array.from({ length: 4 }).map((_, y) =>
+                      Array.from({ length: 4 }).map((_, z) => {
+                        const i = x;
+                        const j = y;
+                        const k = z;
+                        
+                        const bondValues = useMemo(() => {
+                          const spacing = 30;
+                          return {
+                            x1: (i - 1.5) * spacing,
+                            y1: (j - 1.5) * spacing,
+                            z1: (k - 1.5) * spacing,
+                            x2: (i - 1.5) * spacing + spacing,
+                            y2: (j - 1.5) * spacing,
+                            z2: (k - 1.5) * spacing,
+                            bondStrength: Math.random() * 0.25 + 0.08
+                          };
+                        }, [i, j, k]);
+                        
+                        return (
+                          <motion.line
+                            key={`bond-desktop-${i}-${j}-${k}`}
+                            x1={useTransform(galaxyRotation, (rotation) => {
+                              const rotY = rotation * 0.4;
+                              return 200 + bondValues.x1 * Math.cos(rotY) - bondValues.z1 * Math.sin(rotY);
+                            })}
+                            y1={useTransform(galaxyRotation, (rotation) => {
+                              const rotX = rotation * 0.25;
+                              const rotY = rotation * 0.4;
+                              const rotatedZ = bondValues.x1 * Math.sin(rotY) + bondValues.z1 * Math.cos(rotY);
+                              return 200 + bondValues.y1 * Math.cos(rotX) - rotatedZ * Math.sin(rotX);
+                            })}
+                            x2={useTransform(galaxyRotation, (rotation) => {
+                              const rotY = rotation * 0.4;
+                              return 200 + bondValues.x2 * Math.cos(rotY) - bondValues.z2 * Math.sin(rotY);
+                            })}
+                            y2={useTransform(galaxyRotation, (rotation) => {
+                              const rotX = rotation * 0.25;
+                              const rotY = rotation * 0.4;
+                              const rotatedZ = bondValues.x2 * Math.sin(rotY) + bondValues.z2 * Math.cos(rotY);
+                              return 200 + bondValues.y2 * Math.cos(rotX) - rotatedZ * Math.sin(rotX);
+                            })}
+                            stroke="#FFE0D7"
+                            strokeWidth="0.6"
+                            opacity={bondValues.bondStrength}
+                            suppressHydrationWarning
+                          />
+                        );
+                      })
+                    )
+                  )}
+                  
+                  {/* Central quantum core with premium glow */}
                   <motion.circle
                     cx="200"
                     cy="200"

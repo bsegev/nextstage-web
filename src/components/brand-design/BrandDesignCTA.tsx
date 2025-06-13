@@ -13,7 +13,7 @@ export default function BrandDesignCTA() {
 
   // Enhanced scroll-based animations
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const galaxyRotation = useTransform(scrollYProgress, [0, 1], [0, Math.PI * 2]);
+  const galaxyRotation = useTransform(scrollYProgress, [0, 1], [0, Math.PI * 6]);
   const centralPulse = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 1]);
   
   // Assembly-style animations like WorkCTA
