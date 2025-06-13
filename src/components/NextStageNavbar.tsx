@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const NextStageLogo = () => {
   return (
@@ -27,7 +27,7 @@ const NextStageLogo = () => {
 export default function NextStageNavbar() {
   const [activeService, setActiveService] = useState<"strategy" | "brand" | "technology" | "growth">("strategy");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mobileActiveService, setMobileActiveService] = useState<"strategy" | "brand" | "technology" | "growth" | null>(null);
+
 
   const serviceContent = {
     strategy: {
@@ -339,217 +339,136 @@ export default function NextStageNavbar() {
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
         >
-          {/* Enhanced Mobile Services Menu */}
-          <div className="space-y-1">
-            {/* Services Accordion */}
-            <div className="mb-4">
-              <button
-                onClick={() => setMobileActiveService(mobileActiveService ? null : "strategy")}
-                className="flex items-center justify-between w-full text-left py-3 px-1 text-lg font-medium text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-              >
-                <span>What We Do</span>
-                <motion.svg
-                  animate={{ rotate: mobileActiveService ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </motion.svg>
-              </button>
+          {/* Sophisticated Mobile Navigation */}
+          <div className="space-y-12">
+            {/* Services Section */}
+            <div className="space-y-8">
+              <div className="space-y-1">
+                <h3 className="text-lg font-display font-light text-obsidian tracking-wide">
+                  Services
+                </h3>
+                <div className="w-8 h-px bg-accent/40"></div>
+              </div>
 
-              <AnimatePresence>
-                {mobileActiveService && (
-                  <motion.div
-                    key="mobile-services-menu"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <div className="pl-4 pr-1 py-2 space-y-4">
-                                             {/* Service Categories */}
-                       {Object.entries(serviceContent).map(([key, service]) => (
-                         <div
-                           key={`mobile-service-category-${key}`}
-                           className={`border rounded-xl overflow-hidden transition-all duration-200 ${
-                            mobileActiveService === key 
-                              ? 'border-accent/30 bg-accent/5' 
-                              : 'border-neutral-200 dark:border-neutral-700 bg-white/50 dark:bg-neutral-900/50'
-                          }`}
+              <div className="space-y-6">
+                {Object.entries(serviceContent).map(([key, service], index) => {
+                  const serviceUrls = {
+                    strategy: "/services/strategy-consulting",
+                    brand: "/services/brand-design", 
+                    technology: "/services/tech-innovation",
+                    growth: "/services/growth-marketing"
+                  };
+                  
+                  return (
+                    <motion.a
+                      key={`mobile-service-${key}`}
+                      href={serviceUrls[key as keyof typeof serviceUrls]}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ 
+                        delay: index * 0.1,
+                        duration: 0.4,
+                        ease: [0.25, 0.46, 0.45, 0.94]
+                      }}
+                      className="group block space-y-3 py-4 border-b border-obsidian/10 last:border-b-0 hover:border-accent/30 transition-all duration-500"
+                    >
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-xl font-display font-light text-obsidian group-hover:text-accent transition-colors duration-300">
+                          {service.title}
+                        </h4>
+                        <motion.div
+                          initial={{ x: 0 }}
+                          whileHover={{ x: 4 }}
+                          transition={{ duration: 0.2 }}
                         >
-                          {/* Service Category Header */}
-                          <button
-                            onClick={() => setMobileActiveService(
-                              mobileActiveService === key ? null : key as typeof mobileActiveService
-                            )}
-                            className="w-full p-4 text-left"
-                          >
-                            <div className="flex items-center justify-between">
-                              <div>
-                                <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 text-base">
-                                  {service.title}
-                                </h3>
-                                <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1 line-clamp-1">
-                                  {service.description}
-                                </p>
-                              </div>
-                              <motion.svg
-                                animate={{ rotate: mobileActiveService === key ? 90 : 0 }}
-                                transition={{ duration: 0.2 }}
-                                className="w-5 h-5 text-neutral-400 flex-shrink-0"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </motion.svg>
-                            </div>
-                          </button>
-
-                          {/* Service Details */}
-                          <AnimatePresence>
-                            {mobileActiveService === key && (
-                              <motion.div
-                                key={`service-details-${key}`}
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.3, ease: "easeInOut" }}
-                                className="overflow-hidden border-t border-neutral-200 dark:border-neutral-700"
-                              >
-                                <div className="p-4 pt-0">
-                                  {/* Service List */}
-                                                                     <div className="space-y-3 mb-4 mt-3">
-                                     {service.services.map((item, idx) => (
-                                       <a
-                                         key={`${key}-service-${idx}-${item.name.replace(/\s+/g, '-').toLowerCase()}`}
-                                         href={item.href}
-                                         onClick={() => setIsMobileMenuOpen(false)}
-                                         className="block p-3 rounded-lg bg-white/60 dark:bg-neutral-800/60 hover:bg-accent/10 dark:hover:bg-accent/10 transition-colors group"
-                                       >
-                                        <h4 className="font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-accent transition-colors text-sm">
-                                          {item.name}
-                                        </h4>
-                                        <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-1 line-clamp-2">
-                                          {item.description}
-                                        </p>
-                                      </a>
-                                    ))}
-                                  </div>
-
-                                  {/* Service CTA */}
-                                  <div className="pt-3 border-t border-neutral-200 dark:border-neutral-700">
-                                    <div className="flex items-center justify-between">
-                                      <div>
-                                        <h5 className="font-medium text-neutral-900 dark:text-neutral-100 text-sm">
-                                          {service.cta.title}
-                                        </h5>
-                                        <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                                          {service.cta.description}
-                                        </p>
-                                      </div>
-                                      <a 
-                                        href="#contact" 
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className="px-3 py-1.5 bg-accent text-obsidian rounded-lg font-medium text-sm hover:bg-accent/90 transition-colors flex-shrink-0"
-                                      >
-                                        Get Started
-                                      </a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      ))}
-
-                      {/* View All Services Link */}
-                      <div className="pt-2">
-                        <a 
-                          href="#all-services" 
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="flex items-center text-accent hover:text-accent/80 font-medium text-sm transition-colors"
-                        >
-                          View All Services
-                          <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          <svg className="w-5 h-5 text-obsidian/40 group-hover:text-accent transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>
-                        </a>
+                        </motion.div>
                       </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                      <p className="text-sm text-obsidian/60 font-light leading-relaxed group-hover:text-obsidian/80 transition-colors duration-300">
+                        {service.description}
+                      </p>
+                    </motion.a>
+                  );
+                })}
+              </div>
             </div>
 
-                         {/* Other Navigation Items */}
-             {navItems.slice(1).map((item, idx) => (
-               <a
-                 key={`mobile-nav-${item.name.replace(/\s+/g, '-').toLowerCase()}-${idx}`}
-              href={item.link}
-              onClick={() => setIsMobileMenuOpen(false)}
-                 className="block text-neutral-600 dark:text-neutral-300 text-lg py-3 px-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-            >
-                {item.name}
-            </a>
-          ))}
-          </div>
+            {/* Navigation Section */}
+            <div className="space-y-8">
+              <div className="space-y-1">
+                <h3 className="text-lg font-display font-light text-obsidian tracking-wide">
+                  Explore
+                </h3>
+                <div className="w-8 h-px bg-accent/40"></div>
+              </div>
 
-          {/* Featured Section */}
-          <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-700">
-            <h4 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Featured</h4>
-            <div className="space-y-4">
-              <a href="#ai-strategy" onClick={() => setIsMobileMenuOpen(false)} className="block group">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 className="font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-accent transition-colors text-sm">
-                      AI-Powered Strategy
-                    </h5>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
-                      Leverage AI for strategic insights
-                    </p>
-                  </div>
-                </div>
-              </a>
-              <a href="#innovation-labs" onClick={() => setIsMobileMenuOpen(false)} className="block group">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 className="font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-accent transition-colors text-sm">
-                      Innovation Labs
-                    </h5>
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
-                      Rapid prototyping and validation
-                    </p>
-                  </div>
-                </div>
-              </a>
+              <div className="space-y-6">
+                {navItems.slice(1).map((item, index) => (
+                  <motion.a
+                    key={`mobile-nav-${item.name.replace(/\s+/g, '-').toLowerCase()}-${index}`}
+                    href={item.link}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ 
+                      delay: (Object.keys(serviceContent).length + index) * 0.1,
+                      duration: 0.4,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                    className="group flex items-center justify-between py-3 border-b border-obsidian/10 last:border-b-0 hover:border-accent/30 transition-all duration-500"
+                  >
+                    <span className="text-lg font-display font-light text-obsidian group-hover:text-accent transition-colors duration-300">
+                      {item.name}
+                    </span>
+                    <motion.div
+                      initial={{ x: 0 }}
+                      whileHover={{ x: 4 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <svg className="w-5 h-5 text-obsidian/40 group-hover:text-accent transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </motion.div>
+                  </motion.a>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Mobile CTA */}
-          <div className="flex w-full flex-col gap-3 mt-6">
-            <NavbarButton
-              onClick={() => setIsMobileMenuOpen(false)}
-              variant="primary"
-              className="w-full"
+            {/* CTA Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                delay: (Object.keys(serviceContent).length + navItems.slice(1).length) * 0.1,
+                duration: 0.4,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              className="pt-8 border-t border-obsidian/10"
             >
-              Get Started
-            </NavbarButton>
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="group relative w-full py-4 px-6 bg-obsidian text-bone rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative flex items-center justify-center space-x-2">
+                  <span className="font-display font-light tracking-wide">Get Started</span>
+                  <motion.svg 
+                    className="w-4 h-4" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                    initial={{ x: 0 }}
+                    whileHover={{ x: 2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </motion.svg>
+                </div>
+              </button>
+            </motion.div>
           </div>
         </MobileNavMenu>
       </MobileNav>

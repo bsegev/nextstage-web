@@ -12,7 +12,7 @@ export default function FounderIntro() {
   }, []);
 
   return (
-    <section className="relative py-16 sm:py-24 md:py-32 lg:py-40 bg-gradient-to-br from-bone via-bone to-bone/95 overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-bone via-bone to-bone/95 overflow-hidden">
       
       {/* Background Elements */}
       <div className="absolute inset-0">
@@ -23,17 +23,17 @@ export default function FounderIntro() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         
         {/* Section Header */}
-        <div className={`text-center mb-16 sm:mb-20 md:mb-24 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
+        <div className={`text-center mb-8 sm:mb-12 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="mb-6 sm:mb-8 text-sm sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
             <span>Leadership</span>
           </div>
           
-          <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 md:mb-8">
+          <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
               Behind the Work
             </span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-2xl mx-auto">
+          <p className="text-lg sm:text-base lg:text-lg text-obsidian/80 font-light max-w-2xl mx-auto">
             I build the bridge between big ideas and working reality.
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function FounderIntro() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={mounted ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
             transition={{ delay: 0.3, duration: 1.2, ease: "easeOut" }}
-            className="relative mb-20 sm:mb-24 md:mb-28"
+            className="relative mb-12 sm:mb-16"
           >
             <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16">
               
@@ -78,7 +78,7 @@ export default function FounderIntro() {
                   className="space-y-6 sm:space-y-8"
                 >
                   {/* Story */}
-                  <div className="space-y-4 sm:space-y-6 text-obsidian/75 font-light text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl lg:max-w-none">
+                  <div className="space-y-4 sm:space-y-6 text-obsidian/75 font-light text-lg sm:text-base lg:text-lg leading-relaxed max-w-2xl lg:max-w-none">
                     <p>
                       I&apos;ve launched a digital bank from zero, steered product lines in consumer tech, and rebuilt brands across healthcare, real estate, and AI.
                     </p>
@@ -92,7 +92,7 @@ export default function FounderIntro() {
                   
                   {/* Signature Quote */}
                   <div className="pt-6 sm:pt-8 border-t border-obsidian/10">
-                    <blockquote className="text-xl sm:text-2xl md:text-3xl font-light text-obsidian/90 leading-tight mb-3 sm:mb-4">
+                    <blockquote className="text-lg xl:text-xl font-light text-obsidian/90 leading-tight mb-3 sm:mb-4">
                       &ldquo;I&apos;m here to make sure your next stage isn&apos;t a slogan—it&apos;s a milestone.&rdquo;
                     </blockquote>
                     <div className="flex items-center justify-center lg:justify-start gap-4">
@@ -110,13 +110,13 @@ export default function FounderIntro() {
             initial={{ opacity: 0, y: 30 }}
             animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
-            className="bg-gradient-to-br from-obsidian/3 to-accent/3 border border-obsidian/8 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mb-16 sm:mb-20"
+            className="bg-gradient-to-br from-obsidian/3 to-accent/3 border border-obsidian/8 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12"
           >
             <div className="max-w-4xl mx-auto text-center">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-display text-obsidian mb-6 sm:mb-8">
+              <h3 className="text-lg xl:text-xl font-display text-obsidian mb-6 sm:mb-8">
                 The Team We&apos;ve Built
               </h3>
-              <div className="space-y-4 sm:space-y-6 text-obsidian/70 font-light text-base sm:text-lg md:text-xl leading-relaxed">
+              <div className="space-y-4 sm:space-y-6 text-obsidian/70 font-light text-lg sm:text-base lg:text-lg leading-relaxed">
                 <p>
                   We work with a tight bench of multidisciplinary experts—designers who code, technologists who speak brand, strategists who&apos;ve run their own companies.
                 </p>

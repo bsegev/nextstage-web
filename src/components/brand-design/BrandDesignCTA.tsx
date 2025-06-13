@@ -105,12 +105,12 @@ export default function BrandDesignCTA() {
         <div className="lg:hidden text-center">
           {/* Header */}
           <div className="mb-12">
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
+            <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
                 Ready to elevate your brand?
               </span>
             </h2>
-            <p className="text-base sm:text-lg text-bone/75 font-light max-w-2xl mx-auto">
+            <p className="text-lg sm:text-lg text-bone/75 font-light max-w-2xl mx-auto">
               Transform your vision into extraordinary design that captivates and converts.
             </p>
           </div>
@@ -392,7 +392,7 @@ export default function BrandDesignCTA() {
             {/* Primary CTA */}
             <button className="group relative w-full">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-accent/90 backdrop-blur-sm border border-accent/20 text-obsidian rounded-full text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-accent group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 w-full">
+              <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-accent/90 backdrop-blur-sm border border-accent/20 text-obsidian rounded-full text-base font-medium transition-all duration-300 group-hover:bg-accent group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 w-full">
                 <span className="relative">
                   Let&apos;s work together
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
@@ -422,7 +422,7 @@ export default function BrandDesignCTA() {
             {/* Secondary CTA */}
             <button className="group relative w-full">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/20 to-bone/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-obsidian/90 backdrop-blur-sm border border-bone/20 text-bone rounded-full text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-bone group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-bone/10 group-hover:-translate-y-1 w-full">
+              <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-obsidian/90 backdrop-blur-sm border border-bone/20 text-bone rounded-full text-base font-medium transition-all duration-300 group-hover:bg-bone group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-bone/10 group-hover:-translate-y-1 w-full">
                 <span className="relative">
                   See our work
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
@@ -451,12 +451,12 @@ export default function BrandDesignCTA() {
             
             {/* Header */}
             <div className="text-left">
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
+              <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
                 <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
                   Ready to elevate your brand?
                 </span>
               </h2>
-              <p className="text-base sm:text-lg text-bone/75 font-light max-w-2xl">
+              <p className="text-lg sm:text-lg text-bone/75 font-light max-w-2xl">
                 Transform your vision into extraordinary design that captivates and converts.
               </p>
             </div>
@@ -469,7 +469,7 @@ export default function BrandDesignCTA() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="max-w-2xl"
             >
-              <p className="text-base sm:text-lg text-bone/70 font-light leading-relaxed">
+              <p className="text-lg sm:text-lg text-bone/70 font-light leading-relaxed">
                 From concept to completion, we orchestrate every element of your brand transformation with precision and purpose.
               </p>
             </motion.div>
@@ -485,7 +485,7 @@ export default function BrandDesignCTA() {
               {/* Primary CTA */}
               <button className="group relative">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                <div className="relative inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-accent/90 backdrop-blur-sm border border-accent/20 text-obsidian rounded-full text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1">
+                <div className="relative inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-accent/90 backdrop-blur-sm border border-accent/20 text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1">
                   <span className="relative">
                     Let&apos;s work together
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
@@ -515,7 +515,7 @@ export default function BrandDesignCTA() {
               {/* Secondary CTA */}
               <button className="group relative">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/20 to-bone/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-obsidian/90 backdrop-blur-sm border border-bone/20 text-bone rounded-full text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-bone group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-bone/10 group-hover:-translate-y-1">
+                <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-obsidian/90 backdrop-blur-sm border border-bone/20 text-bone rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-bone group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-bone/10 group-hover:-translate-y-1">
                   <span className="relative">
                     See our work
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
@@ -543,7 +543,7 @@ export default function BrandDesignCTA() {
               transition={{ duration: 1, delay: 0.4 }}
               className="pt-8"
             >
-              <p className="text-sm text-bone/50 font-light italic">
+              <p className="text-base text-bone/50 font-light italic">
                 Where creativity meets precision
               </p>
             </motion.div>

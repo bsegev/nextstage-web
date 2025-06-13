@@ -1,0 +1,1267 @@
+NEXTSTAGE WEB - SERVICE PAGES STYLING REFERENCE
+=================================================
+Based on Strategy Consulting Service Pages - Comprehensive Design System
+
+OVERVIEW
+--------
+This document outlines the established styling patterns for service pages including
+text sizing, CTA buttons, layouts, and visual consistency standards.
+Reference implementations: StrategyConsultingHero.tsx, StrategyConsultingServices.tsx
+
+TEXT SIZING PATTERNS
+====================
+
+HERO SECTION TEXT SIZING
+-------------------------
+
+SERVICE BADGE:
+- Size: text-sm
+- Usage: Service category indicators
+- Style: font-medium text-obsidian/70 tracking-wide uppercase
+- Container: px-4 py-2 bg-accent/10 rounded-full border border-accent/20
+- Example: "Strategy & Consulting"
+
+HERO MAIN HEADLINE (H1):
+- Size: text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
+- Usage: Primary hero headlines
+- Style: font-display tracking-tight leading-[0.9] sm:leading-[0.95]
+- Pattern: Two-line structure with gradient accent on second line
+- Example: "Strategy for people who" + "actually run businesses"
+
+HERO SUBHEADLINE:
+- Size: text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl
+- Usage: Hero descriptive text
+- Style: leading-[1.5] text-foreground/80 font-light
+- Max Width: max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl
+- Example: Strategic positioning statements
+
+SOCIAL PROOF TEXT:
+- Size: text-sm
+- Usage: Trust indicators, testimonial hints
+- Style: text-foreground/50 font-light italic
+- Example: "Trusted by leaders who refuse to let strategy gather dust"
+
+SERVICES SECTION TEXT SIZING
+-----------------------------
+
+SECTION LABEL:
+- Size: text-sm
+- Usage: Section category indicators
+- Style: font-medium text-obsidian/60 tracking-[0.2em] uppercase
+- Example: "Strategic Services"
+
+SECTION HEADER (H2):
+- Size: text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
+- Usage: Main section titles
+- Style: font-display tracking-[-0.02em] leading-[0.9]
+- Pattern: Often uses gradient text effects
+- Example: "Every business faces moments of truth"
+
+SECTION SUBHEADLINE:
+- Size: text-lg sm:text-lg md:text-xl lg:text-2xl
+- Usage: Section descriptive text
+- Style: text-obsidian/80 font-light leading-relaxed
+- Max Width: max-w-4xl mx-auto
+- Example: "Critical junctures where the right strategic choice..."
+
+SERVICE CARD TITLES (H3):
+- Size: text-lg
+- Usage: Individual service titles
+- Style: font-display font-semibold text-obsidian tracking-[-0.015em] leading-tight
+- Example: "Business Strategy", "Brand Strategy"
+
+SERVICE CARD CONTEXT:
+- Size: text-base
+- Usage: Service context descriptions
+- Style: text-obsidian/55 font-light leading-[1.5] tracking-wide
+- Example: "When the path forward isn't clear"
+
+SERVICE CARD DESCRIPTIONS:
+- Size: text-base
+- Usage: Service detailed descriptions
+- Style: text-obsidian/55 font-light leading-[1.6] tracking-wide
+- Example: "Choose the right direction with confidence."
+
+CLOSING STATEMENT:
+- Size: text-xl lg:text-2xl
+- Usage: Section closing thoughts
+- Style: text-obsidian/60 font-light leading-relaxed
+- Example: "Strategy isn't about predicting the future..."
+
+METRICS SECTION TEXT SIZING
+----------------------------
+
+METRICS SECTION HEADER (H2):
+- Size: text-3xl sm:text-2xl md:text-3xl
+- Usage: Metrics section titles
+- Style: font-display tracking-[-0.02em] leading-[0.9]
+- Pattern: Often uses gradient text effects on dark backgrounds
+- Example: "Why Strategy Matters"
+
+METRICS SUBHEADLINE:
+- Size: text-lg sm:text-base
+- Usage: Metrics section descriptive text
+- Style: text-bone/80 font-light leading-[1.4]
+- Example: "Research-backed results from strategic planning"
+
+METRIC VALUES (Large Numbers):
+- Size: text-3xl sm:text-2xl md:text-3xl
+- Usage: Statistical values, percentages, multipliers
+- Style: font-display font-bold leading-none tracking-[-0.02em]
+- Pattern: Animated counters with gradient text effects
+- Example: "30%", "1.6x", "15,000+"
+
+METRIC LABELS (H3):
+- Size: text-lg sm:text-base
+- Usage: Metric category labels
+- Style: font-display font-semibold text-bone tracking-[-0.01em] leading-tight
+- Pattern: Often multi-line with whitespace-pre-line
+- Example: "Faster Business\nGrowth"
+
+METRIC DESCRIPTIONS:
+- Size: text-sm sm:text-sm
+- Usage: Metric explanatory text
+- Style: text-bone/70 font-light leading-[1.4]
+- Example: "with formal strategic planning versus unstructured approaches"
+
+METRICS CLOSING MESSAGE:
+- Size: text-lg sm:text-base
+- Usage: Call-to-action or summary statements
+- Style: text-bone font-medium leading-[1.5]
+- Pattern: Often includes gradient accent text
+- Example: "Don't leave your success to chance..."
+
+CTA BUTTON SPECIFICATIONS
+==========================
+
+PRIMARY CTA BUTTON (Accent Background)
+---------------------------------------
+Container Classes:
+- Base: group relative w-full sm:w-auto min-h-[56px] touch-manipulation
+- Focus: focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2
+- Shape: rounded-full
+
+Gradient Glow Effect:
+- Container: absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur
+- State: opacity-0 group-hover:opacity-100 transition duration-500
+
+Inner Button:
+- Layout: relative inline-flex items-center justify-center gap-3 sm:gap-4
+- Padding: px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5
+- Background: bg-accent text-obsidian rounded-full
+- Text: text-base sm:text-base lg:text-lg font-medium
+- Responsive: w-full sm:w-auto
+
+Hover Effects:
+- Background: group-hover:bg-accent/90
+- Shadow: group-hover:shadow-2xl group-hover:shadow-accent/20
+- Transform: group-hover:-translate-y-1
+- Active: group-active:scale-95
+
+Text Underline Animation:
+- Element: span with absolute bottom-0 left-0 w-0 h-[1px] bg-current
+- Animation: transition-all duration-300 group-hover:w-full
+
+Icon Specifications:
+- Size: w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6
+- Animation: motion.svg with animate={{ x: [0, 4, 0] }}
+- Timing: duration: 1.5, repeat: Infinity, ease: "easeInOut"
+
+SECONDARY CTA BUTTON (Transparent Background)
+---------------------------------------------
+Container Classes:
+- Base: group relative w-full sm:w-auto min-h-[56px] touch-manipulation
+- Focus: focus:outline-none focus-visible:ring-2 focus-visible:ring-obsidian/50 focus-visible:ring-offset-2
+- Shape: rounded-full
+
+Gradient Glow Effect:
+- Container: absolute -inset-0.5 bg-gradient-to-r from-obsidian/30 to-obsidian/20 rounded-full blur
+- State: opacity-0 group-hover:opacity-100 transition duration-500
+
+Inner Button:
+- Layout: relative inline-flex items-center justify-center gap-3 sm:gap-4
+- Padding: px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5
+- Background: bg-obsidian/10 border border-obsidian/20 text-obsidian rounded-full
+- Text: text-base sm:text-base lg:text-lg font-medium
+- Responsive: w-full sm:w-auto
+
+Hover Effects:
+- Background: group-hover:bg-obsidian group-hover:text-bone group-hover:border-obsidian
+- Transform: group-hover:-translate-y-1
+- Active: group-active:scale-95
+
+Icon Specifications:
+- Size: w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6
+- Animation: transition-all duration-300 group-hover:rotate-45
+
+CARD CTA BUTTONS (Service Cards)
+--------------------------------
+Primary Card Button:
+- Layout: w-full px-5 py-3.5 rounded-2xl
+- Background: bg-gradient-to-r from-accent via-accent/95 to-accent text-obsidian
+- Text: text-base font-medium tracking-[0.05em]
+- Border: border border-accent/20 hover:border-accent/30
+- Hover: hover:from-accent/95 hover:via-accent/90 hover:to-accent/95
+- Shadow: hover:shadow-xl hover:shadow-accent/[0.15]
+- Transform: hover:-translate-y-1
+
+Secondary Card Button:
+- Layout: w-full px-5 py-3 rounded-2xl border-2 border-transparent
+- Background: bg-gradient-to-r from-obsidian/[0.02] via-obsidian/[0.05] to-obsidian/[0.02]
+- Text: text-obsidian/70 text-base font-light tracking-[0.05em]
+- Hover: hover:from-obsidian/[0.05] hover:via-obsidian/[0.08] hover:to-obsidian/[0.05]
+- Border: hover:border-obsidian/10
+- Text Hover: hover:text-obsidian/90
+
+LAYOUT & SPACING PATTERNS
+==========================
+
+HERO SECTION LAYOUT
+--------------------
+Container:
+- Height: min-h-screen flex items-center justify-center sm:justify-start
+- Padding: px-3 sm:px-6 lg:px-8
+- Overflow: overflow-hidden
+
+Content Container:
+- Max Width: max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl
+- Positioning: mx-auto sm:mx-0 sm:ml-8 md:ml-16 lg:ml-32 xl:ml-40 2xl:ml-48
+- Mobile Padding: px-4 sm:px-0
+
+Element Spacing:
+- Badge to Headline: mb-6 sm:mb-8
+- Headline to Subheadline: mb-4 sm:mb-6 lg:mb-8
+- Subheadline to CTA: mb-6 sm:mb-8 lg:mb-10 xl:mb-12
+- CTA to Social Proof: mt-6 sm:mt-8
+
+HERO HEIGHT SPECIFICATIONS:
+- Standard: min-h-screen (full viewport height)
+- Mobile: Full screen height maintained
+- Desktop: Full screen height maintained
+- Pattern: min-h-screen flex items-center justify-center sm:justify-start
+
+SERVICES SECTION LAYOUT
+------------------------
+Section Container:
+- Padding: py-20 sm:py-24 md:py-32 lg:py-40
+- Max Width: max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12
+
+Header Spacing:
+- Section Margin: mb-8 sm:mb-12 md:mb-16 lg:mb-20
+- Label to Header: mb-6 sm:mb-8
+- Header to Subheadline: mb-4 sm:mb-6 md:mb-8
+
+Cards Grid:
+- Layout: grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
+- Gap: gap-6 lg:gap-8
+- Bottom Margin: mb-12 lg:mb-16
+
+3D-CARD MOBILE OPTIMIZATION:
+- CardContainer: className="inter-var py-0 w-full h-[420px]" (standard)
+- CardContainer: className="inter-var py-0 w-full h-[480px]" (for longer content)
+- CardContainer: containerClassName="py-0 flex items-start justify-start w-full h-full"
+- CardBody: Override default h-96 w-96 with w-full h-full min-w-[320px] max-w-none
+- Mobile Safety: min-w-[320px] prevents card cutting on small screens
+- Height Control: Fixed heights ensure consistent card heights (adjust based on content length)
+- Content Length: Longer descriptions require taller cards (480px vs 420px)
+- Padding Override: py-0 removes default CardContainer padding that causes mobile issues
+
+CARD HEIGHT GUIDELINES:
+- Standard Content (≤50 chars description): h-[420px]
+- Long Content (>80 chars description): h-[480px]
+- Extra Long Content (>120 chars): h-[520px] or higher
+- Test on mobile to ensure no content cutting
+
+Card Internal Spacing:
+- Container: p-6 lg:p-8
+- Title Margin: mb-3
+- Context Margin: mb-4
+- Visual Element: mb-4
+- Description Margin: mb-5
+- Button Gap: gap-3
+
+METRICS SECTION LAYOUT
+-----------------------
+Section Container:
+- Padding: py-8 sm:py-12 lg:py-16
+- Background: bg-gradient-to-br from-obsidian via-obsidian/95 to-obsidian
+- Max Width: max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
+
+Mobile Layout (lg:hidden):
+- Structure: Single column with centered content
+- Header Margin: mb-6 sm:mb-8
+- Grid: grid-cols-1 gap-4
+- Bottom Message: mt-6 sm:mt-8
+
+Desktop Layout (hidden lg:block):
+- Structure: grid lg:grid-cols-12 gap-16 items-center
+- Left Side: lg:col-span-5 (Header & Description)
+- Right Side: lg:col-span-7 (Metrics Grid)
+- Metrics Grid: grid-cols-3 gap-6
+
+Metrics Card Spacing:
+- Mobile: p-4 sm:p-6
+- Desktop: p-4 xl:p-6
+- Value Margin: mb-2 sm:mb-3 (mobile) | mb-3 (desktop)
+- Label Margin: mb-2 sm:mb-3 (mobile) | mb-3 (desktop)
+
+VISUAL EFFECTS & ANIMATIONS
+============================
+
+BACKGROUND EFFECTS
+-------------------
+Hero Background Layers:
+1. Background Image: bg-cover bg-center bg-no-repeat
+2. Base Overlay: bg-background/70 sm:bg-background/60
+3. Gradient Overlay: bg-gradient-to-br from-background/90 via-background/70 to-accent/30
+
+Floating Orbs:
+- Primary: w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-br from-accent/20 to-accent/10
+- Secondary: w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-tr from-accent/15 to-accent/8
+- Animation: animate-pulse with custom durations (4s, 6s)
+
+Strategic Flow Lines (SVG):
+- Gradient: linearGradient from transparent to accent with opacity variations
+- Animation: pathLength and opacity animations with staggered delays
+- Timing: 8+ second durations with infinite repeat
+
+Grid Pattern:
+- Pattern: linear-gradient overlays for subtle texture
+- Size: bg-[size:4rem_4rem] sm:bg-[size:6rem_6rem]
+- Opacity: Very low (0.015) for subtle effect
+
+Metrics Background Effects:
+- Data Streams: Animated horizontal lines with gradient opacity
+- Fast Streams: 8 lines with 3-4s duration, linear movement
+- Slow Streams: 6 lines with 8-9s duration, wider movement
+- Floating Particles: Fixed positioned dots with vertical float animation
+- Connection Lines: Horizontal lines between desktop metrics with data pulse
+- Card Backgrounds: Multi-layer gradients with backdrop-blur-xl
+
+ANIMATION PATTERNS
+------------------
+Mount Animations:
+- Pattern: opacity-0 translate-y-8 → opacity-100 translate-y-0
+- Duration: transition-all duration-1000
+- Staggered Delays: 0ms, 300ms, 500ms for sequential elements
+
+Card Hover Effects:
+- Scale: hover:scale-[1.02]
+- Shadow: hover:shadow-2xl hover:shadow-obsidian/[0.06]
+- Transform: hover:-translate-y-2
+- Duration: transition-all duration-1000 ease-out
+
+Button Animations:
+- Hover Transform: group-hover:-translate-y-1
+- Active Scale: group-active:scale-95
+- Glow Effects: opacity-0 group-hover:opacity-100
+- Icon Movements: Subtle translations and rotations
+
+Metrics Animations:
+- Counter Animation: Eased number counting with staggered delays
+- Card Hover: Scale animation (1.05) on metric values
+- Glow Effects: Pulsing box-shadow on hover with 2s duration
+- Bottom Accent: Animated gradient line on card hover
+- Connection Pulse: Moving dot along connection lines (4s duration)
+
+COLOR SYSTEM
+============
+
+PRIMARY COLORS
+--------------
+- Accent: #FFE0D7 (warm peach)
+- Obsidian: #1E293B (dark slate)
+- Bone: #F5F4F1 (warm white)
+- Background: CSS variable (context-dependent)
+- Foreground: CSS variable (context-dependent)
+
+OPACITY VARIATIONS
+------------------
+Text Opacity Levels:
+- Primary Text: text-obsidian (100%)
+- Secondary Text: text-obsidian/80 (80%)
+- Tertiary Text: text-obsidian/70 (70%)
+- Muted Text: text-obsidian/60 (60%)
+- Subtle Text: text-obsidian/55 (55%)
+- Placeholder Text: text-obsidian/50 (50%)
+
+Background Opacity Levels:
+- Accent Backgrounds: accent/10, accent/15, accent/20
+- Obsidian Backgrounds: obsidian/5, obsidian/8, obsidian/10
+- Border Opacity: accent/20, obsidian/15, obsidian/20
+
+Dark Theme Text Opacity (Metrics):
+- Primary Text: text-bone (100%)
+- Secondary Text: text-bone/80 (80%)
+- Tertiary Text: text-bone/70 (70%)
+- Hover Text: text-bone/90 (90%)
+
+GRADIENT PATTERNS
+-----------------
+Text Gradients:
+- Standard: from-obsidian via-accent to-obsidian
+- Animated: bg-[length:200%_100%] animate-gradient
+
+Background Gradients:
+- Card Accents: from-accent/15 to-accent/5
+- Hover Effects: from-accent/5 via-accent/10 to-accent/5
+- Button Glows: from-accent/40 to-accent/20
+
+Dark Theme Gradients (Metrics):
+- Section Background: from-obsidian via-obsidian/95 to-obsidian
+- Card Backgrounds: from-obsidian/40 via-obsidian/60 to-obsidian/80
+- Card Hover: from-obsidian/30 via-obsidian/50 to-obsidian/70
+- Text Gradients: from-bone via-accent to-bone
+
+RESPONSIVE BREAKPOINTS
+======================
+
+BREAKPOINT STRATEGY
+-------------------
+- Mobile First: Base styles for mobile (320px+)
+- sm: 640px+ (Small tablets, large phones)
+- md: 768px+ (Tablets)
+- lg: 1024px+ (Small desktops)
+- xl: 1280px+ (Large desktops)
+- 2xl: 1536px+ (Extra large screens)
+
+TEXT SCALING PATTERNS
+---------------------
+Mobile Enhanced Pattern:
+- Mobile: Larger base size for readability
+- Desktop: Progressive scaling with breakpoints
+- Example: text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
+
+Consistent Pattern:
+- Same size across breakpoints with occasional large screen boost
+- Example: text-lg sm:text-lg md:text-xl lg:text-2xl
+
+Progressive Pattern:
+- Steady increase across breakpoints
+- Example: text-sm sm:text-base md:text-lg lg:text-xl
+
+LAYOUT RESPONSIVE PATTERNS
+---------------------------
+Container Widths:
+- Mobile: Full width with padding
+- Desktop: Max-width constraints with auto margins
+- Hero: Asymmetric positioning (left-aligned on desktop)
+
+Grid Patterns:
+- Mobile: Single column (grid-cols-1)
+- Tablet: Two columns (md:grid-cols-2)
+- Desktop: Four columns (lg:grid-cols-4)
+
+Metrics Grid Patterns:
+- Mobile: Single column (grid-cols-1) with gap-4
+- Desktop: Three columns (grid-cols-3) with gap-6
+- Layout Switch: lg:hidden for mobile, hidden lg:block for desktop
+
+Spacing Adjustments:
+- Mobile: Tighter spacing for screen real estate
+- Desktop: More generous spacing for visual breathing room
+- Pattern: py-20 sm:py-24 md:py-32 lg:py-40
+
+ACCESSIBILITY STANDARDS
+========================
+
+TOUCH TARGETS
+-------------
+- Minimum Height: min-h-[56px] for all interactive elements
+- Touch Manipulation: touch-manipulation class for better mobile performance
+- Focus States: focus-visible:ring-2 with appropriate colors
+
+TEXT CONTRAST
+-------------
+- Primary Text: High contrast ratios (obsidian on light backgrounds)
+- Secondary Text: Reduced opacity but still readable (70-80%)
+- Interactive Text: Clear hover states with color/opacity changes
+
+KEYBOARD NAVIGATION
+-------------------
+- Focus Indicators: Visible focus rings on all interactive elements
+- Focus Management: Proper tab order and focus trapping where needed
+- Outline Removal: focus:outline-none only when focus-visible is provided
+
+SCREEN READER SUPPORT
+---------------------
+- Semantic HTML: Proper heading hierarchy (h1, h2, h3)
+- Alt Text: Descriptive alt attributes for images
+- ARIA Labels: Where semantic HTML isn't sufficient
+
+IMPLEMENTATION GUIDELINES
+==========================
+
+CONSISTENCY CHECKLIST
+----------------------
+□ Text sizes follow established patterns
+□ CTA buttons use standard specifications
+□ Spacing follows responsive patterns
+□ Colors use defined opacity levels
+□ Animations use consistent timing
+□ Touch targets meet minimum requirements
+□ Focus states are properly implemented
+□ Responsive behavior matches patterns
+
+PERFORMANCE CONSIDERATIONS
+--------------------------
+- Use CSS transforms for animations (better performance)
+- Implement proper loading states for dynamic content
+- Optimize background images and effects
+- Use appropriate animation durations (not too fast/slow)
+- Consider reduced motion preferences
+
+MAINTENANCE NOTES
+-----------------
+- Update this document when patterns evolve
+- Test new components against established patterns
+- Ensure new breakpoints are consistently applied
+- Validate accessibility compliance regularly
+
+COMPONENT-SPECIFIC PATTERNS
+===========================
+
+METRICS COMPONENT SPECIFICATIONS
+---------------------------------
+Counter Animation Logic:
+- Target Numbers: Extract from value strings (30, 1.6, 15000)
+- Animation Duration: 1200ms with eased transition (cubic ease-out)
+- Stagger Delay: 200ms between each metric animation
+- Start Delay: 800ms after component enters viewport
+- Format Display: Conditional formatting based on value type
+
+Card Interaction States:
+- Default: Semi-transparent background with subtle border
+- Hover: Enhanced background opacity and border accent
+- Active: Scale animation on metric values (1.05)
+- Glow: Pulsing box-shadow effect with 2s duration
+
+Responsive Layout Strategy:
+- Mobile: Vertical stack with full-width cards
+- Desktop: Split layout with description left, metrics right
+- Breakpoint: lg (1024px) for layout switch
+- Connection Lines: Desktop only with animated data pulse
+
+DELIVERABLES SHOWCASE COMPONENT SPECIFICATIONS
+==============================================
+Based on StrategyDeliverablesShowcase.tsx - for product/service deliverables display
+
+DELIVERABLES SECTION TEXT SIZING
+---------------------------------
+
+SECTION LABEL:
+- Size: text-sm
+- Usage: Section category indicators
+- Style: font-medium text-obsidian/60 tracking-[0.2em] uppercase
+- Example: "Deliverables"
+
+SECTION HEADER (H2):
+- Size: text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
+- Usage: Main deliverables section titles
+- Style: font-display tracking-[-0.02em] leading-[0.9]
+- Pattern: Often uses gradient text effects
+- Example: "Tangible assets you can implement immediately"
+
+SECTION SUBHEADLINE:
+- Size: text-lg sm:text-lg md:text-xl lg:text-2xl
+- Usage: Section descriptive text
+- Style: text-obsidian/80 font-light leading-relaxed
+- Max Width: max-w-4xl mx-auto
+- Example: "No abstract frameworks—just practical tools..."
+
+DELIVERABLE CARD TITLES (H3):
+- Size: text-lg
+- Usage: Individual deliverable titles
+- Style: font-display font-semibold text-obsidian leading-tight tracking-[-0.015em]
+- Example: "Market Analysis Report", "Financial Projections Model"
+
+DELIVERABLE CARD DESCRIPTIONS:
+- Size: text-base
+- Usage: Deliverable detailed descriptions
+- Style: text-obsidian/60 leading-[1.6] font-light tracking-wide
+- Hover: group-hover:text-obsidian/70
+- Example: "Competitor breakdown with identified opportunities."
+
+CATEGORY BADGES:
+- Size: text-sm
+- Usage: Deliverable category labels
+- Style: font-medium text-obsidian/70 tracking-wide uppercase
+- Container: px-3 py-1.5 bg-gradient-to-r from-accent/10 to-accent/5 rounded-full
+- Mobile Enhanced: text-sm font-semibold (mobile carousel)
+- Example: "Intelligence", "Financial", "Strategy"
+
+CAROUSEL NAVIGATION TEXT:
+- Size: text-sm
+- Usage: Progress indicators, status text, auto-play indicators
+- Style: text-obsidian/40 font-medium (progress) | text-obsidian/60 font-medium (status)
+- Example: "1 of 12", "Auto-advancing", "Paused"
+
+DELIVERABLES LAYOUT PATTERNS
+-----------------------------
+
+Desktop Grid Layout:
+- Container: grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8
+- Cards: Full height with flex flex-col for consistent sizing
+- Hover Effects: Scale, shadow, and border accent animations
+- Background: Gradient overlays with premium border effects
+
+Mobile Carousel Layout:
+- Container: Horizontal scroll with snap points
+- Card Width: Fixed 320px for consistent sizing
+- Centering: Active card centered with offset calculation
+- Navigation: Dots, arrows, and progress bar
+- Auto-play: 4-second intervals with pause on interaction
+
+Card Internal Structure:
+- Category Badge: Top with icon and label
+- Title: Prominent heading with proper hierarchy
+- Description: Flexible content area
+- Visual Effects: Hover indicators, gradient accents, animated patterns
+
+DELIVERABLES ANIMATION PATTERNS
+-------------------------------
+
+Mount Animations:
+- Staggered entrance: index * 0.05 delay for desktop, index * 0.03 for mobile
+- Pattern: opacity-0 y-40 → opacity-1 y-0
+- Duration: 0.8s with premium easing [0.21, 0.47, 0.32, 0.98]
+
+Carousel Animations:
+- Slide Transition: Spring animation with stiffness: 400, damping: 40
+- Active Card: Scale 1.02 with enhanced opacity
+- Inactive Cards: Reduced scale (0.95-0.98) and opacity (0.6-0.8)
+- Drag Feedback: Progress indicator and smooth snapping
+
+Card Hover Effects:
+- Desktop: Scale 1.02, shadow enhancement, border accent
+- Mobile: Enhanced background and border on active state
+- Duration: 1000ms ease-out for premium feel
+- Glow Effects: Animated gradient borders and accent lines
+
+Navigation Animations:
+- Dots: Scale and color transitions with active state glow
+- Arrows: Scale on hover/tap with background accent
+- Progress Bar: Smooth width transitions with gradient fill
+- Auto-play Indicator: Pulsing dot with status text
+
+DELIVERABLES RESPONSIVE BEHAVIOR
+--------------------------------
+
+Breakpoint Strategy:
+- Mobile: Single carousel with centered active card
+- Desktop: Multi-column grid with hover interactions
+- Switch Point: md (768px) for layout change
+
+Mobile Optimizations:
+- Touch-friendly drag interactions with velocity detection
+- Auto-play with pause on user interaction
+- Enhanced text sizing for readability
+- Proper touch targets for navigation controls
+
+Desktop Enhancements:
+- Grid layout with consistent card heights
+- Sophisticated hover effects and animations
+- Premium visual effects (gradients, shadows, borders)
+- Optimized spacing and typography scaling
+
+DELIVERABLES ACCESSIBILITY FEATURES
+-----------------------------------
+
+Keyboard Navigation:
+- Focusable carousel controls with proper focus indicators
+- Arrow key support for navigation
+- Tab order respects visual layout
+
+Touch Interactions:
+- Drag gestures with proper velocity thresholds
+- Touch targets meet minimum 44px requirements
+- Smooth scrolling with momentum
+
+Screen Reader Support:
+- Proper heading hierarchy (h2 → h3)
+- Descriptive labels for navigation controls
+- Status announcements for carousel changes
+
+Visual Accessibility:
+- High contrast ratios for all text
+- Clear focus indicators
+- Reduced motion support for animations
+
+IMPLEMENTATION GUIDELINES
+-------------------------
+
+Consistency Requirements:
+□ Follow established text sizing patterns
+□ Use standard card layout structure
+□ Implement proper responsive behavior
+□ Include accessibility features
+□ Apply consistent animation timing
+□ Use defined color and spacing patterns
+
+Performance Considerations:
+- Optimize carousel rendering for smooth scrolling
+- Use CSS transforms for animations
+- Implement proper loading states
+- Consider intersection observer for mount animations
+
+Maintenance Notes:
+- Update card content structure consistently
+- Test carousel behavior across devices
+- Validate accessibility compliance
+- Ensure responsive breakpoints work properly
+
+VALUE PROPOSITION COMPONENT SPECIFICATIONS
+==========================================
+Based on StrategyConsultingValueProp.tsx - for value proposition and benefit display
+
+VALUE PROPOSITION SECTION TEXT SIZING
+--------------------------------------
+
+MAIN VALUE PROPOSITION HEADER (H2):
+- Size: text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
+- Usage: Primary value proposition headlines
+- Style: font-display tracking-[-0.02em] leading-[0.9]
+- Pattern: Often uses gradient text effects
+- Example: "Built around your people, your constraints, your reality"
+
+VALUE PROPOSITION DESCRIPTION:
+- Size: text-lg sm:text-lg md:text-xl
+- Usage: Value proposition explanatory text
+- Style: text-obsidian/70 font-light leading-[1.6]
+- Max Width: max-w-3xl mx-auto
+- Example: "You've probably been burned by strategy work before..."
+
+VALUE POINT TITLES (H3):
+- Size: text-lg
+- Usage: Individual value point titles
+- Style: font-display font-semibold text-obsidian tracking-[-0.01em] leading-tight
+- Pattern: Often uses line breaks for visual impact
+- Example: "Clear<br/>Ownership", "Actionable<br/>Roadmaps"
+
+VALUE POINT DESCRIPTIONS:
+- Size: text-base
+- Usage: Value point detailed descriptions
+- Style: text-obsidian/65 leading-[1.6] font-light
+- Example: "Every strategic initiative has a named owner..."
+
+VALUE PROPOSITION LAYOUT PATTERNS
+----------------------------------
+
+Section Container:
+- Padding: py-16 sm:py-20 lg:py-24
+- Background: bg-white
+- Max Width: max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12
+- Content Width: max-w-4xl mx-auto
+
+Header Layout:
+- Alignment: text-center
+- Header Margin: mb-4 sm:mb-6
+- Description Container: max-w-3xl mx-auto
+- Section Margin: mb-8 sm:mb-12
+
+Value Points Grid:
+- Layout: grid md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10
+- Cards: Full height with relative positioning
+- Background: Layered card design with hover effects
+
+Card Internal Structure:
+- Padding: p-6 sm:p-8 text-center
+- Icon Container: w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 sm:mb-8
+- Title Margin: mb-4 sm:mb-5
+- Content: Flexible description area
+
+VALUE PROPOSITION VISUAL EFFECTS
+---------------------------------
+
+Card Background Effects:
+- Base Layer: absolute inset-0 bg-gradient-to-br from-white to-bone/30
+- Shadow: shadow-[0_8px_30px_rgb(0,0,0,0.04)]
+- Hover Shadow: group-hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]
+- Hover Transform: group-hover:-translate-y-1
+- Duration: transition-all duration-500
+
+Icon Container Effects:
+- Base Background: bg-gradient-to-br from-accent/15 to-accent/5
+- Overlay: bg-gradient-to-tr from-transparent via-accent/10 to-transparent
+- Shape: rounded-2xl
+- Icon Hover: group-hover:scale-110 transition-transform duration-300
+
+Icon Specifications:
+- Size: w-8 h-8 sm:w-10 sm:h-10
+- Color: text-accent
+- Style: Heroicons with strokeWidth={1.5}
+- Animation: Scale on hover with smooth transition
+
+Mount Animations:
+- Pattern: opacity-0 translate-y-8 → opacity-100 translate-y-0
+- Duration: transition-all duration-1000
+- Trigger: Component mount state
+
+VALUE PROPOSITION RESPONSIVE BEHAVIOR
+-------------------------------------
+
+Breakpoint Strategy:
+- Mobile: Single column layout with stacked cards
+- Desktop: Three-column grid (md:grid-cols-3)
+- Switch Point: md (768px) for grid layout
+
+Mobile Optimizations:
+- Enhanced text sizing for readability
+- Proper spacing between cards
+- Touch-friendly card interactions
+- Optimized icon and padding sizes
+
+Desktop Enhancements:
+- Grid layout with equal height cards
+- Sophisticated hover effects and animations
+- Premium visual effects (gradients, shadows)
+- Optimized spacing and typography scaling
+
+VALUE PROPOSITION ACCESSIBILITY FEATURES
+-----------------------------------------
+
+Visual Hierarchy:
+- Proper heading structure (h2 → h3)
+- Clear contrast ratios for all text
+- Consistent spacing and alignment
+
+Interactive Elements:
+- Hover states provide visual feedback
+- Smooth transitions for better UX
+- Proper focus indicators where needed
+
+Content Structure:
+- Semantic HTML with proper heading hierarchy
+- Descriptive content that works with screen readers
+- Clear visual separation between value points
+
+VALUE PROPOSITION IMPLEMENTATION GUIDELINES
+--------------------------------------------
+
+Consistency Requirements:
+□ Follow established text sizing patterns
+□ Use standard card layout structure
+□ Implement proper responsive behavior
+□ Apply consistent spacing patterns
+□ Use defined color and visual effects
+□ Maintain proper heading hierarchy
+
+Content Guidelines:
+- Keep value point titles concise and impactful
+- Use line breaks strategically for visual emphasis
+- Ensure descriptions are clear and benefit-focused
+- Maintain consistent tone and messaging
+
+Visual Guidelines:
+- Use consistent icon styling and sizing
+- Apply standard hover effects and animations
+- Maintain proper contrast and readability
+- Ensure cards have equal visual weight
+
+Performance Considerations:
+- Optimize gradient and shadow effects
+- Use CSS transforms for smooth animations
+- Implement proper loading states
+- Consider reduced motion preferences
+
+STRATEGY CTA COMPONENT SPECIFICATIONS
+=====================================
+Based on StrategyCTA.tsx - for call-to-action sections with dark theme
+
+STRATEGY CTA SECTION TEXT SIZING
+---------------------------------
+
+CTA MAIN HEADER (H2):
+- Size: text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
+- Usage: Primary CTA section headlines
+- Style: font-display tracking-[-0.02em] leading-[0.9]
+- Pattern: Uses gradient text effects on dark background
+- Example: "Ready to architect your future?"
+
+CTA DESCRIPTION TEXT:
+- Size: text-lg sm:text-lg
+- Usage: CTA explanatory text and supporting statements
+- Style: text-bone/75 font-light (primary) | text-bone/70 font-light (secondary)
+- Max Width: max-w-2xl mx-auto (mobile) | max-w-2xl (desktop)
+- Example: "Strategic clarity isn't built overnight—but transformation can begin today."
+
+CTA CLOSING STATEMENT:
+- Size: text-base
+- Usage: Final tagline or closing thought
+- Style: text-bone/50 font-light italic
+- Example: "Where strategic thinking meets unstoppable execution"
+
+CTA BUTTON TEXT:
+- Size: text-base
+- Usage: Button labels for both primary and secondary CTAs
+- Style: font-medium with proper contrast
+- Mobile Enhancement: Enhanced from text-sm sm:text-base to text-base
+- Example: "Begin strategic planning", "Learn our approach"
+
+STRATEGY CTA LAYOUT PATTERNS
+-----------------------------
+
+Section Container:
+- Padding: py-20 sm:py-24 md:py-32
+- Background: bg-obsidian with gradient overlays
+- Max Width: max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12
+- Overflow: overflow-hidden for visual effects
+
+Mobile Layout (lg:hidden):
+- Structure: Single column with centered content
+- Header Margin: mb-12
+- Visual Element: DNA helix with h-80 mb-12
+- CTA Buttons: Stacked vertically with space-y-4
+
+Desktop Layout (hidden lg:grid):
+- Structure: grid-cols-12 gap-16 items-center min-h-[60vh]
+- Content Side: col-span-7 space-y-12 text-left
+- Visual Side: col-span-5 relative h-96 lg:h-full
+- CTA Buttons: Horizontal layout with space-x-6
+
+Button Layout:
+- Mobile: w-full stacked buttons
+- Desktop: Inline buttons with proper spacing
+- Touch Targets: Proper padding for accessibility
+- Icon Spacing: gap-3 sm:gap-4 for mobile, additional lg:gap-4 for desktop
+
+STRATEGY CTA VISUAL EFFECTS
+----------------------------
+
+Dark Theme Color System:
+- Background: bg-obsidian with gradient overlays
+- Text Colors: text-bone variations (bone/75, bone/70, bone/50)
+- Accent Colors: accent for highlights and CTAs
+- Gradient Text: from-bone via-accent to-bone
+
+Background Effects:
+- Static Gradient: bg-gradient-to-br from-accent/5 via-transparent to-accent/8
+- Parallax Motion: Dynamic background with scroll-based transforms
+- Strategic Flow Lines: Animated SVG paths with gradient strokes
+- DNA Helix Visual: Complex 3D-effect animation with rotating strands
+
+Button Visual Effects:
+- Primary CTA: accent background with obsidian text
+- Secondary CTA: obsidian background with bone text
+- Glow Effects: Gradient blur backgrounds on hover
+- Icon Animations: Slide transitions and rotation effects
+- Hover States: Transform, shadow, and color transitions
+
+DNA Helix Specifications:
+- Mobile: 320x320 viewBox with 20 elements per strand
+- Desktop: 400x400 viewBox with 24 elements per strand
+- Animations: Rotating strands, pulsing center, connection opacity
+- Colors: #FFE0D7 (cream) and #FFFFFF (white) strands
+- Effects: 3D depth simulation with opacity based on z-position
+
+STRATEGY CTA RESPONSIVE BEHAVIOR
+---------------------------------
+
+Breakpoint Strategy:
+- Mobile: Single column layout with stacked elements
+- Desktop: Two-column layout with visual and content sides
+- Switch Point: lg (1024px) for major layout change
+
+Mobile Optimizations:
+- Enhanced text sizing for dark theme readability
+- Full-width buttons with proper touch targets
+- Centered layout with adequate spacing
+- Simplified DNA helix visual (smaller, fewer elements)
+
+Desktop Enhancements:
+- Left-aligned content with sophisticated visual on right
+- Larger DNA helix with more complex animations
+- Horizontal button layout with enhanced sizing
+- Advanced parallax and scroll-based animations
+
+Dark Theme Considerations:
+- Higher contrast ratios for text on dark backgrounds
+- Proper accent color usage for CTAs and highlights
+- Gradient text effects for visual interest
+- Bone color variations for text hierarchy
+
+STRATEGY CTA ACCESSIBILITY FEATURES
+------------------------------------
+
+Dark Theme Accessibility:
+- High contrast text colors (bone on obsidian)
+- Proper color ratios for all text elements
+- Clear visual hierarchy with size and opacity variations
+
+Interactive Elements:
+- Proper focus states for buttons
+- Touch-friendly button sizing and spacing
+- Clear hover and active states
+- Keyboard navigation support
+
+Visual Effects:
+- Reduced motion considerations for animations
+- Non-essential animations don't interfere with content
+- Proper contrast maintained during hover states
+
+Content Structure:
+- Semantic HTML with proper heading hierarchy
+- Clear call-to-action messaging
+- Logical tab order for interactive elements
+
+STRATEGY CTA IMPLEMENTATION GUIDELINES
+---------------------------------------
+
+Consistency Requirements:
+□ Follow established text sizing patterns for dark themes
+□ Use proper bone/obsidian color combinations
+□ Implement responsive layout switching at lg breakpoint
+□ Apply consistent button styling and interactions
+□ Maintain proper spacing and visual hierarchy
+□ Include sophisticated visual effects appropriately
+
+Dark Theme Guidelines:
+- Use bone color variations for text hierarchy
+- Apply accent colors strategically for CTAs and highlights
+- Ensure sufficient contrast ratios throughout
+- Test readability across different devices and lighting
+
+Visual Guidelines:
+- DNA helix should be subtle and not distract from content
+- Background animations should enhance, not overwhelm
+- Button interactions should feel premium and responsive
+- Gradient effects should be tasteful and purposeful
+
+Performance Considerations:
+- Optimize complex SVG animations for smooth performance
+- Use CSS transforms for better animation performance
+- Consider reduced motion preferences
+- Implement proper loading states for visual effects
+
+FOOTER COMPONENT SPECIFICATIONS
+================================
+Based on Footer.tsx - for site footer with dark theme and contact CTAs
+
+FOOTER SECTION TEXT SIZING
+---------------------------
+
+FOOTER BRAND HEADER (H2):
+- Size: text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
+- Usage: Main brand/company name in footer
+- Style: font-display text-bone
+- Pattern: Follows Main Headers pattern with mobile enhancement
+- Example: "NextStage"
+
+FOOTER BRAND DESCRIPTION:
+- Size: text-lg
+- Usage: Company tagline and description
+- Style: text-bone/70 font-light leading-relaxed
+- Max Width: max-w-md mx-auto (mobile) | max-w-md (desktop)
+- Example: "Where strategy, design, and technology converge..."
+
+FOOTER SECTION HEADERS (H3):
+- Size: text-lg
+- Usage: Navigation section titles, newsletter header
+- Style: font-display text-bone font-medium
+- Mobile: text-lg (consistent)
+- Desktop: text-lg (consistent)
+- Example: "Services", "Company", "Connect"
+
+NEWSLETTER HEADER (H3):
+- Size: text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
+- Usage: Newsletter signup section title
+- Style: font-display text-bone
+- Pattern: Follows Component Headers pattern
+- Example: "Transformation Insights"
+
+FOOTER NAVIGATION LINKS:
+- Size: text-base
+- Usage: All footer navigation links
+- Style: text-bone/60 hover:text-accent font-light
+- Mobile Enhancement: Enhanced from text-sm to text-base
+- Touch Targets: Proper padding for mobile interaction
+- Example: "Digital Transformation", "About", "LinkedIn"
+
+FOOTER CONTACT INFORMATION:
+- Size: text-lg
+- Usage: Email addresses and phone numbers
+- Style: text-bone font-medium group-hover:text-accent
+- Mobile Enhancement: Enhanced from text-xl to text-lg for consistency
+- Example: "hello@nextstage.com", "+1 (234) 567-8900"
+
+FOOTER LABELS:
+- Size: text-sm
+- Usage: Contact labels and category indicators
+- Style: text-bone/50 font-medium tracking-wide uppercase
+- Example: "Ready to begin?", "Start a conversation", "Based in"
+
+FOOTER BODY TEXT:
+- Size: text-base
+- Usage: Location info, copyright, legal links, signature
+- Style: text-bone/70 font-light (content) | text-bone/50 (legal) | text-bone/30 (signature)
+- Mobile Enhancement: Enhanced from text-sm/text-xs to text-base
+- Example: "San Francisco, California", "© 2024 NextStage"
+
+FOOTER FORM ELEMENTS:
+- Input Text: text-base
+- Button Text: text-base
+- Style: Consistent with CTA button specifications
+- Touch Targets: min-h-[56px] for accessibility
+- Example: Newsletter signup form
+
+FOOTER LAYOUT PATTERNS
+-----------------------
+
+Section Container:
+- Background: bg-obsidian with border-t border-bone/10
+- Padding: py-12 sm:py-16 lg:py-20 (main content)
+- Max Width: max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12
+- Overflow: overflow-hidden for background patterns
+
+Mobile Layout (lg:hidden):
+- Structure: Single column with space-y-10
+- Brand Section: text-center space-y-6
+- Contact Cards: Enhanced touch-friendly cards with p-4
+- Navigation: Accordion-style cards with bg-bone/5
+- Services: Full-width card
+- Company/Connect: Two-column grid (grid-cols-2 gap-4)
+
+Desktop Layout (hidden lg:grid):
+- Structure: grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16
+- Brand Section: lg:col-span-5 space-y-8
+- Navigation: lg:col-span-7 grid sm:grid-cols-3 gap-8 lg:gap-12
+- Contact: Hover animations with x-axis movement
+
+Newsletter Section:
+- Padding: py-8 sm:py-12 border-t border-bone/10
+- Layout: max-w-2xl mx-auto text-center lg:text-left
+- Form: flex flex-col sm:flex-row gap-4
+- Input: flex-1 with proper focus states
+- Button: CTA button specifications with min-h-[56px]
+
+Bottom Bar:
+- Padding: py-6 sm:py-8 border-t border-bone/10
+- Layout: flex flex-col sm:flex-row justify-between items-center gap-6
+- Copyright: flex flex-col sm:flex-row items-center gap-4 sm:gap-6
+- Social Icons: flex items-center gap-3
+
+FOOTER VISUAL EFFECTS
+----------------------
+
+Dark Theme Color System:
+- Background: bg-obsidian
+- Text Colors: text-bone variations (bone, bone/70, bone/60, bone/50, bone/30)
+- Accent Colors: accent for highlights and hover states
+- Borders: border-bone/10, border-bone/20
+
+Background Effects:
+- Subtle Grid Pattern: SVG pattern with opacity-[0.02]
+- Pattern: 10x10 grid with bone stroke
+- Overlay: Positioned absolute inset-0
+
+Contact Card Effects (Mobile):
+- Background: bg-bone/5 border border-bone/10
+- Hover: hover:border-accent/30
+- Animation: whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+- Touch: touch-manipulation class
+
+Navigation Card Effects:
+- Background: bg-bone/5 border border-bone/10 rounded-2xl
+- Link Hover: hover:text-accent hover:bg-bone/5
+- Animation: Scale animations on interaction
+- Touch Targets: Proper padding for mobile
+
+Newsletter Form Effects:
+- Input Focus: focus:border-accent focus:ring-2 focus:ring-accent/20
+- Button: Standard CTA button with accent background
+- Icon Animation: Animated arrow with x-axis movement
+- Hover: Scale animations (1.02/0.98)
+
+Social Icon Effects:
+- Container: w-12 h-12 bg-bone/5 border border-bone/20 rounded-2xl
+- Hover: hover:text-accent hover:border-accent/50
+- Animation: whileHover={{ scale: 1.1, y: -2 }}
+- Touch: touch-manipulation with proper sizing
+
+FOOTER RESPONSIVE BEHAVIOR
+---------------------------
+
+Breakpoint Strategy:
+- Mobile: Single column layout with card-based navigation
+- Desktop: Multi-column layout with traditional footer structure
+- Switch Point: lg (1024px) for major layout change
+
+Mobile Optimizations:
+- Enhanced text sizing for dark theme readability
+- Touch-friendly contact cards with proper targets
+- Card-based navigation for better organization
+- Full-width elements with adequate spacing
+- Accordion-style navigation sections
+
+Desktop Enhancements:
+- Traditional footer layout with brand and navigation columns
+- Hover animations with subtle movement effects
+- Larger text sizing for better hierarchy
+- Horizontal form layout for newsletter signup
+- Social icons with enhanced hover effects
+
+Dark Theme Considerations:
+- High contrast text colors (bone variations on obsidian)
+- Proper accent color usage for interactive elements
+- Subtle background patterns that don't interfere
+- Clear visual hierarchy with opacity variations
+
+FOOTER ACCESSIBILITY FEATURES
+------------------------------
+
+Dark Theme Accessibility:
+- High contrast ratios for all text elements
+- Clear visual hierarchy with size and opacity
+- Proper focus states for interactive elements
+
+Touch Interactions:
+- Minimum 44px touch targets (56px preferred)
+- touch-manipulation class for better performance
+- Proper spacing between interactive elements
+- Clear hover and active states
+
+Form Accessibility:
+- Proper focus indicators for input fields
+- Clear placeholder text with sufficient contrast
+- Accessible button sizing and labeling
+
+Content Structure:
+- Semantic HTML with proper heading hierarchy
+- Clear section organization and labeling
+- Logical tab order for interactive elements
+- Screen reader friendly content structure
+
+FOOTER IMPLEMENTATION GUIDELINES
+---------------------------------
+
+Consistency Requirements:
+□ Follow established text sizing patterns for dark themes
+□ Use proper bone/obsidian color combinations
+□ Implement responsive layout switching at lg breakpoint
+□ Apply consistent touch targets and interactions
+□ Maintain proper spacing and visual hierarchy
+□ Include appropriate background effects
+
+Dark Theme Guidelines:
+- Use bone color variations for clear text hierarchy
+- Apply accent colors strategically for interactive elements
+- Ensure sufficient contrast ratios throughout
+- Test readability across different devices
+
+Mobile Guidelines:
+- Use card-based layout for better organization
+- Ensure all interactive elements are touch-friendly
+- Provide clear visual feedback for interactions
+- Optimize spacing for mobile screen constraints
+
+Performance Considerations:
+- Optimize SVG background patterns for smooth rendering
+- Use CSS transforms for better animation performance
+- Consider reduced motion preferences
+- Implement proper loading states
+
+LAST UPDATED
+============
+Based on Strategy Consulting service pages implementation
+Reference files: StrategyConsultingHero.tsx, StrategyConsultingServices.tsx, StrategyMetrics.tsx, StrategyDeliverablesShowcase.tsx, StrategyConsultingValueProp.tsx, StrategyCTA.tsx, Footer.tsx, BrandDesignConsultingHero.tsx (min-h-screen), BrandDesignConsultingServices.tsx (h-[480px]), BrandDesignMetrics.tsx, BrandDesignDeliverablesShowcase.tsx, BrandDesignConsultingValueProp.tsx, BrandDesignCTA.tsx
+Date: Current implementation standards including complete brand design service page optimization with mobile text sizing, hero height fixes, metrics patterns, deliverables showcase, value proposition consistency, and CTA dark theme patterns 

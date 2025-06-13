@@ -168,7 +168,7 @@ export default function TrustBanner() {
                    </motion.div>
 
                                      {/* Main text */}
-                   <h3 className="font-display text-xl xl:text-2xl text-obsidian font-semibold tracking-[-0.02em] leading-[1.1]">
+                   <h3 className="font-display text-lg xl:text-xl text-obsidian font-semibold tracking-[-0.02em] leading-[1.1]">
                      {item.text}
                    </h3>
 
@@ -305,7 +305,7 @@ export default function TrustBanner() {
                    {/* Content */}
                    <div className="flex-1 space-y-2">
                      {/* Main text */}
-                     <h3 className="font-display text-lg text-obsidian font-semibold tracking-[-0.02em] leading-tight">
+                     <h3 className="font-display text-lg xl:text-xl text-obsidian font-semibold tracking-[-0.02em] leading-[1.1]">
                        {item.text}
                      </h3>
 

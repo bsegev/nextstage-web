@@ -11,7 +11,7 @@ export default function StrategyConsultingHero() {
   }, []);
 
   return (
-    <section className="relative h-[75vh] flex items-center justify-center sm:justify-start px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center sm:justify-start px-3 sm:px-6 lg:px-8 overflow-hidden">
       
       {/* Background image */}
       <div 
@@ -78,7 +78,7 @@ export default function StrategyConsultingHero() {
           <div className={`transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full border border-accent/20 mb-6 sm:mb-8">
               <div className="w-2 h-2 bg-accent rounded-full" />
-              <span className="text-xs sm:text-sm font-medium text-obsidian/70 tracking-wide uppercase">
+              <span className="text-sm font-medium text-obsidian/70 tracking-wide uppercase">
                 Strategy & Consulting
               </span>
             </div>
@@ -86,23 +86,23 @@ export default function StrategyConsultingHero() {
 
           {/* Headline with staggered animation */}
           <div className={`transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h1 className="font-display tracking-tight leading-[0.95] mb-6 sm:mb-8 text-center sm:text-left">
-              <span className="block text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm mb-2 sm:mb-3">
+            <h1 className="font-display tracking-tight leading-[0.9] sm:leading-[0.95] mb-4 sm:mb-6 lg:mb-8 text-center sm:text-left">
+              <span className="block text-foreground text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm mb-1 sm:mb-2 lg:mb-3">
                 Strategy for people who
               </span>
               <span className="block relative">
-                <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian dark:from-bone dark:via-accent dark:to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm">
+                <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian dark:from-bone dark:via-accent dark:to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm">
                   actually run businesses
                 </span>
-                <span className="absolute -inset-1 bg-gradient-to-r from-accent/15 to-accent/30 rounded-xl blur-lg opacity-20 animate-pulse block" />
+                <span className="absolute -inset-1 bg-gradient-to-r from-accent/15 to-accent/30 rounded-lg sm:rounded-xl blur-md sm:blur-lg opacity-20 animate-pulse block" />
               </span>
             </h1>
           </div>
           
           {/* Subheadline with delayed animation */}
           <div className={`transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="mb-8 sm:mb-10 lg:mb-12 relative">
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-[1.5] text-foreground/80 font-light text-center sm:text-left">
+            <div className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 relative">
+              <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] sm:leading-[1.5] text-foreground/80 font-light text-center sm:text-left max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto sm:mx-0">
                 Most strategic plans fail because they&apos;re built in isolation. We design strategy alongside the systems, people, and processes that will bring it to life.
               </p>
             </div>
@@ -112,47 +112,41 @@ export default function StrategyConsultingHero() {
           <div className={`transition-all duration-1000 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-4 sm:gap-6">
               {/* Primary CTA */}
-              <button className="group relative">
+              <button className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                <div className="relative inline-flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-accent text-obsidian rounded-full text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1">
+                <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-accent text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                   <span className="relative">
-                    Schedule Strategy Assessment
+                    Get Started
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   
-                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5">
-                    <svg 
-                      className="absolute w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:translate-x-6 group-hover:opacity-0" 
+                  <div className="relative overflow-hidden w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                    <motion.svg 
+                      className="absolute w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                    <svg 
-                      className="absolute w-4 h-4 sm:w-5 sm:h-5 -translate-x-6 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                    </motion.svg>
                   </div>
                 </div>
               </button>
 
               {/* Secondary CTA */}
-              <button className="group relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-obsidian/20 to-obsidian/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                <div className="relative inline-flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-transparent border border-obsidian/20 text-obsidian rounded-full text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-obsidian group-hover:text-bone group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-obsidian/10 group-hover:-translate-y-1">
+              <button className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-obsidian/50 focus-visible:ring-offset-2 rounded-full">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-obsidian/30 to-obsidian/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
+                <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-obsidian/10 border border-obsidian/20 text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-obsidian group-hover:text-bone group-hover:border-obsidian group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                   <span className="relative">
-                    Download Strategy Guide
+                    Download Guide
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   
-                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5">
+                  <div className="relative overflow-hidden w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
                     <svg 
-                      className="absolute w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:rotate-45 group-hover:scale-110" 
+                      className="absolute w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45" 
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
@@ -165,7 +159,7 @@ export default function StrategyConsultingHero() {
             </div>
 
             {/* Social Proof Hint */}
-            <p className="text-xs sm:text-sm text-foreground/50 font-light italic mt-6 sm:mt-8 text-center sm:text-left">
+            <p className="text-sm text-foreground/50 font-light italic mt-6 sm:mt-8 text-center sm:text-left">
               Trusted by leaders who refuse to let strategy gather dust
             </p>
           </div>

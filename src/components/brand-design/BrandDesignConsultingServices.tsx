@@ -124,17 +124,17 @@ export default function BrandDesignConsultingServices() {
         
         {/* Section Header */}
         <div className={`text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
+          <div className="mb-6 sm:mb-8 text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
             <span>What We Create</span>
           </div>
           
-          <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 md:mb-8">
+          <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 md:mb-8">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
               Design that works as hard as you do
             </span>
           </h2>
           
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed">
             Beautiful isn&apos;t enough. Every element we create drives recognition, builds trust, and converts prospects into customers.
           </p>
         </div>
@@ -154,7 +154,7 @@ export default function BrandDesignConsultingServices() {
               >
                 
                 <CardContainer 
-                  className="inter-var py-0 w-full h-[420px]"
+                  className="inter-var py-0 w-full h-[480px]"
                   containerClassName="py-0 flex items-start justify-start w-full h-full"
                 >
                   <CardBody className="bg-white/95 backdrop-blur-xl relative group/card dark:hover:shadow-2xl dark:hover:shadow-obsidian/[0.1] dark:bg-obsidian/98 dark:border-white/[0.08] border-2 border-transparent bg-gradient-to-br from-white via-white/98 to-bone/90 w-full h-full min-w-[320px] max-w-none rounded-3xl p-6 lg:p-8 hover:shadow-2xl hover:shadow-obsidian/[0.06] transition-all duration-1000 ease-out overflow-hidden flex flex-col">
@@ -189,7 +189,7 @@ export default function BrandDesignConsultingServices() {
                     {/* Elegant Service Title with accent line */}
                     <CardItem translateZ="80" className="relative">
                       <div className="absolute -left-2 top-0 w-0.5 h-full bg-gradient-to-b from-accent/30 via-accent to-accent/30 rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
-                      <h3 className="font-display text-xl font-semibold text-obsidian dark:text-white mb-3 tracking-[-0.015em] leading-tight group-hover/card:text-obsidian/95 transition-colors duration-500">
+                      <h3 className="font-display text-lg font-semibold text-obsidian dark:text-white mb-3 tracking-[-0.015em] leading-tight group-hover/card:text-obsidian/95 transition-colors duration-500">
                         {service.title}
                       </h3>
                     </CardItem>
@@ -197,7 +197,7 @@ export default function BrandDesignConsultingServices() {
                     {/* Refined Context with branded styling */}
                     <CardItem translateZ="50" className="w-full">
                       <p 
-                        className="text-obsidian/55 dark:text-white/55 text-sm font-light mb-4 leading-[1.5] tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500"
+                        className="text-obsidian/55 dark:text-white/55 text-base font-light mb-4 leading-[1.5] tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500"
                         dangerouslySetInnerHTML={{ __html: service.context }}
                       />
                     </CardItem>
@@ -221,7 +221,7 @@ export default function BrandDesignConsultingServices() {
                     <CardItem
                       as="p"
                       translateZ="60"
-                      className="text-obsidian/55 dark:text-white/55 text-sm mb-5 leading-[1.6] font-light tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500 flex-grow"
+                      className="text-obsidian/55 dark:text-white/55 text-base mb-5 leading-[1.6] font-light tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500 flex-grow"
                     >
                       {service.description}
                     </CardItem>
@@ -232,7 +232,7 @@ export default function BrandDesignConsultingServices() {
                         translateZ={50}
                         as="button"
                         onClick={() => handleLoaderToggle(service.id, true)}
-                        className="w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-accent via-accent/95 to-accent text-obsidian text-sm font-medium tracking-[0.05em] hover:from-accent/95 hover:via-accent/90 hover:to-accent/95 hover:shadow-xl hover:shadow-accent/[0.15] transition-all duration-500 hover:-translate-y-1 group/primary border border-accent/20 hover:border-accent/30"
+                        className="w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-accent via-accent/95 to-accent text-obsidian text-base font-medium tracking-[0.05em] hover:from-accent/95 hover:via-accent/90 hover:to-accent/95 hover:shadow-xl hover:shadow-accent/[0.15] transition-all duration-500 hover:-translate-y-1 group/primary border border-accent/20 hover:border-accent/30"
                       >
                         <span className="flex items-center justify-center gap-2">
                           Quick Overview
@@ -246,7 +246,7 @@ export default function BrandDesignConsultingServices() {
                       <CardItem
                         translateZ={30}
                         as="button"
-                        className="w-full px-5 py-3 rounded-2xl border-2 border-transparent bg-gradient-to-r from-obsidian/[0.02] via-obsidian/[0.05] to-obsidian/[0.02] hover:from-obsidian/[0.05] hover:via-obsidian/[0.08] hover:to-obsidian/[0.05] text-obsidian/70 dark:text-white/70 text-sm font-light tracking-[0.05em] hover:text-obsidian/90 dark:hover:text-white/90 hover:border-obsidian/10 dark:hover:border-white/10 transition-all duration-300 group/secondary backdrop-blur-sm"
+                        className="w-full px-5 py-3 rounded-2xl border-2 border-transparent bg-gradient-to-r from-obsidian/[0.02] via-obsidian/[0.05] to-obsidian/[0.02] hover:from-obsidian/[0.05] hover:via-obsidian/[0.08] hover:to-obsidian/[0.05] text-obsidian/70 dark:text-white/70 text-base font-light tracking-[0.05em] hover:text-obsidian/90 dark:hover:text-white/90 hover:border-obsidian/10 dark:hover:border-white/10 transition-all duration-300 group/secondary backdrop-blur-sm"
                       >
                         <span className="flex items-center justify-center gap-1.5">
                           Learn More
@@ -272,7 +272,7 @@ export default function BrandDesignConsultingServices() {
           className="text-center mt-16 lg:mt-24"
         >
           <div className="max-w-4xl mx-auto">
-            <p className="text-lg lg:text-xl text-obsidian/60 font-light leading-relaxed mb-8">
+            <p className="text-xl lg:text-2xl text-obsidian/60 font-light leading-relaxed mb-8">
               Great design isn&apos;t about making things look pretty.
               <br className="hidden sm:block" />
               <span className="italic">It&apos;s about creating experiences that drive real business results.</span>

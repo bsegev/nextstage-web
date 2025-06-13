@@ -76,16 +76,16 @@ export default function SpeedProof() {
         
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
+          <div className="mb-6 sm:mb-8 text-sm sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
             <span>The difference</span>
           </div>
           
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
+          <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
               Speed without compromise
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-obsidian/80 font-light max-w-2xl mx-auto">
+          <p className="text-lg sm:text-base lg:text-lg text-obsidian/80 font-light max-w-2xl mx-auto">
             When strategy, design, and technology move as one, everything accelerates.
           </p>
         </div>
@@ -95,13 +95,13 @@ export default function SpeedProof() {
           {/* Column Headers */}
           <div className="grid grid-cols-2 gap-8 lg:gap-16 mb-12 sm:mb-16">
             <div>
-              <h3 className="font-display text-lg sm:text-xl text-obsidian font-semibold mb-2">
+              <h3 className="font-display text-lg xl:text-xl text-obsidian font-semibold mb-2">
                 Traditional Approach
               </h3>
               <div className="h-px bg-gray-300"></div>
             </div>
             <div>
-              <h3 className="font-display text-lg sm:text-xl text-obsidian font-semibold mb-2">
+              <h3 className="font-display text-lg xl:text-xl text-obsidian font-semibold mb-2">
                 NextStage Velocity
               </h3>
               <div className="h-px bg-accent"></div>
@@ -131,7 +131,7 @@ export default function SpeedProof() {
                     className="space-y-4"
                   >
                     <div className="flex items-center space-x-3">
-                      <h4 className="font-display text-base sm:text-lg text-obsidian font-semibold">
+                      <h4 className="font-display text-lg sm:text-lg text-obsidian font-semibold">
                         {moment.traditional.phase}
                       </h4>
                     </div>
@@ -149,7 +149,7 @@ export default function SpeedProof() {
                       ></motion.div>
                     </div>
                     
-                    <p className="text-sm text-obsidian/90 leading-relaxed font-medium">
+                    <p className="text-base text-obsidian/90 leading-relaxed font-medium">
                       {moment.traditional.description}
                     </p>
                   </motion.div>
@@ -167,7 +167,7 @@ export default function SpeedProof() {
                     className="space-y-4"
                   >
                     <div className="flex items-center space-x-3">
-                      <h4 className="font-display text-base sm:text-lg text-obsidian font-semibold">
+                      <h4 className="font-display text-lg sm:text-lg text-obsidian font-semibold">
                         {moment.nextstage.phase}
                       </h4>
                     </div>
@@ -186,7 +186,7 @@ export default function SpeedProof() {
                     </div>
                     
                     <div className="flex items-start space-x-2">
-                      <p className="text-sm text-obsidian/90 leading-relaxed font-medium">
+                      <p className="text-base text-obsidian/80 leading-relaxed">
                         {moment.nextstage.description}
                       </p>
                       {moment.nextstage.highlight && (
@@ -226,7 +226,7 @@ export default function SpeedProof() {
               {/* Traditional Summary - Grey Styling */}
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <h4 className="font-display text-base sm:text-lg text-obsidian font-semibold">
+                  <h4 className="font-display text-lg xl:text-xl text-obsidian font-semibold">
                     Total Timeline
                   </h4>
                 </div>
@@ -243,7 +243,7 @@ export default function SpeedProof() {
               {/* NextStage Summary - Accent Styling */}
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <h4 className="font-display text-base sm:text-lg text-obsidian font-semibold">
+                  <h4 className="font-display text-lg xl:text-xl text-obsidian font-semibold">
                     Total Delivery
                   </h4>
                 </div>
@@ -283,7 +283,7 @@ export default function SpeedProof() {
                 <div className="bg-white/50 backdrop-blur-sm border border-obsidian/10 rounded-2xl p-6 shadow-sm">
                   {/* Phase Title */}
                   <div className="text-center mb-6">
-                    <h3 className="font-display text-lg font-semibold text-obsidian mb-2">
+                    <h3 className="font-display text-xl font-semibold text-obsidian mb-2">
                       Phase {index + 1}
                     </h3>
                     <div className="h-px bg-obsidian/10 w-16 mx-auto"></div>
@@ -299,10 +299,10 @@ export default function SpeedProof() {
                   >
                     <div className="mb-4">
                       <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-display text-base font-semibold text-obsidian">
+                        <h4 className="font-display text-lg font-semibold text-obsidian">
                           {moment.traditional.phase}
                         </h4>
-                        <span className="text-xs text-obsidian/50 font-medium tracking-wide uppercase">
+                        <span className="text-sm text-obsidian/50 font-medium tracking-wide uppercase">
                           Traditional
                         </span>
                       </div>
@@ -320,7 +320,7 @@ export default function SpeedProof() {
                         ></motion.div>
                       </div>
                       
-                      <p className="text-sm text-obsidian/80 leading-relaxed">
+                      <p className="text-base text-obsidian/80 leading-relaxed">
                         {moment.traditional.description}
                       </p>
                     </div>
@@ -347,10 +347,10 @@ export default function SpeedProof() {
                   >
                     <div className="mb-4">
                       <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-display text-base font-semibold text-obsidian">
+                        <h4 className="font-display text-lg font-semibold text-obsidian">
                           {moment.nextstage.phase}
                         </h4>
-                        <span className="text-xs text-accent font-semibold tracking-wide uppercase">
+                        <span className="text-sm text-accent font-semibold tracking-wide uppercase">
                           NextStage
                         </span>
                       </div>
@@ -381,7 +381,7 @@ export default function SpeedProof() {
                         )}
                       </div>
                       
-                      <p className="text-sm text-obsidian/80 leading-relaxed">
+                      <p className="text-base text-obsidian/80 leading-relaxed">
                         {moment.nextstage.description}
                       </p>
                     </div>
@@ -401,7 +401,7 @@ export default function SpeedProof() {
           >
             <div className="bg-gradient-to-br from-accent/5 to-accent/10 border border-accent/20 rounded-2xl p-6">
               <div className="text-center mb-6">
-                <h3 className="font-display text-lg font-semibold text-obsidian mb-2">
+                <h3 className="font-display text-xl font-semibold text-obsidian mb-2">
                   Total Time Comparison
                 </h3>
                 <div className="h-px bg-accent/30 w-20 mx-auto"></div>

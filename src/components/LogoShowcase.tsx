@@ -155,16 +155,16 @@ export default function LogoShowcase() {
         
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
+          <div className="mb-6 sm:mb-8 text-sm sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
             <span>Trusted by leaders</span>
           </div>
           
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
+          <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
               Results that speak
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-obsidian/80 font-light max-w-2xl mx-auto">
+          <p className="text-lg sm:text-base lg:text-lg text-obsidian/80 font-light max-w-2xl mx-auto">
             Every partnership delivers measurable impact. See how we have accelerated growth across industries.
           </p>
         </div>
@@ -287,7 +287,7 @@ export default function LogoShowcase() {
                   transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                   className="space-y-4"
                 >
-                  <blockquote className="text-xl sm:text-2xl font-light text-obsidian/90 leading-relaxed">
+                  <blockquote className="text-lg sm:text-xl lg:text-2xl font-light text-obsidian/90 leading-relaxed">
                     &ldquo;{clientStories[activeIndex].quote}&rdquo;
                   </blockquote>
                   <div className="flex items-center justify-center space-x-3">
@@ -332,7 +332,7 @@ export default function LogoShowcase() {
         <div className="block md:hidden">
           {/* Mobile Instructions */}
           <div className="text-center mb-8">
-            <p className="text-sm text-obsidian/60 font-medium">
+            <p className="text-base text-obsidian/60 font-medium">
               Swipe or tap to explore client stories
             </p>
           </div>
@@ -378,15 +378,15 @@ export default function LogoShowcase() {
 
                   {/* Company Info */}
                   <div className="text-center mt-6 space-y-2">
-                    <h3 className="font-display text-lg font-semibold text-obsidian">
+                    <h3 className="font-display text-xl font-semibold text-obsidian">
                       {clientStories[mobileActiveIndex].name}
                     </h3>
-                    <p className="text-sm text-obsidian/60 font-medium">
+                    <p className="text-base text-obsidian/60 font-medium">
                       {clientStories[mobileActiveIndex].industry}
                     </p>
                     <button
                       onClick={() => handleMobileLogoClick(mobileActiveIndex)}
-                      className="inline-flex items-center space-x-2 text-sm text-accent font-medium hover:text-accent/80 transition-colors mt-3"
+                      className="inline-flex items-center space-x-2 text-base text-accent font-medium hover:text-accent/80 transition-colors mt-3"
                     >
                       <span>Read their story</span>
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -448,7 +448,7 @@ export default function LogoShowcase() {
           {/* Mobile Grid Fallback */}
           <div className="mt-12 pt-8 border-t border-obsidian/10">
             <div className="text-center mb-6">
-              <p className="text-sm text-obsidian/60 font-medium">
+              <p className="text-base text-obsidian/60 font-medium">
                 Or view all clients
               </p>
             </div>
@@ -524,7 +524,7 @@ export default function LogoShowcase() {
                     <h3 className="font-display text-xl font-semibold text-obsidian mb-1">
                         {clientStories[mobileSelectedIndex].name}
                     </h3>
-                    <p className="text-sm text-obsidian/60 font-medium">
+                    <p className="text-base text-obsidian/60 font-medium">
                         {clientStories[mobileSelectedIndex].industry}
                     </p>
                   </div>
@@ -532,7 +532,7 @@ export default function LogoShowcase() {
                   {/* Quote */}
                   <div className="relative">
                     <div className="absolute -top-2 -left-2 text-3xl text-accent/30 font-serif">&ldquo;</div>
-                    <blockquote className="text-base text-obsidian/90 leading-relaxed font-light pl-4">
+                    <blockquote className="text-lg text-obsidian/90 leading-relaxed font-light pl-4">
                       {clientStories[mobileSelectedIndex].quote}
                   </blockquote>
                     <div className="absolute -bottom-2 -right-2 text-3xl text-accent/30 font-serif">&rdquo;</div>
@@ -545,7 +545,7 @@ export default function LogoShowcase() {
                         const prevIndex = (mobileSelectedIndex - 1 + clientStories.length) % clientStories.length;
                         setMobileSelectedIndex(prevIndex);
                       }}
-                      className="flex items-center space-x-2 text-sm text-obsidian/60 hover:text-obsidian transition-colors"
+                      className="flex items-center space-x-2 text-base text-obsidian/60 hover:text-obsidian transition-colors"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -553,7 +553,7 @@ export default function LogoShowcase() {
                       <span>Previous</span>
                     </button>
 
-                    <div className="text-xs text-obsidian/40 font-mono">
+                    <div className="text-sm text-obsidian/40 font-mono">
                       {mobileSelectedIndex + 1} / {clientStories.length}
                     </div>
 
@@ -562,7 +562,7 @@ export default function LogoShowcase() {
                         const nextIndex = (mobileSelectedIndex + 1) % clientStories.length;
                         setMobileSelectedIndex(nextIndex);
                       }}
-                      className="flex items-center space-x-2 text-sm text-obsidian/60 hover:text-obsidian transition-colors"
+                      className="flex items-center space-x-2 text-base text-obsidian/60 hover:text-obsidian transition-colors"
                     >
                       <span>Next</span>
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -209,17 +209,17 @@ export default function StrategyDeliverablesShowcase() {
         
         {/* Section Header */}
         <div className={`text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
+          <div className="mb-6 sm:mb-8 text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
             <span>Deliverables</span>
           </div>
           
-          <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-6 sm:mb-8 md:mb-10">
+          <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-6 sm:mb-8 md:mb-10">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
               Tangible assets you can implement immediately
             </span>
           </h2>
           
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-12">
+          <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-12">
             No abstract frameworks—just practical tools that drive real business results.
           </p>
         </div>
@@ -258,7 +258,7 @@ export default function StrategyDeliverablesShowcase() {
                   <div className="relative z-10 mb-4 sm:mb-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-accent/10 to-accent/5 rounded-full border border-accent/20 group-hover:from-accent/15 group-hover:to-accent/8 group-hover:border-accent/30 transition-all duration-500">
                       <deliverable.icon className="w-4 h-4 text-obsidian/70" />
-                      <span className="text-xs font-medium text-obsidian/70 tracking-wide uppercase">
+                      <span className="text-sm font-medium text-obsidian/70 tracking-wide uppercase">
                         {deliverable.category}
                       </span>
                     </div>
@@ -266,14 +266,14 @@ export default function StrategyDeliverablesShowcase() {
                   
                   {/* Title */}
                   <div className="relative z-10 mb-4">
-                    <h3 className="font-display text-lg sm:text-xl font-semibold text-obsidian leading-tight tracking-[-0.015em] group-hover:text-obsidian/95 transition-colors duration-500">
+                    <h3 className="font-display text-lg font-semibold text-obsidian leading-tight tracking-[-0.015em] group-hover:text-obsidian/95 transition-colors duration-500">
                       {deliverable.title}
                     </h3>
                   </div>
                   
                   {/* Description */}
                   <div className="relative z-10 flex-grow">
-                    <p className="text-sm sm:text-base text-obsidian/60 leading-[1.6] font-light tracking-wide group-hover:text-obsidian/70 transition-colors duration-500">
+                    <p className="text-base text-obsidian/60 leading-[1.6] font-light tracking-wide group-hover:text-obsidian/70 transition-colors duration-500">
                       {deliverable.description}
                     </p>
                   </div>
@@ -307,7 +307,7 @@ export default function StrategyDeliverablesShowcase() {
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 />
-                <span className="text-xs text-obsidian/60 font-medium">Auto-advancing</span>
+                <span className="text-sm text-obsidian/60 font-medium">Auto-advancing</span>
               </motion.div>
             )}
           </div>
@@ -412,7 +412,7 @@ export default function StrategyDeliverablesShowcase() {
                           whileHover={{ scale: 1.05 }}
                         >
                           <deliverable.icon className="w-4 h-4 text-obsidian/80" />
-                          <span className="text-xs font-semibold text-obsidian/80 tracking-wider uppercase">
+                          <span className="text-sm font-semibold text-obsidian/80 tracking-wider uppercase">
                             {deliverable.category}
                           </span>
                         </motion.div>
@@ -427,7 +427,7 @@ export default function StrategyDeliverablesShowcase() {
                       
                       {/* Description */}
                       <div className="relative z-10 flex-grow">
-                        <p className="text-sm text-obsidian/65 leading-[1.7] font-light tracking-wide group-hover:text-obsidian/80 transition-colors duration-500">
+                        <p className="text-base text-obsidian/65 leading-[1.7] font-light tracking-wide group-hover:text-obsidian/80 transition-colors duration-500">
                           {deliverable.description}
                         </p>
                       </div>
@@ -514,7 +514,7 @@ export default function StrategyDeliverablesShowcase() {
                   transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
                 />
               </div>
-              <div className="flex justify-between mt-2 text-xs text-obsidian/40 font-medium">
+              <div className="flex justify-between mt-2 text-sm text-obsidian/40 font-medium">
                 <span>{currentIndex + 1} of {totalItems}</span>
                 <span className="font-light">{isAutoPlaying ? 'Auto-advancing' : 'Paused'}</span>
               </div>

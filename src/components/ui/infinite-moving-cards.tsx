@@ -99,15 +99,15 @@ export const InfiniteMovingCards = ({
                 aria-hidden="true"
                 className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
               ></div>
-              <span className="relative z-20 text-xs sm:text-sm lg:text-base leading-[1.5] sm:leading-[1.6] font-normal text-neutral-800 dark:text-gray-100 block">
+              <span className="relative z-20 text-sm sm:text-sm lg:text-base leading-[1.5] sm:leading-[1.6] font-normal text-neutral-800 dark:text-gray-100 block">
                 {item.quote}
               </span>
               <div className="relative z-20 mt-3 sm:mt-4 lg:mt-6 flex flex-row items-start">
                 <span className="flex flex-col gap-0.5 sm:gap-1">
-                  <span className="text-xs sm:text-sm leading-[1.4] sm:leading-[1.6] font-medium text-neutral-600 dark:text-gray-300">
+                  <span className="text-sm sm:text-sm leading-[1.4] sm:leading-[1.6] font-medium text-neutral-600 dark:text-gray-300">
                     {item.name}
                   </span>
-                  <span className="text-xs sm:text-sm leading-[1.4] sm:leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
+                  <span className="text-sm sm:text-sm leading-[1.4] sm:leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
                     {item.title}
                   </span>
                 </span>

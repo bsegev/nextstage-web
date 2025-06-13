@@ -20,14 +20,14 @@ export default function BrandDesignConsultingValueProp() {
               
               {/* Main Value Proposition */}
               <div className="mb-8 sm:mb-12">
-                <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
+                <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
                   <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
                     Where brand becomes business advantage
                   </span>
                 </h2>
                 
                 <div className="max-w-3xl mx-auto">
-                  <p className="text-base sm:text-lg md:text-xl leading-[1.6] text-obsidian/70 font-light">
+                  <p className="text-lg sm:text-lg md:text-xl leading-[1.6] text-obsidian/70 font-light">
                     Most companies treat design like decoration—something you add after the real work is done. We see it differently. Your brand isn&apos;t what makes you look good. It&apos;s what makes customers choose you, trust you, and pay you more.
                   </p>
                 </div>
@@ -54,10 +54,10 @@ export default function BrandDesignConsultingValueProp() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
+                    <h3 className="text-lg font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
                       Design<br/>Thinking
                     </h3>
-                    <p className="text-sm sm:text-base text-obsidian/65 leading-[1.6] font-light">
+                    <p className="text-base text-obsidian/65 leading-[1.6] font-light">
                       Strategic methodology that solves business problems through visual solutions that drive measurable outcomes.
                     </p>
                   </div>
@@ -82,10 +82,10 @@ export default function BrandDesignConsultingValueProp() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
+                    <h3 className="text-lg font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
                       Data<br/>Driven
                     </h3>
-                    <p className="text-sm sm:text-base text-obsidian/65 leading-[1.6] font-light">
+                    <p className="text-base text-obsidian/65 leading-[1.6] font-light">
                       Every design decision backed by user behavior and conversion metrics that ensure maximum impact.
                     </p>
                   </div>
@@ -109,10 +109,10 @@ export default function BrandDesignConsultingValueProp() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
+                    <h3 className="text-lg font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
                       Business<br/>Focused
                     </h3>
-                    <p className="text-sm sm:text-base text-obsidian/65 leading-[1.6] font-light">
+                    <p className="text-base text-obsidian/65 leading-[1.6] font-light">
                       Visual systems engineered to drive revenue growth and competitive advantage for lasting success.
                     </p>
                   </div>

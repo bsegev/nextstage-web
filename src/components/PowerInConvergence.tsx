@@ -59,16 +59,16 @@ export default function PowerInConvergence() {
         
         {/* Header */}
         <div className="text-center mb-8 md:mb-4 lg:mb-6">
-          <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-bone/60 tracking-wide uppercase">
+          <div className="mb-6 sm:mb-8 text-sm sm:text-sm font-medium text-bone/60 tracking-wide uppercase">
             <span>Convergence</span>
           </div>
           
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
+          <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
               Power in Convergence
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-bone/75 font-light max-w-2xl mx-auto">
+          <p className="text-lg sm:text-base lg:text-lg text-bone/75 font-light max-w-2xl mx-auto">
             Where strategy, design, and technology unite to create exponential value.
           </p>
         </div>
@@ -239,7 +239,7 @@ export default function PowerInConvergence() {
                        initial={{ y: 20, opacity: 0 }}
                        animate={{ y: 0, opacity: 1 }}
                        transition={{ duration: 0.6, delay: 0.5 }}
-                       className="font-display text-xl sm:text-2xl font-medium text-bone mb-4"
+                       className="font-display text-2xl sm:text-2xl font-medium text-bone mb-4"
                      >
                        {content[selectedSection].title}
                      </motion.h3>
@@ -248,7 +248,7 @@ export default function PowerInConvergence() {
                        initial={{ y: 20, opacity: 0 }}
                        animate={{ y: 0, opacity: 1 }}
                        transition={{ duration: 0.6, delay: 0.6 }}
-                       className="text-sm sm:text-base text-bone/80 leading-relaxed font-light"
+                       className="text-base sm:text-base text-bone/80 leading-relaxed font-light"
                      >
                        {content[selectedSection].description}
                      </motion.p>
@@ -275,7 +275,7 @@ export default function PowerInConvergence() {
                       </svg>
                     </button>
                     
-                    <span className="text-xs font-mono">
+                    <span className="text-sm font-mono">
                       {selectedSection === "strategy" ? "1" : selectedSection === "design" ? "2" : "3"}/3
                     </span>
                     
@@ -631,7 +631,7 @@ export default function PowerInConvergence() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
-                    className="font-display text-xl sm:text-2xl md:text-3xl font-medium text-bone mb-4 sm:mb-6"
+                    className="font-display text-2xl sm:text-2xl font-medium text-bone mb-4"
                   >
                     {content[selectedSection].title}
                   </motion.h3>
@@ -640,7 +640,7 @@ export default function PowerInConvergence() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
-                    className="text-sm md:text-base text-bone/80 leading-relaxed font-light px-2 sm:px-0"
+                    className="text-base sm:text-base text-bone/80 leading-relaxed font-light px-2 sm:px-0"
                   >
                     {content[selectedSection].description}
                   </motion.p>

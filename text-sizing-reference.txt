@@ -1,0 +1,249 @@
+NEXTSTAGE WEB - TEXT SIZING REFERENCE
+=====================================
+Based on Work Page Components - Mobile Optimization Standards
+
+OVERVIEW
+--------
+This document outlines the established text sizing patterns for mobile and desktop layouts.
+The Work page serves as our reference implementation for consistent typography scaling.
+
+MAIN HEADERS (H1)
+-----------------
+Desktop: text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
+Mobile:  text-4xl (enhanced from smaller sizes)
+Usage:   Primary page headers, hero titles
+Example: WorkHero "Transformations in Action"
+
+SECTION HEADERS (H2)
+--------------------
+Desktop: text-2xl sm:text-3xl md:text-4xl lg:text-5xl
+Mobile:  text-4xl sm:text-3xl (enhanced for mobile readability)
+Usage:   Major section titles, CTA headers
+Example: WorkCTA "Ready to transform your vision"
+
+COMPONENT HEADERS (H2 - Secondary)
+----------------------------------
+Desktop: text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
+Mobile:  text-3xl sm:text-2xl (balanced approach)
+Usage:   Component-level headers, process sections
+Example: ProcessJourney "From First Contact to Lasting Impact"
+
+PROJECT TITLES (H2 - Showcase)
+-------------------------------
+Desktop: text-2xl sm:text-xl md:text-2xl lg:text-3xl
+Mobile:  text-3xl (enhanced for mobile prominence)
+Usage:   Individual project titles in carousels
+Example: ShowcaseCarousel project names
+
+SUBSECTION HEADERS (H3)
+-----------------------
+Desktop: text-lg xl:text-xl
+Mobile:  text-lg xl:text-xl (consistent across breakpoints)
+Usage:   Trust indicators, feature titles, smaller sections
+Example: TrustBanner "International Reach"
+
+SUBHEADERS/DESCRIPTIONS
+-----------------------
+Desktop: text-base sm:text-lg md:text-lg lg:text-xl xl:text-2xl
+Mobile:  text-lg (enhanced from text-base for better mobile readability)
+Usage:   Hero subheaders, section descriptions
+Example: WorkHero subtitle text
+
+BODY TEXT - PRIMARY
+-------------------
+Desktop: text-base sm:text-lg
+Mobile:  text-lg (enhanced for mobile readability)
+Usage:   Main descriptive text, CTA descriptions
+Example: CTA section body text
+
+BODY TEXT - SECONDARY
+---------------------
+Desktop: text-sm sm:text-base
+Mobile:  text-base (enhanced from text-sm)
+Usage:   Supporting text, feature descriptions
+Example: Component descriptions, metrics text
+
+SMALL TEXT/LABELS
+-----------------
+Desktop: text-xs sm:text-sm
+Mobile:  text-sm (enhanced from text-xs)
+Usage:   Labels, badges, metadata
+Example: Section labels like "Showcase", "Ready to Begin"
+
+BUTTON TEXT
+-----------
+Desktop: text-sm sm:text-base lg:text-lg
+Mobile:  text-base (consistent, touch-optimized)
+Usage:   CTA buttons, navigation elements
+Example: "Start your project", "Explore case studies"
+
+CTA BUTTON SPECIFICATIONS
+-------------------------
+Standard CTA Pattern (Consolidated from Hero.tsx and CTASection.tsx):
+
+PRIMARY CTA (Accent Background):
+- Container: w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full
+- Inner Container: w-full sm:w-auto (responsive width behavior)
+- Background: bg-accent text-obsidian rounded-full
+- Hover Effects: group-hover:bg-accent/90 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:shadow-accent/20
+- Active State: group-active:scale-95
+- Gradient Glow: absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100
+- Text Sizing: text-base (mobile) | text-sm sm:text-base lg:text-lg (desktop)
+- Icon: w-5 h-5 (mobile) | w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 (desktop)
+- Animation: Subtle arrow movement with motion.svg animate={{ x: [0, 4, 0] }}
+
+SECONDARY CTA (Transparent Background):
+- Container: w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2 rounded-full
+- Inner Container: w-full sm:w-auto (responsive width behavior)
+- Background: bg-bone/10 border border-bone/20 text-bone rounded-full
+- Hover Effects: group-hover:bg-bone/20 group-hover:border-bone/40 group-hover:-translate-y-1
+- Active State: group-active:scale-95
+- Gradient Glow: absolute -inset-0.5 bg-gradient-to-r from-bone/30 to-bone/20 rounded-full blur opacity-0 group-hover:opacity-100
+- Text Sizing: text-base (mobile) | text-sm sm:text-base lg:text-lg (desktop)
+- Icon: w-5 h-5 (mobile) | w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 (desktop)
+- Animation: Rotate on hover group-hover:rotate-45
+
+SHARED CTA FEATURES:
+- Touch Target: Minimum 56px height for accessibility
+- Focus States: Visible focus rings with proper contrast
+- Responsive Padding: px-8 py-4 (mobile) | px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 (desktop)
+- Text Underline Effect: Animated underline on hover with w-0 to w-full transition
+- Icon Spacing: gap-3 (mobile) | gap-3 sm:gap-4 (desktop)
+- Performance: Uses CSS transforms for smooth animations
+- Accessibility: Proper ARIA states and keyboard navigation support
+
+MOBILE OPTIMIZATION PRINCIPLES
+------------------------------
+1. ENHANCED READABILITY: Mobile text sizes are generally larger than desktop equivalents
+2. TOUCH OPTIMIZATION: Buttons maintain min-h-[56px] for proper touch targets
+3. HIERARCHY PRESERVATION: Relative sizing relationships maintained across breakpoints
+4. PROGRESSIVE ENHANCEMENT: Mobile-first approach with desktop refinements
+
+RESPONSIVE PATTERNS
+-------------------
+Pattern 1 - Mobile Enhanced:
+Mobile:  text-4xl
+Desktop: text-3xl sm:text-4xl lg:text-5xl
+
+Pattern 2 - Balanced Scaling:
+Mobile:  text-lg
+Desktop: text-base sm:text-lg lg:text-xl
+
+Pattern 3 - Consistent Sizing:
+Mobile:  text-lg xl:text-xl
+Desktop: text-lg xl:text-xl
+
+COMPONENT-SPECIFIC NOTES
+------------------------
+WorkHero: Uses largest text sizes for maximum impact
+WorkCTA: Balanced approach with mobile enhancement
+TrustBanner: Smaller, consistent sizing (not main headers)
+ShowcaseCarousel: Mobile-enhanced project titles
+ProcessJourney: Progressive scaling with mobile boost
+
+IMPLEMENTATION GUIDELINES
+-------------------------
+1. Start with mobile size, then add responsive classes
+2. Ensure minimum 16px (text-base) for body text on mobile
+3. Use xl: prefix for largest desktop screens when needed
+4. Maintain consistent line-height with leading-[0.9] for headers
+5. Apply tracking-[-0.02em] for display fonts on large text
+
+ACCESSIBILITY CONSIDERATIONS
+----------------------------
+- Minimum 16px body text for readability
+- Sufficient contrast ratios maintained
+- Touch targets minimum 44px (56px preferred)
+- Scalable text that works with browser zoom
+- Semantic HTML structure preserved
+
+LAST UPDATED
+------------
+Based on mobile optimization work completed for Work page components
+Reference implementation: WorkHero, WorkCTA, ShowcaseCarousel, ProcessJourney, TrustBanner
+
+COMPARISON/TIMELINE COMPONENTS
+------------------------------
+Based on SpeedProof component - for side-by-side comparisons, process timelines, and feature comparisons
+
+COMPARISON HEADERS (H2)
+-----------------------
+Desktop: text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
+Mobile:  text-3xl (Component Headers pattern)
+Usage:   Main comparison section titles
+Example: "Speed without compromise"
+
+COLUMN HEADERS (H3)
+-------------------
+Desktop: text-lg xl:text-xl
+Mobile:  text-lg xl:text-xl (consistent across breakpoints)
+Usage:   Comparison column titles, section dividers
+Example: "Traditional Approach" vs "NextStage Velocity"
+
+PHASE/ITEM TITLES (H4)
+----------------------
+Desktop: text-lg sm:text-lg
+Mobile:  text-lg (enhanced for mobile prominence)
+Usage:   Individual comparison items, timeline phases
+Example: "Discovery & Research", "Strategy Development"
+
+PHASE/ITEM DESCRIPTIONS
+-----------------------
+Desktop: text-base
+Mobile:  text-base (enhanced from text-sm)
+Usage:   Detailed descriptions of comparison items
+Example: Process descriptions, feature explanations
+
+SUMMARY HEADERS (H4 - Totals)
+-----------------------------
+Desktop: text-lg xl:text-xl
+Mobile:  text-xl (enhanced for mobile prominence)
+Usage:   Summary section headers, total comparisons
+Example: "Total Timeline", "Total Delivery"
+
+MOBILE CARD HEADERS (H3)
+------------------------
+Desktop: N/A (mobile-specific)
+Mobile:  text-xl (enhanced for card-based layouts)
+Usage:   Mobile comparison card titles
+Example: "Phase 1", "Total Time Comparison"
+
+COMPARISON COMPONENT PATTERNS
+-----------------------------
+Pattern 1 - Desktop Side-by-Side:
+- Column headers: text-lg xl:text-xl
+- Phase titles: text-lg sm:text-lg
+- Descriptions: text-base
+- Summary headers: text-lg xl:text-xl
+
+Pattern 2 - Mobile Stacked Cards:
+- Card headers: text-xl
+- Phase titles: text-lg
+- Descriptions: text-base
+- Labels: text-sm (enhanced from text-xs)
+
+Pattern 3 - Timeline/Process Flow:
+- Main header: text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
+- Step titles: text-lg
+- Step descriptions: text-base
+- Duration/metadata: text-sm
+
+COMPARISON COMPONENT GUIDELINES
+-------------------------------
+1. Use Component Headers pattern for main section titles
+2. Apply Subsection Headers pattern for column/category headers
+3. Enhance mobile phase titles for better hierarchy
+4. Ensure descriptions are text-base minimum for readability
+5. Use consistent sizing across comparison sides
+6. Mobile cards should have enhanced headers (text-xl)
+7. Labels and metadata should be text-sm minimum
+
+COMPARISON ACCESSIBILITY NOTES
+------------------------------
+- Maintain clear visual hierarchy between comparison sides
+- Ensure sufficient contrast for duration badges/labels
+- Use consistent spacing patterns for scanability
+- Mobile cards should have adequate touch targets
+- Summary sections should stand out with enhanced sizing
+
+LAST UPDATED 

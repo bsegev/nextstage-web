@@ -190,14 +190,14 @@ export default function TechInnovationMetrics() {
               transition={{ duration: 0.8 }}
               onViewportEnter={() => setInView(true)}
             >
-              <h2 className="font-display text-xl sm:text-2xl md:text-3xl tracking-[-0.02em] leading-[0.9] mb-2 sm:mb-3">
+              <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-2 sm:mb-3">
                 <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
                   Why Technology & Innovation Matters
                 </span>
               </h2>
               
               <div className="max-w-2xl mx-auto">
-                <p className="text-sm sm:text-base leading-[1.4] text-bone/80 font-light">
+                <p className="text-lg sm:text-base leading-[1.4] text-bone/80 font-light">
                   Research-backed results from strategic technology
                 </p>
               </div>
@@ -246,7 +246,7 @@ export default function TechInnovationMetrics() {
                       {/* Metric Value */}
                       <div className="mb-2 sm:mb-3">
                         <motion.div
-                          className="font-display text-xl sm:text-2xl md:text-3xl font-bold leading-none tracking-[-0.02em]"
+                          className="font-display text-3xl sm:text-2xl md:text-3xl font-bold leading-none tracking-[-0.02em]"
                           animate={hoveredIndex === index ? { scale: 1.05 } : { scale: 1 }}
                           transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
                         >
@@ -263,14 +263,14 @@ export default function TechInnovationMetrics() {
 
                       {/* Metric Label */}
                       <div className="mb-2 sm:mb-3">
-                        <h3 className="text-sm sm:text-base font-display font-semibold text-bone tracking-[-0.01em] leading-tight whitespace-pre-line">
+                        <h3 className="text-lg sm:text-base font-display font-semibold text-bone tracking-[-0.01em] leading-tight whitespace-pre-line">
                           {metric.label}
                         </h3>
                       </div>
 
                       {/* Description */}
                       <div className="max-w-xs mx-auto">
-                        <p className="text-xs sm:text-sm text-bone/70 leading-[1.4] font-light group-hover:text-bone/90 transition-colors duration-500 line-clamp-3">
+                        <p className="text-sm sm:text-sm text-bone/70 leading-[1.4] font-light group-hover:text-bone/90 transition-colors duration-500 line-clamp-3">
                           {metric.description}
                         </p>
                       </div>
@@ -302,7 +302,7 @@ export default function TechInnovationMetrics() {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <div className="max-w-4xl mx-auto">
-                <p className="text-sm sm:text-base leading-[1.5] text-bone font-medium">
+                <p className="text-lg sm:text-base leading-[1.5] text-bone font-medium">
                   Great technology isn&apos;t just efficiency—it&apos;s{' '}
                   <span className="bg-gradient-to-r from-accent via-accent/90 to-accent bg-clip-text text-transparent font-semibold">
                     a competitive advantage that drives exponential business growth
@@ -333,13 +333,13 @@ export default function TechInnovationMetrics() {
                 </h2>
                 
                 <div className="mb-6">
-                  <p className="text-base xl:text-lg leading-[1.4] text-bone/80 font-light">
+                  <p className="text-lg xl:text-lg leading-[1.4] text-bone/80 font-light">
                     Research-backed results from strategic technology
                   </p>
                 </div>
 
                 <div className="space-y-4">
-                  <p className="text-sm xl:text-base leading-[1.6] text-bone/70 font-light">
+                  <p className="text-base xl:text-base leading-[1.6] text-bone/70 font-light">
                     Great technology isn&apos;t just efficiency—it&apos;s{' '}
                     <span className="bg-gradient-to-r from-accent via-accent/90 to-accent bg-clip-text text-transparent font-semibold">
                       a competitive advantage that drives exponential business growth
@@ -460,14 +460,14 @@ export default function TechInnovationMetrics() {
 
                         {/* Metric Label */}
                         <div className="mb-3">
-                          <h3 className="text-base xl:text-lg font-display font-semibold text-bone tracking-[-0.01em] leading-tight whitespace-pre-line">
+                          <h3 className="text-lg xl:text-lg font-display font-semibold text-bone tracking-[-0.01em] leading-tight whitespace-pre-line">
                             {metric.label}
                           </h3>
                         </div>
 
                         {/* Description */}
                         <div className="max-w-xs mx-auto">
-                          <p className="text-xs xl:text-sm text-bone/70 leading-[1.4] font-light group-hover:text-bone/90 transition-colors duration-500 line-clamp-3">
+                          <p className="text-sm xl:text-sm text-bone/70 leading-[1.4] font-light group-hover:text-bone/90 transition-colors duration-500 line-clamp-3">
                             {metric.description}
                           </p>
                         </div>

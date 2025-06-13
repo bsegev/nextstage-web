@@ -28,32 +28,32 @@ export default function StrategyConsultingServices() {
 
   const serviceLoadingSteps = {
     'business-strategy': [
-      { text: "Analyzing current market position" },
-      { text: "Identifying growth opportunities" },
-      { text: "Evaluating competitive landscape" },
-      { text: "Defining strategic priorities" },
-      { text: "Creating execution roadmap" },
+      { text: "Analyzing current market position and competitive dynamics" },
+      { text: "Identifying untapped growth opportunities and market gaps" },
+      { text: "Evaluating competitive landscape and positioning options" },
+      { text: "Defining strategic priorities and resource allocation" },
+      { text: "Creating detailed execution roadmap with milestones" },
     ],
     'brand-strategy': [
-      { text: "Researching target audience" },
-      { text: "Analyzing brand perception" },
-      { text: "Defining unique positioning" },
-      { text: "Crafting brand messaging" },
-      { text: "Developing brand guidelines" },
+      { text: "Researching target audience behaviors and preferences" },
+      { text: "Analyzing current brand perception and market position" },
+      { text: "Defining unique positioning that commands premium" },
+      { text: "Crafting compelling brand messaging and narrative" },
+      { text: "Developing comprehensive brand guidelines and assets" },
     ],
     'gtm-planning': [
-      { text: "Identifying target segments" },
-      { text: "Mapping customer journey" },
-      { text: "Defining value proposition" },
-      { text: "Planning launch strategy" },
-      { text: "Setting success metrics" },
+      { text: "Identifying high-value target segments and personas" },
+      { text: "Mapping complete customer journey and touchpoints" },
+      { text: "Defining compelling value proposition and messaging" },
+      { text: "Planning multi-channel launch strategy and tactics" },
+      { text: "Setting success metrics and performance tracking" },
     ],
     'digital-transformation': [
-      { text: "Assessing current systems" },
-      { text: "Identifying transformation areas" },
-      { text: "Planning digital strategy" },
-      { text: "Designing new processes" },
-      { text: "Creating implementation roadmap" },
+      { text: "Assessing current systems and technology landscape" },
+      { text: "Identifying key transformation areas and opportunities" },
+      { text: "Planning comprehensive digital strategy and architecture" },
+      { text: "Designing optimized processes and user experiences" },
+      { text: "Creating phased implementation roadmap and timeline" },
     ]
   };
 
@@ -124,17 +124,17 @@ export default function StrategyConsultingServices() {
         
         {/* Section Header */}
         <div className={`text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
+          <div className="mb-6 sm:mb-8 text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
             <span>Strategic Services</span>
           </div>
           
-          <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 md:mb-8">
+          <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 md:mb-8">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
               Every business faces moments of truth
             </span>
           </h2>
           
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed">
             Critical junctures where the right strategic choice determines your trajectory.
           </p>
         </div>
@@ -189,7 +189,7 @@ export default function StrategyConsultingServices() {
                     {/* Elegant Service Title with accent line */}
                     <CardItem translateZ="80" className="relative">
                       <div className="absolute -left-2 top-0 w-0.5 h-full bg-gradient-to-b from-accent/30 via-accent to-accent/30 rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
-                      <h3 className="font-display text-xl font-semibold text-obsidian dark:text-white mb-3 tracking-[-0.015em] leading-tight group-hover/card:text-obsidian/95 transition-colors duration-500">
+                      <h3 className="font-display text-lg font-semibold text-obsidian dark:text-white mb-3 tracking-[-0.015em] leading-tight group-hover/card:text-obsidian/95 transition-colors duration-500">
                         {service.title}
                       </h3>
                     </CardItem>
@@ -197,7 +197,7 @@ export default function StrategyConsultingServices() {
                     {/* Refined Context with branded styling */}
                     <CardItem translateZ="50" className="w-full">
                       <p 
-                        className="text-obsidian/55 dark:text-white/55 text-sm font-light mb-4 leading-[1.5] tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500"
+                        className="text-obsidian/55 dark:text-white/55 text-base font-light mb-4 leading-[1.5] tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500"
                         dangerouslySetInnerHTML={{ __html: service.context }}
                       />
                     </CardItem>
@@ -221,7 +221,7 @@ export default function StrategyConsultingServices() {
                     <CardItem
                       as="p"
                       translateZ="60"
-                      className="text-obsidian/55 dark:text-white/55 text-sm mb-5 leading-[1.6] font-light tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500 flex-grow"
+                      className="text-obsidian/55 dark:text-white/55 text-base mb-5 leading-[1.6] font-light tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500 flex-grow"
                     >
                       {service.description}
                     </CardItem>
@@ -232,7 +232,7 @@ export default function StrategyConsultingServices() {
                         translateZ={50}
                         as="button"
                         onClick={() => handleLoaderToggle(service.id, true)}
-                        className="w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-accent via-accent/95 to-accent text-obsidian text-sm font-medium tracking-[0.05em] hover:from-accent/95 hover:via-accent/90 hover:to-accent/95 hover:shadow-xl hover:shadow-accent/[0.15] transition-all duration-500 hover:-translate-y-1 group/primary border border-accent/20 hover:border-accent/30"
+                        className="w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-accent via-accent/95 to-accent text-obsidian text-base font-medium tracking-[0.05em] hover:from-accent/95 hover:via-accent/90 hover:to-accent/95 hover:shadow-xl hover:shadow-accent/[0.15] transition-all duration-500 hover:-translate-y-1 group/primary border border-accent/20 hover:border-accent/30"
                       >
                         <span className="flex items-center justify-center gap-2">
                           Quick Overview
@@ -246,7 +246,7 @@ export default function StrategyConsultingServices() {
                       <CardItem
                         translateZ={30}
                         as="button"
-                        className="w-full px-5 py-3 rounded-2xl border-2 border-transparent bg-gradient-to-r from-obsidian/[0.02] via-obsidian/[0.05] to-obsidian/[0.02] hover:from-obsidian/[0.05] hover:via-obsidian/[0.08] hover:to-obsidian/[0.05] text-obsidian/70 dark:text-white/70 text-sm font-light tracking-[0.05em] hover:text-obsidian/90 dark:hover:text-white/90 hover:border-obsidian/10 dark:hover:border-white/10 transition-all duration-300 group/secondary backdrop-blur-sm"
+                        className="w-full px-5 py-3 rounded-2xl border-2 border-transparent bg-gradient-to-r from-obsidian/[0.02] via-obsidian/[0.05] to-obsidian/[0.02] hover:from-obsidian/[0.05] hover:via-obsidian/[0.08] hover:to-obsidian/[0.05] text-obsidian/70 dark:text-white/70 text-base font-light tracking-[0.05em] hover:text-obsidian/90 dark:hover:text-white/90 hover:border-obsidian/10 dark:hover:border-white/10 transition-all duration-300 group/secondary backdrop-blur-sm"
                       >
                         <span className="flex items-center justify-center gap-1.5">
                           Learn More
@@ -272,7 +272,7 @@ export default function StrategyConsultingServices() {
           className="text-center mt-16 lg:mt-24"
         >
           <div className="max-w-4xl mx-auto">
-            <p className="text-lg lg:text-xl text-obsidian/60 font-light leading-relaxed mb-8">
+            <p className="text-xl lg:text-2xl text-obsidian/60 font-light leading-relaxed mb-8">
               Strategy isn&apos;t about predicting the future.
               <br className="hidden sm:block" />
               <span className="italic">It&apos;s about building the capability to adapt when the future surprises you.</span>

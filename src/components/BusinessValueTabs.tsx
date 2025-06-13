@@ -1,9 +1,49 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Tabs } from '@/components/ui/tabs';
 // import { GlowingEffect } from '@/components/ui/glowing-effect';
+
+function MobileAccordion({ title, items }: { title: string; items: string[] }) {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <div className="block sm:hidden">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between p-4 bg-accent/5 rounded-xl border border-accent/10 hover:bg-accent/10 transition-all duration-300"
+      >
+        <h4 className="text-base font-medium text-bone/90">{title}</h4>
+        <div
+          style={{ 
+            transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+            transition: 'transform 0.3s ease'
+          }}
+          className="text-bone/60"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </button>
+      
+      {isOpen && (
+        <div className="pt-4 space-y-3">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="flex items-start gap-3 p-3 bg-accent/5 rounded-lg border border-accent/5"
+            >
+              <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-2 flex-shrink-0" />
+              <span className="text-sm text-bone/60 leading-relaxed">{item}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function BusinessValueTabs() {
   const [mounted, setMounted] = useState(false);
@@ -11,6 +51,39 @@ export default function BusinessValueTabs() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const deliverables = {
+    ideate: [
+      "Market research report",
+      "Clear business plan", 
+      "Success roadmap",
+      "And more..."
+    ],
+    create: [
+      "Working prototype",
+      "Brand and messaging",
+      "Launch plan", 
+      "And more..."
+    ],
+    activate: [
+      "Live product launch",
+      "Customer acquisition system",
+      "Sales tracking dashboard",
+      "And more..."
+    ],
+    elevate: [
+      "Automated workflows",
+      "Performance analytics",
+      "Customer experience upgrades",
+      "And more..."
+    ],
+    accelerate: [
+      "Scaling infrastructure",
+      "Growth tracking system", 
+      "Expansion strategy",
+      "And more..."
+    ]
+  };
 
   const tabs = [
     {
@@ -39,12 +112,12 @@ export default function BusinessValueTabs() {
               {/* Text Content */}
               <div className="flex flex-col justify-center order-2 lg:order-1">
                 <div className="mb-4 sm:mb-6 lg:mb-8">
-                  <h3 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
+                  <h3 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
                     Ideate
                   </h3>
                   <div className="inline-flex items-center mb-4 sm:mb-6 lg:mb-8">
                     <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent/10 rounded-full border border-accent/15 group-hover:bg-accent/15 group-hover:border-accent/25 transition-all duration-300">
-                      <span className="text-xs sm:text-sm font-medium text-bone/70 tracking-wide">
+                      <span className="text-sm sm:text-sm font-medium text-bone/70 tracking-wide">
                         For what&apos;s possible next
                       </span>
                     </div>
@@ -52,31 +125,28 @@ export default function BusinessValueTabs() {
                 </div>
                 
                 <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-                  <p className="text-sm sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
+                  <p className="text-xl sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
                     Find the right opportunity and build a plan that works. We turn your vision into a clear strategy with measurable goals.
                   </p>
                   
-                  <div className="space-y-3 sm:space-y-4">
-                    <h4 className="text-sm sm:text-base lg:text-lg font-medium text-bone/90 mb-2 sm:mb-3">We deliver:</h4>
-                    <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm lg:text-base text-bone/60">
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Market research and opportunity analysis</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Clear vision and success metrics</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Strategic roadmap and next steps</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Risk assessment and mitigation plan</span>
-                      </li>
+                  {/* Desktop List - Hidden on Mobile */}
+                  <div className="hidden sm:block space-y-3 sm:space-y-4">
+                    <h4 className="text-base sm:text-base lg:text-lg font-medium text-bone/90 mb-2 sm:mb-3">We deliver:</h4>
+                    <ul className="space-y-2 sm:space-y-3 text-sm sm:text-sm lg:text-base text-bone/60">
+                      {deliverables.ideate.map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 sm:gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
+
+                  {/* Mobile Accordion - Visible on Mobile Only */}
+                  <MobileAccordion 
+                    title="We deliver:"
+                    items={deliverables.ideate}
+                  />
                 </div>
               </div>
 
@@ -129,12 +199,12 @@ export default function BusinessValueTabs() {
               {/* Text Content */}
               <div className="flex flex-col justify-center order-2 lg:order-1">
                 <div className="mb-4 sm:mb-6 lg:mb-8">
-                  <h3 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
+                  <h3 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
                     Create
                   </h3>
                   <div className="inline-flex items-center mb-4 sm:mb-6 lg:mb-8">
                     <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent/10 rounded-full border border-accent/15 group-hover:bg-accent/15 group-hover:border-accent/25 transition-all duration-300">
-                      <span className="text-xs sm:text-sm font-medium text-bone/70 tracking-wide">
+                      <span className="text-sm sm:text-sm font-medium text-bone/70 tracking-wide">
                         For what doesn&apos;t exist yet
                       </span>
                     </div>
@@ -142,31 +212,28 @@ export default function BusinessValueTabs() {
                 </div>
                 
                 <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-                  <p className="text-sm sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
+                  <p className="text-xl sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
                     Build your business from the ground up. We design the model, product, and brand so you launch ready to compete and win.
                   </p>
                   
-                  <div className="space-y-3 sm:space-y-4">
-                    <h4 className="text-sm sm:text-base lg:text-lg font-medium text-bone/90 mb-2 sm:mb-3">We deliver:</h4>
-                    <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm lg:text-base text-bone/60">
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Business model and financial projections</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Product design and development plan</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Brand identity and messaging strategy</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Launch strategy and marketing plan</span>
-                      </li>
+                  {/* Desktop List - Hidden on Mobile */}
+                  <div className="hidden sm:block space-y-3 sm:space-y-4">
+                    <h4 className="text-base sm:text-base lg:text-lg font-medium text-bone/90 mb-2 sm:mb-3">We deliver:</h4>
+                    <ul className="space-y-2 sm:space-y-3 text-sm sm:text-sm lg:text-base text-bone/60">
+                      {deliverables.create.map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 sm:gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
+
+                  {/* Mobile Accordion - Visible on Mobile Only */}
+                  <MobileAccordion 
+                    title="We deliver:"
+                    items={deliverables.create}
+                  />
                 </div>
               </div>
 
@@ -208,12 +275,12 @@ export default function BusinessValueTabs() {
               {/* Text Content */}
               <div className="flex flex-col justify-center order-2 lg:order-1">
                 <div className="mb-4 sm:mb-6 lg:mb-8">
-                  <h3 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
+                  <h3 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
                     Activate
                   </h3>
                   <div className="inline-flex items-center mb-4 sm:mb-6 lg:mb-8">
                     <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent/10 rounded-full border border-accent/15 group-hover:bg-accent/15 group-hover:border-accent/25 transition-all duration-300">
-                      <span className="text-xs sm:text-sm font-medium text-bone/70 tracking-wide">
+                      <span className="text-sm sm:text-sm font-medium text-bone/70 tracking-wide">
                         For when plans meet reality
                       </span>
                     </div>
@@ -221,31 +288,28 @@ export default function BusinessValueTabs() {
                 </div>
                 
                 <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-                  <p className="text-sm sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
+                  <p className="text-xl sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
                     Execute your plan and get to market fast. We build, launch, and track performance so you start generating results immediately.
                   </p>
                   
-                  <div className="space-y-3 sm:space-y-4">
-                    <h4 className="text-sm sm:text-base lg:text-lg font-medium text-bone/90 mb-2 sm:mb-3">We deliver:</h4>
-                    <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm lg:text-base text-bone/60">
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Product development and launch execution</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Customer acquisition and growth campaigns</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Sales systems and revenue tracking</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Performance monitoring and optimization</span>
-                      </li>
+                  {/* Desktop List - Hidden on Mobile */}
+                  <div className="hidden sm:block space-y-3 sm:space-y-4">
+                    <h4 className="text-base sm:text-base lg:text-lg font-medium text-bone/90 mb-2 sm:mb-3">We deliver:</h4>
+                    <ul className="space-y-2 sm:space-y-3 text-sm sm:text-sm lg:text-base text-bone/60">
+                      {deliverables.activate.map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 sm:gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
+
+                  {/* Mobile Accordion - Visible on Mobile Only */}
+                  <MobileAccordion 
+                    title="We deliver:"
+                    items={deliverables.activate}
+                  />
                 </div>
               </div>
 
@@ -287,12 +351,12 @@ export default function BusinessValueTabs() {
               {/* Text Content */}
               <div className="flex flex-col justify-center order-2 lg:order-1">
                 <div className="mb-4 sm:mb-6 lg:mb-8">
-                  <h3 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
+                  <h3 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
                     Elevate
                   </h3>
                   <div className="inline-flex items-center mb-4 sm:mb-6 lg:mb-8">
                     <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent/10 rounded-full border border-accent/15 group-hover:bg-accent/15 group-hover:border-accent/25 transition-all duration-300">
-                      <span className="text-xs sm:text-sm font-medium text-bone/70 tracking-wide">
+                      <span className="text-sm sm:text-sm font-medium text-bone/70 tracking-wide">
                         For leveling up what works
                       </span>
                     </div>
@@ -300,31 +364,28 @@ export default function BusinessValueTabs() {
                 </div>
                 
                 <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-                  <p className="text-sm sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
+                  <p className="text-xl sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
                     Optimize what&apos;s working and fix what&apos;s not. We streamline operations, improve customer experience, and boost your bottom line.
                   </p>
                   
-                  <div className="space-y-3 sm:space-y-4">
-                    <h4 className="text-sm sm:text-base lg:text-lg font-medium text-bone/90 mb-2 sm:mb-3">We deliver:</h4>
-                    <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm lg:text-base text-bone/60">
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Process optimization and automation</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Data systems and business intelligence</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Customer experience improvements</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Team training and operational efficiency</span>
-                      </li>
+                  {/* Desktop List - Hidden on Mobile */}
+                  <div className="hidden sm:block space-y-3 sm:space-y-4">
+                    <h4 className="text-base sm:text-base lg:text-lg font-medium text-bone/90 mb-2 sm:mb-3">We deliver:</h4>
+                    <ul className="space-y-2 sm:space-y-3 text-sm sm:text-sm lg:text-base text-bone/60">
+                      {deliverables.elevate.map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 sm:gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
+
+                  {/* Mobile Accordion - Visible on Mobile Only */}
+                  <MobileAccordion 
+                    title="We deliver:"
+                    items={deliverables.elevate}
+                  />
                 </div>
               </div>
 
@@ -377,12 +438,12 @@ export default function BusinessValueTabs() {
               {/* Text Content */}
               <div className="flex flex-col justify-center order-2 lg:order-1">
                 <div className="mb-4 sm:mb-6 lg:mb-8">
-                  <h3 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
+                  <h3 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
                     Accelerate
                   </h3>
                   <div className="inline-flex items-center mb-4 sm:mb-6 lg:mb-8">
                     <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent/10 rounded-full border border-accent/15 group-hover:bg-accent/15 group-hover:border-accent/25 transition-all duration-300">
-                      <span className="text-xs sm:text-sm font-medium text-bone/70 tracking-wide">
+                      <span className="text-sm sm:text-sm font-medium text-bone/70 tracking-wide">
                         For compounding growth
                       </span>
                     </div>
@@ -390,31 +451,28 @@ export default function BusinessValueTabs() {
                 </div>
                 
                 <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-                  <p className="text-sm sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
+                  <p className="text-xl sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
                     Scale fast without breaking. We build the systems and strategy you need to grow efficiently and sustainably.
                   </p>
                   
-                  <div className="space-y-3 sm:space-y-4">
-                    <h4 className="text-sm sm:text-base lg:text-lg font-medium text-bone/90 mb-2 sm:mb-3">We deliver:</h4>
-                    <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm lg:text-base text-bone/60">
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Scalable systems and infrastructure</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Growth strategy and performance tracking</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Market expansion and partnership plans</span>
-                      </li>
-                      <li className="flex items-start gap-2 sm:gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span>Innovation roadmap and future opportunities</span>
-                      </li>
+                  {/* Desktop List - Hidden on Mobile */}
+                  <div className="hidden sm:block space-y-3 sm:space-y-4">
+                    <h4 className="text-base sm:text-base lg:text-lg font-medium text-bone/90 mb-2 sm:mb-3">We deliver:</h4>
+                    <ul className="space-y-2 sm:space-y-3 text-sm sm:text-sm lg:text-base text-bone/60">
+                      {deliverables.accelerate.map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 sm:gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 sm:mt-2 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
+
+                  {/* Mobile Accordion - Visible on Mobile Only */}
+                  <MobileAccordion 
+                    title="We deliver:"
+                    items={deliverables.accelerate}
+                  />
                 </div>
               </div>
 
@@ -451,11 +509,11 @@ export default function BusinessValueTabs() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className={`text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 transition-all duration-1200 ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="mb-4 sm:mb-6 lg:mb-8 text-xs sm:text-sm font-medium text-bone/60 tracking-wide uppercase">
+          <div className="mb-4 sm:mb-6 lg:mb-8 text-sm sm:text-sm font-medium text-bone/60 tracking-wide uppercase">
             <span>Transformation</span>
           </div>
           
-          <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-3 sm:mb-4 lg:mb-6 text-bone">
+          <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-3 sm:mb-4 lg:mb-6 text-bone">
             <span className="block mb-1 sm:mb-2 lg:mb-3">For every stage of business,</span>
             <span className="block relative">
               <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
@@ -465,7 +523,7 @@ export default function BusinessValueTabs() {
           </h2>
           
           <div className="max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-0">
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.4] sm:leading-[1.4] text-bone/75 font-light tracking-[-0.01em]">
+            <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.4] sm:leading-[1.4] text-bone/75 font-light tracking-[-0.01em]">
               Every journey is unique. Every solution is complete.
             </p>
           </div>
@@ -484,15 +542,15 @@ export default function BusinessValueTabs() {
         </div>
 
         <div className={`text-center mt-12 sm:mt-16 md:mt-20 lg:mt-24 xl:mt-28 transition-all duration-1000 delay-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-sm sm:text-base lg:text-lg text-bone/60 font-light leading-relaxed mb-6 sm:mb-8 max-w-4xl mx-auto">
+          <p className="text-base sm:text-base lg:text-lg text-bone/60 font-light leading-relaxed mb-6 sm:mb-8 max-w-4xl mx-auto">
             Each transformation integrates strategy, design, and technology. One team. One timeline. One vision.
           </p>
           
           <div className="flex justify-center">
-            <button className="group relative min-h-[48px]">
+            <button className="group relative min-h-[56px] touch-manipulation">
               {/* Button background with gradient border */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative inline-flex items-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 lg:px-8 xl:px-10 py-3 sm:py-4 lg:py-5 bg-obsidian/90 backdrop-blur-sm border border-accent/20 text-bone rounded-full text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-bone group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1">
+              <div className="relative inline-flex items-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 lg:px-8 xl:px-10 py-3 sm:py-4 lg:py-5 bg-obsidian/90 backdrop-blur-sm border border-accent/20 text-bone rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-bone group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1">
                 <span className="relative">
                   Start Your Transformation
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />

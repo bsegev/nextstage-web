@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function WorkHero() {
 
   return (
-    <section className="relative min-h-[75vh] lg:min-h-[85vh] flex items-center justify-center sm:justify-start px-3 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-screen lg:min-h-[95vh] flex items-center justify-center sm:justify-start px-3 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background image with modern loading pattern */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700"
@@ -44,11 +44,11 @@ export default function WorkHero() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="font-display tracking-tight leading-[0.9] sm:leading-[0.95] mb-4 sm:mb-6 lg:mb-8 text-center sm:text-left">
-              <span className="block text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-1 sm:mb-2 lg:mb-3 drop-shadow-sm">
+              <span className="block text-foreground text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-1 sm:mb-2 lg:mb-3 drop-shadow-sm">
                 Transformations{' '}
               </span>
               <span className="block relative">
-                <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian dark:from-bone dark:via-accent dark:to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm">
+                <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian dark:from-bone dark:via-accent dark:to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm">
                   in Action
                 </span>
                 <span className="absolute -inset-1 bg-gradient-to-r from-accent/15 to-accent/30 rounded-lg sm:rounded-xl blur-md sm:blur-lg opacity-20 animate-pulse block" />
@@ -56,14 +56,14 @@ export default function WorkHero() {
             </h1>
           </motion.div>
           
-          {/* Subheadline with semantic markup and enhanced readability */}
+          {/* Subheadline with enhanced mobile sizing */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 relative">
-              <p className="text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] sm:leading-[1.5] text-foreground/80 font-light text-center sm:text-left max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto sm:mx-0">
+              <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] sm:leading-[1.5] text-foreground/80 font-light text-center sm:text-left max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto sm:mx-0">
                 Complete solutions delivered in{' '}
                 <span className="relative inline-block">
                   <span className="text-foreground font-medium">weeks</span>
@@ -84,27 +84,25 @@ export default function WorkHero() {
             </div>
           </motion.div>
           
-          {/* Enhanced CTAs with semantic buttons and accessibility improvements */}
+          {/* Enhanced mobile-optimized CTAs */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-4 justify-center sm:justify-start">
               {/* Primary CTA */}
-              <Link href="/contact" className="group relative min-h-[48px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
-                {/* Button background with enhanced gradient */}
+              <Link href="/contact" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                <div className="relative inline-flex items-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-accent text-obsidian rounded-full text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95">
+                <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-accent text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                   <span className="relative">
                     Start your project
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   
-                  {/* Animated arrow with reduced motion support */}
-                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                  <div className="relative overflow-hidden w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
                     <motion.svg 
-                      className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
+                      className="absolute w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
@@ -118,65 +116,29 @@ export default function WorkHero() {
               </Link>
 
               {/* Secondary CTA */}
-              <Link href="/work" className="group relative min-h-[48px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2 rounded-full">
+              <Link href="/work" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2 rounded-full">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/40 to-bone/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                <div className="relative inline-flex items-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-bone text-obsidian rounded-full text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-bone/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-bone/20 group-hover:-translate-y-1 group-active:scale-95">
+                <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-bone text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-bone/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-bone/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                   <span className="relative">
-                    View case studies
+                    Explore case studies
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   
-                  {/* Animated arrow */}
-                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                  <div className="relative overflow-hidden w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
                     <motion.svg 
-                      className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
+                      className="absolute w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
                       animate={{ x: [0, 4, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </motion.svg>
                   </div>
                 </div>
               </Link>
             </div>
-          </motion.div>
-          
-          {/* Mobile feature highlights with semantic list structure */}
-          <motion.div 
-            className="block sm:hidden mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <ul className="flex justify-center items-center gap-6 text-foreground/60" role="list">
-              <li className="flex flex-col items-center gap-1">
-                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
-                  <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <span className="text-sm font-medium">Fast</span>
-              </li>
-              <li className="flex flex-col items-center gap-1">
-                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
-                  <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <span className="text-sm font-medium">Complete</span>
-              </li>
-              <li className="flex flex-col items-center gap-1">
-                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
-                  <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 18l3-3 3 3 6-6" />
-                  </svg>
-                </div>
-                <span className="text-sm font-medium">Proven</span>
-              </li>
-            </ul>
           </motion.div>
         </div>
       </div>

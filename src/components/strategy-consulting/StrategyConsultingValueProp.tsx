@@ -20,14 +20,14 @@ export default function StrategyConsultingValueProp() {
               
               {/* Main Value Proposition */}
               <div className="mb-8 sm:mb-12">
-                <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
+                <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
                   <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
                     Built around your people, your constraints, your reality
                   </span>
                 </h2>
                 
                 <div className="max-w-3xl mx-auto">
-                  <p className="text-base sm:text-lg md:text-xl leading-[1.6] text-obsidian/70 font-light">
+                  <p className="text-lg sm:text-lg md:text-xl leading-[1.6] text-obsidian/70 font-light">
                     You&apos;ve probably been burned by strategy work before. Beautiful decks that sit in drawers. Frameworks that don&apos;t fit your reality. Consultants who&apos;ve never had to make payroll giving you advice on running your business. We get it—and we do things differently.
                   </p>
                 </div>
@@ -54,10 +54,10 @@ export default function StrategyConsultingValueProp() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
+                    <h3 className="text-lg font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
                       Clear<br/>Ownership
                     </h3>
-                    <p className="text-sm sm:text-base text-obsidian/65 leading-[1.6] font-light">
+                    <p className="text-base text-obsidian/65 leading-[1.6] font-light">
                       Every strategic initiative has a named owner, clear accountabilities, and defined success metrics.
                     </p>
                   </div>
@@ -81,10 +81,10 @@ export default function StrategyConsultingValueProp() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
+                    <h3 className="text-lg font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
                       Actionable<br/>Roadmaps
                     </h3>
-                    <p className="text-sm sm:text-base text-obsidian/65 leading-[1.6] font-light">
+                    <p className="text-base text-obsidian/65 leading-[1.6] font-light">
                       Step-by-step plans with clear next actions, not theoretical frameworks that gather dust.
                     </p>
                   </div>
@@ -108,10 +108,10 @@ export default function StrategyConsultingValueProp() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
+                    <h3 className="text-lg font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
                       Operational<br/>Foundation
                     </h3>
-                    <p className="text-sm sm:text-base text-obsidian/65 leading-[1.6] font-light">
+                    <p className="text-base text-obsidian/65 leading-[1.6] font-light">
                       Systems, processes, and structures that turn strategic decisions into daily operational reality.
                     </p>
                   </div>

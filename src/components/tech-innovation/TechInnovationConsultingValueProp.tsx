@@ -20,15 +20,15 @@ export default function TechInnovationConsultingValueProp() {
               
               {/* Main Value Proposition */}
               <div className="mb-8 sm:mb-12">
-                <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
+                <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
                   <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                    Where innovation becomes competitive advantage
+                    Built around your people, your constraints, your reality
                   </span>
                 </h2>
                 
                 <div className="max-w-3xl mx-auto">
-                  <p className="text-base sm:text-lg md:text-xl leading-[1.6] text-obsidian/70 font-light">
-                    Most companies use technology to maintain status quo—digitizing old processes without reimagining possibilities. We see it differently. Your technology isn&apos;t just about efficiency. It&apos;s about creating capabilities that didn&apos;t exist before.
+                  <p className="text-lg sm:text-lg md:text-xl text-obsidian/70 font-light leading-[1.6]">
+                    Most companies use technology to maintain status quo—digitizing old processes without reimagining possibilities. We build systems that create capabilities that didn&apos;t exist before.
                   </p>
                 </div>
               </div>
@@ -54,10 +54,10 @@ export default function TechInnovationConsultingValueProp() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
+                    <h3 className="font-display text-lg font-semibold text-obsidian tracking-[-0.01em] leading-tight mb-4 sm:mb-5">
                       Future<br/>Ready
                     </h3>
-                    <p className="text-sm sm:text-base text-obsidian/65 leading-[1.6] font-light">
+                    <p className="text-base text-obsidian/65 leading-[1.6] font-light">
                       Advanced technology solutions that anticipate market changes and scale with emerging opportunities.
                     </p>
                   </div>
@@ -82,10 +82,10 @@ export default function TechInnovationConsultingValueProp() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
+                    <h3 className="font-display text-lg font-semibold text-obsidian tracking-[-0.01em] leading-tight mb-4 sm:mb-5">
                       Performance<br/>Driven
                     </h3>
-                    <p className="text-sm sm:text-base text-obsidian/65 leading-[1.6] font-light">
+                    <p className="text-base text-obsidian/65 leading-[1.6] font-light">
                       Every system engineered for speed, reliability, and measurable impact on business operations.
                     </p>
                   </div>
@@ -109,10 +109,10 @@ export default function TechInnovationConsultingValueProp() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
+                    <h3 className="font-display text-lg font-semibold text-obsidian tracking-[-0.01em] leading-tight mb-4 sm:mb-5">
                       Growth<br/>Enabled
                     </h3>
-                    <p className="text-sm sm:text-base text-obsidian/65 leading-[1.6] font-light">
+                    <p className="text-base text-obsidian/65 leading-[1.6] font-light">
                       Technology architecture designed to support 10x growth without rebuilding from scratch.
                     </p>
                   </div>

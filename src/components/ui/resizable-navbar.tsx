@@ -306,28 +306,59 @@ export const MobileNavMenu = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          key="mobile-nav-menu"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] dark:bg-neutral-950",
-            className,
-          )}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {children}
-        </motion.div>
-      )}
-      {isOpen && (
-        <motion.div
           key="mobile-nav-backdrop"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
+          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="fixed inset-0 z-40 bg-obsidian/95 backdrop-blur-xl"
           onClick={onClose}
         />
+      )}
+      {isOpen && (
+        <motion.div
+          key="mobile-nav-menu"
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ 
+            duration: 0.5, 
+            ease: [0.25, 0.46, 0.45, 0.94],
+            type: "tween"
+          }}
+          className={cn(
+            "fixed inset-0 z-50 h-screen w-screen bg-gradient-to-br from-bone via-bone to-bone/95 overflow-y-auto",
+            className,
+          )}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Elegant header */}
+          <div className="relative px-8 pt-12 pb-8">
+            <button
+              onClick={onClose}
+              className="absolute top-8 right-8 p-2 rounded-full hover:bg-obsidian/5 transition-all duration-300 group"
+            >
+              <svg className="w-6 h-6 text-obsidian/60 group-hover:text-obsidian transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+            <div className="space-y-2">
+              <div className="w-12 h-0.5 bg-accent rounded-full"></div>
+              <h2 className="text-2xl font-display font-light text-obsidian tracking-wide">
+                Navigation
+              </h2>
+              <p className="text-sm text-obsidian/60 font-light">
+                Discover our capabilities
+              </p>
+            </div>
+          </div>
+          
+          {/* Content with elegant spacing */}
+          <div className="px-8 pb-12">
+            {children}
+          </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );

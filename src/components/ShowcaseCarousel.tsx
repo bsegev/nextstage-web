@@ -1,8 +1,8 @@
 "use client"
 
-import { useState, useRef, useCallback } from "react"
+import { useState, useRef } from "react"
 import Image from "next/image"
-import { motion, useInView, PanInfo } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 import { useSwipeable } from "react-swipeable"
 
 type ShowcaseItem = {
@@ -63,20 +63,15 @@ export default function ShowcaseCarousel() {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { amount: 0.3, once: true })
 
-  const handleDragEnd = useCallback((e: PointerEvent, info: PanInfo) => {
-    if (Math.abs(info.offset.x) > 100) {
-      if (info.offset.x > 0) {
-        handlePrev()
-      } else {
-        handleNext()
-      }
-    }
-  }, [])
+  // Calculate actual animation duration: 900ms + 150ms delay = 1050ms
+  const ANIMATION_DURATION = 1050
 
   const handlers = useSwipeable({
     onSwipedLeft: () => handleNext(),
     onSwipedRight: () => handlePrev(),
-    trackMouse: true
+    trackMouse: true,
+    preventScrollOnSwipe: true,
+    trackTouch: true
   })
 
   const handleNext = () => {
@@ -84,7 +79,7 @@ export default function ShowcaseCarousel() {
     setIsAnimating(true)
     const nextIndex = (activeIndex + 1) % showcaseItems.length
     setActiveIndex(nextIndex)
-    setTimeout(() => setIsAnimating(false), 1000)
+    setTimeout(() => setIsAnimating(false), ANIMATION_DURATION)
   }
 
   const handlePrev = () => {
@@ -92,7 +87,7 @@ export default function ShowcaseCarousel() {
     setIsAnimating(true)
     const prevIndex = (activeIndex - 1 + showcaseItems.length) % showcaseItems.length
     setActiveIndex(prevIndex)
-    setTimeout(() => setIsAnimating(false), 1000)
+    setTimeout(() => setIsAnimating(false), ANIMATION_DURATION)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -135,7 +130,7 @@ export default function ShowcaseCarousel() {
           <span>Showcase</span>
         </div>
         
-        <h2 className="font-display text-3xl sm:text-3xl md:text-4xl tracking-[-0.02em] leading-[0.9]">
+        <h2 className="font-display text-4xl sm:text-3xl md:text-4xl tracking-[-0.02em] leading-[0.9]">
           <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
             Recent Projects
           </span>
@@ -186,10 +181,6 @@ export default function ShowcaseCarousel() {
                 ease: [0.22, 1, 0.36, 1]
               }}
               className="absolute inset-0"
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.1}
-              onDragEnd={handleDragEnd}
             >
               {/* Main Image */}
               <div className="absolute inset-0 flex items-center justify-center px-4 md:px-0">
@@ -226,66 +217,56 @@ export default function ShowcaseCarousel() {
                 className="absolute bottom-20 md:bottom-10 left-4 md:left-10 text-bone z-10"
               >
                 <p className="text-sm font-medium tracking-wider mb-2 text-accent">{item.descr}</p>
-                <h3 className="font-display text-2xl md:text-3xl mb-3 tracking-[-0.02em]">{item.title}</h3>
+                <h3 className="font-display text-3xl md:text-3xl mb-3 tracking-[-0.02em]">{item.title}</h3>
                 <div className="flex flex-wrap gap-2 max-w-[90vw] md:max-w-[50vw]">
                   {index === 0 && (
                     <>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Website</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Pitch Deck</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Investor Materials</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Copywriting</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Brand Strategy</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Web Design</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Business Strategy</span>
                     </>
                   )}
                   {index === 1 && (
                     <>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Dashboard Design</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Data Visualization</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">UX Research</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Responsive Design</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Digital Product Development</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Platform Architecture</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Digital Experience Design</span>
                     </>
                   )}
                   {index === 2 && (
                     <>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Branding</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Website</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Copywriting</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">CMS</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Brand Identity Systems</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Web Design & Development</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Content Systems</span>
                     </>
                   )}
                   {index === 3 && (
                     <>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Full Service Partnership</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Sales Coaching</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Onboarding Streamline</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Strategy</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Design System</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Digital Transformation</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Platform Architecture</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Marketing Design Systems</span>
                     </>
                   )}
                   {index === 4 && (
                     <>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Branding</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Website</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Sales Decks</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Document Templates</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Copywriting</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">LinkedIn Optimization</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Explainer Videos</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Brand Strategy</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Campaign Strategy</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Go-to-Market Planning</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Content Systems</span>
                     </>
                   )}
                   {index === 5 && (
                     <>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Website</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">CMS</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">SEO</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Web Design & Development</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Digital Experience Design</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Performance Optimization</span>
                     </>
                   )}
                   {index === 6 && (
                     <>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Branding</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Website</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Payment System</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Copywriting</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Explainer Videos</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Brand Identity Systems</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Web Design & Development</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Marketing Technology</span>
                     </>
                   )}
                 </div>

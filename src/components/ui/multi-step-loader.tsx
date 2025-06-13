@@ -47,21 +47,21 @@ const LoaderCore = ({
   value?: number;
 }) => {
   return (
-    <div className="flex relative justify-center max-w-2xl mx-auto flex-col">
+    <div className="flex relative justify-center max-w-2xl mx-auto flex-col px-4 sm:px-6">
       {/* Elegant header */}
       <motion.div 
-        className="text-center mb-12"
+        className="text-center mb-8 sm:mb-12"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         <div className="relative">
-          <h3 className="font-display text-2xl lg:text-3xl tracking-[-0.02em] leading-tight text-obsidian mb-3">
+          <h3 className="font-display text-xl sm:text-2xl lg:text-3xl tracking-[-0.02em] leading-tight text-obsidian mb-3">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
               Strategic Process
             </span>
           </h3>
-          <p className="text-obsidian/60 font-light tracking-wide">
+          <p className="text-base sm:text-lg text-obsidian/60 font-light tracking-wide">
             Analyzing your unique situation
           </p>
           <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mt-4"></div>
@@ -69,7 +69,7 @@ const LoaderCore = ({
       </motion.div>
 
       {/* Loading steps */}
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {loadingStates.map((loadingState, index) => {
           const distance = Math.abs(index - value);
           const opacity = Math.max(1 - distance * 0.15, 0.3);
@@ -80,7 +80,7 @@ const LoaderCore = ({
             <motion.div
               key={index}
               className={cn(
-                "relative flex items-center gap-4 p-4 rounded-2xl transition-all duration-700",
+                "relative flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl transition-all duration-700 min-h-[4rem] sm:min-h-[5rem]",
                 isActive && "bg-gradient-to-r from-accent/5 via-accent/10 to-accent/5 border border-accent/20 shadow-lg shadow-accent/5",
                 isCompleted && "bg-gradient-to-r from-obsidian/5 via-obsidian/8 to-obsidian/5 border border-obsidian/15",
                 !isActive && !isCompleted && "bg-white/50 border border-obsidian/5"
@@ -89,7 +89,7 @@ const LoaderCore = ({
               animate={{ 
                 opacity: opacity, 
                 x: 0, 
-                scale: isActive ? 1.02 : 1,
+                scale: 1,
               }}
               transition={{ 
                 duration: 0.6,
@@ -105,17 +105,17 @@ const LoaderCore = ({
               )}>
                 {index >= value ? (
                   <div className={cn(
-                    "w-10 h-10 rounded-full border-2 flex items-center justify-center font-mono font-bold text-sm transition-all duration-500",
+                    "w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 flex items-center justify-center font-mono font-bold text-xs sm:text-sm transition-all duration-500",
                     isActive ? "border-accent bg-accent/10 text-accent" : "border-obsidian/20 bg-white text-obsidian/50"
                   )}>
                     {index + 1}
                   </div>
                 ) : (
-                  <div className="w-10 h-10 flex items-center justify-center">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
                     <CheckFilled 
                       isActive={isActive}
                       className={cn(
-                        "transition-all duration-500",
+                        "transition-all duration-500 w-5 h-5 sm:w-6 sm:h-6",
                         isActive && "text-accent drop-shadow-sm",
                         isCompleted && "text-obsidian/70"
                       )} 
@@ -126,20 +126,16 @@ const LoaderCore = ({
 
               {/* Step content */}
               <div className="flex-1 min-w-0">
-                <motion.p
+                <p
                   className={cn(
-                    "font-light leading-relaxed tracking-wide transition-all duration-500",
-                    isActive && "text-obsidian font-medium text-lg",
+                    "font-light leading-relaxed tracking-wide transition-all duration-500 text-sm sm:text-base min-h-[2.5rem] sm:min-h-[3rem] flex items-center",
+                    isActive && "text-obsidian font-medium",
                     isCompleted && "text-obsidian/70",
                     !isActive && !isCompleted && "text-obsidian/50"
                   )}
-                  animate={{
-                    scale: isActive ? 1.02 : 1,
-                  }}
-                  transition={{ duration: 0.3 }}
                 >
                   {loadingState.text}
-                </motion.p>
+                </p>
               </div>
 
               {/* Active indicator */}

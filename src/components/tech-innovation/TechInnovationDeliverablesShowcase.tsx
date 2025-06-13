@@ -119,73 +119,73 @@ export default function TechInnovationDeliverablesShowcase() {
   const deliverables = [
     {
       title: "MVP & Prototype Development",
-      description: "Fast market validation with lean, testable product versions",
+      description: "Fast market validation with lean, testable product versions.",
       category: "Development",
       icon: IconRocket
     },
     {
       title: "Custom Internal Applications",
-      description: "Purpose-built software for your specific operational needs",
+      description: "Purpose-built software for your specific operational needs.",
       category: "Development",
       icon: IconCode
     },
     {
       title: "AI Integration & Custom GPTs",
-      description: "Intelligent automation and custom AI assistants for your workflows",
+      description: "Intelligent automation and custom AI assistants for workflows.",
       category: "Development",
       icon: IconBolt
     },
     {
       title: "Workflow Automation Systems",
-      description: "End-to-end process automation that eliminates manual bottlenecks",
+      description: "End-to-end process automation that eliminates manual bottlenecks.",
       category: "Automation",
       icon: IconTarget
     },
     {
       title: "API Development & Integrations",
-      description: "Seamless connections between your existing tools and platforms",
+      description: "Seamless connections between your existing tools and platforms.",
       category: "Automation",
       icon: IconDashboard
     },
     {
       title: "Database Development",
-      description: "Organized data storage and management systems",
+      description: "Organized data storage and management systems.",
       category: "Automation",
       icon: IconFiles
     },
     {
       title: "Legacy System Modernization",
-      description: "Transform outdated systems into modern, efficient platforms",
+      description: "Transform outdated systems into modern, efficient platforms.",
       category: "Enhancement",
       icon: IconTrendingUp
     },
     {
       title: "Performance Optimization",
-      description: "Speed and reliability improvements for existing applications",
+      description: "Speed and reliability improvements for existing applications.",
       category: "Enhancement",
       icon: IconChartBar
     },
     {
       title: "Mobile App Development",
-      description: "Native and web-based mobile solutions",
+      description: "Native and web-based mobile solutions.",
       category: "Enhancement",
       icon: IconUsers
     },
     {
       title: "Custom AI Solutions",
-      description: "Machine learning models and intelligent features tailored to your business",
+      description: "Machine learning models and intelligent features tailored to business.",
       category: "Innovation",
       icon: IconPalette
     },
     {
       title: "Web Application Development",
-      description: "Custom web-based business applications and platforms",
+      description: "Custom web-based business applications and platforms.",
       category: "Innovation",
       icon: IconScale
     },
     {
       title: "Rapid Prototyping",
-      description: "Quick concept-to-reality development for testing new ideas",
+      description: "Quick concept-to-reality development for testing new ideas.",
       category: "Innovation",
       icon: IconMail
     }
@@ -209,17 +209,17 @@ export default function TechInnovationDeliverablesShowcase() {
         
         {/* Section Header */}
         <div className={`text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
+          <div className="mb-6 sm:mb-8 text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
             <span>Deliverables</span>
           </div>
           
-          <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-6 sm:mb-8 md:mb-10">
+          <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-6 sm:mb-8 md:mb-10">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
               Tangible systems you can deploy immediately
             </span>
           </h2>
           
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-12">
+          <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-12">
             No theoretical frameworks—just practical technology solutions that drive real business transformation.
           </p>
         </div>
@@ -258,7 +258,7 @@ export default function TechInnovationDeliverablesShowcase() {
                   <div className="relative z-10 mb-4 sm:mb-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-accent/10 to-accent/5 rounded-full border border-accent/20 group-hover:from-accent/15 group-hover:to-accent/8 group-hover:border-accent/30 transition-all duration-500">
                       <deliverable.icon className="w-4 h-4 text-obsidian/70" />
-                      <span className="text-xs font-medium text-obsidian/70 tracking-wide uppercase">
+                      <span className="text-sm font-medium text-obsidian/70 tracking-wide uppercase">
                         {deliverable.category}
                       </span>
                     </div>
@@ -266,14 +266,14 @@ export default function TechInnovationDeliverablesShowcase() {
                   
                   {/* Title */}
                   <div className="relative z-10 mb-4">
-                    <h3 className="font-display text-lg sm:text-xl font-semibold text-obsidian leading-tight tracking-[-0.015em] group-hover:text-obsidian/95 transition-colors duration-500">
+                    <h3 className="font-display text-lg font-semibold text-obsidian leading-tight tracking-[-0.015em] group-hover:text-obsidian/95 transition-colors duration-500">
                       {deliverable.title}
                     </h3>
                   </div>
                   
                   {/* Description */}
                   <div className="relative z-10 flex-grow">
-                    <p className="text-sm sm:text-base text-obsidian/60 leading-[1.6] font-light tracking-wide group-hover:text-obsidian/70 transition-colors duration-500">
+                    <p className="text-base text-obsidian/60 leading-[1.6] font-light tracking-wide group-hover:text-obsidian/70 transition-colors duration-500">
                       {deliverable.description}
                     </p>
                   </div>
@@ -307,7 +307,7 @@ export default function TechInnovationDeliverablesShowcase() {
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 />
-                <span className="text-xs text-obsidian/60 font-medium">Auto-advancing</span>
+                <span className="text-sm text-obsidian/60 font-medium">Auto-advancing</span>
               </motion.div>
             )}
           </div>
@@ -412,7 +412,7 @@ export default function TechInnovationDeliverablesShowcase() {
                           whileHover={{ scale: 1.05 }}
                         >
                           <deliverable.icon className="w-4 h-4 text-obsidian/80" />
-                          <span className="text-xs font-semibold text-obsidian/80 tracking-wider uppercase">
+                          <span className="text-sm font-semibold text-obsidian/80 tracking-wider uppercase">
                             {deliverable.category}
                           </span>
                         </motion.div>
@@ -427,7 +427,7 @@ export default function TechInnovationDeliverablesShowcase() {
                       
                       {/* Description */}
                       <div className="relative z-10 flex-grow">
-                        <p className="text-sm text-obsidian/65 leading-[1.7] font-light tracking-wide group-hover:text-obsidian/80 transition-colors duration-500">
+                        <p className="text-base text-obsidian/65 leading-[1.7] font-light tracking-wide group-hover:text-obsidian/80 transition-colors duration-500">
                           {deliverable.description}
                         </p>
                       </div>
@@ -514,7 +514,7 @@ export default function TechInnovationDeliverablesShowcase() {
                   transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
                 />
               </div>
-              <div className="flex justify-between mt-2 text-xs text-obsidian/40 font-medium">
+              <div className="flex justify-between mt-2 text-sm text-obsidian/40 font-medium">
                 <span>{currentIndex + 1} of {totalItems}</span>
                 <span className="font-light">{isAutoPlaying ? 'Auto-advancing' : 'Paused'}</span>
               </div>

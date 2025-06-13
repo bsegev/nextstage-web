@@ -28,32 +28,32 @@ export default function TechInnovationConsultingServices() {
 
   const serviceLoadingSteps = {
     'mvp-development': [
-      { text: "Defining core features" },
-      { text: "Setting up development environment" },
-      { text: "Building core functionality" },
-      { text: "Testing with real users" },
-      { text: "Preparing for launch" },
+      { text: "Analyzing core feature requirements and user journeys" },
+      { text: "Building lean development architecture and tech stack" },
+      { text: "Creating MVP with essential functionality for validation" },
+      { text: "Testing with target users and gathering feedback" },
+      { text: "Preparing scalable foundation for market launch" },
     ],
     'automated-workflows': [
-      { text: "Mapping current processes" },
-      { text: "Identifying automation opportunities" },
-      { text: "Building workflow logic" },
-      { text: "Integrating with existing systems" },
-      { text: "Testing automated flows" },
+      { text: "Mapping current manual processes and pain points" },
+      { text: "Identifying high-impact automation opportunities" },
+      { text: "Building intelligent workflow logic and integrations" },
+      { text: "Connecting with existing systems and data sources" },
+      { text: "Testing automated flows and optimizing performance" },
     ],
     'custom-software': [
-      { text: "Analyzing requirements" },
-      { text: "Designing system architecture" },
-      { text: "Building core modules" },
-      { text: "Implementing user interface" },
-      { text: "Testing and deployment" },
+      { text: "Analyzing specific business requirements and constraints" },
+      { text: "Designing scalable system architecture and interfaces" },
+      { text: "Building core functionality with custom features" },
+      { text: "Creating intuitive user interface and experience" },
+      { text: "Testing, deployment, and team training procedures" },
     ],
     'ai-enhanced-software': [
-      { text: "Analyzing data patterns" },
-      { text: "Training AI models" },
-      { text: "Building intelligent features" },
-      { text: "Integrating AI capabilities" },
-      { text: "Optimizing performance" },
+      { text: "Analyzing data patterns and intelligence opportunities" },
+      { text: "Training AI models specific to business context" },
+      { text: "Building intelligent features and decision systems" },
+      { text: "Integrating AI capabilities with existing workflows" },
+      { text: "Optimizing performance and continuous learning" },
     ]
   };
 
@@ -61,8 +61,8 @@ export default function TechInnovationConsultingServices() {
     {
       id: 'mvp-development',
       title: 'MVP Development',
-      context: 'When you need to test ideas quickly in the market',
-      description: 'Launch validated products fast with lean development cycles that prove concepts before major investment.',
+      context: 'When you need to test ideas quickly',
+      description: 'Launch validated products fast with lean development cycles.',
       pattern: 'diverging-paths',
       accent: 'from-accent/15 to-accent/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -71,8 +71,8 @@ export default function TechInnovationConsultingServices() {
     {
       id: 'automated-workflows', 
       title: 'Automated Workflows',
-      context: 'When repetitive tasks consume valuable time',
-      description: 'Transform manual processes into intelligent systems that run themselves while your team focuses on growth.',
+      context: 'When repetitive tasks consume time',
+      description: 'Transform manual processes into intelligent systems.',
       pattern: 'signal-in-noise',
       accent: 'from-obsidian/15 to-obsidian/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -80,9 +80,9 @@ export default function TechInnovationConsultingServices() {
     },
     {
       id: 'custom-software',
-      title: 'Custom Internal Software',
+      title: 'Custom Software',
       context: 'When your team needs tools that don&apos;t exist',
-      description: 'Purpose-built applications that solve your specific operational challenges and give you competitive advantages.',
+      description: 'Purpose-built applications that solve specific challenges.',
       pattern: 'velocity-focused',
       accent: 'from-accent/20 to-accent/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -91,8 +91,8 @@ export default function TechInnovationConsultingServices() {
     {
       id: 'ai-enhanced-software',
       title: 'AI-Enhanced Software',
-      context: 'When you want intelligence built into your operations',
-      description: 'Integrate custom AI capabilities and smart automation that learns from your data and improves over time.',
+      context: 'When you want intelligence built in',
+      description: 'Integrate AI capabilities that learn and improve over time.',
       pattern: 'evolution-bridge',
       accent: 'from-bone/25 to-bone/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -124,17 +124,17 @@ export default function TechInnovationConsultingServices() {
         
         {/* Section Header */}
         <div className={`text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="mb-6 sm:mb-8 text-xs sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
-            <span>What We Build</span>
+          <div className="mb-6 sm:mb-8 text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
+            <span>Technology Services</span>
           </div>
           
-          <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 md:mb-8">
+          <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 md:mb-8">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
               Technology that works as hard as you do
             </span>
           </h2>
           
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed">
             Functional isn&apos;t enough. Every system we build accelerates operations, reduces costs, and enables growth that wasn&apos;t possible before.
           </p>
         </div>
@@ -189,7 +189,7 @@ export default function TechInnovationConsultingServices() {
                     {/* Elegant Service Title with accent line */}
                     <CardItem translateZ="80" className="relative">
                       <div className="absolute -left-2 top-0 w-0.5 h-full bg-gradient-to-b from-accent/30 via-accent to-accent/30 rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
-                      <h3 className="font-display text-xl font-semibold text-obsidian dark:text-white mb-3 tracking-[-0.015em] leading-tight group-hover/card:text-obsidian/95 transition-colors duration-500">
+                      <h3 className="font-display text-lg font-semibold text-obsidian dark:text-white mb-3 tracking-[-0.015em] leading-tight group-hover/card:text-obsidian/95 transition-colors duration-500">
                         {service.title}
                       </h3>
                     </CardItem>
@@ -197,7 +197,7 @@ export default function TechInnovationConsultingServices() {
                     {/* Refined Context with branded styling */}
                     <CardItem translateZ="50" className="w-full">
                       <p 
-                        className="text-obsidian/55 dark:text-white/55 text-sm font-light mb-4 leading-[1.5] tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500"
+                        className="text-obsidian/55 dark:text-white/55 text-base font-light mb-4 leading-[1.5] tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500"
                         dangerouslySetInnerHTML={{ __html: service.context }}
                       />
                     </CardItem>
@@ -206,7 +206,7 @@ export default function TechInnovationConsultingServices() {
                     <CardItem translateZ="120" className="w-full mb-4 flex-shrink-0">
                       <div className="h-20 w-full bg-gradient-to-br from-bone/30 via-white/50 to-bone/20 dark:from-white/5 dark:to-white/2 rounded-2xl flex items-center justify-center group-hover/card:shadow-xl group-hover/card:shadow-obsidian/[0.03] border-2 border-transparent group-hover/card:border-accent/[0.08] transition-all duration-1000 backdrop-blur-sm relative overflow-hidden">
                         
-                        {/* Strategy Image */}
+                        {/* Technology Image */}
                         <div className="transition-all duration-1000 ease-out group-hover/card:scale-110 relative z-10 w-full h-full">
                           <img 
                             src={service.image} 
@@ -221,7 +221,7 @@ export default function TechInnovationConsultingServices() {
                     <CardItem
                       as="p"
                       translateZ="60"
-                      className="text-obsidian/55 dark:text-white/55 text-sm mb-5 leading-[1.6] font-light tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500 flex-grow"
+                      className="text-obsidian/55 dark:text-white/55 text-base mb-5 leading-[1.6] font-light tracking-wide group-hover/card:text-obsidian/65 transition-colors duration-500 flex-grow"
                     >
                       {service.description}
                     </CardItem>
@@ -232,7 +232,7 @@ export default function TechInnovationConsultingServices() {
                         translateZ={50}
                         as="button"
                         onClick={() => handleLoaderToggle(service.id, true)}
-                        className="w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-accent via-accent/95 to-accent text-obsidian text-sm font-medium tracking-[0.05em] hover:from-accent/95 hover:via-accent/90 hover:to-accent/95 hover:shadow-xl hover:shadow-accent/[0.15] transition-all duration-500 hover:-translate-y-1 group/primary border border-accent/20 hover:border-accent/30"
+                        className="w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-accent via-accent/95 to-accent text-obsidian text-base font-medium tracking-[0.05em] hover:from-accent/95 hover:via-accent/90 hover:to-accent/95 hover:shadow-xl hover:shadow-accent/[0.15] transition-all duration-500 hover:-translate-y-1 group/primary border border-accent/20 hover:border-accent/30"
                       >
                         <span className="flex items-center justify-center gap-2">
                           Quick Overview
@@ -246,7 +246,7 @@ export default function TechInnovationConsultingServices() {
                       <CardItem
                         translateZ={30}
                         as="button"
-                        className="w-full px-5 py-3 rounded-2xl border-2 border-transparent bg-gradient-to-r from-obsidian/[0.02] via-obsidian/[0.05] to-obsidian/[0.02] hover:from-obsidian/[0.05] hover:via-obsidian/[0.08] hover:to-obsidian/[0.05] text-obsidian/70 dark:text-white/70 text-sm font-light tracking-[0.05em] hover:text-obsidian/90 dark:hover:text-white/90 hover:border-obsidian/10 dark:hover:border-white/10 transition-all duration-300 group/secondary backdrop-blur-sm"
+                        className="w-full px-5 py-3 rounded-2xl border-2 border-transparent bg-gradient-to-r from-obsidian/[0.02] via-obsidian/[0.05] to-obsidian/[0.02] hover:from-obsidian/[0.05] hover:via-obsidian/[0.08] hover:to-obsidian/[0.05] text-obsidian/70 dark:text-white/70 text-base font-light tracking-[0.05em] hover:text-obsidian/90 dark:hover:text-white/90 hover:border-obsidian/10 dark:hover:border-white/10 transition-all duration-300 group/secondary backdrop-blur-sm"
                       >
                         <span className="flex items-center justify-center gap-1.5">
                           Learn More
@@ -272,7 +272,7 @@ export default function TechInnovationConsultingServices() {
           className="text-center mt-16 lg:mt-24"
         >
           <div className="max-w-4xl mx-auto">
-            <p className="text-lg lg:text-xl text-obsidian/60 font-light leading-relaxed mb-8">
+            <p className="text-xl lg:text-2xl text-obsidian/60 font-light leading-relaxed mb-8">
               Great technology isn&apos;t about having the latest tools.
               <br className="hidden sm:block" />
               <span className="italic">It&apos;s about building systems that unlock exponential business growth.</span>
