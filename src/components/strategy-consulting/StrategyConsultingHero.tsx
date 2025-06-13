@@ -11,7 +11,7 @@ export default function StrategyConsultingHero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center sm:justify-start px-3 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center sm:justify-start px-3 sm:px-6 lg:px-8 pt-20 sm:pt-0 overflow-hidden">
       
       {/* Background image */}
       <div 
