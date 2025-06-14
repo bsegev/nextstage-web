@@ -537,6 +537,16 @@ Card Interaction States:
 - Active: Scale animation on metric values (1.05)
 - Glow: Pulsing box-shadow effect with 2s duration
 
+Sophisticated Bottom Accent Animation:
+- Container: absolute bottom-0 left-4 right-4 h-px overflow-hidden
+- Containment: 16px buffer (left-4 right-4) to avoid border radius conflicts
+- Opacity Control: Separate motion.div for fade in/out (0.3s easeInOut)
+- Gradient Animation: Inner motion.div with moving backgroundPosition
+- Background Size: 200% 100% to create sliding effect
+- Animation Pattern: ['0% 50%', '100% 50%', '0% 50%'] over 2s
+- Conditional Repeat: Only animates when hovered (prevents unnecessary animations)
+- Two-Layer System: Outer container handles opacity, inner handles gradient movement
+
 Responsive Layout Strategy:
 - Mobile: Vertical stack with full-width cards
 - Desktop: Split layout with description left, metrics right

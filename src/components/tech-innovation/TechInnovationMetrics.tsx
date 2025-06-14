@@ -277,16 +277,24 @@ export default function TechInnovationMetrics() {
 
                       {/* Animated bottom accent */}
                       <motion.div
-                        className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                        animate={hoveredIndex === index ? {
-                          background: [
-                            'linear-gradient(to right, transparent, #FFE0D7, transparent)',
-                            'linear-gradient(to right, #FFE0D7, transparent, #FFE0D7)',
-                            'linear-gradient(to right, transparent, #FFE0D7, transparent)'
-                          ]
-                        } : {}}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      />
+                        className="absolute bottom-0 left-4 right-4 h-px overflow-hidden"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        <motion.div
+                          className="w-full h-full bg-gradient-to-r from-transparent via-accent to-transparent"
+                          animate={hoveredIndex === index ? {
+                            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+                          } : {}}
+                          transition={{ 
+                            duration: 2, 
+                            repeat: hoveredIndex === index ? Infinity : 0,
+                            ease: "easeInOut"
+                          }}
+                          style={{ backgroundSize: '200% 100%' }}
+                        />
+                      </motion.div>
                     </div>
                   </motion.div>
                 ))}
@@ -474,16 +482,24 @@ export default function TechInnovationMetrics() {
 
                         {/* Animated bottom accent */}
                         <motion.div
-                          className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                          animate={hoveredIndex === index ? {
-                            background: [
-                              'linear-gradient(to right, transparent, #FFE0D7, transparent)',
-                              'linear-gradient(to right, #FFE0D7, transparent, #FFE0D7)',
-                              'linear-gradient(to right, transparent, #FFE0D7, transparent)'
-                            ]
-                          } : {}}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
+                          className="absolute bottom-0 left-4 right-4 h-px overflow-hidden"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                        >
+                          <motion.div
+                            className="w-full h-full bg-gradient-to-r from-transparent via-accent to-transparent"
+                            animate={hoveredIndex === index ? {
+                              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+                            } : {}}
+                            transition={{ 
+                              duration: 2, 
+                              repeat: hoveredIndex === index ? Infinity : 0,
+                              ease: "easeInOut"
+                            }}
+                            style={{ backgroundSize: '200% 100%' }}
+                          />
+                        </motion.div>
                       </div>
                     </motion.div>
                   ))}
