@@ -238,18 +238,14 @@ export default function TechInnovationCTA() {
                             style={{
                               x: useTransform(galaxyRotation, (rotation) => {
                                 // 3D rotation matrices
-                                const rotX = rotation * 0.3;
                                 const rotY = rotation * 0.5;
                                 
                                 // Apply quantum tunneling
                                 const x = latticeValues.baseX + tunnelOffset.x * Math.sin(rotation * 2 + latticeValues.quantumPhase);
-                                const y = latticeValues.baseY + tunnelOffset.y * Math.cos(rotation * 1.5 + latticeValues.quantumPhase);
                                 const z = latticeValues.baseZ + tunnelOffset.z * Math.sin(rotation * 1.8 + latticeValues.quantumPhase);
                                 
                                 // 3D to 2D projection with rotation
                                 const rotatedX = x * Math.cos(rotY) - z * Math.sin(rotY);
-                                const rotatedZ = x * Math.sin(rotY) + z * Math.cos(rotY);
-                                const finalY = y * Math.cos(rotX) - rotatedZ * Math.sin(rotX);
                                 
                                 return rotatedX;
                               }),
@@ -261,7 +257,6 @@ export default function TechInnovationCTA() {
                                 const y = latticeValues.baseY + tunnelOffset.y * Math.cos(rotation * 1.5 + latticeValues.quantumPhase);
                                 const z = latticeValues.baseZ + tunnelOffset.z * Math.sin(rotation * 1.8 + latticeValues.quantumPhase);
                                 
-                                const rotatedX = x * Math.cos(rotY) - z * Math.sin(rotY);
                                 const rotatedZ = x * Math.sin(rotY) + z * Math.cos(rotY);
                                 const finalY = y * Math.cos(rotX) - rotatedZ * Math.sin(rotX);
                                 
@@ -308,7 +303,6 @@ export default function TechInnovationCTA() {
                         const i = x;
                         const j = y;
                         const k = z;
-                        const bondIndex = i * 9 + j * 3 + k;
                         
                         const bondValues = useMemo(() => {
                           const spacing = 25;
@@ -749,16 +743,15 @@ export default function TechInnovationCTA() {
                             style={{
                               x: useTransform(galaxyRotation, (rotation) => {
                                 // 3D rotation matrices
-                                const rotX = rotation * 0.25;
                                 const rotY = rotation * 0.4;
                                 
                                 // Apply quantum tunneling
                                 const x = latticeValues.baseX + tunnelOffset.x * Math.sin(rotation * 1.8 + latticeValues.quantumPhase);
-                                const y = latticeValues.baseY + tunnelOffset.y * Math.cos(rotation * 1.3 + latticeValues.quantumPhase);
                                 const z = latticeValues.baseZ + tunnelOffset.z * Math.sin(rotation * 1.6 + latticeValues.quantumPhase);
                                 
                                 // 3D to 2D projection with rotation
                                 const rotatedX = x * Math.cos(rotY) - z * Math.sin(rotY);
+                                
                                 return rotatedX;
                               }),
                               y: useTransform(galaxyRotation, (rotation) => {
@@ -769,7 +762,6 @@ export default function TechInnovationCTA() {
                                 const y = latticeValues.baseY + tunnelOffset.y * Math.cos(rotation * 1.3 + latticeValues.quantumPhase);
                                 const z = latticeValues.baseZ + tunnelOffset.z * Math.sin(rotation * 1.6 + latticeValues.quantumPhase);
                                 
-                                const rotatedX = x * Math.cos(rotY) - z * Math.sin(rotY);
                                 const rotatedZ = x * Math.sin(rotY) + z * Math.cos(rotY);
                                 const finalY = y * Math.cos(rotX) - rotatedZ * Math.sin(rotX);
                                 
