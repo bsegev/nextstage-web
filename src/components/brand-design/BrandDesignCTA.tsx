@@ -199,34 +199,43 @@ export default function BrandDesignCTA() {
                 {/* eslint-disable react-hooks/rules-of-hooks */}
                 <motion.g style={{ rotate: galaxyRotation }}>
                   {/* Impossible Circle/Penrose Ring - Mobile */}
-                  {Array.from({ length: 30 }).map((_, i) => {
+                  {Array.from({ length: 40 }).map((_, i) => {
                     // Pre-calculate static values once
                     const staticValues = useMemo(() => {
-                      const t = (i / 30) * Math.PI * 2;
+                      const t = (i / 40) * Math.PI * 2;
                       return {
                         t,
                         majorRadius: 80,
                         tubeRadius: 20,
-                        twist: t * 0.5,
-                        baseDepthOffset: Math.PI * 0.5
+                        twist: t * 1.2, // Increased twist for better impossible effect
+                        baseDepthOffset: Math.PI * 0.3
                       };
                     }, [i]);
                     
                     // Create cross-section dots around the tube
                     return Array.from({ length: 6 }).map((_, j) => {
-                      // Pre-calculate tube-specific values
-                      const tubeValues = useMemo(() => {
-                        const tubeAngle = (j / 6) * Math.PI * 2;
+                      // Pre-calculate tube-specific values with proper 3D depth
+                                              const tubeValues = useMemo(() => {
+                          const tubeAngle = (j / 6) * Math.PI * 2;
                         const twistedAngle = tubeAngle + staticValues.twist;
+                        
+                        // Calculate 3D depth for impossible torus effect with enhanced curvature
                         const depth = Math.sin(twistedAngle) * Math.cos(staticValues.t + staticValues.baseDepthOffset);
-                        const lighting = Math.max(0.4, (depth + 1) * 0.5);
+                        const rotationDepth = Math.sin(staticValues.t * 1.2) * 0.25; // Enhanced rotation depth
+                        const curvatureDepth = Math.cos(staticValues.t * 2.4) * 0.15; // Additional curvature
+                        const finalDepth = depth + rotationDepth + curvatureDepth;
+                        
+                        // Lighting based on depth (like Strategy/Tech CTAs)
+                        const lighting = Math.max(0.3, (finalDepth + 1.2) * 0.5);
+                        
                         return {
                           tubeAngle,
                           twistedAngle,
-                          depth,
+                          depth: finalDepth,
                           lighting,
-                          isVisible: depth > -0.3,
-                          isHighlight: lighting > 0.8
+                          isVisible: finalDepth > -0.4,
+                          isHighlight: lighting > 0.8,
+                          isMidTone: lighting > 0.6
                         };
                       }, [j]);
                       
@@ -237,12 +246,12 @@ export default function BrandDesignCTA() {
                           key={`impossible-${i}-${j}`}
                           cx="160"
                           cy="160"
-                          r={1 + tubeValues.lighting * 1.5}
+                          r={1.2 + tubeValues.lighting * 1.8}
                           style={{
                             x: useTransform(galaxyRotation, (rotation) => {
-                              const rotT = staticValues.t + rotation * 0.5;
+                              const rotT = staticValues.t + rotation * 0.4;
                               const rotCenterX = staticValues.majorRadius * Math.cos(rotT);
-                              const rotTwist = rotT * 0.5;
+                              const rotTwist = rotT * 1.2; // Match the increased twist
                               const rotTwistedAngle = tubeValues.tubeAngle + rotTwist;
                               const rotLocalX = staticValues.tubeRadius * Math.cos(rotTwistedAngle);
                               const rotLocalY = staticValues.tubeRadius * Math.sin(rotTwistedAngle);
@@ -250,24 +259,37 @@ export default function BrandDesignCTA() {
                               return rotCenterX + rotRotatedX;
                             }),
                             y: useTransform(galaxyRotation, (rotation) => {
-                              const rotT = staticValues.t + rotation * 0.5;
+                              const rotT = staticValues.t + rotation * 0.4;
                               const rotCenterY = staticValues.majorRadius * Math.sin(rotT);
-                              const rotTwist = rotT * 0.5;
+                              const rotTwist = rotT * 1.2; // Match the increased twist
                               const rotTwistedAngle = tubeValues.tubeAngle + rotTwist;
                               const rotLocalX = staticValues.tubeRadius * Math.cos(rotTwistedAngle);
                               const rotLocalY = staticValues.tubeRadius * Math.sin(rotTwistedAngle);
                               const rotRotatedY = rotLocalX * Math.sin(rotT) + rotLocalY * Math.cos(rotT);
                               return rotCenterY + rotRotatedY;
                             }),
-                            opacity: tubeValues.lighting * 0.7
+                            // StrategyCTA genius opacity logic - simple front/back
+                            opacity: useTransform(galaxyRotation, (rotation) => {
+                              const rotT = staticValues.t + rotation * 0.4;
+                              const rotTwist = rotT * 1.2;
+                              const rotTwistedAngle = tubeValues.tubeAngle + rotTwist;
+                              
+                              // Calculate Z-depth using StrategyCTA's simple approach
+                              const rotLocalX = staticValues.tubeRadius * Math.cos(rotTwistedAngle);
+                              const rotLocalY = staticValues.tubeRadius * Math.sin(rotTwistedAngle);
+                              const z = rotLocalX * Math.sin(rotT) + rotLocalY * Math.cos(rotT);
+                              
+                              // Simple front/back logic like StrategyCTA
+                              return z > 0 ? 0.3 : 0.8;
+                            })
                           }}
-                          fill={tubeValues.isHighlight ? "#FFE0D7" : "#FFFFFF"}
+                          fill={tubeValues.isHighlight ? "#FFE0D7" : tubeValues.isMidTone ? "#F0D5C4" : "#FFFFFF"}
                           filter={tubeValues.isHighlight ? "url(#softGlow)" : "none"}
                           animate={{
-                            scale: [1, 1.05 + tubeValues.lighting * 0.1, 1],
+                            scale: [1, 1.05 + tubeValues.lighting * 0.12, 1],
                           }}
                           transition={{
-                            duration: 3 + (i + j) * 0.05,
+                            duration: 3.2 + (i + j) * 0.04,
                             repeat: Infinity,
                             delay: (i + j) * 0.02
                           }}
@@ -633,34 +655,43 @@ export default function BrandDesignCTA() {
                 {/* eslint-disable react-hooks/rules-of-hooks */}
                 <motion.g style={{ rotate: galaxyRotation }}>
                   {/* Impossible Circle/Penrose Ring - Desktop */}
-                  {Array.from({ length: 30 }).map((_, i) => {
+                  {Array.from({ length: 48 }).map((_, i) => {
                     // Pre-calculate static values once
                     const staticValues = useMemo(() => {
-                      const t = (i / 30) * Math.PI * 2;
+                      const t = (i / 48) * Math.PI * 2;
                       return {
                         t,
-                        majorRadius: 80,
-                        tubeRadius: 20,
-                        twist: t * 0.5,
-                        baseDepthOffset: Math.PI * 0.5
+                        majorRadius: 100,
+                        tubeRadius: 25,
+                        twist: t * 1.4, // Increased twist for better impossible effect
+                        baseDepthOffset: Math.PI * 0.25
                       };
                     }, [i]);
                     
                     // Create cross-section dots around the tube
-                    return Array.from({ length: 6 }).map((_, j) => {
-                      // Pre-calculate tube-specific values
-                      const tubeValues = useMemo(() => {
-                        const tubeAngle = (j / 6) * Math.PI * 2;
+                    return Array.from({ length: 8 }).map((_, j) => {
+                      // Pre-calculate tube-specific values with proper 3D depth
+                                              const tubeValues = useMemo(() => {
+                          const tubeAngle = (j / 8) * Math.PI * 2;
                         const twistedAngle = tubeAngle + staticValues.twist;
+                        
+                        // Calculate 3D depth for impossible torus effect with enhanced curvature
                         const depth = Math.sin(twistedAngle) * Math.cos(staticValues.t + staticValues.baseDepthOffset);
-                        const lighting = Math.max(0.4, (depth + 1) * 0.5);
+                        const rotationDepth = Math.sin(staticValues.t * 1.4) * 0.3; // Enhanced rotation depth
+                        const curvatureDepth = Math.cos(staticValues.t * 2.8) * 0.2; // Additional curvature
+                        const finalDepth = depth + rotationDepth + curvatureDepth;
+                        
+                        // Lighting based on depth (like Strategy/Tech CTAs)
+                        const lighting = Math.max(0.25, (finalDepth + 1.3) * 0.55);
+                        
                         return {
                           tubeAngle,
                           twistedAngle,
-                          depth,
+                          depth: finalDepth,
                           lighting,
-                          isVisible: depth > -0.3,
-                          isHighlight: lighting > 0.8
+                          isVisible: finalDepth > -0.45,
+                          isHighlight: lighting > 0.8,
+                          isMidTone: lighting > 0.6
                         };
                       }, [j]);
                       
@@ -671,12 +702,12 @@ export default function BrandDesignCTA() {
                           key={`impossible-${i}-${j}`}
                           cx="200"
                           cy="200"
-                          r={1.2 + tubeValues.lighting * 1.8}
+                          r={1.4 + tubeValues.lighting * 2.0}
                           style={{
                             x: useTransform(galaxyRotation, (rotation) => {
-                              const rotT = staticValues.t + rotation * 0.5;
+                              const rotT = staticValues.t + rotation * 0.3;
                               const rotCenterX = staticValues.majorRadius * Math.cos(rotT);
-                              const rotTwist = rotT * 0.5;
+                              const rotTwist = rotT * 1.4; // Match the increased twist
                               const rotTwistedAngle = tubeValues.tubeAngle + rotTwist;
                               const rotLocalX = staticValues.tubeRadius * Math.cos(rotTwistedAngle);
                               const rotLocalY = staticValues.tubeRadius * Math.sin(rotTwistedAngle);
@@ -684,26 +715,39 @@ export default function BrandDesignCTA() {
                               return rotCenterX + rotRotatedX;
                             }),
                             y: useTransform(galaxyRotation, (rotation) => {
-                              const rotT = staticValues.t + rotation * 0.5;
+                              const rotT = staticValues.t + rotation * 0.3;
                               const rotCenterY = staticValues.majorRadius * Math.sin(rotT);
-                              const rotTwist = rotT * 0.5;
+                              const rotTwist = rotT * 1.4; // Match the increased twist
                               const rotTwistedAngle = tubeValues.tubeAngle + rotTwist;
                               const rotLocalX = staticValues.tubeRadius * Math.cos(rotTwistedAngle);
                               const rotLocalY = staticValues.tubeRadius * Math.sin(rotTwistedAngle);
                               const rotRotatedY = rotLocalX * Math.sin(rotT) + rotLocalY * Math.cos(rotT);
                               return rotCenterY + rotRotatedY;
                             }),
-                            opacity: tubeValues.lighting * 0.7
+                            // StrategyCTA genius opacity logic - simple front/back
+                            opacity: useTransform(galaxyRotation, (rotation) => {
+                              const rotT = staticValues.t + rotation * 0.3;
+                              const rotTwist = rotT * 1.4;
+                              const rotTwistedAngle = tubeValues.tubeAngle + rotTwist;
+                              
+                              // Calculate Z-depth using StrategyCTA's simple approach
+                              const rotLocalX = staticValues.tubeRadius * Math.cos(rotTwistedAngle);
+                              const rotLocalY = staticValues.tubeRadius * Math.sin(rotTwistedAngle);
+                              const z = rotLocalX * Math.sin(rotT) + rotLocalY * Math.cos(rotT);
+                              
+                              // Simple front/back logic like StrategyCTA
+                              return z > 0 ? 0.3 : 0.8;
+                            })
                           }}
-                          fill={tubeValues.isHighlight ? "#FFE0D7" : "#FFFFFF"}
+                          fill={tubeValues.isHighlight ? "#FFE0D7" : tubeValues.isMidTone ? "#F0D5C4" : "#FFFFFF"}
                           filter={tubeValues.isHighlight ? "url(#softGlowDesktop)" : "none"}
                           animate={{
-                            scale: [1, 1.06 + tubeValues.lighting * 0.12, 1],
+                            scale: [1, 1.06 + tubeValues.lighting * 0.15, 1],
                           }}
                           transition={{
-                            duration: 3 + (i + j) * 0.05,
+                            duration: 3.0 + (i + j) * 0.035,
                             repeat: Infinity,
-                            delay: (i + j) * 0.02
+                            delay: (i + j) * 0.018
                           }}
                           suppressHydrationWarning
                         />
