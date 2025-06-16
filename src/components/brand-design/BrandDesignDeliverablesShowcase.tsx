@@ -118,75 +118,75 @@ export default function BrandDesignDeliverablesShowcase() {
 
   const deliverables = [
     {
-      title: "Brand Foundation Document",
-      description: "Complete positioning, messaging, and strategic framework.",
-      category: "Foundation",
-      icon: IconTarget
-    },
-    {
-      title: "Visual Identity System",
-      description: "Logo, colors, typography, and core brand elements.",
-      category: "Foundation",
+      title: "Startup Brand Identity System",
+      description: "Complete logo suite, color palette, and typography for early-stage companies.",
+      category: "Identity",
       icon: IconPalette
     },
     {
-      title: "Brand Guidelines Manual",
-      description: "Complete standards and usage rules.",
-      category: "Foundation",
-      icon: IconScale
+      title: "Investor Pitch Deck Design",
+      description: "Visually compelling pitch deck with data visualization and brand storytelling.",
+      category: "Fundraising",
+      icon: IconTrendingUp
     },
     {
       title: "Website Design & Development",
-      description: "Complete responsive site with conversion optimization.",
+      description: "Conversion-focused website with mobile optimization and CMS integration.",
       category: "Digital",
       icon: IconCode
     },
     {
-      title: "Landing Page Designs",
-      description: "Service-specific conversion-optimized pages.",
-      category: "Digital",
-      icon: IconRocket
+      title: "Brand Messaging & Voice Framework",
+      description: "Brand voice, key messages, and copywriting guidelines for all channels.",
+      category: "Messaging",
+      icon: IconTarget
     },
     {
-      title: "Digital Asset Library",
-      description: "Templates, graphics, and branded digital materials.",
-      category: "Digital",
-      icon: IconDashboard
-    },
-    {
-      title: "Pitch Deck Design",
-      description: "Professional presentation materials for new business.",
-      category: "Sales",
-      icon: IconTrendingUp
-    },
-    {
-      title: "Sales Collateral Suite",
-      description: "One-pagers, case studies, and leave-behind materials.",
-      category: "Sales",
+      title: "Marketing Collateral System",
+      description: "Template library for consistent brand application across all marketing materials.",
+      category: "Marketing",
       icon: IconFiles
     },
     {
-      title: "Email Signature & Templates",
-      description: "Branded communication touchpoints.",
-      category: "Sales",
-      icon: IconMail
-    },
-    {
-      title: "Social Media Templates",
-      description: "Consistent brand presence across platforms.",
-      category: "Marketing",
+      title: "Social Media Brand Kit",
+      description: "Templates, content guidelines, and visual assets for social media growth.",
+      category: "Social",
       icon: IconChartBar
     },
     {
-      title: "Marketing Campaign Assets",
-      description: "Ads, banners, and promotional graphics.",
-      category: "Marketing",
+      title: "Product UI/UX Design",
+      description: "User interface design for digital products with user experience optimization.",
+      category: "Product",
+      icon: IconRocket
+    },
+    {
+      title: "Brand Guidelines Deck",
+      description: "Comprehensive brand presentation with usage rules and application examples.",
+      category: "Standards",
+      icon: IconScale
+    },
+    {
+      title: "Email Design System",
+      description: "Branded email templates for newsletters, campaigns, and automated sequences.",
+      category: "Email",
+      icon: IconMail
+    },
+    {
+      title: "Digital Asset Library",
+      description: "Organized brand assets with usage rights and file management system.",
+      category: "Assets",
+      icon: IconDashboard
+    },
+    {
+      title: "Landing Page Design Templates",
+      description: "High-converting landing page designs for campaigns and product launches.",
+      category: "Conversion",
       icon: IconBolt
     },
     {
-      title: "User Experience Optimization",
-      description: "Website UX audit and conversion improvements.",
-      category: "Marketing",
+      title: "Brand Story & Narrative Framework",
+      description: "Compelling brand narrative with storytelling templates for all communications.",
+      category: "Storytelling",
       icon: IconUsers
     }
   ];

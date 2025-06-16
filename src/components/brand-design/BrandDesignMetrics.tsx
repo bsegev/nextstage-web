@@ -289,16 +289,16 @@ export default function BrandDesignMetrics() {
                       >
                         <motion.div
                           className="w-full h-full bg-gradient-to-r from-transparent via-accent to-transparent"
-                          animate={hoveredIndex === index ? {
+                        animate={hoveredIndex === index ? {
                             backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-                          } : {}}
+                        } : {}}
                           transition={{ 
                             duration: 2, 
                             repeat: hoveredIndex === index ? Infinity : 0,
                             ease: "easeInOut"
                           }}
                           style={{ backgroundSize: '200% 100%' }}
-                        />
+                      />
                       </motion.div>
                     </div>
                   </motion.div>
@@ -496,16 +496,16 @@ export default function BrandDesignMetrics() {
                         >
                           <motion.div
                             className="w-full h-full bg-gradient-to-r from-transparent via-accent to-transparent"
-                            animate={hoveredIndex === index ? {
+                          animate={hoveredIndex === index ? {
                               backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-                            } : {}}
+                          } : {}}
                             transition={{ 
                               duration: 2, 
                               repeat: hoveredIndex === index ? Infinity : 0,
                               ease: "easeInOut"
                             }}
                             style={{ backgroundSize: '200% 100%' }}
-                          />
+                        />
                         </motion.div>
                       </div>
                     </motion.div>

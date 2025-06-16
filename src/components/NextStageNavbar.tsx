@@ -199,7 +199,8 @@ export default function NextStageNavbar() {
              >
                Technology & Innovation
              </a>
-             <button 
+             <a 
+               href="/services/growth-marketing"
                onClick={() => setActiveService("growth")}
                onMouseEnter={() => setActiveService("growth")}
                className={`block w-full text-left px-4 py-3 hover:text-bone hover:bg-accent/10 rounded-lg transition-all duration-200 ${
@@ -209,7 +210,7 @@ export default function NextStageNavbar() {
                }`}
              >
                Growth & Marketing
-             </button>
+             </a>
            </nav>
 
           <div className="mt-8 pt-6 border-t border-accent/20">
@@ -310,7 +311,7 @@ export default function NextStageNavbar() {
     },
     {
       name: "Our Approach",
-      link: "#approach",
+      link: "/approach",
     },
   ];
 

@@ -118,75 +118,75 @@ export default function StrategyDeliverablesShowcase() {
 
   const deliverables = [
     {
-      title: "Market Analysis Report",
-      description: "Competitor breakdown with identified opportunities.",
-      category: "Intelligence",
+      title: "Fundraising Strategy & Pitch Deck",
+      description: "Investor-ready pitch deck with financial models and fundraising roadmap.",
+      category: "Fundraising",
       icon: IconChartBar
     },
     {
-      title: "Financial Projections Model",
-      description: "18-month revenue forecasts ready for investor meetings.",
-      category: "Financial",
-      icon: IconTrendingUp
-    },
-    {
-      title: "Customer Research Summary",
-      description: "Who buys, why they buy, and how to reach more like them.",
-      category: "Insights",
-      icon: IconUsers
-    },
-    {
-      title: "Operational Audit Results",
-      description: "Bottlenecks identified with 30-day quick wins included.",
-      category: "Operations",
-      icon: IconBolt
+      title: "Market Validation Framework",
+      description: "Customer discovery methodology with validation experiments and pivot criteria.",
+      category: "Validation",
+      icon: IconTarget
     },
     {
       title: "Go-to-Market Playbook",
-      description: "Step-by-step launch guide with messaging scripts.",
-      category: "Execution",
+      description: "Step-by-step launch strategy with channel prioritization and messaging framework.",
+      category: "Launch",
       icon: IconRocket
     },
     {
-      title: "Pricing Strategy Guide",
-      description: "Tested pricing models with competitive analysis.",
+      title: "AI Transformation Roadmap",
+      description: "AI adoption strategy with implementation timeline and ROI projections.",
+      category: "Digital",
+      icon: IconBolt
+    },
+    {
+      title: "Business Model Design",
+      description: "Revenue model optimization with pricing strategy and unit economics.",
       category: "Strategy",
       icon: IconCurrency
     },
     {
-      title: "Process Documentation",
-      description: "New workflows with role assignments and quality checkpoints.",
-      category: "Systems",
+      title: "Competitive Intelligence Report",
+      description: "Market landscape analysis with competitive positioning and opportunity gaps.",
+      category: "Intelligence",
+      icon: IconTrendingUp
+    },
+    {
+      title: "Operational Scaling Framework",
+      description: "Process documentation and team structure for rapid growth phases.",
+      category: "Operations",
       icon: IconSettings
     },
     {
-      title: "Technology Roadmap",
-      description: "Software recommendations with implementation timelines.",
-      category: "Technology",
+      title: "Product-Market Fit Assessment",
+      description: "PMF measurement framework with improvement recommendations and metrics.",
+      category: "Product",
       icon: IconCode
     },
     {
-      title: "Brand Positioning Document",
-      description: "One-page value proposition and key messages guide.",
-      category: "Brand",
-      icon: IconTarget
-    },
-    {
-      title: "Performance Dashboard",
-      description: "Custom metrics tracking with reporting templates.",
-      category: "Analytics",
+      title: "Digital-First Strategy Guide",
+      description: "Technology adoption roadmap with digital transformation priorities.",
+      category: "Digital",
       icon: IconDashboard
     },
     {
-      title: "Decision Framework",
-      description: "Criteria matrix for evaluating opportunities quickly.",
-      category: "Framework",
+      title: "Growth Metrics Framework",
+      description: "KPI selection and tracking methodology for startup growth measurement.",
+      category: "Analytics",
       icon: IconScale
     },
     {
-      title: "Communication Templates",
-      description: "Scripts and decks for announcing changes to stakeholders.",
-      category: "Communication",
+      title: "Investor Relations Playbook",
+      description: "Ongoing investor communication templates and reporting frameworks.",
+      category: "Fundraising",
+      icon: IconUsers
+    },
+    {
+      title: "Strategic Partnership Framework",
+      description: "Partnership identification, evaluation, and negotiation strategies.",
+      category: "Partnerships",
       icon: IconMessage
     }
   ];

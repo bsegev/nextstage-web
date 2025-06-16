@@ -118,74 +118,74 @@ export default function TechInnovationDeliverablesShowcase() {
 
   const deliverables = [
     {
-      title: "MVP & Prototype Development",
-      description: "Fast market validation with lean, testable product versions.",
-      category: "Development",
+      title: "MVP Development & Launch",
+      description: "Fully functional minimum viable product ready for user testing and iteration.",
+      category: "Product",
       icon: IconRocket
     },
     {
-      title: "Custom Internal Applications",
-      description: "Purpose-built software for your specific operational needs.",
-      category: "Development",
-      icon: IconCode
-    },
-    {
-      title: "AI Integration & Custom GPTs",
-      description: "Intelligent automation and custom AI assistants for workflows.",
-      category: "Development",
+      title: "Custom AI Assistant Development",
+      description: "Business-specific GPTs with custom knowledge bases and automated workflows.",
+      category: "AI Tools",
       icon: IconBolt
     },
     {
-      title: "Workflow Automation Systems",
-      description: "End-to-end process automation that eliminates manual bottlenecks.",
+      title: "AI-Powered Automation Systems",
+      description: "Intelligent workflow automation reducing manual tasks and operational overhead.",
       category: "Automation",
       icon: IconTarget
     },
     {
-      title: "API Development & Integrations",
-      description: "Seamless connections between your existing tools and platforms.",
-      category: "Automation",
+      title: "No-Code/Low-Code Solutions",
+      description: "Rapid application development using modern no-code platforms and tools.",
+      category: "Development",
+      icon: IconCode
+    },
+    {
+      title: "API Development & Integration",
+      description: "Custom APIs with third-party integrations and comprehensive documentation.",
+      category: "Integration",
       icon: IconDashboard
     },
     {
-      title: "Database Development",
-      description: "Organized data storage and management systems.",
-      category: "Automation",
+      title: "AI Prompt Engineering Library",
+      description: "Curated prompt collections optimized for specific business processes and goals.",
+      category: "AI Strategy",
       icon: IconFiles
     },
     {
-      title: "Legacy System Modernization",
-      description: "Transform outdated systems into modern, efficient platforms.",
-      category: "Enhancement",
+      title: "Cloud Infrastructure Setup",
+      description: "Scalable cloud architecture with monitoring, security, and cost optimization.",
+      category: "Infrastructure",
       icon: IconTrendingUp
     },
     {
-      title: "Performance Optimization",
-      description: "Speed and reliability improvements for existing applications.",
-      category: "Enhancement",
-      icon: IconChartBar
-    },
-    {
       title: "Mobile App Development",
-      description: "Native and web-based mobile solutions.",
-      category: "Enhancement",
+      description: "Cross-platform mobile apps with backend integration and app store deployment.",
+      category: "Mobile",
       icon: IconUsers
     },
     {
-      title: "Custom AI Solutions",
-      description: "Machine learning models and intelligent features tailored to business.",
-      category: "Innovation",
+      title: "AI Training & Implementation Program",
+      description: "Team training on AI tools with hands-on implementation and best practices.",
+      category: "Education",
+      icon: IconChartBar
+    },
+    {
+      title: "Custom AI Tool Development",
+      description: "Bespoke AI applications and tools tailored to specific business processes and needs.",
+      category: "AI Tools",
       icon: IconPalette
     },
     {
-      title: "Web Application Development",
-      description: "Custom web-based business applications and platforms.",
-      category: "Innovation",
+      title: "Digital Transformation Strategy",
+      description: "Technology modernization roadmap with AI integration and process optimization.",
+      category: "Strategy",
       icon: IconScale
     },
     {
-      title: "Rapid Prototyping",
-      description: "Quick concept-to-reality development for testing new ideas.",
+      title: "Prototype & Proof of Concept",
+      description: "Working prototype validating technical feasibility and market viability.",
       category: "Innovation",
       icon: IconMail
     }

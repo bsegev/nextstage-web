@@ -211,7 +211,7 @@ export default function TechInnovationCTA() {
                         const latticeValues = useMemo(() => {
                           const spacing = 25;
                           const centerOffset = 1.5 * spacing;
-                          return {
+                        return {
                             baseX: (i - 1.5) * spacing,
                             baseY: (j - 1.5) * spacing,
                             baseZ: (k - 1.5) * spacing,
@@ -219,24 +219,24 @@ export default function TechInnovationCTA() {
                             centerOffset,
                             quantumPhase: (i + j + k) * 0.3,
                             energyLevel: Math.sin(i * 0.5) * Math.cos(j * 0.7) * Math.sin(k * 0.4)
-                          };
+                        };
                         }, [i, j, k]);
-                        
+                      
                         // Calculate quantum tunneling offset
                         const tunnelOffset = useMemo(() => ({
                           x: Math.sin(index * 0.1) * 2,
                           y: Math.cos(index * 0.15) * 2,
                           z: Math.sin(index * 0.08) * 2
                         }), [index]);
-                        
-                        return (
-                          <motion.circle
+                      
+                      return (
+                        <motion.circle
                             key={`lattice-${i}-${j}-${k}`}
-                            cx="160"
-                            cy="160"
+                          cx="160"
+                          cy="160"
                             r={1.2 + Math.abs(latticeValues.energyLevel) * 1.5}
-                            style={{
-                              x: useTransform(galaxyRotation, (rotation) => {
+                          style={{
+                            x: useTransform(galaxyRotation, (rotation) => {
                                 // 3D rotation matrices
                                 const rotY = rotation * 0.5;
                                 
@@ -248,8 +248,8 @@ export default function TechInnovationCTA() {
                                 const rotatedX = x * Math.cos(rotY) - z * Math.sin(rotY);
                                 
                                 return rotatedX;
-                              }),
-                              y: useTransform(galaxyRotation, (rotation) => {
+                            }),
+                            y: useTransform(galaxyRotation, (rotation) => {
                                 const rotX = rotation * 0.3;
                                 const rotY = rotation * 0.5;
                                 
@@ -278,20 +278,20 @@ export default function TechInnovationCTA() {
                                 const quantumState = 0.4 + Math.abs(latticeValues.energyLevel) * 0.6;
                                 return depthOpacity * quantumState;
                               })
-                            }}
+                          }}
                             fill={Math.abs(latticeValues.energyLevel) > 0.5 ? "#FFE0D7" : "#FFFFFF"}
                             filter={Math.abs(latticeValues.energyLevel) > 0.7 ? "url(#softGlow)" : "none"}
-                            animate={{
+                          animate={{
                               scale: [1, 1.1 + Math.abs(latticeValues.energyLevel) * 0.3, 1],
-                            }}
-                            transition={{
+                          }}
+                          transition={{
                               duration: 2.5 + index * 0.02,
-                              repeat: Infinity,
+                            repeat: Infinity,
                               delay: index * 0.01
-                            }}
-                            suppressHydrationWarning
-                          />
-                        );
+                          }}
+                          suppressHydrationWarning
+                        />
+                      );
                       })
                     )
                   )}
@@ -525,13 +525,13 @@ export default function TechInnovationCTA() {
             {/* Header */}
             <div className="text-left">
               <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
-                <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                  Ready to accelerate your business?
-                </span>
-              </h2>
+              <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
+                Ready to accelerate your business?
+              </span>
+            </h2>
               <p className="text-lg sm:text-lg text-bone/75 font-light max-w-2xl">
-                Transform your operations with technology that scales exponentially.
-              </p>
+              Transform your operations with technology that scales exponentially.
+            </p>
             </div>
 
             {/* Convergence Statement */}
@@ -717,31 +717,31 @@ export default function TechInnovationCTA() {
                         // Pre-calculate static lattice values
                         const latticeValues = useMemo(() => {
                           const spacing = 30;
-                          return {
+                        return {
                             baseX: (i - 2) * spacing,
                             baseY: (j - 2) * spacing,
                             baseZ: (k - 2) * spacing,
                             spacing,
                             quantumPhase: (i + j + k) * 0.25,
                             energyLevel: Math.sin(i * 0.4) * Math.cos(j * 0.6) * Math.sin(k * 0.35)
-                          };
+                        };
                         }, [i, j, k]);
-                        
+                      
                         // Calculate quantum tunneling offset
                         const tunnelOffset = useMemo(() => ({
                           x: Math.sin(index * 0.08) * 3,
                           y: Math.cos(index * 0.12) * 3,
                           z: Math.sin(index * 0.06) * 3
                         }), [index]);
-                        
-                        return (
-                          <motion.circle
+                      
+                      return (
+                        <motion.circle
                             key={`lattice-desktop-${i}-${j}-${k}`}
-                            cx="200"
-                            cy="200"
+                          cx="200"
+                          cy="200"
                             r={1.5 + Math.abs(latticeValues.energyLevel) * 2}
-                            style={{
-                              x: useTransform(galaxyRotation, (rotation) => {
+                          style={{
+                            x: useTransform(galaxyRotation, (rotation) => {
                                 // 3D rotation matrices
                                 const rotY = rotation * 0.4;
                                 
@@ -753,8 +753,8 @@ export default function TechInnovationCTA() {
                                 const rotatedX = x * Math.cos(rotY) - z * Math.sin(rotY);
                                 
                                 return rotatedX;
-                              }),
-                              y: useTransform(galaxyRotation, (rotation) => {
+                            }),
+                            y: useTransform(galaxyRotation, (rotation) => {
                                 const rotX = rotation * 0.25;
                                 const rotY = rotation * 0.4;
                                 
@@ -783,20 +783,20 @@ export default function TechInnovationCTA() {
                                 const quantumState = 0.3 + Math.abs(latticeValues.energyLevel) * 0.7;
                                 return depthOpacity * quantumState;
                               })
-                            }}
+                          }}
                             fill={Math.abs(latticeValues.energyLevel) > 0.4 ? "#FFE0D7" : "#FFFFFF"}
                             filter={Math.abs(latticeValues.energyLevel) > 0.6 ? "url(#softGlowDesktop)" : "none"}
-                            animate={{
+                          animate={{
                               scale: [1, 1.15 + Math.abs(latticeValues.energyLevel) * 0.4, 1],
-                            }}
-                            transition={{
+                          }}
+                          transition={{
                               duration: 2.8 + index * 0.015,
-                              repeat: Infinity,
+                            repeat: Infinity,
                               delay: index * 0.008
-                            }}
-                            suppressHydrationWarning
-                          />
-                        );
+                          }}
+                          suppressHydrationWarning
+                        />
+                      );
                       })
                     )
                   )}

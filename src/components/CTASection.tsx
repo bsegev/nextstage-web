@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 
 const transformationStats = [
-  "89% of companies have adopted or plan to adopt a digital-first strategy in 2025",
+  "89% of companies plan to adopt a digital-first strategy in 2025",
   "74% of organizations are prioritizing digital transformation in 2025", 
   "41% of companies have improved customer experience with generative AI",
   "68% of organizations say experience-led design is critical for talent retention",
@@ -12,7 +12,7 @@ const transformationStats = [
   "64% of businesses say new digital models are needed to stay competitive",
   "70% of organizations say simplifying workflows is their top transformation goal",
   "51% of executives link digital transformation to revenue growth",
-  "67% of business leaders expect AI to reshape their organizations within two years",
+  "67% of business leaders expect AI to reshape their organizations by 2026",
   "41% of organizations report digital transformation enhanced sales and marketing",
   "56% of digital transformation efforts are driven by growth opportunities",
   "44% of transformation initiatives are spurred by competitive pressure",
@@ -50,23 +50,48 @@ export default function CTASection() {
     return { number: 0, numberDisplay: "0%", text: stat };
   };
 
-  // Simplified text formatting for mobile
+  // Improved text formatting with natural break points
   const formatStatText = (text: string, isMobile = false) => {
     const words = text.split(' ');
+    const maxLineLength = isMobile ? 22 : 30; // Stricter character limits to prevent 3rd line
     
-    if (isMobile) {
-      // Mobile: Simple 2-line split for better readability
-      const midPoint = Math.ceil(words.length / 2);
-      const firstLine = words.slice(0, midPoint).join(' ');
-      const secondLine = words.slice(midPoint).join(' ');
-      return [firstLine, secondLine];
-    } else {
-      // Desktop: 2 lines
-      const midPoint = Math.ceil(words.length / 2);
-      const firstHalf = words.slice(0, midPoint).join(' ');
-      const secondHalf = words.slice(midPoint).join(' ');
-      return [firstHalf, secondHalf];
+    // Find natural break points (prepositions, conjunctions, etc.)
+    const breakWords = ['of', 'in', 'with', 'from', 'by', 'to', 'for', 'and', 'or', 'say', 'have', 'are', 'will', 'that', 'their', 'within'];
+    
+    let bestBreakIndex = Math.ceil(words.length / 2);
+    let bestScore = Infinity;
+    
+    // Look for optimal break point within reasonable range
+    const minIndex = Math.floor(words.length * 0.25);
+    const maxIndex = Math.floor(words.length * 0.75);
+    
+    for (let i = minIndex; i <= maxIndex; i++) {
+      if (i >= words.length) break;
+      
+      const firstPart = words.slice(0, i).join(' ');
+      const secondPart = words.slice(i).join(' ');
+      
+      // More aggressive scoring to prevent long lines
+      const lengthDiff = Math.abs(firstPart.length - secondPart.length);
+      const isNaturalBreak = breakWords.includes(words[i]?.toLowerCase()) ? -15 : 0;
+      const firstLinePenalty = Math.max(firstPart.length - maxLineLength, 0) * 5;
+      const secondLinePenalty = Math.max(secondPart.length - maxLineLength, 0) * 5;
+      
+      // Extra penalty for very long lines that might wrap
+      const extremeLengthPenalty = (firstPart.length > maxLineLength + 5 || secondPart.length > maxLineLength + 5) ? 50 : 0;
+      
+      const score = lengthDiff + firstLinePenalty + secondLinePenalty + extremeLengthPenalty + isNaturalBreak;
+      
+      if (score < bestScore) {
+        bestScore = score;
+        bestBreakIndex = i;
+      }
     }
+    
+    const firstLine = words.slice(0, bestBreakIndex).join(' ');
+    const secondLine = words.slice(bestBreakIndex).join(' ');
+    
+    return [firstLine, secondLine];
   };
 
   const currentStat = extractStatParts(transformationStats[currentStatIndex]);
