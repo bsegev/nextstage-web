@@ -267,12 +267,12 @@ export default function ModernBusinessApproach() {
           
           <div className="relative p-8 sm:p-12 md:p-16">
             <blockquote className="font-display text-2xl sm:text-xl md:text-2xl lg:text-3xl text-obsidian/90 font-light max-w-4xl mx-auto leading-relaxed">
-              <span className="text-accent text-6xl leading-none">"</span>
+              <span className="text-accent text-6xl leading-none">&ldquo;</span>
               <span className="relative">
                 We study what everyone else does, then ask: 
-                <em className="text-accent font-medium"> what if we didn't?</em>
+                <em className="text-accent font-medium"> what if we didn&apos;t?</em>
               </span>
-              <span className="text-accent text-6xl leading-none">"</span>
+              <span className="text-accent text-6xl leading-none">&rdquo;</span>
             </blockquote>
             
             <motion.div

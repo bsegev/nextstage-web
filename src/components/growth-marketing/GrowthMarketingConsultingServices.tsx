@@ -26,37 +26,6 @@ export default function GrowthMarketingConsultingServices() {
     }));
   };
 
-  const serviceLoadingSteps = {
-    'brand-identity': [
-      { text: "Researching brand positioning" },
-      { text: "Analyzing competitor landscape" },
-      { text: "Defining visual direction" },
-      { text: "Creating logo concepts" },
-      { text: "Developing brand guidelines" },
-    ],
-    'user-experience': [
-      { text: "Mapping user journeys" },
-      { text: "Analyzing user behavior" },
-      { text: "Creating wireframes" },
-      { text: "Designing interactions" },
-      { text: "Testing usability" },
-    ],
-    'visual-systems': [
-      { text: "Auditing current materials" },
-      { text: "Defining design principles" },
-      { text: "Creating color palette" },
-      { text: "Selecting typography" },
-      { text: "Building template library" },
-    ],
-    'digital-experiences': [
-      { text: "Analyzing user flows" },
-      { text: "Designing page layouts" },
-      { text: "Creating responsive designs" },
-      { text: "Optimizing for conversions" },
-      { text: "Testing across devices" },
-    ]
-  };
-
   const services = [
     {
       title: "Campaign Strategy",
@@ -151,7 +120,7 @@ export default function GrowthMarketingConsultingServices() {
           </h2>
           
           <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light leading-relaxed max-w-4xl mx-auto">
-            Surface-level campaigns and vanity metrics don't build businesses. Every system we create connects you with the right customers, builds meaningful relationships, and drives sustainable growth.
+            Surface-level campaigns and vanity metrics don&apos;t build businesses. Every system we create connects you with the right customers, builds meaningful relationships, and drives sustainable growth.
           </p>
         </div>
 
@@ -279,9 +248,9 @@ export default function GrowthMarketingConsultingServices() {
         {/* Closing Statement */}
         <div className="text-center mt-12 lg:mt-16">
           <p className="text-xl lg:text-2xl text-obsidian/60 font-light leading-relaxed max-w-3xl mx-auto">
-            Great growth isn't about quick wins or viral moments.
+            Great growth isn&apos;t about quick wins or viral moments.
             <br />
-            It's about building authentic connections that create lasting value for everyone involved.
+            It&apos;s about building authentic connections that create lasting value for everyone involved.
           </p>
           </div>
       </div>

@@ -109,7 +109,7 @@ export default function GrowthMarketingConsultingValueProp() {
                       Business<br/>Results
                     </h3>
                     <p className="text-base text-obsidian/65 leading-[1.6] font-light">
-                      We track what moves your business forward and adjust based on what's working.
+                      We track what moves your business forward and adjust based on what&apos;s working.
                     </p>
                   </div>
                 </div>

@@ -317,7 +317,7 @@ export default function GrowthMarketingMetrics() {
             >
               <div className="max-w-4xl mx-auto">
                 <p className="text-lg sm:text-base leading-[1.5] text-bone font-medium">
-                  Customer-focused marketing isn't overhead—it's the systematic advantage that separates growing businesses from stagnant ones.
+                  Customer-focused marketing isn&apos;t overhead—it&apos;s the systematic advantage that separates growing businesses from stagnant ones.
                 </p>
               </div>
             </motion.div>
@@ -351,7 +351,7 @@ export default function GrowthMarketingMetrics() {
 
                 <div className="space-y-4">
                   <p className="text-base xl:text-base leading-[1.6] text-bone/70 font-light">
-                    Customer-focused marketing isn't overhead—it's the systematic advantage that separates growing businesses from stagnant ones.
+                    Customer-focused marketing isn&apos;t overhead—it&apos;s the systematic advantage that separates growing businesses from stagnant ones.
                   </p>
                 </div>
               </motion.div>

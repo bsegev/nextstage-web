@@ -104,7 +104,6 @@ export default function WhyNextStage() {
             >
               <LiquidGlass 
                 intensity="medium" 
-                variant="tinted" 
                 animated
                 className="p-3 sm:p-4"
               >
