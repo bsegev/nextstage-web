@@ -297,7 +297,7 @@ export default function AboutCTA() {
             </Link>
 
             {/* Secondary CTA */}
-            <button className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2 rounded-full">
+            <Link href="/approach" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2 rounded-full">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/30 to-bone/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
               <div className="relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-bone/10 border border-bone/20 text-bone rounded-full text-base font-medium transition-all duration-300 group-hover:bg-bone/20 group-hover:border-bone/40 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                 <span className="relative">
@@ -316,7 +316,7 @@ export default function AboutCTA() {
                   </svg>
                 </div>
               </div>
-            </button>
+            </Link>
           </motion.div>
 
           {/* Final Line */}
@@ -417,7 +417,7 @@ export default function AboutCTA() {
               </Link>
 
               {/* Secondary CTA */}
-              <button className="group relative">
+              <Link href="/approach" className="group relative">
                 {/* Button background with gradient border */}
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/20 to-bone/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
                 <div className="relative inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-bone/10 border border-bone/20 text-bone rounded-full text-base font-medium transition-all duration-300 group-hover:bg-bone/20 group-hover:border-bone/40 group-hover:-translate-y-1 group-active:scale-95">
@@ -437,7 +437,7 @@ export default function AboutCTA() {
                     </svg>
                   </div>
                 </div>
-              </button>
+              </Link>
             </motion.div>
 
             {/* Closing Statement - Desktop */}
