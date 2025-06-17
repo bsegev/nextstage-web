@@ -57,7 +57,7 @@ export default function StrategyConsultingValueProp() {
                       Smart<br/>Constraints
                     </h3>
                     <p className="text-base text-obsidian/65 leading-[1.6] font-light">
-                      Turn your limitations into creative advantages that competitors can't copy.
+                      Turn your limitations into creative advantages that competitors can&apos;t copy.
                     </p>
                   </div>
                 </div>
@@ -107,7 +107,7 @@ export default function StrategyConsultingValueProp() {
                       Real<br/>Momentum
                     </h3>
                     <p className="text-base text-obsidian/65 leading-[1.6] font-light">
-                      Each small win opens up bigger opportunities you couldn't see before.
+                      Each small win opens up bigger opportunities you couldn&apos;t see before.
                     </p>
                   </div>
                 </div>

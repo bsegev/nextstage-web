@@ -168,7 +168,7 @@ export function Process() {
             </h2>
             <p className="text-lg sm:text-base lg:text-lg text-obsidian/80 font-light max-w-2xl mx-auto">
               Our carefully crafted process transforms your vision into reality through deep understanding, 
-              strategic thinking, and meticulous execution at every step. Whether it's for a logo, a website, or a full brand system, we've got you covered.
+              strategic thinking, and meticulous execution at every step. Whether it&apos;s for a logo, a website, or a full brand system, we&apos;ve got you covered.
             </p>
           </div>
         </motion.div>

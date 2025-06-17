@@ -7,7 +7,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { IconMail, IconPhone, IconCalendar, IconBrandLinkedin, IconCopy, IconArrowRight, IconCheck, IconMapPin, IconClock, IconX } from '@tabler/icons-react';
+import { IconMail, IconCalendar, IconBrandLinkedin, IconCopy, IconArrowRight, IconCheck, IconMapPin, IconClock, IconX } from '@tabler/icons-react';
 
 interface FloatingElement {
   id: number;
@@ -22,7 +22,7 @@ type ContactMethod = 'email' | 'linkedin' | 'schedule';
 
 interface ContactCard {
   id: ContactMethod;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
   title: string;
   subtitle: string;
   action: string;
@@ -125,9 +125,7 @@ export default function ContactMethods() {
     }
   };
 
-  const expandCard = (cardId: ContactMethod) => {
-    setExpandedCard(cardId);
-  };
+
 
   const CardContent = ({ card, isExpanded }: { card: ContactCard; isExpanded: boolean }) => {
     const Icon = card.icon;
@@ -392,7 +390,7 @@ export default function ContactMethods() {
           
           <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 md:mb-8">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-              Let's start the conversation
+              Let&apos;s start the conversation
             </span>
           </h2>
           

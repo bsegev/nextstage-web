@@ -84,7 +84,7 @@ export default function GrowthMarketingConsultingValueProp() {
                       Magnetic<br/>Pull
                     </h3>
                     <p className="text-base text-obsidian/65 leading-[1.6] font-light">
-                      When you're authentically different, the right customers find and choose you.
+                      When you&apos;re authentically different, the right customers find and choose you.
                     </p>
                   </div>
                 </div>

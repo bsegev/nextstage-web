@@ -29,7 +29,7 @@ export default function TechInnovationConsultingValueProp() {
                 
                 <div className="max-w-3xl mx-auto">
                   <p className="text-lg sm:text-lg md:text-xl text-obsidian/70 font-light leading-[1.6]">
-                    Technology isn't about keeping up. It's about leaping ahead.
+                    Technology isn&apos;t about keeping up. It&apos;s about leaping ahead.
                   </p>
                 </div>
               </div>
