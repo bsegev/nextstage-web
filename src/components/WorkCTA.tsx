@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
+import Link from 'next/link';
 
 export default function WorkCTA() {
   const sectionRef = useRef(null);
@@ -153,6 +154,27 @@ export default function WorkCTA() {
         
         {/* Mobile Layout */}
         <div className="lg:hidden text-center">
+          
+          {/* Availability Badge */}
+          <div className="flex justify-center mb-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-accent/30 backdrop-blur-md"
+            >
+              <motion.div className="relative">
+                <div className="w-3 h-3 bg-accent rounded-full" />
+                <motion.div 
+                  className="absolute inset-0 w-3 h-3 bg-accent rounded-full"
+                  animate={{ scale: [1, 2, 1], opacity: [0.6, 0, 0.6] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+              </motion.div>
+              <span className="text-bone text-sm font-medium tracking-wide">Currently accepting new clients</span>
+            </motion.div>
+          </div>
+
           {/* Header */}
           <div className="mb-12">
             <h2 className="font-display text-4xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 text-bone">
@@ -286,7 +308,7 @@ export default function WorkCTA() {
             className="flex flex-col items-center space-y-4"
           >
             {/* Primary CTA */}
-            <button className="group relative w-full">
+            <Link href="/contact" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
               <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-accent/90 backdrop-blur-sm border border-accent/20 text-obsidian rounded-full text-base font-medium transition-all duration-300 group-hover:bg-accent group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 w-full">
                 <span className="relative">
@@ -313,7 +335,7 @@ export default function WorkCTA() {
                   </svg>
                 </div>
               </div>
-            </button>
+            </Link>
 
             {/* Secondary CTA */}
             <button className="group relative w-full">
@@ -345,12 +367,30 @@ export default function WorkCTA() {
           {/* Content Side - Left */}
           <div className="col-span-7 space-y-12 text-left">
             
+            {/* Availability Badge - Desktop */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-accent/30 backdrop-blur-md"
+            >
+                <motion.div className="relative">
+                  <div className="w-4 h-4 bg-accent rounded-full" />
+                  <motion.div 
+                    className="absolute inset-0 w-4 h-4 bg-accent rounded-full"
+                    animate={{ scale: [1, 2, 1], opacity: [0.6, 0, 0.6] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                </motion.div>
+              <span className="text-bone font-medium tracking-wide">Currently accepting new clients</span>
+            </motion.div>
+
             {/* Header */}
             <div className="text-left">
               <h2 className="font-display text-4xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 text-bone">
                 Ready to transform your vision into{' '}
                 <span className="bg-gradient-to-r from-accent via-accent/80 to-accent bg-clip-text text-transparent">
-                  measurable impact
+                  impact
                 </span>
                 ?
               </h2>
@@ -381,7 +421,7 @@ export default function WorkCTA() {
               className="flex flex-row items-start justify-start space-x-6"
             >
               {/* Primary CTA */}
-              <button className="group relative">
+              <Link href="/contact" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
                 <div className="relative inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-accent/90 backdrop-blur-sm border border-accent/20 text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1">
                   <span className="relative">
@@ -408,7 +448,7 @@ export default function WorkCTA() {
                     </svg>
                   </div>
                 </div>
-              </button>
+              </Link>
 
               {/* Secondary CTA */}
               <button className="group relative">

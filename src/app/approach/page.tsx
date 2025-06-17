@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import NextStageNavbar from '@/components/NextStageNavbar';
 import ApproachHero from '@/components/approach/ApproachHero';
 import CoreNarrative from '@/components/approach/CoreNarrative';
+import { Process } from '@/components/approach/Process';
 import ApproachInAction from '@/components/approach/ApproachInAction';
-import WhyNextStage from '@/components/approach/WhyNextStage';
 import ApproachCTA from '@/components/approach/ApproachCTA';
 import Footer from '@/components/Footer';
 
@@ -24,7 +24,7 @@ export default function ApproachPage() {
       <main className="min-h-screen">
         <ApproachHero />
         <CoreNarrative />
-        <WhyNextStage />
+        <Process />
         <ApproachInAction />
         <ApproachCTA />
       </main>

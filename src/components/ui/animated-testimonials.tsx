@@ -113,7 +113,7 @@ export const AnimatedTestimonials = ({
             ))}
           </motion.div>
         </div>
-        <div className="flex flex-col justify-between py-4">
+        <div className="flex flex-col h-[400px] py-4">
           <motion.div
             key={active}
             initial={{
@@ -132,38 +132,43 @@ export const AnimatedTestimonials = ({
               duration: 0.2,
               ease: "easeInOut",
             }}
+            className="flex-1 flex flex-col"
           >
-            <h3 className="text-2xl font-bold text-obsidian font-display">
-              {testimonials[active].name}
-            </h3>
-            <p className="text-sm text-obsidian/60">
-              {testimonials[active].designation}
-            </p>
-            <motion.p className="mt-8 text-lg leading-relaxed text-obsidian/80">
-              {testimonials[active].quote.split(" ").map((word, index) => (
-                <motion.span
-                  key={index}
-                  initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                    y: 5,
-                  }}
-                  animate={{
-                    filter: "blur(0px)",
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeInOut",
-                    delay: 0.02 * index,
-                  }}
-                  className="inline-block"
-                >
-                  {word}&nbsp;
-                </motion.span>
-              ))}
-            </motion.p>
+            <div>
+              <h3 className="text-2xl font-bold text-obsidian font-display">
+                {testimonials[active].name}
+              </h3>
+              <p className="text-sm text-obsidian/60">
+                {testimonials[active].designation}
+              </p>
+            </div>
+            <div className="mt-8 flex-1 overflow-y-auto">
+              <motion.p className="text-lg leading-relaxed text-obsidian/80">
+                {testimonials[active].quote.split(" ").map((word, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{
+                      filter: "blur(10px)",
+                      opacity: 0,
+                      y: 5,
+                    }}
+                    animate={{
+                      filter: "blur(0px)",
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    transition={{
+                      duration: 0.2,
+                      ease: "easeInOut",
+                      delay: 0.02 * index,
+                    }}
+                    className="inline-block"
+                  >
+                    {word}&nbsp;
+                  </motion.span>
+                ))}
+              </motion.p>
+            </div>
           </motion.div>
           <div className="flex gap-4 pt-16 md:pt-8">
             <button

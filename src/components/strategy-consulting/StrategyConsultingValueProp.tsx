@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { IconMoodCog, IconMap, IconNetwork } from '@tabler/icons-react';
 
 export default function StrategyConsultingValueProp() {
   const [mounted, setMounted] = useState(false);
@@ -22,13 +23,13 @@ export default function StrategyConsultingValueProp() {
               <div className="mb-8 sm:mb-12">
                 <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
                   <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                    Built around your people, your constraints, your reality
+                    Where your limitations become your secret weapon
                   </span>
                 </h2>
                 
                 <div className="max-w-3xl mx-auto">
                   <p className="text-lg sm:text-lg md:text-xl leading-[1.6] text-obsidian/70 font-light">
-                    You&apos;ve probably been burned by strategy work before. Beautiful decks that sit in drawers. Frameworks that don&apos;t fit your reality. Consultants who&apos;ve never had to make payroll giving you advice on running your business. We get it—and we do things differently.
+                    Other companies have bigger budgets. You have something better—focus.
                   </p>
                 </div>
               </div>
@@ -48,17 +49,15 @@ export default function StrategyConsultingValueProp() {
                       <div className="absolute inset-0 bg-gradient-to-br from-accent/15 to-accent/5 rounded-2xl" />
                       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-accent/10 to-transparent rounded-2xl" />
                       <div className="relative w-full h-full flex items-center justify-center">
-                        <svg className="w-8 h-8 sm:w-10 sm:h-10 text-accent transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
+                        <IconMoodCog className="w-8 h-8 sm:w-10 sm:h-10 text-accent transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
                       </div>
                     </div>
 
                     <h3 className="text-lg font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
-                      Clear<br/>Ownership
+                      Smart<br/>Constraints
                     </h3>
                     <p className="text-base text-obsidian/65 leading-[1.6] font-light">
-                      Every strategic initiative has a named owner, clear accountabilities, and defined success metrics.
+                      Turn your limitations into creative advantages that competitors can't copy.
                     </p>
                   </div>
                 </div>
@@ -75,17 +74,15 @@ export default function StrategyConsultingValueProp() {
                       <div className="absolute inset-0 bg-gradient-to-br from-accent/15 to-accent/5 rounded-2xl" />
                       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-accent/10 to-transparent rounded-2xl" />
                       <div className="relative w-full h-full flex items-center justify-center">
-                        <svg className="w-8 h-8 sm:w-10 sm:h-10 text-accent transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                        </svg>
+                        <IconMap className="w-8 h-8 sm:w-10 sm:h-10 text-accent transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
                       </div>
                     </div>
 
                     <h3 className="text-lg font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
-                      Actionable<br/>Roadmaps
+                      Honest<br/>Starting
                     </h3>
                     <p className="text-base text-obsidian/65 leading-[1.6] font-light">
-                      Step-by-step plans with clear next actions, not theoretical frameworks that gather dust.
+                      No fantasy plans, just clear next steps from where you actually are.
                     </p>
                   </div>
                 </div>
@@ -102,17 +99,15 @@ export default function StrategyConsultingValueProp() {
                       <div className="absolute inset-0 bg-gradient-to-br from-accent/15 to-accent/5 rounded-2xl" />
                       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-accent/10 to-transparent rounded-2xl" />
                       <div className="relative w-full h-full flex items-center justify-center">
-                        <svg className="w-8 h-8 sm:w-10 sm:h-10 text-accent transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                        </svg>
+                        <IconNetwork className="w-8 h-8 sm:w-10 sm:h-10 text-accent transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
                       </div>
                     </div>
 
                     <h3 className="text-lg font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
-                      Operational<br/>Foundation
+                      Real<br/>Momentum
                     </h3>
                     <p className="text-base text-obsidian/65 leading-[1.6] font-light">
-                      Systems, processes, and structures that turn strategic decisions into daily operational reality.
+                      Each small win opens up bigger opportunities you couldn't see before.
                     </p>
                   </div>
                 </div>

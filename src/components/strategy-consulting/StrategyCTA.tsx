@@ -100,6 +100,27 @@ export default function StrategyCTA() {
         
         {/* Mobile Layout */}
         <div className="lg:hidden text-center">
+          
+          {/* Availability Badge */}
+          <div className="flex justify-center mb-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-accent/30 backdrop-blur-md"
+            >
+              <motion.div className="relative">
+                <div className="w-3 h-3 bg-accent rounded-full" />
+                <motion.div 
+                  className="absolute inset-0 w-3 h-3 bg-accent rounded-full"
+                  animate={{ scale: [1, 2, 1], opacity: [0.6, 0, 0.6] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+              </motion.div>
+              <span className="text-bone text-sm font-medium tracking-wide">Currently accepting new clients</span>
+            </motion.div>
+          </div>
+
           {/* Header */}
           <motion.div 
             className="mb-12"
@@ -334,6 +355,24 @@ export default function StrategyCTA() {
           {/* Content Side - Left */}
           <div className="col-span-7 space-y-12 text-left">
             
+            {/* Availability Badge - Desktop */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-accent/30 backdrop-blur-md"
+            >
+                <motion.div className="relative">
+                  <div className="w-4 h-4 bg-accent rounded-full" />
+                  <motion.div 
+                    className="absolute inset-0 w-4 h-4 bg-accent rounded-full"
+                    animate={{ scale: [1, 2, 1], opacity: [0.6, 0, 0.6] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                </motion.div>
+              <span className="text-bone font-medium tracking-wide">Currently accepting new clients</span>
+            </motion.div>
+
             {/* Header */}
             <motion.div 
               className="text-left"

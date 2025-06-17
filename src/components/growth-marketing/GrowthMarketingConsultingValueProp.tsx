@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { 
-  IconChartBar, 
-  IconSettings, 
-  IconTrendingUp 
+  IconBrandTorchain, 
+  IconMagnet, 
+  IconRefresh 
 } from '@tabler/icons-react';
 
 export default function GrowthMarketingConsultingValueProp() {
@@ -27,12 +27,12 @@ export default function GrowthMarketingConsultingValueProp() {
               <div className="text-center mb-8 sm:mb-12">
                 <h2 className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
                   <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                    How We Approach Marketing
+                    Where everything finally works together
                   </span>
                 </h2>
                 
                 <p className="text-lg sm:text-lg md:text-xl text-obsidian/70 font-light leading-[1.6] max-w-3xl mx-auto">
-                  We approach marketing from the customer side, your business goals, and your brand—then find the connection points between them.
+                  When your brand, strategy, and tech align, growth stops being a struggle.
                   </p>
               </div>
 
@@ -51,15 +51,15 @@ export default function GrowthMarketingConsultingValueProp() {
                       <div className="absolute inset-0 bg-gradient-to-br from-accent/15 to-accent/5 rounded-2xl" />
                       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-accent/10 to-transparent rounded-2xl" />
                       <div className="relative w-full h-full flex items-center justify-center">
-                                                 <IconChartBar className="w-8 h-8 sm:w-10 sm:h-10 text-accent transition-transform duration-300 group-hover:scale-110" />
+                                                 <IconBrandTorchain className="w-8 h-8 sm:w-10 sm:h-10 text-accent transition-transform duration-300 group-hover:scale-110" />
                       </div>
                     </div>
 
                     <h3 className="text-lg font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
-                      Customer<br/>Research
+                      Connected<br/>Systems
                     </h3>
                     <p className="text-base text-obsidian/65 leading-[1.6] font-light">
-                      We start by understanding your best customers and how they make decisions.
+                      Your brand makes strategy easier, strategy makes tech clearer, tech makes growth scalable.
                     </p>
                   </div>
                 </div>
@@ -76,15 +76,15 @@ export default function GrowthMarketingConsultingValueProp() {
                       <div className="absolute inset-0 bg-gradient-to-br from-accent/15 to-accent/5 rounded-2xl" />
                       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-accent/10 to-transparent rounded-2xl" />
                       <div className="relative w-full h-full flex items-center justify-center">
-                                                 <IconSettings className="w-8 h-8 sm:w-10 sm:h-10 text-accent transition-transform duration-300 group-hover:scale-110" />
+                                                 <IconMagnet className="w-8 h-8 sm:w-10 sm:h-10 text-accent transition-transform duration-300 group-hover:scale-110" />
                       </div>
                     </div>
 
                     <h3 className="text-lg font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
-                      Connected<br/>Systems
+                      Magnetic<br/>Pull
                     </h3>
                     <p className="text-base text-obsidian/65 leading-[1.6] font-light">
-                      Everything works together to build momentum instead of competing for attention.
+                      When you're authentically different, the right customers find and choose you.
                     </p>
                   </div>
                 </div>
@@ -101,15 +101,15 @@ export default function GrowthMarketingConsultingValueProp() {
                       <div className="absolute inset-0 bg-gradient-to-br from-accent/15 to-accent/5 rounded-2xl" />
                       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-accent/10 to-transparent rounded-2xl" />
                       <div className="relative w-full h-full flex items-center justify-center">
-                                                 <IconTrendingUp className="w-8 h-8 sm:w-10 sm:h-10 text-accent transition-transform duration-300 group-hover:scale-110" />
+                                                 <IconRefresh className="w-8 h-8 sm:w-10 sm:h-10 text-accent transition-transform duration-300 group-hover:scale-110" />
                       </div>
                     </div>
 
                     <h3 className="text-lg font-display font-semibold text-obsidian mb-4 sm:mb-5 tracking-[-0.01em] leading-tight">
-                      Business<br/>Results
+                      Sustainable<br/>Velocity
                     </h3>
                     <p className="text-base text-obsidian/65 leading-[1.6] font-light">
-                      We track what moves your business forward and adjust based on what&apos;s working.
+                      Build systems that create more growth without burning out your team.
                     </p>
                   </div>
                 </div>

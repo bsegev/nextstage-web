@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function ApproachHero() {
   const [mounted, setMounted] = useState(false);
@@ -15,7 +16,7 @@ export default function ApproachHero() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/images/meeting-room-2.png)',
+          backgroundImage: 'url(/images/approach-hero-bg.png)',
         }}
       />
       
@@ -75,14 +76,15 @@ export default function ApproachHero() {
             </div>
           </div>
 
-          {/* Enhanced CTA with semantic button and accessibility improvements */}
+          {/* Enhanced CTAs with primary and secondary buttons */}
           <div className={`transition-all duration-1000 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="flex justify-center sm:justify-start">
-              <a href="/contact" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-4 sm:gap-6">
+              {/* Primary CTA - Contact */}
+              <Link href="/contact" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
                 <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-accent text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                   <span className="relative">
-                    See how we work
+                    Get Started
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   
@@ -97,7 +99,29 @@ export default function ApproachHero() {
                     </svg>
                   </div>
                 </div>
-              </a>
+              </Link>
+
+              {/* Secondary CTA - See Work */}
+              <Link href="/work" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:ring-offset-2 rounded-full">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-foreground/30 to-foreground/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
+                <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-foreground/10 border border-foreground/20 text-foreground rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-foreground/20 group-hover:border-foreground/40 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
+                  <span className="relative">
+                    View our work
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                  </span>
+                  
+                  <div className="relative overflow-hidden w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                    <svg 
+                      className="w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
             </div>
           </div>
          </div>
