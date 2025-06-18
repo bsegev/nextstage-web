@@ -14,15 +14,15 @@ interface ContentData {
 const content: Record<Section, ContentData> = {
   strategy: {
     title: "Strategy",
-    description: "Strategic excellence means seeing the full chess board while others focus on single moves. We identify market dynamics, competitive blind spots, and untapped opportunities that create sustainable advantage. Every strategy we craft is built to compound—not just solve today's problems, but position you three moves ahead."
+    description: "We see three moves ahead while others react to the last one. Market dynamics, competitive gaps, growth opportunities - we map the path that turns your constraints into advantages."
   },
   design: {
     title: "Design",
-    description: "Design is how strategy becomes tangible and technology becomes human. We don't just make things look better—we make complex systems feel intuitive, abstract value propositions feel concrete, and ambitious visions feel inevitable. Every pixel serves the bigger picture."
+    description: "Strategy becomes real through design. We make complex simple, abstract concrete, and ambitious inevitable. Every decision serves your bigger picture."
   },
   technology: {
     title: "Technology",
-    description: "Technology is how vision becomes reality at scale. We build systems that don't just work today but evolve with tomorrow's demands. Whether it's custom platforms, API architectures, or digital experiences, we engineer solutions that turn your competitive advantage into market dominance."
+    description: "Vision becomes reality through technology. We build systems that work today and evolve tomorrow. Custom platforms, smart integrations, digital experiences that scale your advantage."
   }
 };
 
@@ -60,16 +60,16 @@ export default function PowerInConvergence() {
         {/* Header */}
         <div className="text-center mb-8 md:mb-4 lg:mb-6">
           <div className="mb-6 sm:mb-8 text-sm sm:text-sm font-medium text-bone/60 tracking-wide uppercase">
-            <span>Convergence</span>
+            <span>How We Work</span>
           </div>
           
           <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-              Power in Convergence
+              Everything. Together. Fast.
             </span>
           </h2>
           <p className="text-lg sm:text-base lg:text-lg text-bone/75 font-light max-w-2xl mx-auto">
-            Where strategy, design, and technology unite to create exponential value.
+            Most firms hand off between teams. We work as one. Strategy shapes design shapes technology - all moving toward the same goal at the same speed.
           </p>
         </div>
 

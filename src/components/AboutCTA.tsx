@@ -259,8 +259,7 @@ export default function AboutCTA() {
             className="text-center"
           >
             <p className="text-lg sm:text-base lg:text-lg text-bone/70 font-light leading-relaxed max-w-lg mx-auto">
-              When strategy, design, and technology converge at NextStage velocity, 
-              transformation happens in <strong className="text-accent font-semibold">weeks, not quarters</strong>.
+              When strategy, design, and technology flow through one embedded team, your vision stays intact and transformation happens at <strong className="text-accent font-semibold">startup velocity</strong>.
             </p>
           </motion.div>
 
@@ -277,7 +276,7 @@ export default function AboutCTA() {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
               <div className="relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-obsidian rounded-full text-base font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                 <span className="relative">
-                  Let&apos;s talk
+                  Book appointment
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                 </span>
                 
@@ -301,7 +300,7 @@ export default function AboutCTA() {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/30 to-bone/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
               <div className="relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-bone/10 border border-bone/20 text-bone rounded-full text-base font-medium transition-all duration-300 group-hover:bg-bone/20 group-hover:border-bone/40 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                 <span className="relative">
-                  See our process
+                  See approach
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                 </span>
                 
@@ -378,8 +377,7 @@ export default function AboutCTA() {
               className="max-w-2xl"
             >
               <p className="text-lg sm:text-base lg:text-lg text-bone/70 font-light leading-relaxed">
-                When strategy, design, and technology converge at NextStage velocity, 
-                transformation happens in weeks, not quarters.
+                When strategy, design, and technology flow through one embedded team, your vision stays intact and transformation happens at startup velocity.
               </p>
             </motion.div>
 
@@ -397,7 +395,7 @@ export default function AboutCTA() {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
                 <div className="relative inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-accent text-obsidian rounded-full text-base font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95">
                   <span className="relative">
-                    Let&apos;s talk
+                    Book appointment
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   
@@ -422,7 +420,7 @@ export default function AboutCTA() {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/20 to-bone/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
                 <div className="relative inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-bone/10 border border-bone/20 text-bone rounded-full text-base font-medium transition-all duration-300 group-hover:bg-bone/20 group-hover:border-bone/40 group-hover:-translate-y-1 group-active:scale-95">
                   <span className="relative">
-                    See our process
+                    See approach
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   

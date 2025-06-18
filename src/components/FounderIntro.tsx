@@ -25,16 +25,16 @@ export default function FounderIntro() {
         {/* Section Header */}
         <div className={`text-center mb-8 sm:mb-12 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="mb-6 sm:mb-8 text-sm sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
-            <span>Leadership</span>
+            <span>The Founder</span>
           </div>
           
           <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-              Behind the Work
+              Why I Built NextStage
             </span>
           </h2>
           <p className="text-lg sm:text-base lg:text-lg text-obsidian/80 font-light max-w-2xl mx-auto">
-            I build the bridge between big ideas and working reality.
+            After watching brilliant strategies get diluted through traditional consulting handoffs, I created the embedded partnership that actually delivers.
           </p>
         </div>
 
@@ -80,20 +80,17 @@ export default function FounderIntro() {
                   {/* Story */}
                   <div className="space-y-4 sm:space-y-6 text-obsidian/75 font-light text-lg sm:text-base lg:text-lg leading-relaxed max-w-2xl lg:max-w-none">
                     <p>
-                      I&apos;ve launched a digital bank from zero, steered product lines in consumer tech, and rebuilt brands across healthcare, real estate, and AI.
+                      I&apos;ve launched a digital bank from zero, steered product lines in consumer tech, and rebuilt brands across healthcare, real estate, and AI. Each project taught me the same lesson: <span className="text-obsidian font-medium">great strategy collapses the moment it&apos;s handed off to different teams with different priorities.</span>
                     </p>
                     <p>
-                      Different arenas—same lesson: <span className="text-obsidian font-medium">great strategy collapses the moment it&apos;s handed off.</span>
-                    </p>
-                    <p>
-                      So I eliminated the silos. NextStage is the partnership I kept searching for but never found: strategy, design, and technology moving through one accountable team.
+                      So I eliminated the handoffs. NextStage is the integrated partnership I kept searching for but never found: strategy, design, and technology moving through one accountable team at startup speed.
                     </p>
                   </div>
                   
                   {/* Signature Quote */}
                   <div className="pt-6 sm:pt-8 border-t border-obsidian/10">
                     <blockquote className="text-lg xl:text-xl font-light text-obsidian/90 leading-tight mb-3 sm:mb-4">
-                      &ldquo;I&apos;m here to make sure your next stage isn&apos;t a slogan—it&apos;s a milestone.&rdquo;
+                      &ldquo;I&apos;m not here to present your strategy. I&apos;m here to build it with you.&rdquo;
                     </blockquote>
                     <div className="flex items-center justify-center lg:justify-start gap-4">
                       <div className="w-12 h-px bg-accent" />
@@ -114,14 +111,14 @@ export default function FounderIntro() {
           >
             <div className="max-w-4xl mx-auto text-center">
               <h3 className="text-lg xl:text-xl font-display text-obsidian mb-6 sm:mb-8">
-                The Team We&apos;ve Built
+                The Integrated Team
               </h3>
               <div className="space-y-4 sm:space-y-6 text-obsidian/70 font-light text-lg sm:text-base lg:text-lg leading-relaxed">
                 <p>
-                  We work with a tight bench of multidisciplinary experts—designers who code, technologists who speak brand, strategists who&apos;ve run their own companies.
+                  We&apos;ve assembled multidisciplinary founder-operators who move at startup velocity—designers who code, technologists who understand brand strategy, strategists who&apos;ve scaled their own companies.
                 </p>
                 <p>
-                  Nearly all are founders themselves, so they solve with an owner&apos;s urgency and a cross‑functional lens. Together, we deliver decisive direction, hands‑on build, and systems that scale cleanly—all in lockstep.
+                  No handoffs, no dilution—just unified execution delivered in weeks, not months.
                 </p>
               </div>
             </div>

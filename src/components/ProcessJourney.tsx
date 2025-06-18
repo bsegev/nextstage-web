@@ -59,6 +59,12 @@ export default function ProcessJourney() {
     if (!mounted) return;
 
     const checkCardPositions = () => {
+      // Only run on mobile/tablet screens (below lg breakpoint)
+      if (window.innerWidth >= 1024) {
+        setActiveVideoIndex(null);
+        return;
+      }
+      
       const viewportHeight = window.innerHeight;
       const centerThirdStart = viewportHeight * 0.33;
       const centerThirdEnd = viewportHeight * 0.67;
@@ -120,7 +126,7 @@ export default function ProcessJourney() {
     <section className="bg-white py-20 sm:py-24 md:py-32 lg:py-40 relative overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute top-20 left-1/4 w-72 h-72 bg-accent rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-1/4 w-72 h-72 bg-obsidian/40 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-obsidian rounded-full blur-3xl"></div>
       </div>
 
@@ -161,13 +167,13 @@ export default function ProcessJourney() {
                 "lg:aspect-video border border-obsidian/8 hover:border-accent/25 shadow-sm hover:shadow-2xl hover:shadow-obsidian/8 transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.02] rounded-2xl p-4 sm:p-6 lg:p-8 overflow-hidden relative min-h-[320px] sm:min-h-[280px] lg:min-h-0",
                 // Background image for discovery/telescope theme
                 "bg-[url(/images/showcase/process-journey/discover-telescope.png)] bg-cover bg-center",
-                // Consistent light overlay (same as desktop)
-                "before:content-[''] before:absolute before:inset-px before:bg-gradient-to-br before:from-white/75 before:via-white/70 before:to-bone/65 before:rounded-2xl before:z-[1]",
-                // Desktop hover effects
-                "group-hover/bento:[&>video]:opacity-100",
+                // Consistent light overlay
+                "before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/80 before:via-white/75 before:to-bone/70 before:rounded-2xl before:z-[1]",
+                // Desktop hover effects only
+                "lg:group-hover/bento:[&>video]:opacity-100",
                 "hover:before:bg-gradient-to-br hover:before:from-black/70 hover:before:to-black/50",
-                // Mobile video visibility (cross-fade with background)
-                activeVideoIndex === 0 && "[&>video]:opacity-100"
+                // Mobile video visibility only
+                activeVideoIndex === 0 && "lg:![&>video]:opacity-0 [&>video]:opacity-100"
               )}>
                 
                 {/* Hover/Auto-play Video */}
@@ -187,19 +193,19 @@ export default function ProcessJourney() {
                   {/* Phase Header */}
                   <div className="flex items-center gap-3 mb-3 sm:mb-4">
                     <motion.div 
-                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/30 rounded-xl flex items-center justify-center transition-all duration-500 group-hover/bento:scale-110 group-hover/bento:rotate-2"
+                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-obsidian/8 to-obsidian/5 border border-obsidian/15 rounded-xl flex items-center justify-center transition-all duration-500 group-hover/bento:scale-110 group-hover/bento:rotate-2"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
-                      <span className="text-base sm:text-lg font-mono font-bold tracking-wide text-accent">
+                      <span className="text-base sm:text-lg font-mono font-bold tracking-wide text-obsidian/70">
                         {processPhases[0].phase}
                       </span>
                     </motion.div>
                     
                     <div className="space-y-1">
-                      <div className="text-sm font-medium tracking-[0.1em] uppercase text-accent/80 group-hover/bento:text-white/90 transition-colors duration-300">
+                      <div className="text-sm font-medium tracking-[0.1em] uppercase text-obsidian/50">
                         {processPhases[0].timeline}
                       </div>
-                      <div className="text-sm text-obsidian/60 group-hover/bento:text-white/80 font-medium transition-colors duration-300">
+                      <div className="text-sm text-obsidian/60 font-medium">
                         {processPhases[0].deliverable}
                       </div>
                     </div>
@@ -231,9 +237,9 @@ export default function ProcessJourney() {
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                          className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-obsidian/70 hover:bg-accent/15 transition-colors duration-300"
+                          className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-full bg-obsidian/5 border border-obsidian/10 text-sm font-medium text-obsidian/70 hover:bg-obsidian/10 transition-colors duration-300"
                         >
-                          <div className="w-1 h-1 bg-accent rounded-full" />
+                          <div className="w-1 h-1 bg-obsidian/40 rounded-full" />
                           {detail}
                         </motion.div>
                       ))}
@@ -246,19 +252,19 @@ export default function ProcessJourney() {
                   {/* Phase Header */}
                   <div className="flex items-center gap-3 mb-4">
                     <motion.div 
-                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/30 rounded-xl flex items-center justify-center transition-all duration-500 group-hover/bento:scale-110 group-hover/bento:rotate-2"
+                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-obsidian/8 to-obsidian/5 border border-obsidian/15 rounded-xl flex items-center justify-center transition-all duration-500 group-hover/bento:scale-110 group-hover/bento:rotate-2"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
-                      <span className="text-base sm:text-lg font-mono font-bold tracking-wide text-accent">
+                      <span className="text-base sm:text-lg font-mono font-bold tracking-wide text-obsidian/70">
                         {processPhases[0].phase}
                       </span>
                     </motion.div>
                     
                     <div className="space-y-1">
-                      <div className="text-sm font-medium tracking-[0.1em] uppercase text-accent/80 group-hover/bento:text-white/90 transition-colors duration-300">
+                      <div className="text-sm font-medium tracking-[0.1em] uppercase text-obsidian/50">
                         {processPhases[0].timeline}
                       </div>
-                      <div className="text-sm text-obsidian/60 group-hover/bento:text-white/80 font-medium transition-colors duration-300">
+                      <div className="text-sm text-obsidian/60 font-medium">
                         {processPhases[0].deliverable}
                       </div>
                     </div>
@@ -288,9 +294,9 @@ export default function ProcessJourney() {
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-obsidian/70 hover:bg-accent/15 transition-colors duration-300"
+                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-obsidian/5 border border-obsidian/10 text-sm font-medium text-obsidian/70 hover:bg-obsidian/10 transition-colors duration-300"
                         >
-                          <div className="w-1 h-1 bg-accent rounded-full" />
+                          <div className="w-1 h-1 bg-obsidian/40 rounded-full" />
                           {detail}
                         </motion.div>
                       ))}
@@ -316,11 +322,11 @@ export default function ProcessJourney() {
                   "bg-[url(/images/showcase/process-journey/planning-blueprint.png)] bg-cover bg-center",
                 // Consistent light overlay (same as desktop)
                   "before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/80 before:via-white/75 before:to-bone/70 before:rounded-2xl before:z-[1]",
-                // Desktop hover effects
-                  "group-hover/bento:[&>video]:opacity-100",
+                // Desktop hover effects only
+                  "lg:group-hover/bento:[&>video]:opacity-100",
                 "hover:before:bg-gradient-to-br hover:before:from-black/70 hover:before:to-black/50",
-                // Mobile video visibility (cross-fade with background)
-                activeVideoIndex === 1 && "[&>video]:opacity-100"
+                // Mobile video visibility only
+                activeVideoIndex === 1 && "lg:![&>video]:opacity-0 [&>video]:opacity-100"
                 )}>
                   
                 {/* Hover/Auto-play Video */}
@@ -469,11 +475,11 @@ export default function ProcessJourney() {
                   "bg-[url(/images/showcase/process-journey/solution-lightbulb.png)] bg-cover bg-center",
                 // Consistent light overlay (same as desktop)
                   "before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/80 before:via-white/75 before:to-bone/70 before:rounded-2xl before:z-[1]",
-                // Desktop hover effects
-                  "group-hover/bento:[&>video]:opacity-100",
+                // Desktop hover effects only
+                  "lg:group-hover/bento:[&>video]:opacity-100",
                 "hover:before:bg-gradient-to-br hover:before:from-black/70 hover:before:to-black/50",
-                // Mobile video visibility (cross-fade with background)
-                activeVideoIndex === 2 && "[&>video]:opacity-100"
+                // Mobile video visibility only
+                activeVideoIndex === 2 && "lg:![&>video]:opacity-0 [&>video]:opacity-100"
                 )}>
                   
                 {/* Hover/Auto-play Video */}
@@ -493,16 +499,16 @@ export default function ProcessJourney() {
                   {/* Phase Header */}
                   <div className="flex items-center gap-3 mb-3 sm:mb-4">
                     <motion.div 
-                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-accent/15 to-accent/8 border border-accent/25 rounded-xl flex items-center justify-center transition-all duration-500 group-hover/bento:scale-110 group-hover/bento:rotate-2"
+                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-obsidian/8 to-obsidian/5 border border-obsidian/15 rounded-xl flex items-center justify-center transition-all duration-500 group-hover/bento:scale-110 group-hover/bento:rotate-2"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
-                      <span className="text-base sm:text-lg font-mono font-bold tracking-wide text-accent">
+                      <span className="text-base sm:text-lg font-mono font-bold tracking-wide text-obsidian/70">
                         {processPhases[2].phase}
                       </span>
                     </motion.div>
                     
                     <div className="space-y-1">
-                      <div className="text-sm font-medium tracking-[0.1em] uppercase text-accent/80">
+                      <div className="text-sm font-medium tracking-[0.1em] uppercase text-obsidian/50">
                         {processPhases[2].timeline}
                       </div>
                       <div className="text-sm text-obsidian/60 font-medium">
@@ -537,9 +543,9 @@ export default function ProcessJourney() {
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                          className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-obsidian/70 hover:bg-accent/15 transition-colors duration-300"
+                          className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-full bg-obsidian/5 border border-obsidian/10 text-sm font-medium text-obsidian/70 hover:bg-obsidian/10 transition-colors duration-300"
                         >
-                          <div className="w-1 h-1 bg-accent rounded-full" />
+                          <div className="w-1 h-1 bg-obsidian/40 rounded-full" />
                           {detail}
                         </motion.div>
                       ))}
@@ -552,16 +558,16 @@ export default function ProcessJourney() {
                   {/* Phase Header */}
                   <div className="flex items-center gap-3 mb-4">
                     <motion.div 
-                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-accent/15 to-accent/8 border border-accent/25 rounded-xl flex items-center justify-center transition-all duration-500 group-hover/bento:scale-110 group-hover/bento:rotate-2"
+                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-obsidian/8 to-obsidian/5 border border-obsidian/15 rounded-xl flex items-center justify-center transition-all duration-500 group-hover/bento:scale-110 group-hover/bento:rotate-2"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
-                      <span className="text-base sm:text-lg font-mono font-bold tracking-wide text-accent">
+                      <span className="text-base sm:text-lg font-mono font-bold tracking-wide text-obsidian/70">
                         {processPhases[2].phase}
                       </span>
                     </motion.div>
                     
                     <div className="space-y-1">
-                      <div className="text-sm font-medium tracking-[0.1em] uppercase text-accent/80">
+                      <div className="text-sm font-medium tracking-[0.1em] uppercase text-obsidian/70/80">
                         {processPhases[2].timeline}
                       </div>
                       <div className="text-sm text-obsidian/60 font-medium">
@@ -594,9 +600,9 @@ export default function ProcessJourney() {
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-obsidian/70 hover:bg-accent/15 transition-colors duration-300"
+                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-obsidian/5 border border-obsidian/10 text-sm font-medium text-obsidian/70 hover:bg-obsidian/10 transition-colors duration-300"
                         >
-                          <div className="w-1 h-1 bg-accent rounded-full" />
+                          <div className="w-1 h-1 bg-obsidian/40 rounded-full" />
                           {detail}
                         </motion.div>
                       ))}
@@ -622,11 +628,11 @@ export default function ProcessJourney() {
                 "bg-[url(/images/showcase/process-journey/delivery-key.png)] bg-cover bg-center",
                 // Consistent light overlay (same as desktop)
                 "before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/80 before:via-white/75 before:to-bone/70 before:rounded-2xl before:z-[1]",
-                // Desktop hover effects
-                "group-hover/bento:[&>video]:opacity-100",
+                // Desktop hover effects only
+                "lg:group-hover/bento:[&>video]:opacity-100",
                 "hover:before:bg-gradient-to-br hover:before:from-black/70 hover:before:to-black/50",
-                // Mobile video visibility (cross-fade with background)
-                activeVideoIndex === 3 && "[&>video]:opacity-100"
+                // Mobile video visibility only
+                activeVideoIndex === 3 && "lg:![&>video]:opacity-0 [&>video]:opacity-100"
               )}>
                 
                 {/* Hover/Auto-play Video */}
@@ -646,16 +652,16 @@ export default function ProcessJourney() {
                   {/* Phase Header */}
                   <div className="flex items-center gap-3 mb-3 sm:mb-4">
                     <motion.div 
-                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/30 rounded-xl flex items-center justify-center transition-all duration-500 group-hover/bento:scale-110 group-hover/bento:rotate-2"
+                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-obsidian/8 to-obsidian/5 border border-obsidian/15 rounded-xl flex items-center justify-center transition-all duration-500 group-hover/bento:scale-110 group-hover/bento:rotate-2"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
-                      <span className="text-base sm:text-lg font-mono font-bold tracking-wide text-accent">
+                      <span className="text-base sm:text-lg font-mono font-bold tracking-wide text-obsidian/70">
                         {processPhases[3].phase}
                       </span>
                     </motion.div>
                     
                     <div className="space-y-1">
-                      <div className="text-sm font-medium tracking-[0.1em] uppercase text-accent/80 group-hover/bento:text-white/90 transition-colors duration-300">
+                      <div className="text-sm font-medium tracking-[0.1em] uppercase text-obsidian/70/80 group-hover/bento:text-white/90 transition-colors duration-300">
                         {processPhases[3].timeline}
                       </div>
                       <div className="text-sm text-obsidian/60 group-hover/bento:text-white/80 font-medium transition-colors duration-300">
@@ -690,9 +696,9 @@ export default function ProcessJourney() {
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                          className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-obsidian/70 hover:bg-accent/15 transition-colors duration-300"
+                          className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-full bg-obsidian/5 border border-obsidian/10 text-sm font-medium text-obsidian/70 hover:bg-obsidian/10 transition-colors duration-300"
                         >
-                          <div className="w-1 h-1 bg-accent rounded-full" />
+                          <div className="w-1 h-1 bg-obsidian/40 rounded-full" />
                           {detail}
                         </motion.div>
                       ))}
@@ -705,16 +711,16 @@ export default function ProcessJourney() {
                   {/* Phase Header */}
                   <div className="flex items-center gap-3 mb-4">
                     <motion.div 
-                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/30 rounded-xl flex items-center justify-center transition-all duration-500 group-hover/bento:scale-110 group-hover/bento:rotate-2"
+                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-obsidian/8 to-obsidian/5 border border-obsidian/15 rounded-xl flex items-center justify-center transition-all duration-500 group-hover/bento:scale-110 group-hover/bento:rotate-2"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
-                      <span className="text-base sm:text-lg font-mono font-bold tracking-wide text-accent">
+                      <span className="text-base sm:text-lg font-mono font-bold tracking-wide text-obsidian/70">
                         {processPhases[3].phase}
                       </span>
                     </motion.div>
                     
                     <div className="space-y-1">
-                      <div className="text-sm font-medium tracking-[0.1em] uppercase text-accent/80 group-hover/bento:text-white/90 transition-colors duration-300">
+                      <div className="text-sm font-medium tracking-[0.1em] uppercase text-obsidian/70/80 group-hover/bento:text-white/90 transition-colors duration-300">
                         {processPhases[3].timeline}
                       </div>
                       <div className="text-sm text-obsidian/60 group-hover/bento:text-white/80 font-medium transition-colors duration-300">
@@ -747,9 +753,9 @@ export default function ProcessJourney() {
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-obsidian/70 hover:bg-accent/15 transition-colors duration-300"
+                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-obsidian/5 border border-obsidian/10 text-sm font-medium text-obsidian/70 hover:bg-obsidian/10 transition-colors duration-300"
                         >
-                          <div className="w-1 h-1 bg-accent rounded-full" />
+                          <div className="w-1 h-1 bg-obsidian/40 rounded-full" />
                           {detail}
                         </motion.div>
                       ))}

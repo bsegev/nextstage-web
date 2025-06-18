@@ -185,7 +185,7 @@ export default function HandoffProblem() {
               <div className="w-16 h-px bg-obsidian/20 mx-auto" />
               
               <p className="text-lg sm:text-base lg:text-lg text-obsidian/80 font-light leading-relaxed">
-                Traditional firms rely on handoffs between siloed teams. With every relay, <strong className="text-obsidian/90">context leaks, vision blurs, and momentum stalls.</strong>
+                Big consulting firms hand you off between departments. With every handoff, <strong className="text-obsidian/90">your vision gets filtered, your urgency gets lost, and your opportunity window closes.</strong>
               </p>
             </div>
           </div>
@@ -516,10 +516,10 @@ export default function HandoffProblem() {
               className="text-center mt-8 sm:mt-10 pt-4 sm:pt-6 border-t border-obsidian/10"
             >
               <p className="text-sm sm:text-sm text-obsidian/80 font-medium mb-2">
-                Integration as competitive advantage
+                Integration as partnership advantage
               </p>
               <p className="text-sm sm:text-sm text-obsidian/60 font-light">
-                When strategy, design, and technology flow from one source, everything moves in harmony. No handoffs, no dilution — just unified excellence at speed.
+                When strategy, design, and technology flow from one source, your vision stays intact from concept to launch. No handoffs, no dilution — just unified execution at the speed of opportunity.
               </p>
             </motion.div>
           </motion.div>

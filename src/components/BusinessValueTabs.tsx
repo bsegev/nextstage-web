@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Tabs } from '@/components/ui/tabs';
 // import { GlowingEffect } from '@/components/ui/glowing-effect';
 
@@ -87,7 +88,7 @@ export default function BusinessValueTabs() {
 
   const tabs = [
     {
-      title: "Ideate",
+      title: "Stuck",
       value: "ideate",
       content: (
         <div className="group relative">
@@ -113,12 +114,12 @@ export default function BusinessValueTabs() {
               <div className="flex flex-col justify-center order-2 lg:order-1">
                 <div className="mb-4 sm:mb-6 lg:mb-8">
                   <h3 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
-                    Ideate
+                    Stuck
                   </h3>
                   <div className="inline-flex items-center mb-4 sm:mb-6 lg:mb-8">
                     <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent/10 rounded-full border border-accent/15 group-hover:bg-accent/15 group-hover:border-accent/25 transition-all duration-300">
                       <span className="text-sm sm:text-sm font-medium text-bone/70 tracking-wide">
-                        For what&apos;s possible next
+                        For when your idea needs direction
                       </span>
                     </div>
                   </div>
@@ -126,7 +127,7 @@ export default function BusinessValueTabs() {
                 
                 <div className="space-y-4 sm:space-y-6 lg:space-y-8">
                   <p className="text-xl sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
-                    Find the right opportunity and build a plan that works. We turn your vision into a clear strategy with measurable goals.
+                    Great vision, unclear path. We help you find the right opportunity and build a plan that works.
                   </p>
                   
                   {/* Desktop List - Hidden on Mobile */}
@@ -174,7 +175,7 @@ export default function BusinessValueTabs() {
       ),
     },
     {
-      title: "Create",
+      title: "Building",
       value: "create",
       content: (
         <div className="group relative">
@@ -200,12 +201,12 @@ export default function BusinessValueTabs() {
               <div className="flex flex-col justify-center order-2 lg:order-1">
                 <div className="mb-4 sm:mb-6 lg:mb-8">
                   <h3 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
-                    Create
+                    Building
                   </h3>
                   <div className="inline-flex items-center mb-4 sm:mb-6 lg:mb-8">
                     <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent/10 rounded-full border border-accent/15 group-hover:bg-accent/15 group-hover:border-accent/25 transition-all duration-300">
                       <span className="text-sm sm:text-sm font-medium text-bone/70 tracking-wide">
-                        For what doesn&apos;t exist yet
+                        For when your concept needs reality
                       </span>
                     </div>
                   </div>
@@ -213,7 +214,7 @@ export default function BusinessValueTabs() {
                 
                 <div className="space-y-4 sm:space-y-6 lg:space-y-8">
                   <p className="text-xl sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
-                    Build your business from the ground up. We design the model, product, and brand so you launch ready to compete and win.
+                    Ready to build but need it done right. We design, develop, and launch so you compete from day one.
                   </p>
                   
                   {/* Desktop List - Hidden on Mobile */}
@@ -261,7 +262,7 @@ export default function BusinessValueTabs() {
       ),
     },
     {
-      title: "Activate",
+      title: "Launching",
       value: "activate",
       content: (
         <div className="group relative">
@@ -276,12 +277,12 @@ export default function BusinessValueTabs() {
               <div className="flex flex-col justify-center order-2 lg:order-1">
                 <div className="mb-4 sm:mb-6 lg:mb-8">
                   <h3 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
-                    Activate
+                    Launching
                   </h3>
                   <div className="inline-flex items-center mb-4 sm:mb-6 lg:mb-8">
                     <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent/10 rounded-full border border-accent/15 group-hover:bg-accent/15 group-hover:border-accent/25 transition-all duration-300">
                       <span className="text-sm sm:text-sm font-medium text-bone/70 tracking-wide">
-                        For when plans meet reality
+                        For when you&apos;re ready for market
                       </span>
                     </div>
                   </div>
@@ -289,7 +290,7 @@ export default function BusinessValueTabs() {
                 
                 <div className="space-y-4 sm:space-y-6 lg:space-y-8">
                   <p className="text-xl sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
-                    Execute your plan and get to market fast. We build, launch, and track performance so you start generating results immediately.
+                    Launch fast and track everything. Get customers, get data, build momentum from day one.
                   </p>
                   
                   {/* Desktop List - Hidden on Mobile */}
@@ -337,7 +338,7 @@ export default function BusinessValueTabs() {
       ),
     },
     {
-      title: "Elevate",
+      title: "Growing",
       value: "elevate",
       content: (
         <div className="group relative">
@@ -352,12 +353,12 @@ export default function BusinessValueTabs() {
               <div className="flex flex-col justify-center order-2 lg:order-1">
                 <div className="mb-4 sm:mb-6 lg:mb-8">
                   <h3 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
-                    Elevate
+                    Growing
                   </h3>
                   <div className="inline-flex items-center mb-4 sm:mb-6 lg:mb-8">
                     <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent/10 rounded-full border border-accent/15 group-hover:bg-accent/15 group-hover:border-accent/25 transition-all duration-300">
                       <span className="text-sm sm:text-sm font-medium text-bone/70 tracking-wide">
-                        For leveling up what works
+                        For when you need to scale what works
                       </span>
                     </div>
                   </div>
@@ -365,7 +366,7 @@ export default function BusinessValueTabs() {
                 
                 <div className="space-y-4 sm:space-y-6 lg:space-y-8">
                   <p className="text-xl sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
-                    Optimize what&apos;s working and fix what&apos;s not. We streamline operations, improve customer experience, and boost your bottom line.
+                    Double down on what&apos;s working, optimize what could be better. Streamline operations while accelerating growth.
                   </p>
                   
                   {/* Desktop List - Hidden on Mobile */}
@@ -413,7 +414,7 @@ export default function BusinessValueTabs() {
       ),
     },
     {
-      title: "Accelerate",
+      title: "Leading",
       value: "accelerate",
       content: (
         <div className="group relative">
@@ -439,12 +440,12 @@ export default function BusinessValueTabs() {
               <div className="flex flex-col justify-center order-2 lg:order-1">
                 <div className="mb-4 sm:mb-6 lg:mb-8">
                   <h3 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-bone mb-3 sm:mb-4 lg:mb-6 tracking-[-0.01em]">
-                    Accelerate
+                    Leading
                   </h3>
                   <div className="inline-flex items-center mb-4 sm:mb-6 lg:mb-8">
                     <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent/10 rounded-full border border-accent/15 group-hover:bg-accent/15 group-hover:border-accent/25 transition-all duration-300">
                       <span className="text-sm sm:text-sm font-medium text-bone/70 tracking-wide">
-                        For compounding growth
+                        For when you need to sustain advantage
                       </span>
                     </div>
                   </div>
@@ -452,7 +453,7 @@ export default function BusinessValueTabs() {
                 
                 <div className="space-y-4 sm:space-y-6 lg:space-y-8">
                   <p className="text-xl sm:text-base lg:text-xl leading-[1.6] text-bone/75 font-light tracking-[-0.005em]">
-                    Scale fast without breaking. We build the systems and strategy you need to grow efficiently and sustainably.
+                    Maintain your edge as you scale. Build systems that grow with you and extend your market position.
                   </p>
                   
                   {/* Desktop List - Hidden on Mobile */}
@@ -510,21 +511,18 @@ export default function BusinessValueTabs() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className={`text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 transition-all duration-1200 ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="mb-4 sm:mb-6 lg:mb-8 text-sm sm:text-sm font-medium text-bone/60 tracking-wide uppercase">
-            <span>Transformation</span>
+            <span>Where You Are</span>
           </div>
           
           <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-3 sm:mb-4 lg:mb-6 text-bone">
-            <span className="block mb-1 sm:mb-2 lg:mb-3">For every stage of business,</span>
-            <span className="block relative">
-              <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                meant to get you to the next
-              </span>
+            <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
+              We Meet You There
             </span>
           </h2>
           
           <div className="max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-0">
             <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.4] sm:leading-[1.4] text-bone/75 font-light tracking-[-0.01em]">
-              Every journey is unique. Every solution is complete.
+              Every business is at a different stage. Every solution is built for yours.
             </p>
           </div>
         </div>
@@ -543,16 +541,17 @@ export default function BusinessValueTabs() {
 
         <div className={`text-center mt-12 sm:mt-16 md:mt-20 lg:mt-24 xl:mt-28 transition-all duration-1000 delay-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-base sm:text-base lg:text-lg text-bone/60 font-light leading-relaxed mb-6 sm:mb-8 max-w-4xl mx-auto">
-            Each transformation integrates strategy, design, and technology. One team. One timeline. One vision.
+            Strategy, design, and technology. Built for your stage. Delivered together.
           </p>
           
-          <div className="flex justify-center">
-            <button className="group relative min-h-[56px] touch-manipulation">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            {/* Primary CTA - Book Appointment */}
+            <Link href="/contact" className="group relative min-h-[56px] touch-manipulation w-full sm:w-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
               {/* Button background with gradient border */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative inline-flex items-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 lg:px-8 xl:px-10 py-3 sm:py-4 lg:py-5 bg-obsidian/90 backdrop-blur-sm border border-accent/20 text-bone rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-bone group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1">
+              <div className="relative inline-flex items-center justify-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 lg:px-8 xl:px-10 py-3 sm:py-4 lg:py-5 bg-accent text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                 <span className="relative">
-                  Start Your Transformation
+                  Book appointment
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                 </span>
                 
@@ -576,7 +575,37 @@ export default function BusinessValueTabs() {
                   </svg>
                 </div>
               </div>
-            </button>
+            </Link>
+
+            {/* Secondary CTA - See Our Approach */}
+            <Link href="/approach" className="group relative min-h-[56px] touch-manipulation w-full sm:w-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
+              <div className="relative inline-flex items-center justify-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 lg:px-8 xl:px-10 py-3 sm:py-4 lg:py-5 bg-transparent border border-accent/30 text-bone/80 rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent/10 group-hover:text-bone group-hover:border-accent/50 group-hover:-translate-y-1 w-full sm:w-auto">
+                <span className="relative">
+                  See our approach
+                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                </span>
+                
+                {/* Animated arrow */}
+                <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                  <svg 
+                    className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:translate-x-6 group-hover:opacity-0" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                  <svg 
+                    className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 -translate-x-6 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

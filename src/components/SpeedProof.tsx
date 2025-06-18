@@ -22,36 +22,36 @@ const comparisonData: ComparisonMoment[] = [
     traditional: {
       phase: "Discovery & Research",
       duration: "4-6 weeks",
-      description: "Multiple stakeholder interviews, extensive market research, competitive analysis, user surveys, data collection..."
+      description: "Comprehensive stakeholder engagement protocols, extensive competitive landscape analysis, multi-tiered market research methodologies, systematic data collection frameworks..."
     },
     nextstage: {
       phase: "Rapid Discovery",
       duration: "3 days",
-      description: "Strategic clarity through focused stakeholder alignment and targeted market insights."
+      description: "We talk to your team, understand your market, and get clear on what matters most."
     }
   },
   {
     traditional: {
       phase: "Strategy Development",
       duration: "6-8 weeks", 
-      description: "Lengthy workshops, multiple revisions, committee reviews, approval cycles, documentation phases..."
+      description: "Multi-phase strategic framework development, iterative stakeholder alignment workshops, comprehensive deliverable documentation cycles..."
     },
     nextstage: {
       phase: "Strategy Sprint",
       duration: "5 days",
-      description: "Executable strategy with clear priorities and immediate action items."
+      description: "Clear plan with priorities you can act on immediately."
     }
   },
   {
     traditional: {
       phase: "Design & Prototyping",
       duration: "8-12 weeks",
-      description: "Wireframing, multiple design iterations, stakeholder feedback loops, revisions, more revisions..."
+      description: "Systematic wireframe development, iterative design validation protocols, multi-stakeholder feedback integration cycles..."
     },
     nextstage: {
       phase: "Design Execution",
       duration: "1 week",
-      description: "Production-ready design system with pixel-perfect implementation.",
+      description: "Design system ready for your developers to build.",
       highlight: true
     }
   },
@@ -59,12 +59,12 @@ const comparisonData: ComparisonMoment[] = [
     traditional: {
       phase: "Development & Testing",
       duration: "12-16 weeks",
-      description: "Waterfall development, separate testing phases, bug fixes, more testing, deployment delays..."
+      description: "Phased development lifecycle management, comprehensive quality assurance protocols, systematic deployment risk mitigation..."
     },
     nextstage: {
       phase: "Rapid Development",
       duration: "2 weeks",
-      description: "Concurrent development with integrated testing and seamless deployment."
+      description: "We build it, test it, and launch it."
     }
   }
 ];

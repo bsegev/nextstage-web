@@ -17,21 +17,21 @@ const clientStories: ClientStory[] = [
     id: "wowwee",
     name: "WowWee",
     industry: "Consumer Electronics",
-    quote: "Transformed our product launch from concept to market in record time",
+    quote: "10+ product launches to major retail shelves in record time - from concept to shelf faster than ever",
     logo: "/images/client-logos/wowwee-logo.png"
   },
   {
     id: "similarweb",
     name: "SimilarWeb",
     industry: "Digital Intelligence", 
-    quote: "Strategic design that unlocked new revenue streams and market opportunities",
+    quote: "10x clickthrough rates and 3,000+ downloads through strategic thought leadership that sells",
     logo: "/images/client-logos/similarweb-logo.png"
   },
   {
     id: "bankdib",
     name: "Bank DIB",
     industry: "Financial Services",
-    quote: "Digital transformation that redefined customer experience in banking",
+    quote: "Full digital bank development: brand, platform, processes, and go-to-market in 8 months",
     logo: "/images/client-logos/bankdib-logo.png"
   },
   {
@@ -52,7 +52,7 @@ const clientStories: ClientStory[] = [
     id: "eccan",
     name: "Eccan",
     industry: "Sustainability Tech",
-    quote: "Brought our complex technology to market with clarity and impact",
+    quote: "Complete rebrand to ready-to-go sales strategy in under 1 month - what normally takes a year",
     logo: "/images/client-logos/eccan-logo.png"
   }
 ];
@@ -108,7 +108,7 @@ export default function LogoShowcase() {
     }, 6000); // 6 second intervals
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, activeIndex]); // Reset timer when activeIndex changes
 
   const handleLogoClick = (index: number) => {
     if (activeIndex === index) {
@@ -156,12 +156,12 @@ export default function LogoShowcase() {
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <div className="mb-6 sm:mb-8 text-sm sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
-            <span>Trusted by leaders</span>
+            <span>Real Clients</span>
           </div>
           
           <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-              Results that speak
+              Real Results
             </span>
           </h2>
           <p className="text-lg sm:text-base lg:text-lg text-obsidian/80 font-light max-w-2xl mx-auto">

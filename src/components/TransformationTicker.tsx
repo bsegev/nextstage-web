@@ -10,16 +10,16 @@ export default function TransformationTicker() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 mb-6 sm:mb-8 lg:mb-12">
         <div className="text-center">
           <div className="mb-4 sm:mb-6 lg:mb-8 text-sm sm:text-sm font-medium text-foreground/60 tracking-wide uppercase">
-            <span>Track Record</span>
+            <span>Real Timelines</span>
           </div>
           
           <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-3 sm:mb-4 lg:mb-6 text-foreground">
             <span className="bg-gradient-to-r from-obsidian via-accent via-accent to-obsidian dark:from-bone dark:via-accent dark:to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-              Recently Deployed
+              Recently Shipped
             </span>
           </h2>
           <p className="text-lg sm:text-base lg:text-lg text-foreground/75 font-light max-w-lg sm:max-w-xl lg:max-w-2xl mx-auto">
-            Real transformations. Real timelines. Real results.
+            Live. Working. Delivered.
           </p>
         </div>
       </div>

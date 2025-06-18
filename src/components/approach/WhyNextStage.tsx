@@ -8,13 +8,13 @@ import { LiquidGlass, LiquidGlassPanel } from '@/components/ui/liquid-glass';
 const principles = [
   {
     number: "01",
-    title: "Strategy without execution is just theory",
-    details: "We bridge both worlds."
+    title: "Strategy without execution is just expensive PowerPoint",
+    details: "We build what we design."
   },
   {
     number: "02",
-    title: "Real impact comes from understanding the entire system, not just parts",
-    details: "Everything must work together."
+    title: "Silos kill great ideas",
+    details: "We see the whole picture, not just pieces."
   },
   {
     number: "03",
@@ -33,8 +33,8 @@ const principles = [
   },
   {
     number: "06",
-    title: "Excellence should be accessible",
-    details: "Great work shouldn't require enterprise budgets."
+    title: "Excellence isn't just for Fortune 500",
+    details: "Startup budgets, enterprise results."
   }
 ];
 
@@ -79,16 +79,16 @@ export default function WhyNextStage() {
           {/* Header */}
           <div className={`text-center mb-8 sm:mb-12 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="mb-6 sm:mb-8 text-sm sm:text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
-              <span>Principles & Philosophy</span>
+              <span>Our Philosophy</span>
             </div>
             
             <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                Lessons Learned & Applied Daily
+                What I&apos;ve Learned (And We Live By)
               </span>
             </h2>
             <p className="text-lg sm:text-base lg:text-lg text-obsidian/80 font-light max-w-2xl mx-auto">
-              The core beliefs that guide how we work and what we build.
+              The insights that shape how we work—from post-it reminders to core principles that guide every partnership.
             </p>
           </div>
 
@@ -358,7 +358,7 @@ export default function WhyNextStage() {
               >
                 <div className="w-12 h-px bg-gradient-to-r from-transparent to-obsidian/30" />
                 <span className="text-obsidian/60 text-sm font-medium tracking-wider">
-                  OUR COMMITMENT
+                  MY PROMISE
                 </span>
                 <div className="w-12 h-px bg-gradient-to-l from-transparent to-obsidian/30" />
               </motion.div>
@@ -366,10 +366,8 @@ export default function WhyNextStage() {
               <blockquote className="font-display text-2xl sm:text-xl md:text-2xl lg:text-3xl text-obsidian/90 font-light max-w-4xl mx-auto leading-relaxed">
                 <span className="text-accent text-6xl leading-none opacity-60">&ldquo;</span>
                 <span className="relative">
-                  We&apos;re here to ensure everything holds together,<br />
-                  <Highlight className="font-medium">
-                    works at its best and moves you forward.
-                  </Highlight>
+                  Your vision stays yours. Your timeline stays real.<br />
+                  <Highlight className="font-medium">That&apos;s what partnership means.</Highlight>
                 </span>
                 <span className="text-accent text-6xl leading-none opacity-60">&rdquo;</span>
               </blockquote>

@@ -16,7 +16,7 @@ export default function TrustBanner() {
     },
     { 
       text: "Cross-Industry Expertise", 
-      description: "From fintech to healthcare to enterprise",
+      description: "From fintech to consumer tech to enterprise",
       icon: IconNetwork
     },
     { 
