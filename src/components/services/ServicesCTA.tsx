@@ -1,71 +1,70 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import Link from 'next/link';
 import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 export default function ServicesCTA() {
   const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const geometryScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 1]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const geometryScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1.1, 1]);
 
   return (
     <section ref={sectionRef} className="py-16 sm:py-20 md:py-24 bg-obsidian relative overflow-hidden">
       {/* Static Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/8 via-transparent to-accent/12"></div>
       
-      {/* Dynamic Background with Parallax */}
+      {/* Optimized Background with Parallax */}
       <motion.div 
         className="absolute inset-0"
         style={{ y: backgroundY }}
+        onViewportEnter={() => setIsVisible(true)}
+        viewport={{ once: true, margin: "-100px" }}
       >
-        {/* Flowing Lines */}
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0" />
-              <stop offset="30%" stopColor="#FFE0D7" stopOpacity="0.3" />
-              <stop offset="70%" stopColor="#FFE0D7" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0" />
-            </linearGradient>
+        {/* Reduced Flowing Lines - from 12 to 6 for better performance */}
+        {isVisible && (
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0" />
+                <stop offset="30%" stopColor="#FFE0D7" stopOpacity="0.3" />
+                <stop offset="70%" stopColor="#FFE0D7" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0" />
+              </linearGradient>
+            </defs>
             
-            <linearGradient id="flowGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0" />
-              <stop offset="50%" stopColor="#FFE0D7" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          
-          {/* Dynamic Flow Lines */}
-          {Array.from({ length: 12 }).map((_, i) => (
-            <motion.path
-              key={i}
-              d={`M${-200 + i * 60} ${200 + i * 40} Q${400 + i * 80} ${300 + i * 20} ${1400 + i * 60} ${250 + i * 30}`}
-              stroke="url(#flowGradient)"
-              strokeWidth={2 + (i % 3)}
-              fill="none"
-              opacity={0.6 - i * 0.04}
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ 
-                pathLength: [0, 1, 0],
-                opacity: [0, 0.6 - i * 0.04, 0]
-              }}
-              transition={{
-                duration: 4 + i * 0.3,
-                repeat: Infinity,
-                delay: i * 0.2,
-                ease: "easeInOut"
-              }}
-            />
-          ))}
-        </svg>
+            {/* Optimized Flow Lines - reduced from 12 to 6 */}
+            {Array.from({ length: 6 }).map((_, i) => (
+              <motion.path
+                key={i}
+                d={`M${-200 + i * 120} ${200 + i * 60} Q${400 + i * 100} ${300 + i * 30} ${1400 + i * 80} ${250 + i * 40}`}
+                stroke="url(#flowGradient)"
+                strokeWidth={2 + (i % 2)}
+                fill="none"
+                opacity={0.5 - i * 0.06}
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ 
+                  pathLength: [0, 1, 0],
+                  opacity: [0, 0.5 - i * 0.06, 0]
+                }}
+                transition={{
+                  duration: 6 + i * 0.5, // Slower animations for better performance
+                  repeat: Infinity,
+                  delay: i * 0.4,
+                  ease: "easeInOut"
+                }}
+              />
+            ))}
+          </svg>
+        )}
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
@@ -108,7 +107,7 @@ export default function ServicesCTA() {
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
                     animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </motion.svg>
@@ -188,7 +187,7 @@ export default function ServicesCTA() {
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
                       animate={{ x: [0, 4, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </motion.svg>
@@ -226,265 +225,199 @@ export default function ServicesCTA() {
             </motion.div>
           </div>
 
-          {/* Visual Side - Right */}
+          {/* Optimized Visual Side - Right */}
           <div className="col-span-5 relative h-96 lg:h-full">
             <motion.div
               className="absolute inset-0 flex items-center justify-center"
               style={{ scale: geometryScale }}
+              onViewportEnter={() => setIsVisible(true)}
+              viewport={{ once: true, margin: "-100px" }}
             >
-              {/* Service Ecosystem Animation */}
-              <svg className="w-full h-full max-w-lg" viewBox="0 0 500 500">
-                <defs>
-                  <radialGradient id="coreGradient" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#FFE0D7" stopOpacity="1" />
-                    <stop offset="70%" stopColor="#FFE0D7" stopOpacity="0.6" />
-                    <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0" />
-                  </radialGradient>
-                  
-                  <radialGradient id="serviceNodeGradient" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0.3" />
-                  </radialGradient>
+              {/* Simplified Service Ecosystem Animation */}
+              {isVisible && (
+                <svg className="w-full h-full max-w-lg" viewBox="0 0 500 500">
+                  <defs>
+                    <radialGradient id="coreGradient" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0.8" />
+                      <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0.2" />
+                    </radialGradient>
+                    <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0.6" />
+                      <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0.2" />
+                    </linearGradient>
+                  </defs>
 
-                  <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0" />
-                    <stop offset="50%" stopColor="#FFE0D7" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#FFE0D7" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
+                  {/* Central Hub */}
+                  <motion.circle
+                    cx="250"
+                    cy="250"
+                    r="12"
+                    fill="url(#coreGradient)"
+                    stroke="#FFE0D7"
+                    strokeWidth="2"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  />
 
-                {/* Central Hub - NextStage Core */}
-                <motion.circle
-                  cx="250"
-                  cy="250"
-                  r="12"
-                  fill="url(#coreGradient)"
-                  stroke="#FFE0D7"
-                  strokeWidth="2"
-                  initial={{ scale: 0, rotate: 0 }}
-                  whileInView={{ scale: [0, 1.2, 1], rotate: 360 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 2, delay: 0.5 }}
-                />
+                  {/* Service Nodes - Reduced complexity */}
+                  {[
+                    { name: 'Strategy', angle: 0, color: '#FFE0D7', delay: 0.5 },
+                    { name: 'Design', angle: 90, color: '#FFE0D7', delay: 1.0 },
+                    { name: 'Technology', angle: 180, color: '#FFE0D7', delay: 1.5 },
+                    { name: 'Growth', angle: 270, color: '#FFE0D7', delay: 2.0 }
+                  ].map((service, i) => {
+                    const angle = (service.angle * Math.PI) / 180;
+                    const radius = 80;
+                    const x = 250 + Math.cos(angle) * radius;
+                    const y = 250 + Math.sin(angle) * radius;
+                    
+                    return (
+                      <motion.g key={service.name}>
+                        {/* Connection Lines */}
+                        <motion.line
+                          x1="250"
+                          y1="250"
+                          x2={x}
+                          y2={y}
+                          stroke="url(#connectionGradient)"
+                          strokeWidth="1"
+                          initial={{ pathLength: 0, opacity: 0 }}
+                          animate={{ pathLength: 1, opacity: 0.6 }}
+                          transition={{ duration: 1, delay: service.delay }}
+                        />
+                        
+                        {/* Service Node */}
+                        <motion.circle
+                          cx={x}
+                          cy={y}
+                          r="6"
+                          fill={service.color}
+                          stroke="#FFE0D7"
+                          strokeWidth="1"
+                          opacity="0.8"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: [0, 1.2, 1] }}
+                          transition={{ duration: 0.8, delay: service.delay }}
+                        />
+                        
+                        {/* Simplified Node Pulse */}
+                        <motion.circle
+                          cx={x}
+                          cy={y}
+                          r="6"
+                          fill="none"
+                          stroke={service.color}
+                          strokeWidth="1"
+                          opacity="0"
+                          animate={{
+                            scale: [1, 1.5, 1],
+                            opacity: [0, 0.4, 0]
+                          }}
+                          transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            delay: i * 1
+                          }}
+                        />
+                      </motion.g>
+                    );
+                  })}
 
-                {/* Service Nodes - 4 Core Services */}
-                {[
-                  { name: "Strategy", angle: 0, color: "#FFE0D7", delay: 1 },
-                  { name: "Brand", angle: 90, color: "#FFE0D7", delay: 1.2 },
-                  { name: "Platform", angle: 180, color: "#FFE0D7", delay: 1.4 },
-                  { name: "Growth", angle: 270, color: "#FFE0D7", delay: 1.6 }
-                ].map((service, i) => {
-                  const angle = (service.angle) * (Math.PI / 180);
-                  const radius = 120;
-                  const x = 250 + Math.cos(angle) * radius;
-                  const y = 250 + Math.sin(angle) * radius;
-                  
-                  return (
-                    <motion.g key={service.name}>
-                      {/* Connection Lines */}
-                      <motion.line
-                        x1="250"
-                        y1="250"
-                        x2={x}
-                        y2={y}
-                        stroke="url(#connectionGradient)"
-                        strokeWidth="2"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        whileInView={{ pathLength: 1, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: service.delay }}
-                      />
-                      
-                      {/* Service Node */}
+                  {/* Simplified Outer Ring */}
+                  <motion.circle
+                    cx="250"
+                    cy="250"
+                    r="120"
+                    fill="none"
+                    stroke="#FFE0D7"
+                    strokeWidth="1"
+                    opacity="0.2"
+                    strokeDasharray="4 8"
+                    initial={{ scale: 0, rotate: 0 }}
+                    animate={{ 
+                      scale: 1, 
+                      rotate: 360 
+                    }}
+                    transition={{
+                      scale: { duration: 1.5, delay: 2.5 },
+                      rotate: { duration: 20, repeat: Infinity, ease: "linear" }
+                    }}
+                  />
+
+                  {/* Reduced Innovation Satellites - from 6 to 3 */}
+                  {Array.from({ length: 3 }).map((_, i) => {
+                    const angle = (i * 120) * (Math.PI / 180);
+                    const radius = 120;
+                    const x = 250 + Math.cos(angle) * radius;
+                    const y = 250 + Math.sin(angle) * radius;
+                    
+                    return (
                       <motion.circle
+                        key={`satellite-${i}`}
                         cx={x}
                         cy={y}
-                        r="6"
-                        fill={service.color}
-                        stroke="#FFE0D7"
-                        strokeWidth="1"
-                        opacity="0.8"
+                        r="2"
+                        fill="#FFE0D7"
+                        opacity="0.4"
                         initial={{ scale: 0 }}
-                        whileInView={{ scale: [0, 1.3, 1] }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: service.delay }}
-                      />
-                      
-                      {/* Service Node Pulse */}
-                      <motion.circle
-                        cx={x}
-                        cy={y}
-                        r="6"
-                        fill="none"
-                        stroke={service.color}
-                        strokeWidth="1"
-                        opacity="0"
-                        animate={{
-                          scale: [1, 1.3, 1],
-                          opacity: [0, 0.6, 0]
+                        animate={{ 
+                          scale: [0, 1, 0],
+                          opacity: [0, 0.4, 0]
                         }}
                         transition={{
                           duration: 3,
                           repeat: Infinity,
-                          delay: i * 0.5
+                          delay: 3 + i * 0.5
                         }}
                       />
-                      
-                      {/* Orbiting Data Points */}
-                      <motion.circle
-                        cx={x}
-                        cy={y}
-                        r="1.5"
-                        fill="#FFE0D7"
-                        opacity="0.6"
-                        animate={{
-                          x: [0, 15 * Math.cos(angle + Math.PI/4), 0],
-                          y: [0, 15 * Math.sin(angle + Math.PI/4), 0],
-                        }}
-                        transition={{
-                          duration: 2 + i * 0.3,
-                          repeat: Infinity,
-                          delay: service.delay + 1
-                        }}
-                        style={{
-                          transformOrigin: `${x}px ${y}px`
-                        }}
-                      />
-                    </motion.g>
-                  );
-                })}
+                    );
+                  })}
 
-                {/* Outer Innovation Ring */}
-                <motion.circle
-                  cx="250"
-                  cy="250"
-                  r="180"
-                  fill="none"
-                  stroke="#FFE0D7"
-                  strokeWidth="1"
-                  opacity="0.3"
-                  strokeDasharray="8 12"
-                  initial={{ scale: 0, rotate: 0 }}
-                  whileInView={{ scale: 1, rotate: 360 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    scale: { duration: 1.5, delay: 2 },
-                    rotate: { duration: 30, repeat: Infinity, ease: "linear" }
-                  }}
-                />
-
-                {/* Innovation Satellites */}
-                {Array.from({ length: 6 }).map((_, i) => {
-                  const angle = (i * 60) * (Math.PI / 180);
-                  const radius = 180;
-                  const x = 250 + Math.cos(angle) * radius;
-                  const y = 250 + Math.sin(angle) * radius;
-                  
-                  return (
-                    <motion.g key={`satellite-${i}`}>
-                      <motion.circle
-                        cx={x}
-                        cy={y}
-                        r="2"
-                        fill="#FFE0D7"
-                        opacity="0.5"
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 2.5 + i * 0.1 }}
-                      />
-                      
-                      {/* Satellite Pulse */}
-                      <motion.circle
-                        cx={x}
-                        cy={y}
-                        r="2"
-                        fill="none"
-                        stroke="#FFE0D7"
-                        strokeWidth="1"
-                        opacity="0"
-                        animate={{
-                          scale: [1, 2, 1],
-                          opacity: [0, 0.4, 0]
-                        }}
-                        transition={{
-                          duration: 4,
-                          repeat: Infinity,
-                          delay: i * 0.7
-                        }}
-                      />
-                      
-                      {/* Connecting Pulse */}
-                      <motion.line
-                        x1="250"
-                        y1="250"
-                        x2={x}
-                        y2={y}
-                        stroke="#FFE0D7"
-                        strokeWidth="0.5"
-                        opacity="0"
-                        animate={{
-                          opacity: [0, 0.6, 0]
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: 3 + i * 0.3
-                        }}
-                      />
-                    </motion.g>
-                  );
-                })}
-
-                {/* Central Pulse Effect */}
-                <motion.circle
-                  cx="250"
-                  cy="250"
-                  r="12"
-                  fill="none"
-                  stroke="#FFE0D7"
-                  strokeWidth="1"
-                  opacity="0"
-                  animate={{
-                    r: [12, 40, 12],
-                    opacity: [0, 0.6, 0]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: 3
-                  }}
-                />
-              </svg>
+                  {/* Central Pulse Effect */}
+                  <motion.circle
+                    cx="250"
+                    cy="250"
+                    r="12"
+                    fill="none"
+                    stroke="#FFE0D7"
+                    strokeWidth="1"
+                    opacity="0"
+                    animate={{
+                      r: [12, 30, 12],
+                      opacity: [0, 0.4, 0]
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      delay: 4
+                    }}
+                  />
+                </svg>
+              )}
             </motion.div>
 
-            {/* Floating Innovation Particles */}
-            <motion.div
-              className="absolute top-16 right-16 w-2 h-2 bg-accent/60 rounded-full"
-              animate={{
-                y: [0, -20, 0],
-                x: [0, 10, 0],
-                opacity: [0.6, 1, 0.6]
-              }}
-              transition={{ duration: 4, repeat: Infinity }}
-            />
-            <motion.div
-              className="absolute bottom-20 left-16 w-3 h-3 bg-accent/40 rounded-full"
-              animate={{
-                y: [0, -15, 0],
-                x: [0, -8, 0],
-                opacity: [0.4, 0.8, 0.4]
-              }}
-              transition={{ duration: 5, repeat: Infinity, delay: 1.5 }}
-            />
-            <motion.div
-              className="absolute top-1/3 left-8 w-1.5 h-1.5 bg-accent/50 rounded-full"
-              animate={{
-                y: [0, -12, 0],
-                opacity: [0.5, 0.9, 0.5]
-              }}
-              transition={{ duration: 3.5, repeat: Infinity, delay: 2 }}
-            />
+            {/* Simplified Floating Particles */}
+            {isVisible && (
+              <>
+                <motion.div
+                  className="absolute top-16 right-16 w-2 h-2 bg-accent/40 rounded-full"
+                  animate={{
+                    y: [0, -15, 0],
+                    opacity: [0.4, 0.8, 0.4]
+                  }}
+                  transition={{ duration: 5, repeat: Infinity }}
+                />
+                <motion.div
+                  className="absolute bottom-20 left-16 w-2 h-2 bg-accent/30 rounded-full"
+                  animate={{
+                    y: [0, -10, 0],
+                    opacity: [0.3, 0.6, 0.3]
+                  }}
+                  transition={{ duration: 6, repeat: Infinity, delay: 2 }}
+                />
+              </>
+            )}
           </div>
         </div>
       </div>

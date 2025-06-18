@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { Card, CardSkeletonContainer, CardTitle, CardDescription } from "@/components/services/cards-demo-1";
 import { animate } from "motion/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 import { 
   IconChartBar, 
@@ -29,28 +29,42 @@ import {
   IconFlame
 } from "@tabler/icons-react";
 
-// Service-specific skeleton components
+// Optimized skeleton components with useMemo for sequences
 const MarketIntelligenceSkeleton = () => {
-  const scale = [1, 1.1, 1];
-  const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
-  const sequence = [
-    [".market-circle-1", { scale, transform }, { duration: 0.8 }],
-    [".market-circle-2", { scale, transform }, { duration: 0.8 }],
-    [".market-circle-3", { scale, transform }, { duration: 0.8 }],
-    [".market-circle-4", { scale, transform }, { duration: 0.8 }],
-    [".market-circle-5", { scale, transform }, { duration: 0.8 }],
-  ];
+  const [isVisible, setIsVisible] = useState(false);
+  
+  const sequence = useMemo(() => {
+    const scale = [1, 1.1, 1];
+    const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
+    return [
+      [".market-circle-1", { scale, transform }, { duration: 0.8 }],
+      [".market-circle-2", { scale, transform }, { duration: 0.8 }],
+      [".market-circle-3", { scale, transform }, { duration: 0.8 }],
+      [".market-circle-4", { scale, transform }, { duration: 0.8 }],
+      [".market-circle-5", { scale, transform }, { duration: 0.8 }],
+    ];
+  }, []);
 
   useEffect(() => {
-    animate(sequence, {
-      // @ts-expect-error framer-motion animate function doesn't have proper typing for repeat
-      repeat: Infinity,
-      repeatDelay: 1,
-    });
-  }, [sequence]);
+    if (!isVisible) return;
+    
+    const timer = setTimeout(() => {
+      animate(sequence, {
+        // @ts-expect-error framer-motion animate function doesn't have proper typing for repeat
+        repeat: Infinity,
+        repeatDelay: 2, // Increased delay to reduce CPU usage
+      });
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, [sequence, isVisible]);
 
   return (
-    <div className="overflow-hidden h-full relative flex items-center justify-center">
+    <motion.div 
+      className="overflow-hidden h-full relative flex items-center justify-center"
+      onViewportEnter={() => setIsVisible(true)}
+      viewport={{ once: true, margin: "-50px" }}
+    >
       <div className="flex flex-row shrink-0 justify-center items-center gap-2">
         <Container className="h-8 w-8 market-circle-1">
           <IconChartBar className="h-4 w-4 text-foreground" />
@@ -68,36 +82,52 @@ const MarketIntelligenceSkeleton = () => {
           <IconBulb className="h-4 w-4 text-foreground" />
         </Container>
       </div>
-      <div className="h-40 w-px absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-gradient-to-b from-transparent via-blue-400 to-transparent animate-move shadow-lg shadow-blue-400/60">
-        <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
-          <Sparkles />
+      {isVisible && (
+        <div className="h-40 w-px absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-gradient-to-b from-transparent via-blue-400 to-transparent animate-move shadow-lg shadow-blue-400/60">
+          <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
+            <Sparkles />
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </motion.div>
   );
 };
 
 const BrandExperienceSkeleton = () => {
-  const scale = [1, 1.1, 1];
-  const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
-  const sequence = [
-    [".brand-circle-1", { scale, transform }, { duration: 0.8 }],
-    [".brand-circle-2", { scale, transform }, { duration: 0.8 }],
-    [".brand-circle-3", { scale, transform }, { duration: 0.8 }],
-    [".brand-circle-4", { scale, transform }, { duration: 0.8 }],
-    [".brand-circle-5", { scale, transform }, { duration: 0.8 }],
-  ];
+  const [isVisible, setIsVisible] = useState(false);
+  
+  const sequence = useMemo(() => {
+    const scale = [1, 1.1, 1];
+    const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
+    return [
+      [".brand-circle-1", { scale, transform }, { duration: 0.8 }],
+      [".brand-circle-2", { scale, transform }, { duration: 0.8 }],
+      [".brand-circle-3", { scale, transform }, { duration: 0.8 }],
+      [".brand-circle-4", { scale, transform }, { duration: 0.8 }],
+      [".brand-circle-5", { scale, transform }, { duration: 0.8 }],
+    ];
+  }, []);
 
   useEffect(() => {
-    animate(sequence, {
-      // @ts-expect-error framer-motion animate function doesn't have proper typing for repeat
-      repeat: Infinity,
-      repeatDelay: 1,
-    });
-  }, [sequence]);
+    if (!isVisible) return;
+    
+    const timer = setTimeout(() => {
+      animate(sequence, {
+        // @ts-expect-error framer-motion animate function doesn't have proper typing for repeat
+        repeat: Infinity,
+        repeatDelay: 2,
+      });
+    }, 200);
+    
+    return () => clearTimeout(timer);
+  }, [sequence, isVisible]);
 
   return (
-    <div className="overflow-hidden h-full relative flex items-center justify-center">
+    <motion.div 
+      className="overflow-hidden h-full relative flex items-center justify-center"
+      onViewportEnter={() => setIsVisible(true)}
+      viewport={{ once: true, margin: "-50px" }}
+    >
       <div className="flex flex-row shrink-0 justify-center items-center gap-2">
         <Container className="h-8 w-8 brand-circle-1">
           <IconPalette className="h-4 w-4 text-foreground" />
@@ -115,36 +145,52 @@ const BrandExperienceSkeleton = () => {
           <IconHeart className="h-4 w-4 text-foreground" />
         </Container>
       </div>
-      <div className="h-40 w-px absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-gradient-to-b from-transparent via-purple-400 to-transparent animate-move shadow-lg shadow-purple-400/60">
-        <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
-          <Sparkles color="purple" />
+      {isVisible && (
+        <div className="h-40 w-px absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-gradient-to-b from-transparent via-purple-400 to-transparent animate-move shadow-lg shadow-purple-400/60">
+          <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
+            <Sparkles color="purple" />
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </motion.div>
   );
 };
 
 const PlatformDevelopmentSkeleton = () => {
-  const scale = [1, 1.1, 1];
-  const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
-  const sequence = [
-    [".platform-circle-1", { scale, transform }, { duration: 0.8 }],
-    [".platform-circle-2", { scale, transform }, { duration: 0.8 }],
-    [".platform-circle-3", { scale, transform }, { duration: 0.8 }],
-    [".platform-circle-4", { scale, transform }, { duration: 0.8 }],
-    [".platform-circle-5", { scale, transform }, { duration: 0.8 }],
-  ];
+  const [isVisible, setIsVisible] = useState(false);
+  
+  const sequence = useMemo(() => {
+    const scale = [1, 1.1, 1];
+    const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
+    return [
+      [".platform-circle-1", { scale, transform }, { duration: 0.8 }],
+      [".platform-circle-2", { scale, transform }, { duration: 0.8 }],
+      [".platform-circle-3", { scale, transform }, { duration: 0.8 }],
+      [".platform-circle-4", { scale, transform }, { duration: 0.8 }],
+      [".platform-circle-5", { scale, transform }, { duration: 0.8 }],
+    ];
+  }, []);
 
   useEffect(() => {
-    animate(sequence, {
-      // @ts-expect-error framer-motion animate function doesn't have proper typing for repeat
-      repeat: Infinity,
-      repeatDelay: 1,
-    });
-  }, [sequence]);
+    if (!isVisible) return;
+    
+    const timer = setTimeout(() => {
+      animate(sequence, {
+        // @ts-expect-error framer-motion animate function doesn't have proper typing for repeat
+        repeat: Infinity,
+        repeatDelay: 2,
+      });
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  }, [sequence, isVisible]);
 
   return (
-    <div className="overflow-hidden h-full relative flex items-center justify-center">
+    <motion.div 
+      className="overflow-hidden h-full relative flex items-center justify-center"
+      onViewportEnter={() => setIsVisible(true)}
+      viewport={{ once: true, margin: "-50px" }}
+    >
       <div className="flex flex-row shrink-0 justify-center items-center gap-2">
         <Container className="h-8 w-8 platform-circle-1">
           <IconSettings className="h-4 w-4 text-foreground" />
@@ -162,36 +208,52 @@ const PlatformDevelopmentSkeleton = () => {
           <IconBolt className="h-4 w-4 text-foreground" />
         </Container>
       </div>
-      <div className="h-40 w-px absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-gradient-to-b from-transparent via-green-400 to-transparent animate-move shadow-lg shadow-green-400/60">
-        <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
-          <Sparkles color="green" />
+      {isVisible && (
+        <div className="h-40 w-px absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-gradient-to-b from-transparent via-green-400 to-transparent animate-move shadow-lg shadow-green-400/60">
+          <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
+            <Sparkles color="green" />
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </motion.div>
   );
 };
 
 const GrowthSystemsSkeleton = () => {
-  const scale = [1, 1.1, 1];
-  const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
-  const sequence = [
-    [".growth-circle-1", { scale, transform }, { duration: 0.8 }],
-    [".growth-circle-2", { scale, transform }, { duration: 0.8 }],
-    [".growth-circle-3", { scale, transform }, { duration: 0.8 }],
-    [".growth-circle-4", { scale, transform }, { duration: 0.8 }],
-    [".growth-circle-5", { scale, transform }, { duration: 0.8 }],
-  ];
+  const [isVisible, setIsVisible] = useState(false);
+  
+  const sequence = useMemo(() => {
+    const scale = [1, 1.1, 1];
+    const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
+    return [
+      [".growth-circle-1", { scale, transform }, { duration: 0.8 }],
+      [".growth-circle-2", { scale, transform }, { duration: 0.8 }],
+      [".growth-circle-3", { scale, transform }, { duration: 0.8 }],
+      [".growth-circle-4", { scale, transform }, { duration: 0.8 }],
+      [".growth-circle-5", { scale, transform }, { duration: 0.8 }],
+    ];
+  }, []);
 
   useEffect(() => {
-    animate(sequence, {
-      // @ts-expect-error framer-motion animate function doesn't have proper typing for repeat
-      repeat: Infinity,
-      repeatDelay: 1,
-    });
-  }, [sequence]);
+    if (!isVisible) return;
+    
+    const timer = setTimeout(() => {
+      animate(sequence, {
+        // @ts-expect-error framer-motion animate function doesn't have proper typing for repeat
+        repeat: Infinity,
+        repeatDelay: 2,
+      });
+    }, 400);
+    
+    return () => clearTimeout(timer);
+  }, [sequence, isVisible]);
 
   return (
-    <div className="overflow-hidden h-full relative flex items-center justify-center">
+    <motion.div 
+      className="overflow-hidden h-full relative flex items-center justify-center"
+      onViewportEnter={() => setIsVisible(true)}
+      viewport={{ once: true, margin: "-50px" }}
+    >
       <div className="flex flex-row shrink-0 justify-center items-center gap-2">
         <Container className="h-8 w-8 growth-circle-1">
           <IconChartPie className="h-4 w-4 text-foreground" />
@@ -209,12 +271,14 @@ const GrowthSystemsSkeleton = () => {
           <IconFlame className="h-4 w-4 text-foreground" />
         </Container>
       </div>
-      <div className="h-40 w-px absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-gradient-to-b from-transparent via-orange-400 to-transparent animate-move shadow-lg shadow-orange-400/60">
-        <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
-          <Sparkles color="orange" />
+      {isVisible && (
+        <div className="h-40 w-px absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-gradient-to-b from-transparent via-orange-400 to-transparent animate-move shadow-lg shadow-orange-400/60">
+          <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
+            <Sparkles color="orange" />
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </motion.div>
   );
 };
 
@@ -238,25 +302,21 @@ const Container = ({
   );
 };
 
-// Sparkles component with color variants
+// Optimized Sparkles component with reduced complexity
 const Sparkles = ({ color = "blue" }: { color?: string }) => {
-  const sparkleData = [
-    { top: 10, duration: 3.2, delay: 0 },
-    { top: 25, duration: 2.8, delay: 0.3 },
-    { top: 40, duration: 3.5, delay: 0.6 },
-    { top: 55, duration: 2.9, delay: 0.9 },
-    { top: 70, duration: 3.1, delay: 1.2 },
-    { top: 85, duration: 3.3, delay: 1.5 },
-    { top: 15, duration: 2.7, delay: 1.8 },
-    { top: 30, duration: 3.4, delay: 2.1 },
-    { top: 45, duration: 2.6, delay: 2.4 },
-    { top: 60, duration: 3.0, delay: 2.7 },
-    { top: 75, duration: 3.2, delay: 3.0 },
-    { top: 90, duration: 2.9, delay: 3.3 },
-  ];
+  // Reduced sparkle count from 12 to 6 for better performance
+  const sparkleData = useMemo(() => [
+    { top: 15, duration: 3.2, delay: 0, color: color },
+    { top: 35, duration: 2.8, delay: 0.5, color: 'white' },
+    { top: 55, duration: 3.5, delay: 1.0, color: color },
+    { top: 75, duration: 2.9, delay: 1.5, color: 'cyan' },
+    { top: 45, duration: 3.1, delay: 2.0, color: 'white' },
+    { top: 25, duration: 3.3, delay: 2.5, color: color },
+  ], [color]);
 
   const getSparkleColors = (color: string) => {
     switch (color) {
+      case 'blue': return { primary: 'bg-blue-400 shadow-blue-400/80', secondary: 'bg-cyan-300 shadow-cyan-300/80', tertiary: 'bg-white shadow-white/90' };
       case 'purple': return { primary: 'bg-purple-400 shadow-purple-400/80', secondary: 'bg-pink-300 shadow-pink-300/80', tertiary: 'bg-white shadow-white/90' };
       case 'green': return { primary: 'bg-green-400 shadow-green-400/80', secondary: 'bg-emerald-300 shadow-emerald-300/80', tertiary: 'bg-white shadow-white/90' };
       case 'orange': return { primary: 'bg-orange-400 shadow-orange-400/80', secondary: 'bg-yellow-300 shadow-yellow-300/80', tertiary: 'bg-white shadow-white/90' };
@@ -296,7 +356,8 @@ const Sparkles = ({ color = "blue" }: { color?: string }) => {
         />
       ))}
       
-      {sparkleData.slice(0, 6).map((sparkle, i) => (
+      {/* Reduced star shapes from 6 to 3 */}
+      {sparkleData.slice(0, 3).map((sparkle, i) => (
         <motion.div
           key={`starshape-${i}`}
           animate={{
@@ -325,6 +386,7 @@ const Sparkles = ({ color = "blue" }: { color?: string }) => {
   );
 };
 
+// Memoized services data
 const services = [
   {
     title: "Market Intelligence & Planning",
@@ -340,7 +402,7 @@ const services = [
     href: "/services/brand-experience", 
     skeleton: BrandExperienceSkeleton,
     backgroundImage: "/images/brand-design.png",
-    delay: 0.2,
+    delay: 0.1,
   },
   {
     title: "Platform Development",
@@ -348,7 +410,7 @@ const services = [
     href: "/services/platform-development",
     skeleton: PlatformDevelopmentSkeleton,
     backgroundImage: "/images/tech-innovation-hero-bg.png",
-    delay: 0.4,
+    delay: 0.2,
   },
   {
     title: "Growth Systems",
@@ -356,7 +418,7 @@ const services = [
     href: "/services/growth-systems",
     skeleton: GrowthSystemsSkeleton,
     backgroundImage: "/images/growth-marketing-hero-bg-2.png",
-    delay: 0.6,
+    delay: 0.3,
   }
 ];
 
@@ -394,7 +456,7 @@ export default function CoreServicesShowcase() {
               key={service.href}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: service.delay }}
             >
               <Card className="group-hover:scale-[1.02] transition-all duration-500 h-full">
@@ -426,7 +488,7 @@ export default function CoreServicesShowcase() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center mt-12 sm:mt-16 lg:mt-20"
         >
           <p className="text-foreground/70 mb-6 text-lg">
@@ -451,7 +513,7 @@ export default function CoreServicesShowcase() {
               stroke="currentColor" 
               viewBox="0 0 24 24"
               animate={{ x: [0, 4, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </motion.svg>
