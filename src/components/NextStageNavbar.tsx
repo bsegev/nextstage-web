@@ -214,7 +214,7 @@ export default function NextStageNavbar() {
            </nav>
 
           <div className="mt-8 pt-6 border-t border-accent/20">
-            <a href="#all-services" className="flex items-center text-accent hover:text-accent/80 font-medium text-sm transition-colors">
+            <a href="/services" className="flex items-center text-accent hover:text-accent/80 font-medium text-sm transition-colors">
               View All Services
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

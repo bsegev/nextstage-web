@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
+import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 export default function GrowthMarketingConsultingHero() {
   const [mounted, setMounted] = useState(false);
@@ -113,9 +114,9 @@ export default function GrowthMarketingConsultingHero() {
             >
               <div className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                <button className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-accent text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium w-full sm:w-auto group-hover:bg-accent/90 group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 transition-all duration-300">
+                <button className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-obsidian text-bone rounded-full text-base sm:text-base lg:text-lg font-medium w-full sm:w-auto group-hover:bg-obsidian/90 group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 transition-all duration-300">
                   <span className="relative">
-                    Get Started
+                    Book Appointment
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full"></span>
                   </span>
                     <motion.svg 
@@ -126,20 +127,37 @@ export default function GrowthMarketingConsultingHero() {
                       animate={{ x: [0, 4, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                     >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </motion.svg>
                 </button>
                 </div>
 
-              <div className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-obsidian/50 focus-visible:ring-offset-2 rounded-full">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-obsidian/30 to-obsidian/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                <button className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-obsidian/10 border border-obsidian/20 text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium w-full sm:w-auto group-hover:bg-obsidian group-hover:text-bone group-hover:border-obsidian group-hover:-translate-y-1 group-active:scale-95 transition-all duration-300">
-                  <span>View Work</span>
-                  <svg className="w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-              </button>
-            </div>
+              <div className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
+                <LiquidGlass 
+                  intensity="subtle" 
+                  animated
+                  borderRadius="rounded-full"
+                  className="group-hover:scale-[1.02] transition-transform duration-300 border-bone/30 group-hover:border-bone/50"
+                >
+                  <div className="inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 text-obsidian/80 group-hover:text-obsidian text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
+                    <span className="relative">
+                      View Work
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                    </span>
+                    
+                    <div className="relative overflow-hidden w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                      <svg 
+                        className="w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
+                  </div>
+                </LiquidGlass>
+              </div>
             </motion.div>
 
             <motion.div

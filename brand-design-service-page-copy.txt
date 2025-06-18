@@ -1,0 +1,84 @@
+BRAND DESIGN SERVICE PAGE COPY AUDIT
+================================================
+
+## PAGE STRUCTURE (src/app/services/brand-design/page.tsx)
+1. NextStageNavbar
+2. BrandDesignConsultingHero ← STARTING HERE
+3. BrandDesignConsultingServices  
+4. BrandDesignMetrics
+5. BrandDesignDeliverablesShowcase
+6. BrandDesignConsultingValueProp
+7. BrandDesignCTA
+8. Footer
+
+## FIVE-ARCHETYPE FRAMEWORK ANALYSIS
+
+### CURRENT ARCHETYPES IN USE:
+- **Henry V Embedded Partnership**: Stand with clients, not above them - embedded leadership in the trenches
+- **Jason Bourne Execution Speed**: Startup velocity with enterprise quality - precise, efficient, no wasted motion  
+- **Rick Rubin Creative Insight**: Strip to essence, bring out what's already there - conceptual clarity without spiritual fluff
+- **Harvey Specter Problem Solving**: Fixers who handle complex situations - sophisticated solutions delivered with confidence
+- **Hemingway Communication**: Simplicity without oversimplifying - clear, direct language that cuts through noise
+
+================================================
+
+### BRANDDESIGNCONSULTINGHERO.tsx ANALYSIS
+
+**CURRENT COPY:**
+- **Service Badge:** "Brand & Design"
+- **Headline:** "Design for brands that drive real growth"
+- **Subheadline:** "Transform how customers see and interact with your business. From brand identity to digital experiences, we create cohesive design systems that drive recognition, trust, and conversions."
+- **Primary CTA:** "Schedule Design Discovery"
+- **Secondary CTA:** "View Design Portfolio"
+- **Social Proof:** "Trusted by brands who understand that design drives business results"
+
+**ARCHETYPE ASSESSMENT:**
+- ❌ **Henry V**: Missing embedded partnership language - sounds like traditional agency speak
+- ❌ **Jason Bourne**: No speed/efficiency messaging - generic transformation language
+- ❌ **Rick Rubin**: No "strip to essence" creative insight - overly complex subheadline
+- ❌ **Harvey Specter**: No problem-solving confidence - vague "transform" language
+- ⚠️ **Hemingway**: Partially clear but could be more direct
+
+**PROBLEMS IDENTIFIED:**
+1. **Generic Agency Language**: "Transform how customers see and interact" - sounds like every other design agency
+2. **Missing Partnership Angle**: No embedded team messaging - sounds like traditional client/vendor relationship
+3. **Vague Results**: "drive real growth" needs more specificity - what kind of growth?
+4. **No Anti-Big 4 Positioning**: Doesn't differentiate from traditional consultancies
+5. **Overly Complex**: Subheadline tries to cover everything instead of focusing on core benefit
+6. **Weak Social Proof**: "understand that design drives business results" is generic
+
+**ARCHETYPE-ALIGNED REWRITE SUGGESTIONS:**
+
+**Option A - Rick Rubin Creative Insight Focus:**
+- **Headline:** "Strip to what works. Build what lasts."
+- **Subheadline:** "Your brand already has what it needs. We find it, focus it, and make it impossible to ignore."
+
+**Option B - Henry V + Jason Bourne Partnership + Speed:**
+- **Headline:** "Brand strategy and design. Built together, shipped fast."
+- **Subheadline:** "One team building your brand identity, digital experience, and launch strategy. From first brief to market-ready in weeks, not months."
+
+**Option C - Harvey Specter Problem-Solving:**
+- **Headline:** "Fix your brand. Drive real results."
+- **Subheadline:** "When your brand isn't converting, we fix it. Clear positioning, cohesive design, measurable growth."
+
+**RECOMMENDED APPROACH:**
+Preserve existing structure but inject archetype alignment:
+- **Headline:** "Design for brands that drive real growth" (KEEP - already results-focused)
+- **Subheadline:** "We work with your team to create brand systems that convert. From brand identity to digital experiences, built together for measurable results." (Henry V partnership + Harvey Specter results focus)
+- **Primary CTA:** "Schedule Design Discovery" (KEEP - appropriate for service page)
+- **Social Proof:** "Trusted by brands who see design as growth strategy" (sharper positioning)
+
+**NEXT COMPONENTS TO AUDIT:**
+- BrandDesignConsultingServices
+- BrandDesignMetrics  
+- BrandDesignDeliverablesShowcase
+- BrandDesignConsultingValueProp
+- BrandDesignCTA
+
+**KEY THEMES TO MAINTAIN:**
+- Embedded partnership vs. traditional agency model ("we work with your team")
+- Results focus vs. process focus ("systems that convert" not "create experiences")
+- Anti-Big 4 positioning (collaborative not consultative)
+- Plain language for ESL founders
+- Strategy + design + technology integration
+- Service-appropriate messaging (discovery calls vs "start this week") 

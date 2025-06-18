@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function ContactHero() {
   const [mounted, setMounted] = useState(false);
@@ -35,13 +37,16 @@ export default function ContactHero() {
       <div className="relative z-10 w-full">
         <div className="max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto sm:mx-0 sm:ml-8 md:ml-16 lg:ml-32 xl:ml-40 2xl:ml-48 px-4 sm:px-0">
           
-          {/* Availability Badge */}
-          <div className={`inline-flex items-center space-x-3 px-4 py-2 rounded-full bg-foreground/5 border border-foreground/10 backdrop-blur-sm mb-6 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <div className="relative">
-              <div className="w-2 h-2 bg-accent rounded-full"></div>
-              <div className="absolute inset-0 w-2 h-2 bg-accent rounded-full animate-ping"></div>
+          {/* Availability Badge - Hidden */}
+          <div className="hidden">
+            <div className={`inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-emerald-400/30 backdrop-blur-md mb-6 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              <div className="relative">
+                <div className="w-3 h-3 bg-emerald-500 rounded-full" />
+                <div className="absolute inset-0 w-3 h-3 bg-emerald-400 rounded-full animate-ping opacity-40" />
+                <div className="absolute -inset-1 w-5 h-5 bg-emerald-400/20 rounded-full animate-pulse" />
+              </div>
+              <span className="text-sm font-medium text-obsidian/70 tracking-wide">Currently accepting new clients</span>
             </div>
-            <span className="text-sm font-medium text-foreground/80">Currently accepting new clients</span>
           </div>
 
           {/* Headline with enhanced typography and animations */}
@@ -74,26 +79,28 @@ export default function ContactHero() {
           <div className={`transition-all duration-1000 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="flex flex-col gap-4 text-center sm:text-left">
               <div className="flex justify-center sm:justify-start">
-                <button className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
+                <Link href="https://cal.com/bensegev/30min" target="_blank" rel="noopener noreferrer" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                  <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-accent text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
+                  <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-obsidian text-bone rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-obsidian/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                     <span className="relative">
-                      Start a Conversation
+                      Book Appointment
                       <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                     </span>
                     
                     <div className="relative overflow-hidden w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
-                      <svg 
-                        className="absolute w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-transform duration-300 group-hover:translate-x-1"
+                      <motion.svg 
+                        className="absolute w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
+                        animate={{ x: [0, 4, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
+                      </motion.svg>
                     </div>
                   </div>
-                </button>
+                </Link>
               </div>
               <div className="flex items-center justify-center sm:justify-start text-sm text-foreground/60 font-light">
                 <span>We respond within 24 hours</span>

@@ -3,6 +3,7 @@
 import { useRef, useMemo } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import Link from 'next/link';
+import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 export default function BrandDesignCTA() {
   const sectionRef = useRef(null);
@@ -105,24 +106,28 @@ export default function BrandDesignCTA() {
         {/* Mobile Layout */}
         <div className="lg:hidden text-center">
           
-          {/* Availability Badge */}
-          <div className="flex justify-center mb-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-accent/30 backdrop-blur-md"
-            >
-              <motion.div className="relative">
-                <div className="w-3 h-3 bg-accent rounded-full" />
-                <motion.div 
-                  className="absolute inset-0 w-3 h-3 bg-accent rounded-full"
-                  animate={{ scale: [1, 2, 1], opacity: [0.6, 0, 0.6] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
+          {/* Availability Badge - Hidden */}
+          <div className="hidden">
+            <div className="flex justify-center mb-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-emerald-400/30 backdrop-blur-md"
+              >
+                <motion.div className="relative">
+                  <div className="w-3 h-3 bg-emerald-500 rounded-full" />
+                  <motion.div 
+                    className="absolute inset-0 w-3 h-3 bg-emerald-400 rounded-full animate-ping"
+                    style={{ opacity: 0.4 }}
+                  />
+                  <motion.div 
+                    className="absolute -inset-1 w-5 h-5 bg-emerald-400/20 rounded-full animate-pulse"
+                  />
+                </motion.div>
+                <span className="text-bone text-sm font-medium tracking-wide">Currently accepting new clients</span>
               </motion.div>
-              <span className="text-bone text-sm font-medium tracking-wide">Currently accepting new clients</span>
-            </motion.div>
+            </div>
           </div>
 
           {/* Header */}
@@ -433,52 +438,52 @@ export default function BrandDesignCTA() {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
               <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-accent/90 backdrop-blur-sm border border-accent/20 text-obsidian rounded-full text-base font-medium transition-all duration-300 group-hover:bg-accent group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 w-full">
                 <span className="relative">
-                  Let&apos;s work together
+                  Book Appointment
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                 </span>
                 
-                <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5">
-                  <svg 
-                    className="absolute w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:translate-x-6 group-hover:opacity-0" 
+                                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5">
+                  <motion.svg 
+                    className="absolute w-4 h-4 sm:w-5 sm:h-5"
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                  <svg 
-                    className="absolute w-4 h-4 sm:w-5 sm:h-5 -translate-x-6 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  </motion.svg>
                 </div>
               </div>
             </Link>
 
             {/* Secondary CTA */}
-            <button className="group relative w-full">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/20 to-bone/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-obsidian/90 backdrop-blur-sm border border-bone/20 text-bone rounded-full text-base font-medium transition-all duration-300 group-hover:bg-bone group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-bone/10 group-hover:-translate-y-1 w-full">
-                <span className="relative">
-                  See our work
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
-                </span>
-                
-                <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5">
-                  <svg 
-                    className="absolute w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:rotate-45 group-hover:scale-110" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
+            <Link href="/work" className="group relative w-full">
+              <LiquidGlass 
+                intensity="subtle" 
+                animated
+                borderRadius="rounded-full"
+                className="group-hover:scale-[1.02] transition-transform duration-300 border-bone/30 group-hover:border-bone/50"
+              >
+                <div className="inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 text-bone/80 group-hover:text-bone text-base font-medium transition-all duration-300 group-hover:-translate-y-1 w-full">
+                  <span className="relative">
+                    See Case Studies
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                  </span>
+                  
+                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5">
+                    <svg 
+                      className="w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:rotate-45" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
                 </div>
-              </div>
-            </button>
+              </LiquidGlass>
+            </Link>
           </motion.div>
         </div>
 
@@ -488,23 +493,27 @@ export default function BrandDesignCTA() {
           {/* Content Side - Left */}
           <div className="col-span-7 space-y-12 text-left">
             
-            {/* Availability Badge - Desktop */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-accent/30 backdrop-blur-md"
-            >
-                <motion.div className="relative">
-                  <div className="w-4 h-4 bg-accent rounded-full" />
-                  <motion.div 
-                    className="absolute inset-0 w-4 h-4 bg-accent rounded-full"
-                    animate={{ scale: [1, 2, 1], opacity: [0.6, 0, 0.6] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                </motion.div>
-              <span className="text-bone font-medium tracking-wide">Currently accepting new clients</span>
-            </motion.div>
+            {/* Availability Badge - Desktop - Hidden */}
+            <div className="hidden">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-emerald-400/30 backdrop-blur-md"
+              >
+                  <motion.div className="relative">
+                    <div className="w-4 h-4 bg-emerald-500 rounded-full" />
+                    <motion.div 
+                      className="absolute inset-0 w-4 h-4 bg-emerald-400 rounded-full animate-ping"
+                      style={{ opacity: 0.4 }}
+                    />
+                    <motion.div 
+                      className="absolute -inset-1 w-6 h-6 bg-emerald-400/20 rounded-full animate-pulse"
+                    />
+                  </motion.div>
+                <span className="text-bone font-medium tracking-wide">Currently accepting new clients</span>
+              </motion.div>
+            </div>
 
             {/* Header */}
             <div className="text-left">
@@ -544,52 +553,52 @@ export default function BrandDesignCTA() {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
                 <div className="relative inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-accent/90 backdrop-blur-sm border border-accent/20 text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1">
                   <span className="relative">
-                    Let&apos;s work together
+                    Book Appointment
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   
                   <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
-                    <svg 
-                      className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:translate-x-6 group-hover:opacity-0" 
+                    <motion.svg 
+                      className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                    <svg 
-                      className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 -translate-x-6 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                    </motion.svg>
                   </div>
                 </div>
               </Link>
 
               {/* Secondary CTA */}
-              <button className="group relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/20 to-bone/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-obsidian/90 backdrop-blur-sm border border-bone/20 text-bone rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-bone group-hover:text-obsidian group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-bone/10 group-hover:-translate-y-1">
-                  <span className="relative">
-                    See our work
-                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
-                  </span>
-                  
-                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
-                    <svg 
-                      className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45 group-hover:scale-110" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
+              <Link href="/work" className="group relative">
+                <LiquidGlass 
+                  intensity="subtle" 
+                  animated
+                  borderRadius="rounded-full"
+                  className="group-hover:scale-[1.02] transition-transform duration-300 border-bone/30 group-hover:border-bone/50"
+                >
+                  <div className="inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 text-bone/80 group-hover:text-bone text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:-translate-y-1">
+                    <span className="relative">
+                      See Case Studies
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                    </span>
+                    
+                    <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                      <svg 
+                        className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-              </button>
+                </LiquidGlass>
+              </Link>
             </motion.div>
 
             {/* Closing Statement */}

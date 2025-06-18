@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Tabs } from '@/components/ui/tabs';
+import { LiquidGlass } from '@/components/ui/liquid-glass';
 // import { GlowingEffect } from '@/components/ui/glowing-effect';
 
 function MobileAccordion({ title, items }: { title: string; items: string[] }) {
@@ -578,33 +579,40 @@ export default function BusinessValueTabs() {
             </Link>
 
             {/* Secondary CTA - See Our Approach */}
-            <Link href="/approach" className="group relative min-h-[56px] touch-manipulation w-full sm:w-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
-              <div className="relative inline-flex items-center justify-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 lg:px-8 xl:px-10 py-3 sm:py-4 lg:py-5 bg-transparent border border-accent/30 text-bone/80 rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent/10 group-hover:text-bone group-hover:border-accent/50 group-hover:-translate-y-1 w-full sm:w-auto">
-                <span className="relative">
-                  See our approach
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
-                </span>
-                
-                {/* Animated arrow */}
-                <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
-                  <svg 
-                    className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:translate-x-6 group-hover:opacity-0" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                  <svg 
-                    className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 -translate-x-6 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+            <Link href="/approach" className="group relative min-h-[56px] touch-manipulation w-full sm:w-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2">
+              <LiquidGlass 
+                intensity="subtle" 
+                animated
+                borderRadius="rounded-full"
+                className="group-hover:scale-[1.02] transition-transform duration-300 border-accent/30 group-hover:border-accent/50"
+              >
+                <div className="inline-flex items-center justify-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 lg:px-8 xl:px-10 py-3 sm:py-4 lg:py-5 text-bone/80 group-hover:text-bone text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:-translate-y-1 w-full sm:w-auto">
+                  <span className="relative">
+                    See our approach
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                  </span>
+                  
+                  {/* Animated arrow */}
+                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                    <svg 
+                      className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:translate-x-6 group-hover:opacity-0" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                    <svg 
+                      className="absolute w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 -translate-x-6 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
-              </div>
+              </LiquidGlass>
             </Link>
           </div>
         </div>

@@ -8,13 +8,15 @@ interface LiquidGlassProps {
   className?: string;
   intensity?: "subtle" | "medium" | "strong";
   animated?: boolean;
+  borderRadius?: string;
 }
 
 export function LiquidGlass({ 
   children, 
   className, 
   intensity = "medium",
-  animated = false 
+  animated = false,
+  borderRadius = "rounded-3xl"
 }: LiquidGlassProps) {
   const intensityStyles = {
     subtle: {
@@ -42,20 +44,19 @@ export function LiquidGlass({
   return (
     <div 
       className={cn(
-        "relative overflow-hidden rounded-3xl",
-        "border backdrop-blur-sm",
+        "relative overflow-hidden backdrop-blur-sm",
+        borderRadius,
         "shadow-[0_8px_32px_rgba(0,0,0,0.1),0_1px_2px_rgba(0,0,0,0.1)]",
         animated && "transition-all duration-500 ease-out",
         className
       )}
       style={{
         background: `linear-gradient(135deg, 
-          rgba(255, 255, 255, 0.15) 0%, 
-          rgba(255, 255, 255, 0.05) 50%, 
-          rgba(255, 255, 255, 0.1) 100%)`,
+          rgba(255, 255, 255, 0.04) 0%, 
+          rgba(255, 255, 255, 0.01) 50%, 
+          rgba(255, 255, 255, 0.03) 100%)`,
         backdropFilter: `${currentIntensity.blur} saturate(${currentIntensity.saturation}) brightness(${currentIntensity.brightness})`,
-        WebkitBackdropFilter: `${currentIntensity.blur} saturate(${currentIntensity.saturation}) brightness(${currentIntensity.brightness})`,
-        borderImage: "linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.3) 100%) 1"
+        WebkitBackdropFilter: `${currentIntensity.blur} saturate(${currentIntensity.saturation}) brightness(${currentIntensity.brightness})`
       }}
     >
       {/* SVG Filter for Background Distortion */}
@@ -68,21 +69,43 @@ export function LiquidGlass({
         </defs>
       </svg>
       
+      {/* Custom Border Layer */}
+      <div 
+        className={cn("absolute inset-0", borderRadius)}
+        style={{
+          background: `linear-gradient(135deg, 
+            rgba(255, 255, 255, 0.12) 0%, 
+            rgba(255, 255, 255, 0.03) 50%, 
+            rgba(255, 255, 255, 0.08) 100%)`,
+          padding: '1px'
+        }}
+      >
+        <div 
+          className={cn("w-full h-full", borderRadius)}
+          style={{
+            background: `linear-gradient(135deg, 
+              rgba(255, 255, 255, 0.04) 0%, 
+              rgba(255, 255, 255, 0.01) 50%, 
+              rgba(255, 255, 255, 0.03) 100%)`
+          }}
+        />
+      </div>
+
       {/* Multi-layer Glass Effect */}
-      <div className="absolute inset-0 rounded-3xl">
+      <div className={cn("absolute inset-0", borderRadius)}>
         {/* Base glass layer with enhanced inner glow */}
         <div 
-          className="absolute inset-0 rounded-3xl"
+          className={cn("absolute inset-0", borderRadius)}
           style={{
             background: `radial-gradient(circle at 30% 20%, 
-              rgba(255, 255, 255, 0.2) 0%, 
-              rgba(255, 255, 255, 0.05) 50%, 
-              rgba(255, 255, 255, 0.1) 100%)`,
+              rgba(255, 255, 255, 0.06) 0%, 
+              rgba(255, 255, 255, 0.01) 50%, 
+              rgba(255, 255, 255, 0.03) 100%)`,
             boxShadow: `
-              inset 0 1px 0 rgba(255, 255, 255, 0.4),
-              inset 0 -1px 0 rgba(255, 255, 255, 0.2),
-              inset 1px 0 0 rgba(255, 255, 255, 0.3),
-              inset -1px 0 0 rgba(255, 255, 255, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.12),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+              inset 1px 0 0 rgba(255, 255, 255, 0.08),
+              inset -1px 0 0 rgba(255, 255, 255, 0.03),
               inset 0 4px 20px rgba(255, 255, 255, ${currentIntensity.opacity})
             `
           }}
@@ -90,25 +113,25 @@ export function LiquidGlass({
         
         {/* Specular highlight layer */}
         <div 
-          className="absolute inset-0 rounded-3xl pointer-events-none"
+          className={cn("absolute inset-0 pointer-events-none", borderRadius)}
           style={{
             background: `linear-gradient(135deg, 
-              rgba(255, 255, 255, 0.3) 0%, 
+              rgba(255, 255, 255, 0.08) 0%, 
               transparent 30%,
               transparent 70%,
-              rgba(255, 255, 255, 0.1) 100%)`
+              rgba(255, 255, 255, 0.03) 100%)`
           }}
         />
         
         {/* Edge enhancement */}
         <div 
-          className="absolute inset-0 rounded-3xl pointer-events-none"
+          className={cn("absolute inset-0 pointer-events-none", borderRadius)}
           style={{
             background: `linear-gradient(135deg, 
-              rgba(255, 255, 255, 0.4) 0%, 
+              rgba(255, 255, 255, 0.12) 0%, 
               transparent 20%,
               transparent 80%,
-              rgba(255, 255, 255, 0.2) 100%)`,
+              rgba(255, 255, 255, 0.06) 100%)`,
             mask: `linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)`,
             maskComposite: 'xor',
             WebkitMask: `linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)`,
@@ -119,7 +142,7 @@ export function LiquidGlass({
         
         {/* Chromatic aberration simulation */}
         <div 
-          className="absolute inset-0 rounded-3xl pointer-events-none opacity-30"
+          className={cn("absolute inset-0 pointer-events-none opacity-30", borderRadius)}
           style={{
             background: `linear-gradient(90deg, 
               rgba(255, 0, 0, 0.1) 0%, 
@@ -133,13 +156,13 @@ export function LiquidGlass({
       {/* Dynamic light reflection */}
       {animated && (
         <div 
-          className="absolute inset-0 rounded-3xl pointer-events-none animate-pulse"
+          className={cn("absolute inset-0 pointer-events-none animate-pulse", borderRadius)}
           style={{
             background: `conic-gradient(from 45deg at 50% 50%, 
               transparent 0deg, 
-              rgba(255, 255, 255, 0.1) 90deg, 
+              rgba(255, 255, 255, 0.05) 90deg, 
               transparent 180deg, 
-              rgba(255, 255, 255, 0.05) 270deg, 
+              rgba(255, 255, 255, 0.02) 270deg, 
               transparent 360deg)`,
             animationDuration: '3s'
           }}

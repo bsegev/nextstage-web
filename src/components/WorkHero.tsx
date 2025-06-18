@@ -2,11 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 export default function WorkHero() {
 
   return (
-    <section className="relative min-h-screen lg:min-h-[95vh] flex items-center justify-center sm:justify-start px-3 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-screen lg:min-h-[95vh] flex items-center justify-center sm:justify-start px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background image with modern loading pattern */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700"
@@ -36,7 +37,7 @@ export default function WorkHero() {
 
       {/* Main content with semantic HTML structure */}
       <div className="relative z-10 w-full">
-        <div className="max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto sm:mx-0 sm:ml-6 md:ml-12 lg:ml-24 xl:ml-32 2xl:ml-40 px-2 sm:px-0">
+        <div className="max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto sm:mx-0 sm:ml-8 md:ml-16 lg:ml-32 xl:ml-40 2xl:ml-48 px-4 sm:px-0">
           {/* Headline with enhanced typography and animations */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -101,7 +102,7 @@ export default function WorkHero() {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
                 <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-obsidian text-bone rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-obsidian/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                   <span className="relative">
-                    Book appointment
+                    Book Appointment
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   
@@ -121,27 +122,31 @@ export default function WorkHero() {
               </Link>
 
               {/* Secondary CTA */}
-              <Link href="/approach" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2 rounded-full">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/40 to-bone/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 bg-bone text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-bone/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-bone/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
-                  <span className="relative">
-                    See our approach
-                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
-                  </span>
-                  
-                  <div className="relative overflow-hidden w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
-                    <motion.svg 
-                      className="absolute w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                      animate={{ x: [0, 4, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </motion.svg>
+              <Link href="/work" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
+                <LiquidGlass 
+                  intensity="subtle" 
+                  animated
+                  borderRadius="rounded-full"
+                  className="group-hover:scale-[1.02] transition-transform duration-300 border-bone/30 group-hover:border-bone/50"
+                >
+                                     <div className="inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 text-obsidian/80 group-hover:text-obsidian text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
+                    <span className="relative">
+                      See Case Studies
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                    </span>
+                    
+                    <div className="relative overflow-hidden w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                      <svg 
+                        className="w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45"
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
+                </LiquidGlass>
               </Link>
             </div>
           </motion.div>

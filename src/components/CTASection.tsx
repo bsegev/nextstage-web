@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 const transformationStats = [
   "89% of companies plan to adopt a digital-first strategy in 2025",
@@ -487,25 +488,31 @@ export default function CTASection() {
             </Link>
 
             {/* Secondary CTA */}
-            <Link href="/work" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2 rounded-full">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/30 to-bone/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-bone/10 border border-bone/20 text-bone rounded-full text-base font-medium transition-all duration-300 group-hover:bg-bone/20 group-hover:border-bone/40 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
-                <span className="relative">
-                  See Case Studies
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
-                </span>
-                
-                <div className="relative overflow-hidden w-5 h-5">
-                  <svg 
-                    className="w-5 h-5 transition-all duration-300 group-hover:rotate-45" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
+            <Link href="/work" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
+              <LiquidGlass 
+                intensity="subtle" 
+                animated
+                borderRadius="rounded-full"
+                className="group-hover:scale-[1.02] transition-transform duration-300 border-bone/30 group-hover:border-bone/50"
+              >
+                <div className="inline-flex items-center justify-center gap-3 px-8 py-4 text-bone/80 group-hover:text-bone text-base font-medium transition-all duration-300 group-hover:-translate-y-1 w-full sm:w-auto">
+                  <span className="relative">
+                    See Case Studies
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                  </span>
+                  
+                  <div className="relative overflow-hidden w-5 h-5">
+                    <svg 
+                      className="w-5 h-5 transition-all duration-300 group-hover:rotate-45" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
                 </div>
-              </div>
+              </LiquidGlass>
             </Link>
           </motion.div>
 
@@ -711,25 +718,31 @@ export default function CTASection() {
               </Link>
 
               {/* Secondary CTA */}
-              <Link href="/work" className="group relative min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2 rounded-full">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/30 to-bone/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                <div className="relative inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-bone/10 border border-bone/20 text-bone rounded-full text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-bone/20 group-hover:border-bone/40 group-hover:-translate-y-1 group-active:scale-95">
-                  <span className="relative">
-                    See Case Studies
-                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
-                  </span>
-                  
-                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
-                    <svg 
-                      className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
+              <Link href="/work" className="group relative min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
+                <LiquidGlass 
+                  intensity="subtle" 
+                  animated
+                  borderRadius="rounded-full"
+                  className="group-hover:scale-[1.02] transition-transform duration-300 border-bone/30 group-hover:border-bone/50"
+                >
+                  <div className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 text-bone/80 group-hover:text-bone text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:-translate-y-1">
+                    <span className="relative">
+                      See Case Studies
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                    </span>
+                    
+                    <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                      <svg 
+                        className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
+                </LiquidGlass>
               </Link>
             </motion.div>
 

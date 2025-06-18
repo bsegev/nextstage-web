@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import Link from 'next/link';
+import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 export default function ApproachCTA() {
   const sectionRef = useRef(null);
@@ -95,24 +96,28 @@ export default function ApproachCTA() {
         {/* Mobile Layout - Streamlined and Touch-Optimized */}
         <div className="lg:hidden space-y-8">
           
-          {/* Availability Badge */}
-          <div className="flex justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-accent/30 backdrop-blur-md"
-            >
-              <motion.div className="relative">
-                <div className="w-3 h-3 bg-accent rounded-full" />
-                <motion.div 
-                  className="absolute inset-0 w-3 h-3 bg-accent rounded-full"
-                  animate={{ scale: [1, 2, 1], opacity: [0.6, 0, 0.6] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
+          {/* Availability Badge - Hidden */}
+          <div className="hidden">
+            <div className="flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-emerald-400/30 backdrop-blur-md"
+              >
+                <motion.div className="relative">
+                  <div className="w-3 h-3 bg-emerald-500 rounded-full" />
+                  <motion.div 
+                    className="absolute inset-0 w-3 h-3 bg-emerald-400 rounded-full animate-ping"
+                    style={{ opacity: 0.4 }}
+                  />
+                  <motion.div 
+                    className="absolute -inset-1 w-5 h-5 bg-emerald-400/20 rounded-full animate-pulse"
+                  />
+                </motion.div>
+                <span className="text-bone text-sm font-medium tracking-wide">Currently accepting new clients</span>
               </motion.div>
-              <span className="text-bone text-sm font-medium tracking-wide">Currently accepting new clients</span>
-            </motion.div>
+            </div>
           </div>
 
           {/* Header */}
@@ -275,7 +280,7 @@ export default function ApproachCTA() {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
               <div className="relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-obsidian rounded-full text-base font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                 <span className="relative">
-                  Start your transformation
+                  Book Appointment
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                 </span>
                 
@@ -295,26 +300,32 @@ export default function ApproachCTA() {
             </Link>
 
             {/* Secondary CTA */}
-            <button className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2 rounded-full">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/30 to-bone/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-bone/10 border border-bone/20 text-bone rounded-full text-base font-medium transition-all duration-300 group-hover:bg-bone/20 group-hover:border-bone/40 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
-                <span className="relative">
-                  See case studies
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
-                </span>
-                
-                <div className="relative overflow-hidden w-5 h-5">
-                  <svg 
-                    className="w-5 h-5 transition-all duration-300 group-hover:rotate-45" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
+            <Link href="/work" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
+              <LiquidGlass 
+                intensity="subtle" 
+                animated
+                borderRadius="rounded-full"
+                className="group-hover:scale-[1.02] transition-transform duration-300 border-bone/30 group-hover:border-bone/50"
+              >
+                <div className="inline-flex items-center justify-center gap-3 px-8 py-4 text-bone/80 group-hover:text-bone text-base font-medium transition-all duration-300 group-hover:-translate-y-1 w-full sm:w-auto">
+                  <span className="relative">
+                    See Case Studies
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                  </span>
+                  
+                  <div className="relative overflow-hidden w-5 h-5">
+                    <svg 
+                      className="w-5 h-5 transition-all duration-300 group-hover:rotate-45" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
                 </div>
-              </div>
-            </button>
+              </LiquidGlass>
+            </Link>
           </motion.div>
 
           {/* Final Line */}
@@ -337,23 +348,27 @@ export default function ApproachCTA() {
           {/* Content Side - Left */}
           <div className="col-span-7 space-y-12 text-left">
             
-            {/* Availability Badge - Desktop */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-accent/30 backdrop-blur-md"
-            >
-                <motion.div className="relative">
-                  <div className="w-4 h-4 bg-accent rounded-full" />
-                  <motion.div 
-                    className="absolute inset-0 w-4 h-4 bg-accent rounded-full"
-                    animate={{ scale: [1, 2, 1], opacity: [0.6, 0, 0.6] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                </motion.div>
-              <span className="text-bone font-medium tracking-wide">Currently accepting new clients</span>
-            </motion.div>
+            {/* Availability Badge - Desktop - Hidden */}
+            <div className="hidden">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-accent/15 to-accent/8 rounded-full border border-emerald-400/30 backdrop-blur-md"
+              >
+                  <motion.div className="relative">
+                    <div className="w-4 h-4 bg-emerald-500 rounded-full" />
+                    <motion.div 
+                      className="absolute inset-0 w-4 h-4 bg-emerald-400 rounded-full animate-ping"
+                      style={{ opacity: 0.4 }}
+                    />
+                    <motion.div 
+                      className="absolute -inset-1 w-6 h-6 bg-emerald-400/20 rounded-full animate-pulse"
+                    />
+                  </motion.div>
+                <span className="text-bone font-medium tracking-wide">Currently accepting new clients</span>
+              </motion.div>
+            </div>
 
             {/* Header - Desktop (inside left column) */}
             <div className="text-left">
@@ -395,7 +410,7 @@ export default function ApproachCTA() {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
                 <div className="relative inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-accent text-obsidian rounded-full text-base font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95">
                   <span className="relative">
-                    Start your transformation
+                    Book Appointment
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   
@@ -415,27 +430,32 @@ export default function ApproachCTA() {
               </Link>
 
               {/* Secondary CTA */}
-              <button className="group relative">
-                {/* Button background with gradient border */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-bone/20 to-bone/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                <div className="relative inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-bone/10 border border-bone/20 text-bone rounded-full text-base font-medium transition-all duration-300 group-hover:bg-bone/20 group-hover:border-bone/40 group-hover:-translate-y-1 group-active:scale-95">
-                  <span className="relative">
-                    See case studies
-                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
-                  </span>
-                  
-                  <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
-                    <svg 
-                      className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
+              <Link href="/work" className="group relative">
+                <LiquidGlass 
+                  intensity="subtle" 
+                  animated
+                  borderRadius="rounded-full"
+                  className="group-hover:scale-[1.02] transition-transform duration-300 border-bone/30 group-hover:border-bone/50"
+                >
+                  <div className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 text-bone/80 group-hover:text-bone text-base font-medium transition-all duration-300 group-hover:-translate-y-1">
+                    <span className="relative">
+                      See Case Studies
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
+                    </span>
+                    
+                    <div className="relative overflow-hidden w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                      <svg 
+                        className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-              </button>
+                </LiquidGlass>
+              </Link>
             </motion.div>
 
             {/* Closing Statement - Desktop */}
