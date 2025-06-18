@@ -22,7 +22,6 @@ export default function AboutHero() {
       />
       
       {/* Enhanced overlay system for better text contrast */}
-      <div className="absolute inset-0 bg-background/70 dark:bg-obsidian/70" />
       <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/75 to-transparent dark:from-obsidian/95 dark:via-obsidian/75 dark:to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-tl from-accent/20 via-transparent to-transparent opacity-60" />
       

@@ -22,11 +22,9 @@ export default function StrategyConsultingHero() {
         }}
       />
       
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-background/70 sm:bg-background/60 dark:bg-obsidian/70 dark:sm:bg-obsidian/60" />
-      
-      {/* Additional gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-accent/30 sm:from-background/80 sm:via-background/60 sm:to-accent/20" />
+      {/* Enhanced overlay system for better text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/75 to-transparent dark:from-obsidian/95 dark:via-obsidian/75 dark:to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-tl from-accent/20 via-transparent to-transparent opacity-60" />
       
       {/* Dynamic floating orbs */}
       <div className="absolute top-1/4 right-1/3 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full blur-2xl sm:blur-3xl opacity-40 dark:opacity-20 animate-pulse" 

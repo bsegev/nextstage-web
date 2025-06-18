@@ -1,6 +1,10 @@
 import { Metadata } from 'next';
 import NextStageNavbar from '@/components/NextStageNavbar';
 import ServicesHero from '@/components/services/ServicesHero';
+
+import ServicesFeatures from '@/components/services/ServicesFeatures';
+import ServicesShowcase from '@/components/ServicesShowcase';
+import ServicesCTA from '@/components/services/ServicesCTA';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
@@ -19,6 +23,9 @@ export default function ServicesPage() {
       <NextStageNavbar />
       <main className="min-h-screen">
         <ServicesHero />
+        <ServicesShowcase />
+        <ServicesFeatures />
+        <ServicesCTA />
         {/* Additional sections will be added here */}
       </main>
       <Footer />

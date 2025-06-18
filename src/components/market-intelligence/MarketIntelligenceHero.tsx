@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { LiquidGlass } from '@/components/ui/liquid-glass';
 
-export default function BrandDesignConsultingHero() {
+export default function MarketIntelligenceHero() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function BrandDesignConsultingHero() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/images/brand-design.png)',
+          backgroundImage: 'url(/images/strategy-hero.png)',
         }}
       />
       
@@ -32,10 +32,10 @@ export default function BrandDesignConsultingHero() {
       <div className="absolute bottom-1/4 left-1/3 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-tr from-accent/15 to-accent/8 rounded-full blur-2xl sm:blur-3xl opacity-30 dark:opacity-15 animate-pulse" 
            style={{ animationDuration: '6s', animationDelay: '1s' }} />
       
-      {/* Creative Flow Lines */}
+      {/* Strategic Flow Lines */}
       <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
         <defs>
-          <linearGradient id="designFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <linearGradient id="strategyFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#FFE0D7" stopOpacity="0" />
             <stop offset="30%" stopColor="#FFE0D7" stopOpacity="0.3" />
             <stop offset="70%" stopColor="#FFE0D7" stopOpacity="0.6" />
@@ -43,12 +43,12 @@ export default function BrandDesignConsultingHero() {
           </linearGradient>
         </defs>
         
-        {/* Creative Design Flow Lines */}
+        {/* Strategic Planning Flow Lines */}
         {Array.from({ length: 6 }).map((_, i) => (
           <motion.path
             key={i}
             d={`M${-100 + i * 120} ${200 + i * 80} Q${500 + i * 150} ${250 + i * 60} ${1400 + i * 100} ${220 + i * 70}`}
-            stroke="url(#designFlowGradient)"
+            stroke="url(#strategyFlowGradient)"
             strokeWidth={1 + (i % 2)}
             fill="none"
             opacity={0.4 - i * 0.05}
@@ -78,38 +78,38 @@ export default function BrandDesignConsultingHero() {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full border border-accent/20 mb-6 sm:mb-8">
               <div className="w-2 h-2 bg-accent rounded-full" />
               <span className="text-sm font-medium text-obsidian/70 tracking-wide uppercase">
-                Brand & Design
+                Market Intelligence & Planning
               </span>
             </div>
           </div>
 
           {/* Headline with staggered animation */}
           <div className={`transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h1 className="font-display tracking-tight leading-[0.95] mb-6 sm:mb-8 text-center sm:text-left">
-              <span className="block text-foreground text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm mb-2 sm:mb-3">
-                Design for brands that
+            <h1 className="font-display tracking-tight leading-[0.9] sm:leading-[0.95] mb-4 sm:mb-6 lg:mb-8 text-center sm:text-left">
+              <span className="block text-foreground text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm mb-1 sm:mb-2 lg:mb-3">
+                Turn market uncertainty into
               </span>
               <span className="block relative">
                 <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian dark:from-bone dark:via-accent dark:to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm">
-                  drive real growth
+                  strategic advantage
                 </span>
-                <span className="absolute -inset-1 bg-gradient-to-r from-accent/15 to-accent/30 rounded-xl blur-lg opacity-20 animate-pulse block" />
+                <span className="absolute -inset-1 bg-gradient-to-r from-accent/15 to-accent/30 rounded-lg sm:rounded-xl blur-md sm:blur-lg opacity-20 animate-pulse block" />
               </span>
             </h1>
           </div>
           
           {/* Subheadline with delayed animation */}
           <div className={`transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="mb-8 sm:mb-10 lg:mb-12 relative">
-              <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] text-foreground/80 font-light text-center sm:text-left">
-                Transform how customers see and interact with your business. From brand identity to digital experiences, we create cohesive design systems that drive recognition, trust, and conversions.
+            <div className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 relative">
+              <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] sm:leading-[1.5] text-foreground/80 font-light text-center sm:text-left max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto sm:mx-0">
+                When strategy, design, and technology converge, market intelligence becomes a competitive weapon. We transform data into strategic roadmaps that drive real business results.
               </p>
             </div>
           </div>
 
-          {/* Enhanced mobile-optimized CTAs */}
+          {/* CTA Buttons */}
           <div className={`transition-all duration-1000 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-4 justify-center sm:justify-start">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-4 sm:gap-6">
               {/* Primary CTA */}
               <button className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
@@ -134,28 +134,28 @@ export default function BrandDesignConsultingHero() {
                 </div>
               </button>
 
-              {/* Secondary CTA - Liquid Glass Style */}
+              {/* Secondary CTA */}
               <button className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
                 <LiquidGlass 
                   intensity="subtle" 
                   animated
                   borderRadius="rounded-full"
-                  className="group-hover:scale-[1.02] transition-transform duration-300 border-obsidian/30 group-hover:border-obsidian/50"
+                  className="group-hover:scale-[1.02] transition-transform duration-300 border-bone/30 group-hover:border-bone/50"
                 >
                   <div className="inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 text-obsidian/80 group-hover:text-obsidian text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                     <span className="relative">
-                      View Design Portfolio
+                      View Case Studies
                       <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                     </span>
                     
                     <div className="relative overflow-hidden w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
                       <svg 
-                        className="w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45"
+                        className="w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-all duration-300 group-hover:rotate-45" 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
                     </div>
                   </div>
@@ -165,7 +165,7 @@ export default function BrandDesignConsultingHero() {
 
             {/* Social Proof Hint */}
             <p className="text-sm text-foreground/50 font-light italic mt-6 sm:mt-8 text-center sm:text-left">
-              Trusted by brands who understand that design drives business results
+              Trusted by leaders who turn market insights into market leadership
             </p>
           </div>
         </div>

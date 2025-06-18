@@ -14,6 +14,12 @@ type ShowcaseItem = {
 
 const showcaseItems: ShowcaseItem[] = [
   {
+    title: "Photography Portfolio",
+    descr: "WEBSITE",
+    image: "/images/showcase/photographer-portfolio.png",
+    bgImage: "/images/showcase/photography-bg.png"
+  },
+  {
     title: "Real Estate Developer",
     descr: "PITCH DECK",
     image: "/images/showcase/sp_deck.jpg",
@@ -42,12 +48,6 @@ const showcaseItems: ShowcaseItem[] = [
     descr: "DASHBOARD",
     image: "/images/showcase/energy-comparison.jpg",
     bgImage: "/images/showcase/energy-bg.jpg"
-  },
-  {
-    title: "Photography Portfolio",
-    descr: "WEBSITE",
-    image: "/images/showcase/photographer-portfolio.png",
-    bgImage: "/images/showcase/photography-bg.png"
   },
   {
     title: "Health & Wellness",
@@ -221,45 +221,45 @@ export default function ShowcaseCarousel() {
                 <div className="flex flex-wrap gap-2 max-w-[90vw] md:max-w-[50vw]">
                   {index === 0 && (
                     <>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Web Design & Development</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Digital Experience Design</span>
+                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Performance Optimization</span>
+                    </>
+                  )}
+                  {index === 1 && (
+                    <>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Brand Strategy</span>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Web Design</span>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Business Strategy</span>
                     </>
                   )}
-                  {index === 1 && (
+                  {index === 2 && (
                     <>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Digital Product Development</span>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Platform Architecture</span>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Digital Experience Design</span>
                     </>
                   )}
-                  {index === 2 && (
+                  {index === 3 && (
                     <>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Brand Identity Systems</span>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Web Design & Development</span>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Content Systems</span>
                     </>
                   )}
-                  {index === 3 && (
+                  {index === 4 && (
                     <>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Digital Transformation</span>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Platform Architecture</span>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Marketing Design Systems</span>
                     </>
                   )}
-                  {index === 4 && (
+                  {index === 5 && (
                     <>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Brand Strategy</span>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Campaign Strategy</span>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Go-to-Market Planning</span>
                       <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Content Systems</span>
-                    </>
-                  )}
-                  {index === 5 && (
-                    <>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Web Design & Development</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Digital Experience Design</span>
-                      <span className="text-[13px] px-3 py-0.5 rounded-full bg-accent/20 text-accent">Performance Optimization</span>
                     </>
                   )}
                   {index === 6 && (
