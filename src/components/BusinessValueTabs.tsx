@@ -547,7 +547,7 @@ export default function BusinessValueTabs() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
             {/* Primary CTA - Book Appointment */}
-            <Link href="/contact" className="group relative min-h-[56px] touch-manipulation w-full sm:w-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
+            <a href="https://cal.com/bensegev/30min" target="_blank" rel="noopener noreferrer" className="group relative min-h-[56px] touch-manipulation w-full sm:w-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
               {/* Button background with gradient border */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
               <div className="relative inline-flex items-center justify-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 lg:px-8 xl:px-10 py-3 sm:py-4 lg:py-5 bg-accent text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
@@ -576,7 +576,7 @@ export default function BusinessValueTabs() {
                   </svg>
                 </div>
               </div>
-            </Link>
+            </a>
 
             {/* Secondary CTA - See Our Approach */}
             <Link href="/approach" className="group relative min-h-[56px] touch-manipulation w-full sm:w-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2">

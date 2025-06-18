@@ -322,7 +322,7 @@ export default function NextStageNavbar() {
         <NextStageLogo />
         <NavItems items={navItems} />
         <div className="flex items-center gap-3">
-          <NavbarButton variant="primary" href="/contact">Get Started</NavbarButton>
+          <NavbarButton variant="primary" href="https://cal.com/bensegev/30min" target="_blank" rel="noopener noreferrer">Book appointment</NavbarButton>
         </div>
       </NavBody>
 
@@ -449,14 +449,16 @@ export default function NextStageNavbar() {
               }}
               className="pt-8 border-t border-obsidian/10"
             >
-              <Link 
-                href="/contact"
+              <a 
+                href="https://cal.com/bensegev/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="group relative w-full py-4 px-6 bg-obsidian text-bone rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg block"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative flex items-center justify-center space-x-2">
-                  <span className="font-display font-light tracking-wide">Get Started</span>
+                  <span className="font-display font-light tracking-wide">Book appointment</span>
                   <motion.svg 
                     className="w-4 h-4" 
                     fill="none" 
@@ -469,7 +471,7 @@ export default function NextStageNavbar() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </motion.svg>
                 </div>
-              </Link>
+              </a>
             </motion.div>
           </div>
         </MobileNavMenu>
