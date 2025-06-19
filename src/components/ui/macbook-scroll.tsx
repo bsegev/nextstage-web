@@ -69,6 +69,13 @@ export const MacbookScroll = ({
     [0, isMobile ? 300 : 250, isMobile ? 0 : -150, isMobile ? -300 : -400]
   );
   
+  // Simple downward translate to bring into frame after scale completes
+  const bringIntoFrame = useTransform(
+    scrollYProgress,
+    [0.3, 0.5, 1.0],
+    [0, isMobile ? '60vh' : '40vh', isMobile ? '60vh' : '40vh']
+  );
+  
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
   
   // Text animations for smooth fade-out (like original)
@@ -99,9 +106,12 @@ export const MacbookScroll = ({
       </motion.div>
       
       {/* Single MacBook container with unified scaling */}
-      <div 
+      <motion.div 
         className="scale-[0.35] sm:scale-50 md:scale-100"
-        style={{ willChange: 'transform' }}
+        style={{ 
+          willChange: 'transform',
+          translateY: bringIntoFrame,
+        }}
       >
         {/* Lid */}
         <Lid
@@ -135,7 +145,7 @@ export const MacbookScroll = ({
         )}
         {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
