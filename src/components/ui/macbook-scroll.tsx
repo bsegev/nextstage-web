@@ -50,6 +50,7 @@ export const MacbookScroll = ({
     }
   }, []);
 
+  // Simplified transforms - no function callbacks, direct interpolation only
   const scaleX = useTransform(
     scrollYProgress,
     [0, 0.3],
@@ -60,24 +61,33 @@ export const MacbookScroll = ({
     [0, 0.3],
     [0.6, isMobile ? 1.8 : 2.0],
   );
-  const translate = useTransform(scrollYProgress, [0, 0.6], [0, isMobile ? 600 : 500]);
   
-  const centeringTranslateY = useTransform(
-    scrollYProgress,
-    [0.3, 0.8],
-    [0, isMobile ? -300 : -400]
+  // Combined translate with centering - single transform calculation
+  const translateY = useTransform(
+    scrollYProgress, 
+    [0, 0.6, 0.8, 1.0], 
+    [0, isMobile ? 300 : 250, isMobile ? 0 : -150, isMobile ? -300 : -400]
   );
   
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
+  
+  // Text animations for smooth fade-out (like original)
+  const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
     <div
       ref={ref}
       className="flex min-h-[200vh] sm:min-h-[180vh] md:min-h-[200vh] shrink-0 transform flex-col items-center justify-start py-4 sm:py-8 [perspective:800px] md:py-20"
+      style={{ willChange: 'transform' }}
     >
-      {/* Content area with independent scaling */}
+      {/* Content area with text animations restored */}
       <motion.div
-        className="mb-4 sm:mb-6 md:mb-8 text-center scale-[1.2] sm:scale-[1.1] md:scale-100"
+        style={{
+          translateY: textTransform,
+          opacity: textOpacity,
+        }}
+        className="mb-4 sm:mb-6 md:mb-8 text-center"
       >
         <div className="text-3xl font-bold text-neutral-800 dark:text-white">
           {title || (
@@ -87,16 +97,19 @@ export const MacbookScroll = ({
           )}
         </div>
       </motion.div>
-      {/* MacBook Hardware with independent scaling */}
-      <div className="scale-[0.35] sm:scale-50 md:scale-100">
+      
+      {/* Single MacBook container with unified scaling */}
+      <div 
+        className="scale-[0.35] sm:scale-50 md:scale-100"
+        style={{ willChange: 'transform' }}
+      >
         {/* Lid */}
         <Lid
           src={src}
           scaleX={scaleX}
           scaleY={scaleY}
           rotate={rotate}
-          translate={translate}
-          centeringTranslateY={centeringTranslateY}
+          translateY={translateY}
         />
         {/* Base area - Branded with obsidian and accent colors */}
         <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gradient-to-br from-obsidian via-obsidian to-[#0a0a0b] dark:from-obsidian dark:via-obsidian dark:to-[#0a0a0b] shadow-2xl shadow-obsidian/50">
@@ -131,15 +144,13 @@ export const Lid = ({
   scaleX,
   scaleY,
   rotate,
-  translate,
-  centeringTranslateY,
+  translateY,
   src,
 }: {
   scaleX: MotionValue<number>;
   scaleY: MotionValue<number>;
   rotate: MotionValue<number>;
-  translate: MotionValue<number>;
-  centeringTranslateY: MotionValue<number>;
+  translateY: MotionValue<number>;
   src?: string;
 }) => {
   return (
@@ -150,6 +161,7 @@ export const Lid = ({
           transform: "perspective(800px) rotateX(-25deg) translateZ(0px)",
           transformOrigin: "bottom",
           transformStyle: "preserve-3d",
+          willChange: 'transform',
         }}
         className="relative h-[12rem] w-[32rem] rounded-2xl bg-gradient-to-br from-obsidian via-[#0f0f10] to-obsidian p-2 shadow-2xl shadow-obsidian/30"
       >
@@ -164,18 +176,16 @@ export const Lid = ({
           </span>
         </div>
       </div>
-      {/* Screen - Enhanced with subtle accent glow and centering parallax */}
+      {/* Screen - Enhanced with subtle accent glow, single direct transform */}
       <motion.div
         style={{
           scaleX: scaleX,
           scaleY: scaleY,
           rotateX: rotate,
-          translateY: useTransform(
-            [translate, centeringTranslateY], 
-            (latest: number[]) => latest[0] + latest[1]
-          ),
+          translateY: translateY,
           transformStyle: "preserve-3d",
           transformOrigin: "top",
+          willChange: 'transform',
         }}
         className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-gradient-to-br from-obsidian via-[#0f0f10] to-obsidian p-2 shadow-2xl shadow-accent/10"
       >
@@ -184,6 +194,7 @@ export const Lid = ({
           src={src as string}
           alt="aceternity logo"
           className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
+          style={{ willChange: 'transform' }}
         />
         {/* Subtle accent glow overlay */}
         <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-transparent via-transparent to-accent/5 pointer-events-none" />
@@ -198,85 +209,86 @@ export const Trackpad = () => {
       className="mx-auto my-1 h-32 w-[40%] rounded-xl bg-gradient-to-br from-obsidian via-[#0f0f10] to-obsidian"
       style={{
         boxShadow: "0px 0px 1px 1px rgba(255, 102, 102, 0.1) inset, 0px 0px 8px rgba(0, 0, 0, 0.3) inset",
+        willChange: 'transform',
       }}
-    ></div>
+    />
   );
 };
 
 export const Keypad = () => {
   return (
-    <div className="mx-1 h-full [transform:translateZ(0)] rounded-md bg-gradient-to-br from-obsidian via-[#0a0a0b] to-obsidian p-1 [will-change:transform] shadow-inner">
+    <div 
+      className="h-full rounded-md bg-gradient-to-br from-obsidian via-[#0f0f10] to-obsidian mx-1 p-1"
+      style={{ willChange: 'transform' }}
+    >
       {/* First Row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <Row>
         <KBtn
-          className="w-10 items-end justify-start pb-[2px] pl-[4px]"
+          className="w-10 items-end justify-start pl-[4px] pb-[2px]"
           childrenClassName="items-start"
         >
           esc
         </KBtn>
         <KBtn>
           <IconBrightnessDown className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F1</span>
+          <span className="inline-block mt-1">F1</span>
         </KBtn>
+
         <KBtn>
           <IconBrightnessUp className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F2</span>
+          <span className="inline-block mt-1">F2</span>
         </KBtn>
         <KBtn>
           <IconTable className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F3</span>
+          <span className="inline-block mt-1">F3</span>
         </KBtn>
         <KBtn>
           <IconSearch className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F4</span>
+          <span className="inline-block mt-1">F4</span>
         </KBtn>
         <KBtn>
           <IconMicrophone className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F5</span>
+          <span className="inline-block mt-1">F5</span>
         </KBtn>
         <KBtn>
           <IconMoon className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F6</span>
+          <span className="inline-block mt-1">F6</span>
         </KBtn>
         <KBtn>
           <IconPlayerTrackPrev className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F7</span>
+          <span className="inline-block mt-1">F7</span>
         </KBtn>
         <KBtn>
           <IconPlayerSkipForward className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F8</span>
+          <span className="inline-block mt-1">F8</span>
         </KBtn>
         <KBtn>
           <IconPlayerTrackNext className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F8</span>
-        </KBtn>
-        <KBtn>
-          <IconVolume3 className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F10</span>
-        </KBtn>
-        <KBtn>
-          <IconVolume2 className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F11</span>
+          <span className="inline-block mt-1">F8</span>
         </KBtn>
         <KBtn>
           <IconVolume className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F12</span>
+          <span className="inline-block mt-1">F10</span>
         </KBtn>
         <KBtn>
-          <div className="h-4 w-4 rounded-full bg-gradient-to-b from-accent/30 via-obsidian to-accent/20 p-px">
-            <div className="h-full w-full rounded-full bg-obsidian" />
-          </div>
+          <IconVolume2 className="h-[6px] w-[6px]" />
+          <span className="inline-block mt-1">F11</span>
         </KBtn>
-      </div>
+        <KBtn>
+          <IconVolume3 className="h-[6px] w-[6px]" />
+          <span className="inline-block mt-1">F12</span>
+        </KBtn>
+      </Row>
 
       {/* Second row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <Row>
         <KBtn>
           <span className="block">~</span>
-          <span className="mt-1 block">`</span>
+          <span className="block mt-1">`</span>
         </KBtn>
+
         <KBtn>
-          <span className="block">!</span>
+          <span className="block ">!</span>
           <span className="block">1</span>
         </KBtn>
         <KBtn>
@@ -316,8 +328,8 @@ export const Keypad = () => {
           <span className="block">0</span>
         </KBtn>
         <KBtn>
-          <span className="block">&mdash;</span>
           <span className="block">_</span>
+          <span className="block">-</span>
         </KBtn>
         <KBtn>
           <span className="block">+</span>
@@ -329,12 +341,12 @@ export const Keypad = () => {
         >
           delete
         </KBtn>
-      </div>
+      </Row>
 
       {/* Third row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <Row>
         <KBtn
-          className="w-10 items-end justify-start pb-[2px] pl-[4px]"
+          className="w-10 items-end justify-start pl-[4px] pb-[2px]"
           childrenClassName="items-start"
         >
           tab
@@ -342,6 +354,7 @@ export const Keypad = () => {
         <KBtn>
           <span className="block">Q</span>
         </KBtn>
+
         <KBtn>
           <span className="block">W</span>
         </KBtn>
@@ -370,23 +383,23 @@ export const Keypad = () => {
           <span className="block">P</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`{`}</span>
-          <span className="block">{`[`}</span>
+          <span className="block">{"{"}</span>
+          <span className="block">[</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`}`}</span>
-          <span className="block">{`]`}</span>
+          <span className="block">{"}"}</span>
+          <span className="block">]</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`|`}</span>
-          <span className="block">{`\\`}</span>
+          <span className="block">|</span>
+          <span className="block">\</span>
         </KBtn>
-      </div>
+      </Row>
 
       {/* Fourth Row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <Row>
         <KBtn
-          className="w-[2.8rem] items-end justify-start pb-[2px] pl-[4px]"
+          className="w-[2.8rem] items-end justify-start pl-[4px] pb-[2px]"
           childrenClassName="items-start"
         >
           caps lock
@@ -394,6 +407,7 @@ export const Keypad = () => {
         <KBtn>
           <span className="block">A</span>
         </KBtn>
+
         <KBtn>
           <span className="block">S</span>
         </KBtn>
@@ -419,12 +433,12 @@ export const Keypad = () => {
           <span className="block">L</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`:`}</span>
-          <span className="block">{`;`}</span>
+          <span className="block">:</span>
+          <span className="block">;</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`"`}</span>
-          <span className="block">{`'`}</span>
+          <span className="block">&quot;</span>
+          <span className="block">&apos;</span>
         </KBtn>
         <KBtn
           className="w-[2.85rem] items-end justify-end pr-[4px] pb-[2px]"
@@ -432,12 +446,12 @@ export const Keypad = () => {
         >
           return
         </KBtn>
-      </div>
+      </Row>
 
       {/* Fifth Row */}
-      <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
+      <Row>
         <KBtn
-          className="w-[3.65rem] items-end justify-start pb-[2px] pl-[4px]"
+          className="w-[3.65rem] items-end justify-start pl-[4px] pb-[2px]"
           childrenClassName="items-start"
         >
           shift
@@ -445,6 +459,7 @@ export const Keypad = () => {
         <KBtn>
           <span className="block">Z</span>
         </KBtn>
+
         <KBtn>
           <span className="block">X</span>
         </KBtn>
@@ -464,16 +479,16 @@ export const Keypad = () => {
           <span className="block">M</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`<`}</span>
-          <span className="block">{`,`}</span>
+          <span className="block">&lt;</span>
+          <span className="block">,</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`>`}</span>
-          <span className="block">{`.`}</span>
+          <span className="block">&gt;</span>
+          <span className="block">.</span>
         </KBtn>
         <KBtn>
-          <span className="block">{`?`}</span>
-          <span className="block">{`/`}</span>
+          <span className="block">?</span>
+          <span className="block">/</span>
         </KBtn>
         <KBtn
           className="w-[3.65rem] items-end justify-end pr-[4px] pb-[2px]"
@@ -481,7 +496,7 @@ export const Keypad = () => {
         >
           shift
         </KBtn>
-      </div>
+      </Row>
 
       {/* sixth Row */}
       <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
@@ -576,24 +591,25 @@ export const KBtn = ({
     <div
       className={cn(
         "[transform:translateZ(0)] rounded-[4px] p-[0.5px] [will-change:transform]",
-        backlit && "bg-accent/20 shadow-xl shadow-accent/30",
+        backlit && "bg-gradient-to-br from-accent/20 via-accent/10 to-accent/5 shadow-lg shadow-accent/20",
       )}
     >
       <div
         className={cn(
-          "flex h-6 w-6 items-center justify-center rounded-[3.5px] bg-gradient-to-br from-obsidian via-[#0f0f10] to-obsidian",
+          "flex h-6 w-6 items-center justify-center rounded-[3.5px] bg-gradient-to-br from-obsidian via-[#0a0a0b] to-obsidian",
           className,
         )}
         style={{
-          boxShadow:
-            "0px -0.5px 2px 0 rgba(255, 102, 102, 0.1) inset, -0.5px 0px 2px 0 rgba(255, 102, 102, 0.1) inset",
+          boxShadow: backlit 
+            ? "0px -0.5px 2px 0 rgba(255, 102, 102, 0.1) inset, -0.5px 0px 2px 0 rgba(255, 102, 102, 0.1) inset"
+            : "0px -0.5px 2px 0 #0D0D0F inset, -0.5px 0px 2px 0 #0D0D0F inset",
         }}
       >
         <div
           className={cn(
-            "flex w-full flex-col items-center justify-center text-[5px] text-bone/80",
+            "flex w-full flex-col items-center justify-center text-[5px]",
             childrenClassName,
-            backlit && "text-accent/90",
+            backlit ? "text-bone" : "text-neutral-200",
           )}
         >
           {children}
@@ -608,11 +624,22 @@ export const SpeakerGrid = () => {
     <div
       className="mt-2 flex h-40 gap-[2px] px-[0.5px]"
       style={{
-        backgroundImage:
-          "radial-gradient(circle, rgba(255, 102, 102, 0.3) 0.5px, transparent 0.5px)",
+        backgroundImage: "radial-gradient(circle, rgba(255, 102, 102, 0.3) 0.5px, transparent 0.5px)",
         backgroundSize: "3px 3px",
+        willChange: 'transform',
       }}
     ></div>
+  );
+};
+
+const Row = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div 
+      className="mb-[2px] flex w-full shrink-0 gap-[2px]"
+      style={{ willChange: 'transform' }}
+    >
+      {children}
+    </div>
   );
 };
 
