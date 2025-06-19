@@ -201,4 +201,149 @@ export function LiquidGlassPanel({ children, className, ...props }: Omit<LiquidG
       {children}
     </LiquidGlass>
   );
+}
+
+// Obsidian Glass variant - uses obsidian colors instead of white
+export function ObsidianGlass({ 
+  children, 
+  className, 
+  intensity = "medium",
+  animated = false,
+  borderRadius = "rounded-3xl"
+}: LiquidGlassProps) {
+  const intensityStyles = {
+    subtle: {
+      blur: "blur(8px)",
+      opacity: "0.1",
+      saturation: "150%",
+      brightness: "90%"
+    },
+    medium: {
+      blur: "blur(12px)",
+      opacity: "0.15",
+      saturation: "180%",
+      brightness: "85%"
+    },
+    strong: {
+      blur: "blur(16px)",
+      opacity: "0.25",
+      saturation: "200%",
+      brightness: "80%"
+    }
+  };
+
+  const currentIntensity = intensityStyles[intensity];
+  
+  // Obsidian color values (dark gray/black tones)
+  const obsidianRGB = "13, 13, 14"; // #0d0d0e converted to RGB
+
+  return (
+    <div 
+      className={cn(
+        "relative overflow-hidden backdrop-blur-sm",
+        borderRadius,
+        "shadow-[0_8px_32px_rgba(0,0,0,0.3),0_1px_2px_rgba(0,0,0,0.2)]",
+        animated && "transition-all duration-500 ease-out",
+        className
+      )}
+      style={{
+        background: `linear-gradient(135deg, 
+          rgba(${obsidianRGB}, 0.15) 0%, 
+          rgba(${obsidianRGB}, 0.05) 50%, 
+          rgba(${obsidianRGB}, 0.12) 100%)`,
+        backdropFilter: `${currentIntensity.blur} saturate(${currentIntensity.saturation}) brightness(${currentIntensity.brightness})`,
+        WebkitBackdropFilter: `${currentIntensity.blur} saturate(${currentIntensity.saturation}) brightness(${currentIntensity.brightness})`
+      }}
+    >
+      {/* Custom Border Layer */}
+      <div 
+        className={cn("absolute inset-0", borderRadius)}
+        style={{
+          background: `linear-gradient(135deg, 
+            rgba(${obsidianRGB}, 0.25) 0%, 
+            rgba(${obsidianRGB}, 0.08) 50%, 
+            rgba(${obsidianRGB}, 0.18) 100%)`,
+          padding: '1px'
+        }}
+      >
+        <div 
+          className={cn("w-full h-full", borderRadius)}
+          style={{
+            background: `linear-gradient(135deg, 
+              rgba(${obsidianRGB}, 0.15) 0%, 
+              rgba(${obsidianRGB}, 0.05) 50%, 
+              rgba(${obsidianRGB}, 0.12) 100%)`
+          }}
+        />
+      </div>
+
+      {/* Multi-layer Glass Effect */}
+      <div className={cn("absolute inset-0", borderRadius)}>
+        {/* Base glass layer with enhanced inner glow */}
+        <div 
+          className={cn("absolute inset-0", borderRadius)}
+          style={{
+            background: `radial-gradient(circle at 30% 20%, 
+              rgba(${obsidianRGB}, 0.18) 0%, 
+              rgba(${obsidianRGB}, 0.05) 50%, 
+              rgba(${obsidianRGB}, 0.12) 100%)`,
+            boxShadow: `
+              inset 0 1px 0 rgba(${obsidianRGB}, 0.25),
+              inset 0 -1px 0 rgba(${obsidianRGB}, 0.15),
+              inset 1px 0 0 rgba(${obsidianRGB}, 0.20),
+              inset -1px 0 0 rgba(${obsidianRGB}, 0.08),
+              inset 0 4px 20px rgba(${obsidianRGB}, ${currentIntensity.opacity})
+            `
+          }}
+        />
+        
+        {/* Specular highlight layer */}
+        <div 
+          className={cn("absolute inset-0 pointer-events-none", borderRadius)}
+          style={{
+            background: `linear-gradient(135deg, 
+              rgba(${obsidianRGB}, 0.20) 0%, 
+              transparent 30%,
+              transparent 70%,
+              rgba(${obsidianRGB}, 0.08) 100%)`
+          }}
+        />
+      </div>
+
+      {/* Dynamic light reflection */}
+      {animated && (
+        <div 
+          className={cn("absolute inset-0 pointer-events-none animate-pulse", borderRadius)}
+          style={{
+            background: `conic-gradient(from 45deg at 50% 50%, 
+              transparent 0deg, 
+              rgba(${obsidianRGB}, 0.12) 90deg, 
+              transparent 180deg, 
+              rgba(${obsidianRGB}, 0.06) 270deg, 
+              transparent 360deg)`,
+            animationDuration: '3s'
+          }}
+        />
+      )}
+
+      {/* Content layer */}
+      <div className="relative z-10">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+export function ObsidianGlassCard({ children, className, ...props }: Omit<LiquidGlassProps, never>) {
+  return (
+    <ObsidianGlass 
+      intensity="strong"
+      animated
+      className={cn("p-6", className)}
+      borderRadius="rounded-2xl"
+      {...props}
+    >
+      {children}
+    </ObsidianGlass>
+  );
 } 

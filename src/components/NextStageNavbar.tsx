@@ -306,6 +306,10 @@ export default function NextStageNavbar() {
       link: "/work",
     },
     {
+      name: "Case Studies",
+      link: "/case-studies",
+    },
+    {
       name: "About",
       link: "/about",
     },
