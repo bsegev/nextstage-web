@@ -6,6 +6,7 @@ export interface CaseStudyHero {
   timeline: string;
   keyResult: string;
   image: string;
+  overlayType?: 'light' | 'dark' | 'minimal' | 'heavy';
 }
 
 export interface CaseStudyChallenge {
@@ -105,7 +106,8 @@ const caseStudies: CaseStudy[] = [
       stage: 'Create → Activate',
       timeline: '4 weeks total',
       keyResult: 'Multi-million dollar funding round',
-      image: '/images/showcase/sp_deck.jpg'
+      image: '/images/showcase/sp_deck.jpg',
+      overlayType: 'dark'
     },
     challenge: {
       overview: 'A real estate development company had identified a time-sensitive opportunity but lacked the brand presence and investor materials needed to secure funding. With construction timelines dependent on immediate capital, they had one week to present to investors—starting with just a company name and basic logo.',
@@ -244,7 +246,8 @@ const caseStudies: CaseStudy[] = [
       stage: 'Ideate → Create',
       timeline: '6 weeks total',
       keyResult: '300% increase in user engagement',
-      image: '/images/showcase/ai-podcast-mockup.jpg'
+      image: '/images/showcase/ai-podcast-mockup.jpg',
+      overlayType: 'minimal'
     },
     challenge: {
       overview: 'Traditional podcast platforms struggled with content discovery, leading to poor user engagement and high churn rates. Users spent too much time searching for relevant content.',
@@ -334,7 +337,8 @@ const caseStudies: CaseStudy[] = [
       stage: 'Activate → Scale',
       timeline: '8 weeks total',
       keyResult: 'Platform serving 1M+ customers',
-      image: '/images/showcase/bank-comparison.png'
+      image: '/images/showcase/bank-comparison.png',
+      overlayType: 'light'
     },
     challenge: {
       overview: 'Traditional banking infrastructure couldn\'t scale to meet growing demand in emerging markets. Legacy systems created bottlenecks.',

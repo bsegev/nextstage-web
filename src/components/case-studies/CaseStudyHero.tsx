@@ -90,9 +90,42 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
         )}
       </AnimatePresence>
       
-      {/* Enhanced overlay system */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/70 dark:from-[#0B0B0F]/95 dark:via-[#0B0B0F]/85 dark:to-[#0B0B0F]/70" />
-      <div className="absolute inset-0 bg-gradient-to-tl from-accent/10 via-transparent to-transparent opacity-60" />
+      {/* Enhanced overlay system - Customizable per case */}
+      {(() => {
+        const overlayType = data.overlayType || 'dark'; // Default to dark
+        
+        switch (overlayType) {
+          case 'light':
+            return (
+              <>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/80 to-white/70 dark:from-white/85 dark:via-white/75 dark:to-white/65" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-accent/15 via-transparent to-transparent opacity-70" />
+              </>
+            );
+          case 'minimal':
+            return (
+              <>
+                <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/50 to-background/40 dark:from-[#0B0B0F]/60 dark:via-[#0B0B0F]/50 dark:to-[#0B0B0F]/40" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-accent/5 via-transparent to-transparent opacity-40" />
+              </>
+            );
+          case 'heavy':
+            return (
+              <>
+                <div className="absolute inset-0 bg-gradient-to-br from-background/98 via-background/95 to-background/90 dark:from-[#0B0B0F]/98 dark:via-[#0B0B0F]/95 dark:to-[#0B0B0F]/90" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-accent/20 via-accent/10 to-transparent opacity-80" />
+              </>
+            );
+          case 'dark':
+          default:
+            return (
+              <>
+                <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/70 dark:from-[#0B0B0F]/95 dark:via-[#0B0B0F]/85 dark:to-[#0B0B0F]/70" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-accent/10 via-transparent to-transparent opacity-60" />
+              </>
+            );
+        }
+      })()}
       
       {/* Header Content - Load first */}
       <AnimatePresence>
