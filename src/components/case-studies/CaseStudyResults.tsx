@@ -120,9 +120,9 @@ export default function CaseStudyResults({ data }: CaseStudyResultsProps) {
             className="max-w-4xl mx-auto text-center"
           >
             <div className="relative p-8 lg:p-12 rounded-2xl border border-foreground/10 bg-background/50 dark:bg-obsidian/50">
-              <p className="text-lg lg:text-xl text-foreground/80 leading-relaxed font-light italic mb-6">
-                "{data.testimonial.quote}"
-              </p>
+              <blockquote className="text-xl lg:text-2xl leading-relaxed text-foreground/90 font-light italic mb-8">
+                &ldquo;We started with just a name and a logo. Within a week, we had a polished investor deck for a live deal, and shortly after, a full website with custom components, clear messaging, and visuals that actually looked and felt like us. What really made the difference was working with someone who understands real estate. It wasn&rsquo;t just design, it was strategy, storytelling, and execution all rolled into one.&rdquo;
+              </blockquote>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
                 <div className="font-medium text-foreground">{data.testimonial.author}</div>
@@ -133,8 +133,8 @@ export default function CaseStudyResults({ data }: CaseStudyResultsProps) {
               </div>
               
               {/* Decorative Quote Marks */}
-              <div className="absolute top-4 left-4 w-8 h-8 text-accent/20 text-4xl font-serif">"</div>
-              <div className="absolute bottom-4 right-4 w-8 h-8 text-accent/20 text-4xl font-serif rotate-180">"</div>
+              <div className="absolute top-4 left-4 w-8 h-8 text-accent/20 text-4xl font-serif">&ldquo;</div>
+              <div className="absolute bottom-4 right-4 w-8 h-8 text-accent/20 text-4xl font-serif rotate-180">&rdquo;</div>
             </div>
           </motion.div>
         )}

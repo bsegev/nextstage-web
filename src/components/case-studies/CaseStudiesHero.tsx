@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { LiquidGlass } from '@/components/ui/liquid-glass';
+import Link from 'next/link';
 
 export default function CaseStudiesHero() {
   const [mounted, setMounted] = useState(false);
@@ -15,7 +16,7 @@ export default function CaseStudiesHero() {
     <section className="relative min-h-screen flex items-center justify-center sm:justify-start px-3 sm:px-6 lg:px-8 pt-20 sm:pt-0 overflow-hidden">
       
       {/* Background image - clickable */}
-      <a 
+      <Link 
         href="/case-studies/sparrowpark-development"
         className="absolute inset-0 bg-cover bg-center bg-no-repeat hover:scale-[1.02] transition-transform duration-700 cursor-pointer"
         style={{
