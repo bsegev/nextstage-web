@@ -277,11 +277,11 @@ export default function AboutCTA() {
             className="space-y-4"
           >
             {/* Primary CTA */}
-            <Link href="/contact" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
+            <a href="https://cal.com/bensegev/30min" target="_blank" rel="noopener noreferrer" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded-full">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
               <div className="relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-obsidian rounded-full text-base font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                 <span className="relative">
-                                        Get started
+                  Get started
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                 </span>
                 
@@ -298,10 +298,10 @@ export default function AboutCTA() {
                   </motion.svg>
                 </div>
               </div>
-            </Link>
+            </a>
 
             {/* Secondary CTA */}
-            <Link href="/work" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
+                          <Link href="/case-studies" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
               <LiquidGlass 
                 intensity="subtle" 
                 animated
@@ -430,7 +430,7 @@ export default function AboutCTA() {
               </Link>
 
               {/* Secondary CTA */}
-              <Link href="/work" className="group relative">
+              <Link href="/case-studies" className="group relative">
                 <LiquidGlass 
                   intensity="subtle" 
                   animated
@@ -458,15 +458,43 @@ export default function AboutCTA() {
               </Link>
             </motion.div>
 
+            {/* Alternative Contact Methods */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="pt-8 border-t border-bone/10"
+            >
+              <p className="text-xs text-bone/40 font-light mb-4 text-center">
+                Prefer other ways to connect?
+              </p>
+              <div className="flex items-center justify-center gap-6">
+                <Link href="/contact" className="group flex items-center gap-2 text-bone/60 hover:text-accent transition-colors duration-300">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-xs font-light">Email & LinkedIn</span>
+                </Link>
+                <span className="text-bone/20">•</span>
+                <a href="https://cal.com/bensegev/30min" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-bone/60 hover:text-accent transition-colors duration-300">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-xs font-light">Quick booking</span>
+                </a>
+              </div>
+            </motion.div>
+
             {/* Closing Statement - Desktop */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="pt-8"
+              transition={{ duration: 1, delay: 0.6 }}
+              className="pt-6"
             >
-              <p className="text-sm text-bone/50 font-light italic">
+              <p className="text-sm text-bone/50 font-light italic text-center">
                 Join the leaders who refuse to wait for tomorrow
               </p>
             </motion.div>

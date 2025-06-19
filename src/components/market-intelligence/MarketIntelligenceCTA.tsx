@@ -326,7 +326,7 @@ export default function StrategyCTA() {
             </Link>
 
             {/* Secondary CTA */}
-            <Link href="/work" className="group relative w-full">
+                          <Link href="/case-studies" className="group relative w-full">
               <LiquidGlass 
                 intensity="subtle" 
                 animated
@@ -335,7 +335,7 @@ export default function StrategyCTA() {
               >
                 <div className="inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 text-bone/80 group-hover:text-bone text-base font-medium transition-all duration-300 group-hover:-translate-y-1 w-full">
                   <span className="relative">
-                    See Case Studies
+                    Download Strategy Guide
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   
@@ -447,7 +447,7 @@ export default function StrategyCTA() {
               </Link>
 
               {/* Secondary CTA */}
-              <Link href="/work" className="group relative">
+              <Link href="/case-studies" className="group relative">
                 <LiquidGlass 
                   intensity="subtle" 
                   animated
@@ -456,7 +456,7 @@ export default function StrategyCTA() {
                 >
                   <div className="inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 text-bone/80 group-hover:text-bone text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:-translate-y-1">
                     <span className="relative">
-                      See Case Studies
+                      Download Strategy Guide
                       <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                     </span>
                     

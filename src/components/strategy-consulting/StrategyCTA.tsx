@@ -326,7 +326,7 @@ export default function StrategyCTA() {
             </Link>
 
             {/* Secondary CTA */}
-            <Link href="/work" className="group relative w-full">
+                          <Link href="/case-studies" className="group relative w-full">
               <LiquidGlass 
                 intensity="subtle" 
                 animated
@@ -447,7 +447,7 @@ export default function StrategyCTA() {
               </Link>
 
               {/* Secondary CTA */}
-              <Link href="/work" className="group relative">
+              <Link href="/case-studies" className="group relative">
                 <LiquidGlass 
                   intensity="subtle" 
                   animated

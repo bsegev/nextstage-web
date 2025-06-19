@@ -116,7 +116,7 @@ export default function ServicesCTA() {
             </a>
 
             {/* Secondary CTA */}
-            <Link href="/work" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
+                            <Link href="/case-studies" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
               <LiquidGlass 
                 intensity="subtle" 
                 animated
@@ -196,7 +196,7 @@ export default function ServicesCTA() {
               </a>
 
               {/* Secondary CTA */}
-              <Link href="/work" className="group relative">
+              <Link href="/case-studies" className="group relative">
                 <LiquidGlass 
                   intensity="subtle" 
                   animated

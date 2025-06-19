@@ -105,7 +105,7 @@ export default function ApproachHero() {
               </a>
 
               {/* Secondary CTA - See Work */}
-              <Link href="/work" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:ring-offset-2 rounded-full">
+              <Link href="/case-studies" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:ring-offset-2 rounded-full">
                 <LiquidGlass 
                   intensity="subtle" 
                   animated

@@ -57,7 +57,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   return (
     <>
       <NextStageNavbar />
-      <main className="min-h-screen bg-background">
+      <main className="min-h-screen bg-background pt-0 lg:pt-24">
         {/* Hero Section */}
         <CaseStudyHero data={caseStudy.hero} />
 

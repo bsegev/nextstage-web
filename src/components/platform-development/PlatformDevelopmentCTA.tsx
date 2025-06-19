@@ -514,7 +514,7 @@ export default function TechInnovationCTA() {
             </Link>
 
             {/* Secondary CTA */}
-            <Link href="/work" className="group relative w-full min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-obsidian/50 focus-visible:ring-offset-2 rounded-full">
+                          <Link href="/case-studies" className="group relative w-full min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-obsidian/50 focus-visible:ring-offset-2 rounded-full">
               <LiquidGlass 
                 intensity="subtle" 
                 animated
@@ -523,7 +523,7 @@ export default function TechInnovationCTA() {
               >
                 <div className="inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 text-bone/80 group-hover:text-bone text-base font-medium transition-all duration-300 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                   <span className="relative">
-                    See Case Studies
+                    Download Development Guide
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   
@@ -629,7 +629,7 @@ export default function TechInnovationCTA() {
               </Link>
 
               {/* Secondary CTA */}
-              <Link href="/work" className="group relative min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-obsidian/50 focus-visible:ring-offset-2 rounded-full">
+              <Link href="/case-studies" className="group relative min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-obsidian/50 focus-visible:ring-offset-2 rounded-full">
                 <LiquidGlass 
                   intensity="subtle" 
                   animated
@@ -638,7 +638,7 @@ export default function TechInnovationCTA() {
                 >
                   <div className="inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 text-bone/80 group-hover:text-bone text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                     <span className="relative">
-                      See Case Studies
+                      Download Development Guide
                       <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                     </span>
                     

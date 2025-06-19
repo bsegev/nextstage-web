@@ -45,9 +45,14 @@ export const MacbookScroll = ({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (window && window.innerWidth < 768) {
-      setIsMobile(true);
-    }
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile(); // Check on mount
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   // Simplified transforms - no function callbacks, direct interpolation only
@@ -62,18 +67,11 @@ export const MacbookScroll = ({
     [0.6, isMobile ? 1.8 : 2.0],
   );
   
-  // Combined translate with centering - single transform calculation
+  // Match original Aceternity pattern exactly - simple [0, 1] range with large positive values
   const translateY = useTransform(
     scrollYProgress, 
-    [0, 0.6, 0.8, 1.0], 
-    [0, isMobile ? 300 : 250, isMobile ? 0 : -150, isMobile ? -300 : -400]
-  );
-  
-  // Simple downward translate to bring into frame after scale completes
-  const bringIntoFrame = useTransform(
-    scrollYProgress,
-    [0.3, 0.5, 1.0],
-    [0, isMobile ? '60vh' : '40vh', isMobile ? '60vh' : '40vh']
+    [0, 1], 
+    [0, isMobile ? 4800 : 1701]
   );
   
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
@@ -106,12 +104,9 @@ export const MacbookScroll = ({
       </motion.div>
       
       {/* Single MacBook container with unified scaling */}
-      <motion.div 
+      <div 
         className="scale-[0.35] sm:scale-50 md:scale-100"
-        style={{ 
-          willChange: 'transform',
-          translateY: bringIntoFrame,
-        }}
+        style={{ willChange: 'transform' }}
       >
         {/* Lid */}
         <Lid
@@ -145,7 +140,7 @@ export const MacbookScroll = ({
         )}
         {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

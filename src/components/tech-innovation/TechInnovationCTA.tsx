@@ -514,7 +514,7 @@ export default function TechInnovationCTA() {
             </Link>
 
             {/* Secondary CTA */}
-            <Link href="/work" className="group relative w-full min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-obsidian/50 focus-visible:ring-offset-2 rounded-full">
+                          <Link href="/case-studies" className="group relative w-full min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-obsidian/50 focus-visible:ring-offset-2 rounded-full">
               <LiquidGlass 
                 intensity="subtle" 
                 animated
@@ -629,7 +629,7 @@ export default function TechInnovationCTA() {
               </Link>
 
               {/* Secondary CTA */}
-              <Link href="/work" className="group relative min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-obsidian/50 focus-visible:ring-offset-2 rounded-full">
+              <Link href="/case-studies" className="group relative min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-obsidian/50 focus-visible:ring-offset-2 rounded-full">
                 <LiquidGlass 
                   intensity="subtle" 
                   animated
