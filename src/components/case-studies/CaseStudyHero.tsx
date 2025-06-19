@@ -96,7 +96,7 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
       
       {/* Header Content - Load first */}
       <AnimatePresence>
-        {loadingStage !== 'skeleton' && (
+        {(loadingStage === 'header' || loadingStage === 'macbook' || loadingStage === 'complete') && (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
