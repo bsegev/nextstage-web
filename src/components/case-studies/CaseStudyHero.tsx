@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
-import { LiquidGlass, LiquidGlassCard, ObsidianGlassCard } from "@/components/ui/liquid-glass";
+import { LiquidGlass, LiquidGlassCard } from "@/components/ui/liquid-glass";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { CaseStudyHero as CaseStudyHeroType } from "@/lib/case-studies";

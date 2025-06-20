@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import {
   IconFileText,
   IconTarget,
@@ -13,7 +13,7 @@ import {
   IconChevronRight,
   IconX,
 } from "@tabler/icons-react";
-import { cn } from "@/lib/utils";
+
 
 export default function CaseStudyFloatingNav() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -89,7 +89,7 @@ export default function CaseStudyFloatingNav() {
     handleScroll(); // Initial call
     
     return () => window.removeEventListener('scroll', throttledScroll);
-  }, []);
+  }, [sections]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

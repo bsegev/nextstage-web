@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import type { CaseStudyImplementation as CaseStudyImplementationType } from "@/lib/case-studies";
-import { CaseStudyPhase } from "@/lib/case-studies";
+
 import { cn } from "@/lib/utils";
 
 interface CaseStudyImplementationProps {
