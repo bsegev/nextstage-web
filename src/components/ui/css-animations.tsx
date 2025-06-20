@@ -34,18 +34,19 @@ export function AnimateOnScroll({
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const target = entry.target as HTMLElement;
           if (entry.isIntersecting) {
             // Animate in
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translate3d(0, 0, 0) scale(1)';
+            target.style.opacity = '1';
+            target.style.transform = 'translate3d(0, 0, 0) scale(1)';
             
             if (once) {
               observer.unobserve(entry.target);
             }
           } else if (!once) {
             // Animate out if not "once"
-            entry.target.style.opacity = '0';
-            entry.target.style.transform = getInitialTransform(animation);
+            target.style.opacity = '0';
+            target.style.transform = getInitialTransform(animation);
           }
         });
       },

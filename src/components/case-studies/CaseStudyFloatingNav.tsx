@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "motion/react";
 import {
   IconFileText,
@@ -20,7 +20,7 @@ export default function CaseStudyFloatingNav() {
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const sections = [
+  const sections = useMemo(() => [
     { id: 'hero', label: 'Introduction', phase: 'Overview', icon: <IconFileText className="w-4 h-4" /> },
     { id: 'challenge', label: 'Challenge', phase: 'Context', icon: <IconTarget className="w-4 h-4" /> },
     { id: 'discovery', label: 'Discovery', phase: 'Phase 01', icon: <IconSearch className="w-4 h-4" /> },
@@ -28,7 +28,7 @@ export default function CaseStudyFloatingNav() {
     { id: 'solution', label: 'Solution', phase: 'Phase 03', icon: <IconBulb className="w-4 h-4" /> },
     { id: 'implementation', label: 'Implementation', phase: 'Phase 04', icon: <IconRocket className="w-4 h-4" /> },
     { id: 'results', label: 'Results', phase: 'Outcome', icon: <IconTrendingUp className="w-4 h-4" /> },
-  ];
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {
