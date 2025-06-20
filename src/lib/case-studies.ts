@@ -107,7 +107,7 @@ const caseStudies: CaseStudy[] = [
       timeline: '4 weeks total',
       keyResult: 'Multi-million dollar funding round',
       image: '/images/showcase/sp_deck.jpg',
-      overlayType: 'dark'
+      overlayType: 'light'
     },
     challenge: {
       overview: 'A real estate development company had identified a time-sensitive opportunity but lacked the brand presence and investor materials needed to secure funding. With construction timelines dependent on immediate capital, they had one week to present to investors—starting with just a company name and basic logo.',
@@ -115,35 +115,36 @@ const caseStudies: CaseStudy[] = [
       stakes: 'Miss the funding window, miss the development opportunity.'
     },
     discovery: {
-      title: 'Understanding Real Estate Fundamentals',
+      title: 'Understanding Real Estate Fundamentals & Market Context',
       timeline: 'Days 1-2',
-      content: 'Industry-specific investor expectations and decision factors, competitive landscape and differentiation opportunities, development timeline constraints driving urgency, need for both immediate funding materials and long-term brand foundation.',
+      content: 'Market intelligence uncovered critical insights: 85% of developers reported financing difficulties in 2024, creating urgent need for professional presentation. Southern Ontario growth trajectory shows population projected to grow 36% by 2046, with GTA adding 3.1 million residents. Development cost pressures hit $141,139 per home in Toronto (176% increase since 2011). Canadian institutional investors pulling billions from US markets back to domestic projects, intensifying local competition.',
       insights: [
-        'Real estate investors evaluate deals differently than tech VCs',
-        'Brand story needed to emphasize market knowledge and execution capability',
-        'Position as experienced operators with deep market insight'
+        'Funding crisis reality: 85% of developers struggling with financing, making professional presentation a competitive advantage',
+        'Southern Ontario opportunity: 36% population growth projected by 2046, validating long-term market opportunity',
+        'Client\'s unique positioning: Rare combination of US development experience + deep Southern Ontario market knowledge',
+        'Strategic foundation: Position as experienced operators with deep market insight, not just another development play'
       ]
     },
     planning: {
       title: 'Integrated Brand and Investment Strategy',
       timeline: 'Days 2-3',
-      content: 'Strategic framework emphasizing market expertise and execution speed, investment narrative connecting opportunity to capability, visual identity system scalable from pitch deck to full marketing suite.',
+      content: 'Strategic framework informed by market research positioned against market dynamics: "Proven scale, local precision" narrative leveraging US experience for institutional-scale capability while Southern Ontario expertise ensures regulatory navigation. Investment narrative architecture opens with Southern Ontario opportunity sizing, demonstrates capability differentiation through US project examples, emphasizes local competitive advantage, and highlights market timing with capital scarcity creating opportunity.',
       deliverables: [
-        'Brand positioning emphasizing market expertise',
-        'Investment narrative framework',
-        'Scalable visual identity system',
-        'Content strategy highlighting development experience'
+        'Positioning narrative: "Proven scale, local precision" against market dynamics',
+        'Investment narrative architecture with Southern Ontario opportunity sizing',
+        'Visual identity system conveying institutional credibility',
+        'Technology and communication strategy for investor-grade materials'
       ]
     },
     solution: {
-      title: 'From Pitch to Platform',
+      title: 'Solution Mapping: From Pitch to Platform',
       timeline: 'Days 3-4',
-      content: 'The reverse-engineering approach: Instead of traditional brand-first methodology, we used the pitch deck as the brand development vehicle. High-leverage deliverable becomes brand foundation.',
+      content: 'The reverse-engineering approach: Instead of traditional brand-first methodology, we used the pitch deck as the brand development vehicle. High-leverage deliverable becomes brand foundation. Immediate deliverables included investment-grade pitch deck that simultaneously established visual identity system, copywriting and verbal identity developed through investor narrative, brand guidelines extracted from deck design decisions, and messaging framework proven through investor presentation requirements.',
       insights: [
-        'Pitch deck requirements → Brand identity development',
-        'Verbal identity through copywriting',
-        'Visual consistency across all platforms',
-        'Operational templates maintaining standards'
+        'Integration approach: Pitch deck requirements → Brand identity development → Verbal identity through copywriting',
+        'Visual consistency across all platforms using proven design language',
+        'Operational templates maintaining standards established in funding materials',
+        'No traditional handoffs - one expert maintaining vision across all deliverables'
       ]
     },
     implementation: {
@@ -247,7 +248,7 @@ const caseStudies: CaseStudy[] = [
       timeline: '6 weeks total',
       keyResult: '300% increase in user engagement',
       image: '/images/showcase/ai-podcast-mockup.jpg',
-      overlayType: 'minimal'
+      overlayType: 'light'
     },
     challenge: {
       overview: 'Traditional podcast platforms struggled with content discovery, leading to poor user engagement and high churn rates. Users spent too much time searching for relevant content.',
@@ -338,7 +339,7 @@ const caseStudies: CaseStudy[] = [
       timeline: '8 weeks total',
       keyResult: 'Platform serving 1M+ customers',
       image: '/images/showcase/bank-comparison.png',
-      overlayType: 'light'
+      overlayType: 'dark'
     },
     challenge: {
       overview: 'Traditional banking infrastructure couldn\'t scale to meet growing demand in emerging markets. Legacy systems created bottlenecks.',

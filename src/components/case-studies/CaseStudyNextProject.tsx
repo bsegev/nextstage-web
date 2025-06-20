@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { getAllCaseStudies } from "@/lib/case-studies";
+import { cn } from "@/lib/utils";
 
 interface CaseStudyNextProjectProps {
   currentSlug: string;
@@ -14,8 +15,19 @@ export default function CaseStudyNextProject({ currentSlug }: CaseStudyNextProje
   const nextProject = allCaseStudies[(currentIndex + 1) % allCaseStudies.length];
 
   return (
-    <section className="py-20 lg:py-32 bg-background dark:bg-obsidian border-t border-foreground/10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="py-20 lg:py-32 relative overflow-hidden bg-background dark:bg-obsidian">
+      {/* Grid Background */}
+      <div
+        className={cn(
+          "absolute inset-0",
+          "[background-size:40px_40px]",
+          "[background-image:linear-gradient(to_right,#e4e4e7_1.5px,transparent_1.5px),linear-gradient(to_bottom,#e4e4e7_1.5px,transparent_1.5px)]",
+          "dark:[background-image:linear-gradient(to_right,#404040_1.5px,transparent_1.5px),linear-gradient(to_bottom,#404040_1.5px,transparent_1.5px)]",
+          "opacity-35"
+        )}
+      />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}

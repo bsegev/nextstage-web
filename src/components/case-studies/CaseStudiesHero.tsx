@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { LiquidGlass } from '@/components/ui/liquid-glass';
 import Link from 'next/link';
+import { cn } from "@/lib/utils";
 
 export default function CaseStudiesHero() {
   const [mounted, setMounted] = useState(false);
@@ -13,7 +14,21 @@ export default function CaseStudiesHero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center sm:justify-start px-3 sm:px-6 lg:px-8 pt-20 sm:pt-0 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background dark:bg-obsidian">
+      {/* Grid Background */}
+      <div
+        className={cn(
+          "absolute inset-0",
+          "[background-size:40px_40px]",
+          "[background-image:linear-gradient(to_right,#e4e4e7_1.5px,transparent_1.5px),linear-gradient(to_bottom,#e4e4e7_1.5px,transparent_1.5px)]",
+          "dark:[background-image:linear-gradient(to_right,#404040_1.5px,transparent_1.5px),linear-gradient(to_bottom,#404040_1.5px,transparent_1.5px)]",
+          "opacity-35"
+        )}
+      />
+      
+      {/* Subtle accent elements */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/3 rounded-full blur-3xl opacity-40" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/2 rounded-full blur-3xl opacity-30" />
       
       {/* Background image - clickable */}
       <Link 
@@ -74,7 +89,7 @@ export default function CaseStudiesHero() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(10,10,10,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(10,10,10,0.015)_1px,transparent_1px)] bg-[size:4rem_4rem] sm:bg-[size:6rem_6rem] dark:bg-[linear-gradient(rgba(245,244,241,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(245,244,241,0.015)_1px,transparent_1px)]" />
 
       {/* Main content */}
-      <div className="relative z-10 w-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto sm:mx-0 sm:ml-8 md:ml-16 lg:ml-32 xl:ml-40 2xl:ml-48 px-4 sm:px-0">
           {/* Category Badge */}
           <div className={`transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>

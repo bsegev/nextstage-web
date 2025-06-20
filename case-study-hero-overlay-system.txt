@@ -1,0 +1,156 @@
+# Case Study Hero Overlay System Reference
+
+## Overview
+The case study hero component features a dynamic overlay system that adapts text colors, glass effects, and visual elements based on the background image characteristics. This ensures optimal readability and visual hierarchy across all case studies.
+
+## Overlay Types
+
+### 1. Light Overlay (`overlayType: 'light'`)
+**Use for:** Dark background images that need light overlay for text readability
+
+**Visual Effects:**
+- Background: White gradient overlay (90-70% opacity)
+- Text Colors: Dark obsidian tones (#2B2B2B variants)
+- Glass Effects: White glass backgrounds with dark obsidian borders
+- Result: Dark text elements on light overlay over dark images
+
+**Current Cases Using Light:**
+- SparrowPark Development (dark presentation deck background)
+- AI Podcast Platform (dark interface mockup background)
+
+### 2. Dark Overlay (`overlayType: 'dark'`)
+**Use for:** Light or mixed background images that need dark overlay for contrast
+
+**Visual Effects:**
+- Background: Dark obsidian gradient overlay (70% opacity)
+- Text Colors: Light bone tones (#ffe0d7 variants)
+- Glass Effects: Dark obsidian glass backgrounds with light bone borders
+- Result: Light text elements on dark overlay over any background
+
+**Current Cases Using Dark:**
+- Bank DIB (dark financial interface background)
+
+### 3. Minimal Overlay (`overlayType: 'minimal'`)
+**Use for:** High contrast images where you want maximum image visibility
+
+**Visual Effects:**
+- Background: Subtle background overlay (60-40% opacity)
+- Text Colors: Light bone tones (same as dark)
+- Glass Effects: Same as dark overlay but more transparent
+- Result: Maximum image visibility with readable text
+
+**Currently Unused** (available for future cases)
+
+### 4. Heavy Overlay (`overlayType: 'heavy'`)
+**Use for:** Complex or busy background images that need strong overlay
+
+**Visual Effects:**
+- Background: Strong background overlay (98-90% opacity)
+- Text Colors: Light bone tones (same as dark)
+- Glass Effects: Same as dark overlay but more opaque
+- Result: Text clearly readable over any complex background
+
+**Currently Unused** (available for future cases)
+
+## How to Choose Overlay Type
+
+### Decision Tree:
+1. **Is the background image dark/black?** → Use `'light'` overlay
+2. **Is the background image light/white?** → Use `'dark'` overlay
+3. **Is the background image high contrast/clean?** → Use `'minimal'` overlay
+4. **Is the background image busy/complex?** → Use `'heavy'` overlay
+
+### Visual Test:
+- Preview the case study with different overlay types
+- Ensure all text elements are clearly readable
+- Check that glass effects provide appropriate contrast
+- Verify the overall visual hierarchy works
+
+## Implementation
+
+### In case-studies.ts:
+```typescript
+hero: {
+  title: 'Your Case Study Title',
+  subtitle: 'Your subtitle',
+  client: 'Client Name',
+  stage: 'Stage → Stage',
+  timeline: 'X weeks total',
+  keyResult: 'Key achievement',
+  image: '/images/showcase/your-image.jpg',
+  overlayType: 'light' // or 'dark', 'minimal', 'heavy'
+},
+```
+
+### Adaptive Elements:
+All these elements automatically adapt based on overlayType:
+- Main title text color
+- Subtitle text color
+- Client badge (text, divider, glass background/border)
+- Timeline card (glass background/border, all text colors)
+- Key Result card (glass background/border, all text colors)
+- MacBook title text color
+- MacBook badge (glass background/border, text color)
+
+## Color Reference
+
+### Light Overlay Colors:
+- Primary Text: `text-obsidian` (#2B2B2B)
+- Secondary Text: `text-obsidian/80`
+- Tertiary Text: `text-obsidian/70`
+- Quaternary Text: `text-obsidian/60`
+- Dividers: `bg-obsidian/20`
+- Glass Background: `bg-white/10`
+- Glass Border: `border-obsidian/20`
+
+### Dark Overlay Colors:
+- Primary Text: `text-bone` (#ffe0d7)
+- Secondary Text: `text-bone/80`
+- Tertiary Text: `text-bone/70`
+- Quaternary Text: `text-bone/60`
+- Dividers: `bg-bone/20`
+- Glass Background: `bg-obsidian/10`
+- Glass Border: `border-bone/20`
+
+## Best Practices
+
+### Do:
+- Test overlay type with actual background image
+- Ensure all text elements are readable
+- Consider mobile viewing conditions
+- Use consistent overlay types for similar image styles
+
+### Don't:
+- Use light overlay on light backgrounds
+- Use dark overlay on very dark backgrounds
+- Mix overlay types randomly without visual testing
+- Forget to test on different screen sizes
+
+## Troubleshooting
+
+### Text Not Readable:
+- Switch to opposite overlay type (light ↔ dark)
+- Try 'heavy' overlay for complex backgrounds
+- Check if background image needs adjustment
+
+### Glass Effects Not Visible:
+- Verify overlay type matches background image tone
+- Consider switching between 'minimal' and 'heavy' intensities
+
+### Inconsistent Styling:
+- Ensure overlayType is set in case-studies.ts
+- Check that all components are using dynamic variables
+- Verify no hardcoded colors remain in components
+
+## Future Enhancements
+
+Potential additions to the overlay system:
+- Custom color themes per case study
+- Gradient overlay directions
+- Animation-based overlay transitions
+- Background blur intensity controls
+
+---
+
+Last Updated: Current implementation
+Components: CaseStudyHero.tsx, case-studies.ts 

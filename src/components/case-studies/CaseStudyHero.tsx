@@ -56,6 +56,18 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
   const [loadingStage, setLoadingStage] = useState<'skeleton' | 'header' | 'macbook' | 'complete'>('skeleton');
   const backgroundImage = getBackgroundImage(data.client);
   
+  // Dynamic styling based on overlay type
+  const overlayType = data.overlayType || 'dark';
+  const isLightOverlay = overlayType === 'light';
+  
+  const textColor = isLightOverlay ? 'text-obsidian' : 'text-bone';
+  const textColorSecondary = isLightOverlay ? 'text-obsidian/80' : 'text-bone/80';
+  const textColorTertiary = isLightOverlay ? 'text-obsidian/70' : 'text-bone/70';
+  const textColorQuaternary = isLightOverlay ? 'text-obsidian/60' : 'text-bone/60';
+  const dividerColor = isLightOverlay ? 'bg-obsidian/20' : 'bg-bone/20';
+  const glassBackground = isLightOverlay ? 'bg-white/10' : 'bg-obsidian/10';
+  const glassBorder = isLightOverlay ? 'border-obsidian/20' : 'border-bone/20';
+  
   useEffect(() => {
     // Progressive loading stages
     const timer1 = setTimeout(() => setLoadingStage('header'), 100);
@@ -120,7 +132,7 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
           default:
             return (
               <>
-                <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/70 dark:from-[#0B0B0F]/95 dark:via-[#0B0B0F]/85 dark:to-[#0B0B0F]/70" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#2B2B2B]/70 via-[#2B2B2B]/70 to-[#2B2B2B]/70" />
                 <div className="absolute inset-0 bg-gradient-to-tl from-accent/10 via-transparent to-transparent opacity-60" />
               </>
             );
@@ -148,18 +160,18 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
                 <LiquidGlass 
                   intensity="medium" 
                   animated
-                  className="px-4 py-3 sm:px-4 sm:py-3 md:px-6 md:py-3 backdrop-blur-xl w-full max-w-[300px] sm:max-w-none"
+                  className={`px-4 py-3 sm:px-4 sm:py-3 md:px-6 md:py-3 backdrop-blur-xl w-full max-w-[300px] sm:max-w-none ${glassBackground} border ${glassBorder}`}
                   borderRadius="rounded-full"
                 >
                   <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 md:gap-4">
                     <div className="flex items-center gap-2 sm:gap-3">
                       <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-accent animate-pulse" />
-                      <span className="text-sm sm:text-sm font-medium text-foreground/90 dark:text-white/90 tracking-wide whitespace-nowrap">
+                      <span className={`text-sm sm:text-sm font-medium ${textColorSecondary} tracking-wide whitespace-nowrap`}>
                         {data.client}
                       </span>
                     </div>
-                    <div className="w-6 h-px sm:w-px sm:h-4 bg-foreground/20 dark:bg-white/20" />
-                    <span className="text-sm sm:text-sm text-foreground/70 dark:text-white/70 font-light tracking-widest uppercase whitespace-nowrap">
+                    <div className={`w-6 h-px sm:w-px sm:h-4 ${dividerColor}`} />
+                    <span className={`text-sm sm:text-sm ${textColorTertiary} font-light tracking-widest uppercase whitespace-nowrap`}>
                       {data.stage}
                     </span>
                   </div>
@@ -174,7 +186,7 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
                 className="px-4 sm:px-6 md:px-8"
               >
                 <h1 className="font-display text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight leading-tight w-full max-w-[300px] sm:max-w-none mx-auto break-words hyphens-auto">
-                  <span className="block text-foreground dark:text-white">
+                  <span className={`block ${textColor}`}>
                     {data.title}
                   </span>
                 </h1>
@@ -187,7 +199,7 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="px-4 sm:px-6 md:px-8"
               >
-                <p className="text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl text-foreground/80 dark:text-white/80 font-extralight leading-relaxed w-full max-w-[300px] sm:max-w-4xl mx-auto tracking-wide break-words">
+                <p className={`text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl ${textColorSecondary} font-extralight leading-relaxed w-full max-w-[300px] sm:max-w-4xl mx-auto tracking-wide break-words`}>
                   {data.subtitle}
                 </p>
               </motion.div>
@@ -211,7 +223,7 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
                   <LiquidGlassCard 
                     intensity="strong"
                     animated
-                    className="relative bg-background/5 dark:bg-white/5 backdrop-blur-2xl border border-white/10 dark:border-white/20 p-5 sm:p-5 md:p-6 lg:p-8 w-full group-hover:scale-105 transition-transform duration-500"
+                    className={`relative ${glassBackground} backdrop-blur-2xl border ${glassBorder} p-5 sm:p-5 md:p-6 lg:p-8 w-full group-hover:scale-105 transition-transform duration-500`}
                     borderRadius="rounded-2xl"
                   >
                     <div className="text-center space-y-4">
@@ -221,10 +233,10 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
                         </svg>
                       </div>
                       <div>
-                        <h3 className="text-xs font-medium text-foreground/60 dark:text-white/60 uppercase tracking-[0.2em] mb-3">
+                        <h3 className={`text-xs font-medium ${textColorQuaternary} uppercase tracking-[0.2em] mb-3`}>
                           Timeline
                         </h3>
-                        <p className="text-xl sm:text-xl md:text-2xl font-light text-foreground dark:text-white tracking-wide break-words">
+                        <p className={`text-xl sm:text-xl md:text-2xl font-light ${textColor} tracking-wide break-words`}>
                           {data.timeline}
                         </p>
                       </div>
@@ -241,8 +253,11 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
                     disabled={false}
                     className="absolute inset-0 rounded-2xl"
                   />
-                  <ObsidianGlassCard 
-                    className="relative p-5 sm:p-5 md:p-6 lg:p-8 w-full group-hover:scale-105 transition-transform duration-500"
+                  <LiquidGlassCard 
+                    intensity="strong"
+                    animated
+                    className={`relative ${glassBackground} backdrop-blur-2xl border ${glassBorder} p-5 sm:p-5 md:p-6 lg:p-8 w-full group-hover:scale-105 transition-transform duration-500`}
+                    borderRadius="rounded-2xl"
                   >
                     <div className="text-center space-y-4">
                       <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-obsidian dark:bg-obsidian mb-2">
@@ -251,7 +266,7 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
                         </svg>
                       </div>
                       <div>
-                        <h3 className="text-xs font-medium text-bone/80 uppercase tracking-[0.2em] mb-3">
+                        <h3 className={`text-xs font-medium ${textColorQuaternary} uppercase tracking-[0.2em] mb-3`}>
                           Key Result
                         </h3>
                         <PointerHighlight
@@ -259,13 +274,13 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
                           pointerClassName="text-accent"
                           containerClassName="inline-block"
                         >
-                          <p className="text-xl sm:text-xl md:text-2xl font-light leading-tight tracking-wide px-3 py-1 break-words" style={{ color: '#ffe0d7' }}>
+                          <p className={`text-xl sm:text-xl md:text-2xl font-light leading-tight tracking-wide px-3 py-1 break-words ${textColor}`}>
                             {data.keyResult}
                           </p>
                         </PointerHighlight>
                       </div>
                     </div>
-                  </ObsidianGlassCard>
+                  </LiquidGlassCard>
                 </div>
               </motion.div>
             </div>
@@ -284,7 +299,7 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
           >
             <MacbookScroll
               title={
-                <span className="text-foreground dark:text-white">
+                <span className={textColor}>
                   {data.subtitle}
                 </span>
               }
@@ -293,12 +308,12 @@ export default function CaseStudyHero({ data }: CaseStudyHeroProps) {
               badge={
                 <LiquidGlass 
                   intensity="subtle"
-                  className="bg-background/80 dark:bg-black/80 backdrop-blur-xl border border-white/10 dark:border-white/20 px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 shadow-2xl"
+                  className={`${glassBackground} backdrop-blur-xl border ${glassBorder} px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 shadow-2xl`}
                   borderRadius="rounded-xl"
                 >
                   <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
                     <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-accent animate-pulse" />
-                    <span className="text-xs font-medium text-foreground/80 dark:text-white/80 tracking-wide">
+                    <span className={`text-xs font-medium ${textColorSecondary} tracking-wide`}>
                       Case Study
                     </span>
                   </div>

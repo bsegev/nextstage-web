@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import NextStageNavbar from '@/components/NextStageNavbar';
 import Footer from '@/components/Footer';
 import CaseStudyHero from '@/components/case-studies/CaseStudyHero';
+import CaseStudyFloatingNav from '@/components/case-studies/CaseStudyFloatingNav';
+import CaseStudyMobileNav from '@/components/case-studies/CaseStudyMobileNav';
 import CaseStudyChallenge from '@/components/case-studies/CaseStudyOverview'; // Temporarily using Overview as Challenge
 import CaseStudyDiscovery from '@/components/case-studies/CaseStudyDiscovery';
 import CaseStudyPlanning from '@/components/case-studies/CaseStudyPlanning';
@@ -58,26 +60,46 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     <>
       <NextStageNavbar />
       <main className="min-h-screen bg-background pt-0 lg:pt-24">
+        {/* Desktop Floating Navigation */}
+        <CaseStudyFloatingNav />
+        
+        {/* Mobile Bottom Navigation */}
+        <CaseStudyMobileNav />
+
         {/* Hero Section */}
-        <CaseStudyHero data={caseStudy.hero} />
+        <div id="hero">
+          <CaseStudyHero data={caseStudy.hero} />
+        </div>
 
         {/* Phase 1: The Challenge */}
-        <CaseStudyChallenge data={caseStudy.challenge} />
+        <div id="challenge">
+          <CaseStudyChallenge data={caseStudy.challenge} />
+        </div>
 
         {/* Phase 2: Discovery */}
-        <CaseStudyDiscovery data={caseStudy.discovery} />
+        <div id="discovery">
+          <CaseStudyDiscovery data={caseStudy.discovery} />
+        </div>
 
         {/* Phase 3: Planning */}
-        <CaseStudyPlanning data={caseStudy.planning} />
+        <div id="planning">
+          <CaseStudyPlanning data={caseStudy.planning} />
+        </div>
 
         {/* Phase 4: Solution */}
-        <CaseStudySolution data={caseStudy.solution} />
+        <div id="solution">
+          <CaseStudySolution data={caseStudy.solution} />
+        </div>
 
         {/* Implementation */}
-        <CaseStudyImplementation data={caseStudy.implementation} />
+        <div id="implementation">
+          <CaseStudyImplementation data={caseStudy.implementation} />
+        </div>
 
         {/* Results Section */}
-        <CaseStudyResults data={caseStudy.results} />
+        <div id="results">
+          <CaseStudyResults data={caseStudy.results} />
+        </div>
 
         {/* Testimonial Section - shown as part of Results now */}
         {/* Gallery Section - for future implementation */}
