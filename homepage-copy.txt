@@ -27,13 +27,13 @@ COMPONENT 1: HERO.tsx
 ## CURRENT COPY:
 
 **Main Headline:**
-"Complete solutions from conception to reality"
+"We work side-by-side until it's done"
 
 **Subheadline:** 
-"We integrate strategy, design, and technology so you can achieve what others only attempt."
+"Where strategy, design, and technology converge to create integrated solutions that drive real results. From first call to final launch."
 
 **CTA:**
-"Start the conversation"
+"Book appointment"
 
 ---
 
@@ -124,23 +124,22 @@ COMPONENT 2: TRANSFORMATIONTICKER.tsx
 ## CURRENT COPY:
 
 **Eyebrow Text:**
-"Track Record"
+"Real Timelines"
 
 **Main Headline:**
-"Recently Deployed"
+"Recently Shipped"
 
 **Subheadline:**
-"Real transformations. Real timelines. Real results."
+"Live. Working. Delivered."
 
-**Ticker Cards Format:**
-- Quote: "[Transformation description with timeline]"
-- Name: "[Client/Industry]" 
-- Title: "[Services used - e.g., Brand + Strategy + Systems]"
-
-**Sample Card (Placeholder):**
-- Quote: "B2C retail brand launch: Strategy to first purchase in 7 days"
-- Name: "E-commerce Startup"
-- Title: "Brand + Strategy + Systems"
+**Ticker Cards (7 rotating cards):**
+- "B2C retail brand launch: Strategy to first purchase in 7 days" - E-commerce Startup - Brand + Strategy + Systems
+- "SaaS platform rebuild: 3x faster performance in 30 days" - Tech Company - Strategy + Systems + Technology
+- "Fintech MVP: Concept to first user transaction in 25 days" - Financial Services - Strategy + Design + Technology
+- "Enterprise rebrand: Complete identity to market rollout in 4 weeks" - Fortune 500 - Brand + Strategy + Design
+- "E-commerce transformation: 200% conversion uplift in 28 days" - Retail Platform - Strategy + Design + Systems
+- "B2B marketplace: Strategy to live platform in 35 days" - SaaS Startup - Strategy + Technology + Systems
+- "Digital product launch: Idea to 1,000 users in 30 days" - Consumer App - Brand + Design + Technology
 
 ---
 
@@ -251,24 +250,24 @@ COMPONENT 3: POWERINCONVERGENCE.tsx
 ## CURRENT COPY:
 
 **Eyebrow Text:**
-"Convergence"
+"How We Work"
 
 **Main Headline:**
-"Power in Convergence"
+"Everything. Together. Fast."
 
 **Subheadline:**
-"Where strategy, design, and technology unite to create exponential value."
+"Most firms hand off between teams. We work as one. Strategy shapes design shapes technology - all moving toward the same goal at the same speed."
 
 **Interactive Content (Three Sections):**
 
 **Strategy Description:**
-"Strategic excellence means seeing the full chess board while others focus on single moves. We identify market dynamics, competitive blind spots, and untapped opportunities that create sustainable advantage. Every strategy we craft is built to compound—not just solve today's problems, but position you three moves ahead."
+"We see three moves ahead while others react to the last one. Market dynamics, competitive gaps, growth opportunities - we map the path that turns your constraints into advantages."
 
 **Design Description:**
-"Design is how strategy becomes tangible and technology becomes human. We don't just make things look better—we make complex systems feel intuitive, abstract value propositions feel concrete, and ambitious visions feel inevitable. Every pixel serves the bigger picture."
+"Strategy becomes real through design. We make complex simple, abstract concrete, and ambitious inevitable. Every decision serves your bigger picture."
 
 **Technology Description:**
-"Technology is how vision becomes reality at scale. We build systems that don't just work today but evolve with tomorrow's demands. Whether it's custom platforms, API architectures, or digital experiences, we engineer solutions that turn your competitive advantage into market dominance."
+"Vision becomes reality through technology. We build systems that work today and evolve tomorrow. Custom platforms, smart integrations, digital experiences that scale your advantage."
 
 ---
 
@@ -407,20 +406,20 @@ COMPONENT 4: SPEEDPROOF.tsx
 **Comparison Structure (Traditional vs NextStage):**
 
 **Phase 1: Discovery**
-- Traditional: "Discovery & Research" (4-6 weeks) - "Multiple stakeholder interviews, extensive market research, competitive analysis, user surveys, data collection..."
-- NextStage: "Rapid Discovery" (3 days) - "Strategic clarity through focused stakeholder alignment and targeted market insights."
+- Traditional: "Discovery & Research" (4-6 weeks) - "Comprehensive stakeholder engagement protocols, extensive competitive landscape analysis, multi-tiered market research methodologies, systematic data collection frameworks..."
+- NextStage: "Rapid Discovery" (3 days) - "We talk to your team, understand your market, and get clear on what matters most."
 
 **Phase 2: Strategy**
-- Traditional: "Strategy Development" (6-8 weeks) - "Lengthy workshops, multiple revisions, committee reviews, approval cycles, documentation phases..."
-- NextStage: "Strategy Sprint" (5 days) - "Executable strategy with clear priorities and immediate action items."
+- Traditional: "Strategy Development" (6-8 weeks) - "Multi-phase strategic framework development, iterative stakeholder alignment workshops, comprehensive deliverable documentation cycles..."
+- NextStage: "Strategy Sprint" (5 days) - "Clear plan with priorities you can act on immediately."
 
 **Phase 3: Design**
-- Traditional: "Design & Prototyping" (8-12 weeks) - "Wireframing, multiple design iterations, stakeholder feedback loops, revisions, more revisions..."
-- NextStage: "Design Execution" (1 week) - "Production-ready design system with pixel-perfect implementation."
+- Traditional: "Design & Prototyping" (8-12 weeks) - "Systematic wireframe development, iterative design validation protocols, multi-stakeholder feedback integration cycles..."
+- NextStage: "Design Execution" (1 week) - "Design system ready for your developers to build."
 
 **Phase 4: Development**
-- Traditional: "Development & Testing" (12-16 weeks) - "Waterfall development, separate testing phases, bug fixes, more testing, deployment delays..."
-- NextStage: "Rapid Development" (2 weeks) - "Concurrent development with integrated testing and seamless deployment."
+- Traditional: "Development & Testing" (12-16 weeks) - "Phased development lifecycle management, comprehensive quality assurance protocols, systematic deployment risk mitigation..."
+- NextStage: "Rapid Development" (2 weeks) - "We build it, test it, and launch it."
 
 **Summary:**
 - Traditional Total: "30-42 weeks"
@@ -609,46 +608,49 @@ COMPONENT 5: BUSINESSVALUETABS.tsx
 ## CURRENT COPY:
 
 **Eyebrow Text:**
-"Transformation"
+"Where You Are"
 
 **Main Headline:**
-"For every stage of business, meant to get you to the next"
+"We Meet You There"
 
 **Subheadline:**
-"Every journey is unique. Every solution is complete."
+"Every business is at a different stage. Every solution is built for yours."
 
-**Five Transformation Stages:**
+**Five Business Stages:**
 
-**1. IDEATE**
-- Badge: "For what's possible next"
-- Description: "Find the right opportunity and build a plan that works. We turn your vision into a clear strategy with measurable goals."
+**1. STUCK**
+- Badge: "For when your idea needs direction"
+- Description: "Great vision, unclear path. We help you find the right opportunity and build a plan that works."
 - Deliverables: Market research report, Clear business plan, Success roadmap, And more...
 
-**2. CREATE**
-- Badge: "For what doesn't exist yet"
-- Description: "Build your business from the ground up. We design the model, product, and brand so you launch ready to compete and win."
+**2. BUILDING**
+- Badge: "For when your concept needs reality"
+- Description: "Ready to build but need it done right. We design, develop, and launch so you compete from day one."
 - Deliverables: Working prototype, Brand and messaging, Launch plan, And more...
 
-**3. ACTIVATE**
-- Badge: "For when plans meet reality"
-- Description: "Execute your plan and get to market fast. We build, launch, and track performance so you start generating results immediately."
+**3. LAUNCHING**
+- Badge: "For when you're ready for market"
+- Description: "Launch fast and track everything. Get customers, get data, build momentum from day one."
 - Deliverables: Live product launch, Customer acquisition system, Sales tracking dashboard, And more...
 
-**4. ELEVATE**
-- Badge: "For leveling up what works"
-- Description: "Optimize what's working and fix what's not. We streamline operations, improve customer experience, and boost your bottom line."
+**4. GROWING**
+- Badge: "For when you need to scale what works"
+- Description: "Double down on what's working, optimize what could be better. Streamline operations while accelerating growth."
 - Deliverables: Automated workflows, Performance analytics, Customer experience upgrades, And more...
 
-**5. ACCELERATE**
-- Badge: "For compounding growth"
-- Description: "Scale fast without breaking. We build the systems and strategy you need to grow efficiently and sustainably."
+**5. LEADING**
+- Badge: "For when you need to sustain advantage"
+- Description: "Maintain your edge as you scale. Build systems that grow with you and extend your market position."
 - Deliverables: Scaling infrastructure, Growth tracking system, Expansion strategy, And more...
 
 **Bottom Copy:**
-"Each transformation integrates strategy, design, and technology. One team. One timeline. One vision."
+"Strategy, design, and technology. Built for your stage. Delivered together."
 
-**CTA:**
-"Start Your Transformation"
+**Primary CTA:**
+"Book appointment"
+
+**Secondary CTA:**
+"See our approach"
 
 ---
 
@@ -834,33 +836,27 @@ COMPONENT 6: LOGOSHOWCASE.tsx
 ## CURRENT COPY:
 
 **Eyebrow Text:**
-"Trusted by leaders"
+"Real Clients"
 
 **Main Headline:**
-"Results that speak"
+"Real Results"
 
 **Subheadline:**
 "Every partnership delivers measurable impact. See how we have accelerated growth across industries."
 
-**Client Stories Format:**
-- **Interactive Logo Grid**: 6 client logos in 3x2 desktop layout
-- **Auto-rotating testimonials**: 6-second intervals with play/pause control
-- **Mobile swipe interface**: Single logo with swipe navigation
-- **Quote Display**: Client testimonial with attribution
+**Client Stories (6 rotating testimonials):**
+- **WowWee** (Consumer Electronics): "10+ product launches to major retail shelves in record time - from concept to shelf faster than ever"
+- **SimilarWeb** (Digital Intelligence): "10x clickthrough rates and 3,000+ downloads through strategic thought leadership that sells"
+- **Bank DIB** (Financial Services): "Full digital bank development: brand, platform, processes, and go-to-market in 8 months"
+- **Sparrow Park** (Technology): "It wasn't just design – it was strategy, storytelling, and execution all rolled into one."
+- **Grid Aero** (Aerospace Technology): "What stood out was getting comprehensive work with the speed and personal attention of working directly with the people doing the work."
+- **Eccan** (Sustainability Tech): "Complete rebrand to ready-to-go sales strategy in under 1 month - what normally takes a year"
 
-**Sample Client Stories:**
-- WowWee: "10+ product launches to major retail shelves in record time - from concept to shelf faster than ever"
-- SimilarWeb: "10x clickthrough rates and 3,000+ downloads through strategic thought leadership that sells"
-- Bank DIB: "Full digital bank development: brand, platform, processes, and go-to-market in 8 months"
-- Sparrow Park: "It wasn't just design – it was strategy, storytelling, and execution all rolled into one."
-- Grid Aero: "What stood out was getting comprehensive work with the speed and personal attention of working directly with the people doing the work."
-- Eccan: "Complete rebrand to ready-to-go sales strategy in under 1 month - what normally takes a year"
-
-**Mobile Instructions:**
-"Swipe or tap to explore client stories"
-
-**Play/Pause Control:**
-Desktop interface with "Play/Pause" toggle for auto-rotation
+**Interactive Features:**
+- **Desktop**: 3x2 logo grid with auto-rotation (6-second intervals)
+- **Mobile**: Swipe navigation with dialog overlays
+- **Play/Pause Control**: Desktop toggle for auto-rotation
+- **Industry Labels**: Displayed below each logo
 
 ---
 
@@ -1070,8 +1066,7 @@ COMPONENT 7: CTASECTION.tsx
 **Subheadline:**
 "The pace of change is not slowing down—it is accelerating. The question is not whether to reinvent, but how fast you can move."
 
-**Dynamic Stats Ticker:**
-Auto-rotating transformation statistics with animated counters:
+**Dynamic Stats Ticker (16 rotating statistics):**
 - "89% of companies plan to adopt a digital-first strategy in 2025"
 - "74% of organizations are prioritizing digital transformation in 2025"
 - "41% of companies have improved customer experience with generative AI"
@@ -1081,22 +1076,31 @@ Auto-rotating transformation statistics with animated counters:
 - "70% of organizations say simplifying workflows is their top transformation goal"
 - "51% of executives link digital transformation to revenue growth"
 - "67% of business leaders expect AI to reshape their organizations by 2026"
-- Plus 7 additional transformation statistics
+- "41% of organizations report digital transformation enhanced sales and marketing"
+- "56% of digital transformation efforts are driven by growth opportunities"
+- "44% of transformation initiatives are spurred by competitive pressure"
+- "71% of consumer goods leaders use AI in at least one part of their business"
+- "97% of businesses accelerated digital transformation due to COVID-19"
+- "77% of companies have already started their digital transformation journey"
+- "60% of employers say digital access will impact their operations by 2030"
 
 **Convergence Statement:**
 "When strategy, design, and technology converge at NextStage velocity, transformation happens in weeks, not quarters."
 
 **Primary CTA:**
-"Start your reinvention"
+"Book Appointment"
 
 **Secondary CTA:**
-"See our process"
+"See Case Studies"
 
 **Closing Statement:**
 "Join the leaders who refuse to wait for tomorrow"
 
-**Mobile Instructions:**
-Mobile has simplified stats display with touch interactions and swipe navigation
+**Interactive Features:**
+- **Desktop**: Side-by-side layout with convergence geometry animation
+- **Mobile**: Streamlined single-column layout with touch-optimized stats
+- **Stats Display**: Auto-rotation every 7 seconds with pause on hover/touch
+- **Convergence Geometry**: Animated SVG with orbiting elements and acceleration rings
 
 ---
 
