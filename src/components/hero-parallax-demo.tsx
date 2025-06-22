@@ -14,7 +14,7 @@ export const products = [
   },
   {
     title: "Digital Banking Platform",
-    link: "/case-studies/digital-banking-platform",
+    link: "/case-studies/bank-dib-transformation",
     thumbnail: "/images/showcase/bank-comparison.png",
   },
   {
