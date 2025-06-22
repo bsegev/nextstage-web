@@ -36,8 +36,8 @@ export default function CaseStudyResults({ data }: CaseStudyResultsProps) {
               <span>Phase 05 — Results</span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-bone mb-6 tracking-tight">
-              Results That Matter
-            </h2>
+            Results That Matter
+          </h2>
             <p className="text-lg sm:text-xl lg:text-2xl text-bone/80 font-light max-w-3xl mx-auto leading-relaxed">
               Measurable impact and tangible outcomes that validate strategic execution
             </p>
@@ -50,7 +50,7 @@ export default function CaseStudyResults({ data }: CaseStudyResultsProps) {
           <AnimateOnScroll animation="fadeInUp" delay={100} duration={400}>
             <div className="text-center mb-12 lg:mb-16">
               <h3 className="font-display text-2xl lg:text-3xl font-semibold text-bone mb-4">
-                Immediate Impact
+            Immediate Impact
               </h3>
               <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent/30 mx-auto" />
             </div>
@@ -86,16 +86,16 @@ export default function CaseStudyResults({ data }: CaseStudyResultsProps) {
                       </div>
                       <div className="flex-1 h-[1px] bg-gradient-to-r from-accent/40 to-transparent mt-5" />
                     </div>
+                  
+                  {/* Metric Name */}
+                  <h4 className="font-display text-lg lg:text-xl font-semibold text-accent mb-3">
+                    {result.metric}
+                  </h4>
 
-                    {/* Metric Name */}
-                    <h4 className="font-display text-lg lg:text-xl font-semibold text-accent mb-3">
-                      {result.metric}
-                    </h4>
-
-                    {/* Impact Description */}
+                  {/* Impact Description */}
                     <p className="text-bone/80 text-sm lg:text-base leading-relaxed font-light">
-                      {result.impact}
-                    </p>
+                    {result.impact}
+                  </p>
                   </LiquidGlassCard>
                 </div>
               </AnimateOnScroll>
@@ -108,7 +108,7 @@ export default function CaseStudyResults({ data }: CaseStudyResultsProps) {
           <AnimateOnScroll animation="fadeInUp" delay={300} duration={400}>
             <div className="text-center mb-12 lg:mb-16">
               <h3 className="font-display text-2xl lg:text-3xl font-semibold text-bone mb-4">
-                Long-term Value
+            Long-term Value
               </h3>
               <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent/30 mx-auto" />
             </div>
@@ -144,16 +144,16 @@ export default function CaseStudyResults({ data }: CaseStudyResultsProps) {
                       </div>
                       <div className="flex-1 h-[1px] bg-gradient-to-r from-accent/40 to-transparent mt-5" />
                     </div>
+                  
+                  {/* Metric Name */}
+                  <h4 className="font-display text-lg lg:text-xl font-semibold text-accent mb-3">
+                    {result.metric}
+                  </h4>
 
-                    {/* Metric Name */}
-                    <h4 className="font-display text-lg lg:text-xl font-semibold text-accent mb-3">
-                      {result.metric}
-                    </h4>
-
-                    {/* Impact Description */}
+                  {/* Impact Description */}
                     <p className="text-bone/80 text-sm lg:text-base leading-relaxed font-light">
-                      {result.impact}
-                    </p>
+                    {result.impact}
+                  </p>
                   </LiquidGlassCard>
                 </div>
               </AnimateOnScroll>
@@ -189,14 +189,14 @@ export default function CaseStudyResults({ data }: CaseStudyResultsProps) {
 
                     <blockquote className="text-xl lg:text-2xl leading-relaxed text-bone/90 font-light italic mb-8">
                       &ldquo;{data.testimonial.quote}&rdquo;
-                    </blockquote>
-                    
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+              </blockquote>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
                       <div className="font-medium text-bone">{data.testimonial.author}</div>
                       <div className="hidden sm:block w-1 h-1 bg-bone/30 rounded-full" />
                       <div className="text-bone/60">{data.testimonial.title}</div>
                       <div className="hidden sm:block w-1 h-1 bg-bone/30 rounded-full" />
-                      <div className="text-accent font-medium">{data.testimonial.company}</div>
+                <div className="text-accent font-medium">{data.testimonial.company}</div>
                     </div>
                   </div>
                 </LiquidGlassCard>

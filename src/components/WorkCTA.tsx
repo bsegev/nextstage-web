@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import Link from 'next/link';
+
 import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 export default function WorkCTA() {
@@ -179,14 +179,14 @@ export default function WorkCTA() {
           {/* Header */}
           <div className="mb-12">
             <h2 className="font-display text-4xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 text-bone">
-              Ready to transform your vision into{' '}
+              Ready to{' '}
               <span className="bg-gradient-to-r from-accent via-accent/80 to-accent bg-clip-text text-transparent">
-                measurable impact
+                start your project
               </span>
               ?
             </h2>
             <p className="text-lg text-bone/75 font-light max-w-2xl mx-auto">
-              Every great transformation starts with a conversation. Let&apos;s bring your vision to reality in weeks, not months.
+              Complete digital solutions delivered in 20 weeks. Let&apos;s talk about what you need.
             </p>
           </div>
 
@@ -333,7 +333,15 @@ export default function WorkCTA() {
             </a>
 
             {/* Secondary CTA */}
-                          <Link href="/case-studies" className="group relative w-full min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
+                          <button 
+              onClick={() => {
+                const processSection = document.getElementById('process-journey');
+                if (processSection) {
+                  processSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="group relative w-full min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2"
+            >
               <LiquidGlass 
                 intensity="subtle" 
                 animated
@@ -342,7 +350,7 @@ export default function WorkCTA() {
               >
                 <div className="inline-flex items-center justify-center gap-3 px-8 py-4 text-bone/80 group-hover:text-bone text-base font-medium transition-all duration-300 group-hover:-translate-y-1 w-full sm:w-auto">
                   <span className="relative">
-                    See Case Studies
+                    See Our Process
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                   </span>
                   
@@ -358,7 +366,7 @@ export default function WorkCTA() {
                   </div>
                 </div>
               </LiquidGlass>
-            </Link>
+            </button>
           </motion.div>
         </div>
 
@@ -435,7 +443,15 @@ export default function WorkCTA() {
               </a>
 
               {/* Secondary CTA */}
-              <Link href="/case-studies" className="group relative min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
+              <button 
+                onClick={() => {
+                  const processSection = document.getElementById('process-journey');
+                  if (processSection) {
+                    processSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="group relative min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2"
+              >
                 <LiquidGlass 
                   intensity="subtle" 
                   animated
@@ -444,7 +460,7 @@ export default function WorkCTA() {
                 >
                   <div className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 text-bone/80 group-hover:text-bone text-sm sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:-translate-y-1">
                     <span className="relative">
-                      See Case Studies
+                      See Our Process
                       <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                     </span>
                     
@@ -460,7 +476,7 @@ export default function WorkCTA() {
                     </div>
                   </div>
                 </LiquidGlass>
-              </Link>
+              </button>
             </motion.div>
 
             {/* Closing Statement */}

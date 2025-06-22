@@ -64,7 +64,7 @@ export default function CaseStudyDiscovery({ data }: CaseStudyDiscoveryProps) {
 
         {/* Main Discovery Layout - Balanced */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-20 lg:mb-24">
-          
+
           {/* Left Column: Research Methodology Visualization */}
           <AnimateOnScroll animation="fadeInLeft" delay={200} duration={500} className="relative h-full min-h-[400px] lg:min-h-[500px]">
             <div className="relative group h-full">
@@ -147,58 +147,58 @@ export default function CaseStudyDiscovery({ data }: CaseStudyDiscoveryProps) {
         </div>
 
         {/* Critical Insights - Only First 2 */}
-        {data.insights && data.insights.length > 0 && (
+          {data.insights && data.insights.length > 0 && (
           <div className="mb-20 lg:mb-24">
             <AnimateOnScroll animation="fadeInUp" delay={300} duration={400}>
               <div className="text-center mb-12 lg:mb-16">
-                <h3 className="font-display text-2xl lg:text-3xl font-semibold text-foreground mb-4">
-                  Critical Insights
-                </h3>
+                  <h3 className="font-display text-2xl lg:text-3xl font-semibold text-foreground mb-4">
+                    Critical Insights
+                  </h3>
                 <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent/30 mx-auto" />
-              </div>
-            </AnimateOnScroll>
+                </div>
+              </AnimateOnScroll>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
               {data.insights.slice(0, 2).map((insight, index) => (
-                <AnimateOnScroll
-                  key={index}
+                  <AnimateOnScroll
+                    key={index}
                   animation="fadeInUp"
                   delay={400 + index * 100}
-                  duration={400}
-                >
+                    duration={400}
+                  >
                   <div className="relative group">
-                    <GlowingEffect 
-                      variant="default" 
-                      glow 
-                      proximity={80}
-                      disabled={false}
-                      className="absolute inset-0 rounded-2xl"
-                    />
+                      <GlowingEffect 
+                        variant="default" 
+                        glow 
+                        proximity={80}
+                        disabled={false}
+                        className="absolute inset-0 rounded-2xl"
+                      />
                     <LiquidGlassCard
                       intensity="medium"
                       animated
                       className="relative p-6 lg:p-8 group-hover:scale-[1.02] transition-all duration-300"
                       borderRadius="rounded-2xl"
                     >
-                      <div className="flex items-center gap-4 mb-4">
+                        <div className="flex items-center gap-4 mb-4">
                         <div className="w-10 h-10 bg-gradient-to-br from-accent via-accent/90 to-accent/70 rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
-                          <span className="text-white font-bold text-sm">
-                            {index + 1}
-                          </span>
+                            <span className="text-white font-bold text-sm">
+                              {index + 1}
+                            </span>
+                          </div>
+                          <div className="flex-1 h-[1px] bg-gradient-to-r from-accent/40 to-transparent" />
                         </div>
-                        <div className="flex-1 h-[1px] bg-gradient-to-r from-accent/40 to-transparent" />
-                      </div>
 
                       <p className="text-foreground/90 leading-relaxed text-base lg:text-lg font-light">
-                        {insight}
-                      </p>
+                          {insight}
+                        </p>
                     </LiquidGlassCard>
-                  </div>
-                </AnimateOnScroll>
-              ))}
+                    </div>
+                  </AnimateOnScroll>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
         {/* Transition to Next Phase */}
         <AnimateOnScroll animation="fadeInUp" delay={600} duration={400} className="text-center">

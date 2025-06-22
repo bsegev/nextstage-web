@@ -45,17 +45,17 @@ export default function CaseStudySolution({ data }: CaseStudySolutionProps) {
           </div>
         </AnimateOnScroll>
           
-        {/* Timeline Badge */}
+          {/* Timeline Badge */}
         <AnimateOnScroll animation="fadeInUp" delay={100} duration={400}>
           <div className="flex justify-center mb-16 lg:mb-20">
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-bone/10 border border-bone/20 rounded-full backdrop-blur-sm">
               <div className="w-10 h-10 bg-gradient-to-br from-accent via-accent/90 to-accent/70 rounded-full flex items-center justify-center">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                </svg>
+            </svg>
               </div>
               <span className="text-base font-semibold text-accent tracking-wide">
-                {data.timeline}
+            {data.timeline}
               </span>
             </div>
           </div>
@@ -89,15 +89,15 @@ export default function CaseStudySolution({ data }: CaseStudySolutionProps) {
                   </span>
                   <h3 className="font-display text-2xl lg:text-3xl font-semibold text-bone mb-4 leading-tight">
                     {data.title}
-                  </h3>
+          </h3>
                 </div>
               </div>
-              
+
               <p className="text-lg lg:text-xl leading-relaxed text-bone/90 font-light">
                 {data.content}
               </p>
             </LiquidGlassCard>
-          </div>
+                </div>
         </AnimateOnScroll>
 
         {/* Solution Implementation Flow - Dynamic Steps */}
@@ -119,20 +119,20 @@ export default function CaseStudySolution({ data }: CaseStudySolutionProps) {
                         <span className="text-white font-bold text-lg">{index + 1}</span>
                       </div>
                       <div className="flex-1 h-[1px] bg-gradient-to-r from-accent/40 to-transparent" />
-                    </div>
+              </div>
 
                     <h4 className="font-display text-xl lg:text-2xl font-semibold text-bone mb-4 leading-tight">
                       {step.title}
-                    </h4>
+                  </h4>
                     <p className="text-bone/80 leading-relaxed text-base lg:text-lg font-light mb-6">
                       {step.description}
-                    </p>
+                  </p>
 
                     <div className="h-20 bg-gradient-to-br from-accent/10 to-accent/5 rounded-xl border border-accent/20 flex items-center justify-center">
                       <svg className="w-8 h-8 text-accent/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={step.icon} />
                       </svg>
-                    </div>
+                </div>
                   </div>
                 </div>
               </AnimateOnScroll>
@@ -146,12 +146,12 @@ export default function CaseStudySolution({ data }: CaseStudySolutionProps) {
             <AnimateOnScroll animation="fadeInUp" delay={500} duration={400}>
               <div className="text-center mb-12 lg:mb-16">
                 <h3 className="font-display text-2xl lg:text-3xl font-semibold text-bone mb-4">
-                  Solution Insights
-                </h3>
+              Solution Insights
+            </h3>
                 <div className="w-12 h-[2px] bg-gradient-to-r from-accent to-accent/30 mx-auto" />
               </div>
             </AnimateOnScroll>
-
+            
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
               {data.insights.slice(0, 2).map((insight, index) => (
                 <AnimateOnScroll

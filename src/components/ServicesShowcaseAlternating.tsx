@@ -6,33 +6,33 @@ import { LiquidGlass } from "@/components/ui/liquid-glass";
 
 const services = [
   {
-    title: "Strategy Consulting",
+    title: "Strategy & Planning",
     description: "Navigate complex business challenges with strategic guidance that unlocks sustainable growth opportunities. Our proven frameworks help you make informed decisions that drive measurable results.",
-    href: "/services/strategy-consulting",
+    href: "/services/strategy-planning",
     icon: "🎯",
     features: ["Market Analysis", "Growth Strategy", "Business Planning", "Risk Assessment"],
     gradient: "from-accent/20 to-accent/10"
   },
   {
-    title: "Brand Design",
+    title: "Branding & Design",
     description: "Create comprehensive brand identity systems that resonate deeply with your audience. From visual identity to brand guidelines, we craft brands that stand out and drive recognition.",
-    href: "/services/brand-design", 
+    href: "/services/branding-design", 
     icon: "✨",
     features: ["Visual Identity", "Brand Guidelines", "Logo Design", "Brand Strategy"],
     gradient: "from-olive/20 to-olive/10"
   },
   {
-    title: "Growth Marketing",
+    title: "Marketing & Growth",
     description: "Drive sustainable customer acquisition through data-driven marketing strategies. We optimize every touchpoint to maximize conversion and retention while minimizing acquisition costs.",
-    href: "/services/growth-marketing",
+    href: "/services/marketing-growth",
     icon: "📈",
     features: ["Conversion Optimization", "Customer Acquisition", "Marketing Automation", "Performance Analytics"],
     gradient: "from-accent/15 to-obsidian/10"
   },
   {
-    title: "Tech Innovation",
+    title: "Tech & Software",
     description: "Future-proof your business with custom technology solutions and digital transformation strategies. We build scalable systems that grow with your business needs.",
-    href: "/services/tech-innovation",
+    href: "/services/tech-software",
     icon: "⚡",
     features: ["Digital Transformation", "Custom Development", "System Integration", "Technical Strategy"],
     gradient: "from-olive/15 to-accent/10"

@@ -144,7 +144,7 @@ export default function CaseStudyImplementation({ data }: CaseStudyImplementatio
             <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
             <span className="text-sm font-semibold text-accent tracking-wide uppercase">
               Next: Results & Impact
-            </span>
+              </span>
           </div>
           <p className="text-lg lg:text-xl text-obsidian/80 font-light leading-relaxed max-w-3xl mx-auto">
             With implementation complete, the results phase reveals the tangible impact and measurable outcomes.

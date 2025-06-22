@@ -78,7 +78,7 @@ export default function TechInnovationConsultingHero() {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full border border-accent/20 mb-6 sm:mb-8">
               <div className="w-2 h-2 bg-accent rounded-full" />
               <span className="text-sm font-medium text-obsidian/70 tracking-wide uppercase">
-                Technology & Innovation
+                Tech & Software
               </span>
             </div>
           </div>

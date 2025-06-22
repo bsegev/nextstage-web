@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "motion/react"
 import { useRef } from "react"
-import { IconWorld, IconNetwork, IconTrendingUp } from "@tabler/icons-react"
+import { IconWorld, IconBuilding, IconTrendingUp } from "@tabler/icons-react"
 
 export default function TrustBanner() {
   const sectionRef = useRef(null)
@@ -10,18 +10,18 @@ export default function TrustBanner() {
 
   const trustItems = [
     { 
-      text: "International Reach",
-      description: "Global presence across 25+ countries",
+      text: "Across Countries",
+      description: "From Silicon Valley to Singapore to Stockholm",
       icon: IconWorld
     },
     { 
-      text: "Cross-Industry Expertise", 
-      description: "From fintech to consumer tech to enterprise",
-      icon: IconNetwork
+      text: "Across Industries", 
+      description: "Healthcare, fintech, consumer tech, and beyond",
+      icon: IconBuilding
     },
     { 
-      text: "Startups to Enterprise",
-      description: "Scaling solutions for every stage",
+      text: "Across Company Sizes",
+      description: "Pre-seed startups to Fortune 500 enterprises",
       icon: IconTrendingUp
     }
   ]

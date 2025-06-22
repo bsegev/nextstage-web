@@ -81,7 +81,7 @@ export default function GrowthMarketingConsultingHero() {
               className="inline-flex items-center px-4 py-2 bg-accent/10 rounded-full border border-accent/20"
             >
               <span className="text-sm font-medium text-obsidian/70 tracking-wide uppercase">
-                Growth & Marketing
+                Marketing & Growth
               </span>
             </motion.div>
 

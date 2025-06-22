@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+
 import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 export default function WorkHero() {
@@ -46,11 +46,11 @@ export default function WorkHero() {
           >
             <h1 className="font-display tracking-tight leading-[0.9] sm:leading-[0.95] mb-4 sm:mb-6 lg:mb-8 text-center sm:text-left">
               <span className="block text-foreground text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-1 sm:mb-2 lg:mb-3 drop-shadow-sm">
-                Integration{' '}
+                Our Recent{' '}
               </span>
               <span className="block relative">
                 <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian dark:from-bone dark:via-accent dark:to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm">
-                  in Action
+                  Work
                 </span>
                 <span className="absolute -inset-1 bg-gradient-to-r from-accent/15 to-accent/30 rounded-lg sm:rounded-xl blur-md sm:blur-lg opacity-20 animate-pulse block" />
               </span>
@@ -65,24 +65,19 @@ export default function WorkHero() {
           >
             <div className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 relative">
               <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] sm:leading-[1.5] text-foreground/80 font-light text-center sm:text-left max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto sm:mx-0">
-                When strategy, design, and technology move as{' '}
+                Websites, branding, and{' '}
                 <span className="relative inline-block">
-                  <span className="text-foreground font-medium">one embedded team</span>
+                  <span className="text-foreground font-medium">digital platforms</span>
                   <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/50 to-accent/25 block" />
                 </span>
-                , transformation happens at{' '}
+                {' '}built fast. See what we&apos;ve delivered for{' '}
                 <span className="relative inline-block">
-                  <span className="text-foreground font-medium">startup velocity</span>
+                  <span className="text-foreground font-medium">companies like yours</span>
                   <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/25 to-accent/50 block" />
-                </span>
-                —see how we help leaders turn vision into{' '}
-                <span className="relative inline-block">
-                  <span className="text-foreground font-medium">measurable impact</span>
-                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/50 to-accent/25 block" />
                 </span>
                 {' '}in{' '}
                 <span className="relative inline-block">
-                  <span className="text-foreground font-medium">weeks, not quarters</span>
+                  <span className="text-foreground font-medium">weeks, not months</span>
                   <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/25 to-accent/50 block" />
                 </span>
                 .
@@ -122,7 +117,15 @@ export default function WorkHero() {
               </a>
 
               {/* Secondary CTA */}
-              <Link href="/case-studies" className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2">
+              <button 
+                onClick={() => {
+                  const processSection = document.getElementById('process-journey');
+                  if (processSection) {
+                    processSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="group relative w-full sm:w-auto min-h-[56px] touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-bone/50 focus-visible:ring-offset-2"
+              >
                 <LiquidGlass 
                   intensity="subtle" 
                   animated
@@ -131,7 +134,7 @@ export default function WorkHero() {
                 >
                                      <div className="inline-flex items-center justify-center gap-3 sm:gap-4 px-8 py-4 sm:px-6 md:px-8 lg:px-10 sm:py-3 md:py-4 lg:py-5 text-obsidian/80 group-hover:text-obsidian text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:-translate-y-1 group-active:scale-95 w-full sm:w-auto">
                     <span className="relative">
-                      See Case Studies
+                      See Our Process
                       <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full block" />
                     </span>
                     
@@ -147,7 +150,7 @@ export default function WorkHero() {
                     </div>
                   </div>
                 </LiquidGlass>
-              </Link>
+              </button>
             </div>
           </motion.div>
         </div>

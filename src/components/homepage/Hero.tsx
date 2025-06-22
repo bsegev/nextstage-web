@@ -29,16 +29,16 @@ export default function Hero() {
       
       {/* Simplified floating orbs - reduced complexity for better performance */}
       <Suspense fallback={null}>
-        <motion.div 
-          className="absolute top-1/4 right-1/4 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full blur-xl sm:blur-2xl lg:blur-3xl opacity-40 dark:opacity-20"
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute bottom-1/3 left-1/4 w-40 h-40 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-gradient-to-tr from-accent/15 to-accent/8 rounded-full blur-xl sm:blur-2xl lg:blur-3xl opacity-30 dark:opacity-15"
-          animate={{ scale: [1.1, 1, 1.1] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
+      <motion.div 
+        className="absolute top-1/4 right-1/4 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full blur-xl sm:blur-2xl lg:blur-3xl opacity-40 dark:opacity-20"
+        animate={{ scale: [1, 1.1, 1] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div 
+        className="absolute bottom-1/3 left-1/4 w-40 h-40 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-gradient-to-tr from-accent/15 to-accent/8 rounded-full blur-xl sm:blur-2xl lg:blur-3xl opacity-30 dark:opacity-15"
+        animate={{ scale: [1.1, 1, 1.1] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
       </Suspense>
       
       {/* Subtle grid pattern with reduced opacity */}
@@ -74,19 +74,9 @@ export default function Hero() {
           >
             <div className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 relative">
               <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] sm:leading-[1.5] text-foreground/80 font-light text-center sm:text-left max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto sm:mx-0">
-                Where{' '}
+                Strategy that works, design that converts, technology that scales -{' '}
                 <span className="relative inline-block">
-                  <span className="text-foreground font-medium">strategy, design, and technology</span>
-                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/50 to-accent/25 block" />
-                </span>
-                {' '}converge to create{' '}
-                <span className="relative inline-block">
-                  <span className="text-foreground font-medium">integrated solutions</span>
-                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/25 to-accent/50 block" />
-                </span>
-                {' '}that drive real results. From{' '}
-                <span className="relative inline-block">
-                  <span className="text-foreground font-medium">first call to final launch</span>
+                  <span className="text-foreground font-medium">one meeting to see what we can build together</span>
                   <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/50 to-accent/25 block" />
                 </span>
                 .

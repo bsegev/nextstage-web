@@ -52,10 +52,10 @@ export default function CaseStudyPlanning({ data }: CaseStudyPlanningProps) {
               <div className="w-10 h-10 bg-gradient-to-br from-accent via-accent/90 to-accent/70 rounded-full flex items-center justify-center">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                </svg>
+            </svg>
               </div>
               <span className="text-base font-semibold text-accent tracking-wide">
-                {data.timeline}
+            {data.timeline}
               </span>
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function CaseStudyPlanning({ data }: CaseStudyPlanningProps) {
                       </span>
                       <h3 className="font-display text-2xl lg:text-3xl font-semibold text-foreground mb-4 leading-tight">
                         Planning Approach
-                      </h3>
+                  </h3>
                     </div>
                   </div>
                   
@@ -140,8 +140,8 @@ export default function CaseStudyPlanning({ data }: CaseStudyPlanningProps) {
                     {data.content}
                   </p>
                 </LiquidGlassCard>
-              </div>
-            </AnimateOnScroll>
+                </div>
+              </AnimateOnScroll>
 
             {/* Key Deliverables - Top 3 */}
             {data.deliverables && data.deliverables.length > 0 && (
@@ -167,14 +167,14 @@ export default function CaseStudyPlanning({ data }: CaseStudyPlanningProps) {
                             </span>
                           </div>
                           <div className="flex-1 h-[1px] bg-gradient-to-r from-accent/40 to-transparent" />
-                        </div>
-                        <p className="text-bone/90 leading-relaxed text-sm lg:text-base font-light">
-                          {deliverable}
-                        </p>
-                      </div>
                     </div>
-                  ))}
-                </div>
+                        <p className="text-bone/90 leading-relaxed text-sm lg:text-base font-light">
+                      {deliverable}
+                    </p>
+                      </div>
+                  </div>
+              ))}
+            </div>
               </AnimateOnScroll>
             )}
           </div>

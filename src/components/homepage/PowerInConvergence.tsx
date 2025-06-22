@@ -18,11 +18,11 @@ const content: Record<Section, ContentData> = {
   },
   design: {
     title: "Design",
-    description: "Strategy becomes real through design. We make complex simple, abstract concrete, and ambitious inevitable. Every decision serves your bigger picture."
+    description: "Brand systems, websites, pitch decks - design makes strategy tangible and technology human. We don't just make things look better, we make complex feel intuitive and ambitious feel inevitable."
   },
   technology: {
     title: "Technology",
-    description: "Vision becomes reality through technology. We build systems that work today and evolve tomorrow. Custom platforms, smart integrations, digital experiences that scale your advantage."
+    description: "AI automation, custom platforms, internal systems - technology turns vision into scalable reality. We build systems that don't just work today but evolve with tomorrow's demands."
   }
 };
 

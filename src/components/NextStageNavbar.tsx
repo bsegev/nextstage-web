@@ -25,34 +25,34 @@ const NextStageLogo = () => {
 };
 
 export default function NextStageNavbar() {
-  const [activeService, setActiveService] = useState<"market" | "brand" | "platform" | "growth">("market");
+  const [activeService, setActiveService] = useState<"strategy" | "branding" | "tech" | "marketing">("strategy");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 
   const serviceContent = {
-    market: {
-      title: "Market Intelligence & Planning",
+    strategy: {
+      title: "Strategy & Planning",
       description: "Transform uncertainty into strategic advantage with deep market insights",
       services: [
         {
           name: "Market Research & Analysis",
           description: "Comprehensive market analysis and competitive intelligence",
-          href: "/services/market-intelligence#market-research"
+          href: "/services/strategy#market-research"
         },
         {
           name: "Strategic Business Planning", 
           description: "Data-driven business strategy and execution roadmaps",
-          href: "/services/market-intelligence#business-planning"
+          href: "/services/strategy#business-planning"
         },
         {
           name: "Go-to-Market Strategy",
           description: "Launch strategies that capture market opportunity", 
-          href: "/services/market-intelligence#gtm-strategy"
+          href: "/services/strategy#gtm-strategy"
         },
         {
           name: "Competitive Positioning",
           description: "Position for market leadership and differentiation",
-          href: "/services/market-intelligence#competitive-positioning"
+          href: "/services/strategy#competitive-positioning"
         }
       ],
       cta: {
@@ -60,29 +60,29 @@ export default function NextStageNavbar() {
         description: "Let's uncover your strategic advantage"
       }
     },
-    brand: {
-      title: "Brand Experience & Systems",
+    branding: {
+      title: "Branding & Design",
       description: "Create cohesive brand experiences that drive recognition and conversion",
       services: [
         {
           name: "Brand Identity & Guidelines",
           description: "Complete visual identity and brand system development",
-          href: "/services/brand-experience#brand-identity"
+          href: "/services/branding#brand-identity"
         },
         {
           name: "Digital Experience Design",
           description: "User-centered websites and digital product interfaces",
-          href: "/services/brand-experience#digital-experience"
+          href: "/services/branding#digital-experience"
         },
         {
           name: "Brand Copywriting & Messaging",
           description: "Strategic messaging and content that converts",
-          href: "/services/brand-experience#copywriting"
+          href: "/services/branding#copywriting"
         },
         {
           name: "Design System Architecture",
           description: "Scalable design systems for consistent brand expression",
-          href: "/services/brand-experience#design-systems"
+          href: "/services/branding#design-systems"
         }
       ],
       cta: {
@@ -90,29 +90,29 @@ export default function NextStageNavbar() {
         description: "Let's create experiences that convert"
       }
     },
-    platform: {
-      title: "Platform Development", 
+    tech: {
+      title: "Tech & Software", 
       description: "Build scalable digital platforms that grow with your business",
       services: [
         {
           name: "Custom Platform Development",
           description: "End-to-end development of digital business platforms",
-          href: "/services/platform-development#custom-platforms"
+          href: "/services/tech#custom-platforms"
         },
         {
           name: "System Integration & APIs",
           description: "Connect and optimize your technology ecosystem",
-          href: "/services/platform-development#system-integration"
+          href: "/services/tech#system-integration"
         },
         {
           name: "Digital Product Development",
           description: "User-focused digital products from concept to launch",
-          href: "/services/platform-development#digital-products"
+          href: "/services/tech#digital-products"
         },
         {
           name: "Platform Architecture & Scaling",
           description: "Scalable, secure foundations for growth",
-          href: "/services/platform-development#platform-architecture"
+          href: "/services/tech#platform-architecture"
         }
       ],
       cta: {
@@ -120,29 +120,29 @@ export default function NextStageNavbar() {
         description: "Let's create technology that scales"
       }
     },
-    growth: {
-      title: "Growth Systems",
+    marketing: {
+      title: "Marketing & Growth",
       description: "Scale efficiently with integrated marketing and automation systems",
       services: [
         {
           name: "Marketing Automation Systems",
           description: "Automated workflows that nurture and convert",
-          href: "/services/growth-systems#marketing-automation"
+          href: "/services/marketing#marketing-automation"
         },
         {
           name: "CRM Setup & Optimization",
           description: "Sales systems that scale with your growth",
-          href: "/services/growth-systems#crm-systems"
+          href: "/services/marketing#crm-systems"
         },
         {
           name: "Conversion Optimization",
           description: "Systematic optimization across all touchpoints",
-          href: "/services/growth-systems#conversion-optimization"
+          href: "/services/marketing#conversion-optimization"
         },
         {
           name: "Performance Analytics",
           description: "Data systems that drive marketing decisions",
-          href: "/services/growth-systems#performance-analytics"
+          href: "/services/marketing#performance-analytics"
         }
       ],
       cta: {
@@ -164,52 +164,52 @@ export default function NextStageNavbar() {
           
                      <nav className="space-y-1 flex-1">
              <a 
-               href="/services/market-intelligence"
-               onClick={() => setActiveService("market")}
-               onMouseEnter={() => setActiveService("market")}
+              href="/services/strategy-planning"
+              onClick={() => setActiveService("strategy")}
+              onMouseEnter={() => setActiveService("strategy")}
                className={`block w-full text-left px-4 py-3 hover:text-bone hover:bg-accent/10 rounded-lg transition-all duration-200 ${
-                 activeService === "market" 
+                activeService === "strategy" 
                    ? "text-bone border-l-2 border-accent bg-accent/5" 
                    : "text-bone/60"
                }`}
              >
-               Market Intelligence & Planning
+              Strategy & Planning
              </a>
              <a 
-               href="/services/brand-experience"
-               onClick={() => setActiveService("brand")}
-               onMouseEnter={() => setActiveService("brand")}
+              href="/services/branding-design"
+              onClick={() => setActiveService("branding")}
+              onMouseEnter={() => setActiveService("branding")}
                className={`block w-full text-left px-4 py-3 hover:text-bone hover:bg-accent/10 rounded-lg transition-all duration-200 ${
-                 activeService === "brand" 
+                activeService === "branding" 
                    ? "text-bone border-l-2 border-accent bg-accent/5" 
                    : "text-bone/60"
                }`}
              >
-               Brand Experience & Systems
+              Branding & Design
              </a>
              <a 
-               href="/services/platform-development"
-               onClick={() => setActiveService("platform")}
-               onMouseEnter={() => setActiveService("platform")}
+              href="/services/tech-software"
+              onClick={() => setActiveService("tech")}
+              onMouseEnter={() => setActiveService("tech")}
                className={`block w-full text-left px-4 py-3 hover:text-bone hover:bg-accent/10 rounded-lg transition-all duration-200 ${
-                 activeService === "platform" 
+                activeService === "tech" 
                    ? "text-bone border-l-2 border-accent bg-accent/5" 
                    : "text-bone/60"
                }`}
              >
-               Platform Development
+              Tech & Software
              </a>
              <a 
-               href="/services/growth-systems"
-               onClick={() => setActiveService("growth")}
-               onMouseEnter={() => setActiveService("growth")}
+              href="/services/marketing-growth"
+              onClick={() => setActiveService("marketing")}
+              onMouseEnter={() => setActiveService("marketing")}
                className={`block w-full text-left px-4 py-3 hover:text-bone hover:bg-accent/10 rounded-lg transition-all duration-200 ${
-                 activeService === "growth" 
+                activeService === "marketing" 
                    ? "text-bone border-l-2 border-accent bg-accent/5" 
                    : "text-bone/60"
                }`}
              >
-               Growth Systems
+              Marketing & Growth
              </a>
            </nav>
 
@@ -358,10 +358,10 @@ export default function NextStageNavbar() {
               <div className="space-y-6">
                 {Object.entries(serviceContent).map(([key, service], index) => {
                   const serviceUrls = {
-                    market: "/services/market-intelligence",
-                    brand: "/services/brand-experience", 
-                    platform: "/services/platform-development",
-                    growth: "/services/growth-systems"
+                    strategy: "/services/strategy-planning",
+                    branding: "/services/branding-design", 
+                    tech: "/services/tech-software",
+                    marketing: "/services/marketing-growth"
                   };
                   
                   return (

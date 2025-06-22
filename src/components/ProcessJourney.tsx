@@ -27,7 +27,7 @@ const processPhases = [
   },
   {
     phase: "03",
-    title: "Solution Mapping", 
+    title: "Design & Build", 
     subtitle: "Technology meets strategy",
     description: "Detailed solution design with technology stack and implementation plan.",
     details: ["Technology stack", "Implementation plan", "Team structure"],
@@ -36,7 +36,7 @@ const processPhases = [
   },
   {
     phase: "04",
-    title: "Delivery",
+    title: "Launch & Handoff",
     subtitle: "Full-scale implementation and handoff", 
     description: "Sprint-based delivery with knowledge transfer and capability building.",
     details: ["Agile delivery", "Knowledge transfer"],
@@ -133,18 +133,18 @@ export default function ProcessJourney() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative">
         
         {/* Section Header */}
-        <div className={`text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} id="process-journey">
           <div className="mb-6 sm:mb-8 text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
-            <span>Your Transformation Journey</span>
+            <span>How We Work</span>
           </div>
           
           <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 md:mb-8">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-              From First Contact to Lasting Impact
+              From Idea to Launch
             </span>
           </h2>
           <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-2xl mx-auto leading-relaxed">
-            Here&apos;s how your case study will read—the structured approach that turns ambitious visions into transformational reality.
+            Our 4-phase process gets you from concept to live solution in 20 weeks. Here&apos;s exactly what happens.
           </p>
         </div>
 
@@ -777,9 +777,9 @@ export default function ProcessJourney() {
         >
           <div className="max-w-4xl mx-auto">
             <p className="text-xl lg:text-2xl text-obsidian/60 font-light leading-relaxed mb-8">
-              This is the methodology that creates the case studies you&apos;ve seen above. 
+              This is how we&apos;ve delivered every project above. 
               <br className="hidden sm:block" />
-              <span className="italic">Your transformation story is waiting to be written.</span>
+              <span className="italic">Your timeline starts with a conversation.</span>
             </p>
             
             <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto"></div>

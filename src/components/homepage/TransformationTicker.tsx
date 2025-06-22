@@ -19,7 +19,7 @@ export default function TransformationTicker() {
             </span>
           </h2>
           <p className="text-lg sm:text-base lg:text-lg text-foreground/75 font-light max-w-lg sm:max-w-xl lg:max-w-2xl mx-auto">
-            Live. Working. Delivered.
+            Built. Launched. Delivered.
           </p>
         </div>
       </div>
