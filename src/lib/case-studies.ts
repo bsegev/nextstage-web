@@ -21,6 +21,12 @@ export interface CaseStudyPhase {
   content: string;
   insights?: string[];
   deliverables?: string[];
+  backgroundImage?: string;
+  steps?: Array<{
+    title: string;
+    description: string;
+    icon: string; // SVG path data
+  }>;
 }
 
 export interface CaseStudyImplementation {
@@ -118,10 +124,9 @@ const caseStudies: CaseStudy[] = [
       title: 'Understanding Real Estate Fundamentals & Market Context',
       timeline: 'Days 1-2',
       content: 'Market intelligence uncovered critical insights: 85% of developers reported financing difficulties in 2024, creating urgent need for professional presentation. Southern Ontario growth trajectory shows population projected to grow 36% by 2046, with GTA adding 3.1 million residents. Development cost pressures hit $141,139 per home in Toronto (176% increase since 2011). Canadian institutional investors pulling billions from US markets back to domestic projects, intensifying local competition.',
+      backgroundImage: '/images/strategy-hero.png',
       insights: [
         'Funding crisis reality: 85% of developers struggling with financing, making professional presentation a competitive advantage',
-        'Southern Ontario opportunity: 36% population growth projected by 2046, validating long-term market opportunity',
-        'Client\'s unique positioning: Rare combination of US development experience + deep Southern Ontario market knowledge',
         'Strategic foundation: Position as experienced operators with deep market insight, not just another development play'
       ]
     },
@@ -129,44 +134,56 @@ const caseStudies: CaseStudy[] = [
       title: 'Integrated Brand and Investment Strategy',
       timeline: 'Days 2-3',
       content: 'Strategic framework informed by market research positioned against market dynamics: "Proven scale, local precision" narrative leveraging US experience for institutional-scale capability while Southern Ontario expertise ensures regulatory navigation. Investment narrative architecture opens with Southern Ontario opportunity sizing, demonstrates capability differentiation through US project examples, emphasizes local competitive advantage, and highlights market timing with capital scarcity creating opportunity.',
+      backgroundImage: '/images/meeting-room-2.png',
       deliverables: [
         'Positioning narrative: "Proven scale, local precision" against market dynamics',
         'Investment narrative architecture with Southern Ontario opportunity sizing',
         'Visual identity system conveying institutional credibility',
-        'Technology and communication strategy for investor-grade materials'
+        'Website strategy and communication systems for investor-grade materials'
       ]
     },
     solution: {
       title: 'Solution Mapping: From Pitch to Platform',
       timeline: 'Days 3-4',
-      content: 'The reverse-engineering approach: Instead of traditional brand-first methodology, we used the pitch deck as the brand development vehicle. High-leverage deliverable becomes brand foundation. Immediate deliverables included investment-grade pitch deck that simultaneously established visual identity system, copywriting and verbal identity developed through investor narrative, brand guidelines extracted from deck design decisions, and messaging framework proven through investor presentation requirements.',
+      content: 'The reverse-engineering approach: Instead of traditional brand-first methodology, we used the pitch deck as the brand development vehicle. High-leverage deliverable becomes brand foundation.',
+      steps: [
+        {
+          title: 'Reverse Engineering',
+          description: 'Start with the highest-stakes deliverable (pitch deck) to establish design principles and brand foundation that work under pressure.',
+          icon: 'M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z'
+        },
+        {
+          title: 'Scalable Integration',
+          description: 'Apply proven aesthetics across all touchpoints while building scalable brand architecture for future growth and expansion.',
+          icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z'
+        }
+      ],
       insights: [
         'Integration approach: Pitch deck requirements → Brand identity development → Verbal identity through copywriting',
-        'Visual consistency across all platforms using proven design language',
-        'Operational templates maintaining standards established in funding materials',
-        'No traditional handoffs - one expert maintaining vision across all deliverables'
+        'Visual consistency across all platforms using proven design language'
       ]
     },
     implementation: {
-      approach: 'Speed Without Compromise - Week 1 for funding materials, Weeks 2-4 for complete platform',
+      approach: 'Integrated execution - one week for critical funding materials, three weeks for custom website and market presence',
       phases: [
         {
           title: 'Week 1: Funding Sprint',
-          timeline: 'Days 1-7',
+          timeline: '7 days',
           details: [
-            'Days 1-2: Strategic positioning through investor narrative development',
-            'Days 3-4: Visual identity established through pitch deck design',
-            'Days 4-5: Verbal identity developed through copywriting',
-            'Days 6-7: Brand guidelines documentation'
+            'Strategic positioning and investor narrative development',
+            'Visual identity system through pitch deck design',
+            'Verbal identity and copywriting standards',
+            'Brand guidelines and presentation materials'
           ]
         },
         {
-          title: 'Weeks 2-4: Brand Platform Extension',
-          timeline: 'Weeks 2-4',
+          title: 'Weeks 2-4: Website Development',
+          timeline: '3 weeks',
           details: [
-            'Week 2: Website architecture using established identity',
-            'Week 3: Content creation following proven voice',
-            'Week 4: Template systems maintaining consistency'
+            'Custom website architecture and development',
+            'Content strategy and creation',
+            'Template systems for ongoing consistency',
+            'Market launch preparation'
           ]
         }
       ],
@@ -179,9 +196,9 @@ const caseStudies: CaseStudy[] = [
         { metric: 'Investor confidence', impact: 'Professional presentation demonstrated execution capability' }
       ],
       longTerm: [
-        { metric: 'Market presence', impact: 'Complete brand platform supporting future projects' },
+        { metric: 'Market presence', impact: 'Complete brand identity and custom website supporting future projects' },
         { metric: 'Operational independence', impact: 'Template systems enabling self-sufficient communications' },
-        { metric: 'Scalable foundation', impact: 'Brand and technology systems ready for portfolio expansion' }
+        { metric: 'Scalable foundation', impact: 'Brand identity and website systems ready for portfolio expansion' }
       ],
       testimonial: {
         quote: 'We started with just a name and a logo. Within a week, we had a polished investor deck for a live deal, and shortly after, a full website with custom components, clear messaging, and visuals that actually looked and felt like us. What really made the difference was working with someone who understands real estate. It wasn\'t just design, it was strategy, storytelling, and execution all rolled into one.',
@@ -259,7 +276,7 @@ const caseStudies: CaseStudy[] = [
       title: 'Understanding Audio Consumption Patterns',
       timeline: 'Week 1',
       content: 'User behavior analysis, content categorization challenges, and AI recommendation engine requirements.',
-      insights: ['Users abandon platforms due to poor discovery', 'Personalization drives retention', 'Social features enhance engagement']
+      insights: ['Users abandon platforms due to poor discovery', 'Personalization drives retention']
     },
     planning: {
       title: 'AI-Powered Experience Strategy',
@@ -271,20 +288,40 @@ const caseStudies: CaseStudy[] = [
       title: 'Intelligent Discovery Platform',
       timeline: 'Weeks 3-4',
       content: 'AI-powered recommendation engine with immersive UI/UX that learns from user behavior and preferences.',
-      insights: ['Machine learning improves with usage', 'Visual discovery reduces cognitive load', 'Social features create engagement loops']
+      insights: ['Machine learning improves with usage', 'Visual discovery reduces cognitive load']
     },
     implementation: {
-      approach: 'Rapid prototyping with AI integration and user testing cycles',
+      approach: 'AI-first development with rapid iteration and continuous user feedback integration',
       phases: [
         {
-          title: 'AI Engine Development',
-          timeline: 'Weeks 3-4',
-          details: ['Machine learning algorithm implementation', 'Content analysis and categorization', 'Recommendation system optimization']
+          title: 'Weeks 1-2: Foundation',
+          timeline: '2 weeks',
+          details: [
+            'User research and behavior pattern analysis',
+            'AI recommendation engine architecture',
+            'Core machine learning algorithm development',
+            'Content categorization system design'
+          ]
         },
         {
-          title: 'Platform Launch',
-          timeline: 'Weeks 5-6',
-          details: ['User interface development', 'Beta testing and refinement', 'Full platform deployment']
+          title: 'Weeks 3-4: Integration',
+          timeline: '2 weeks',
+          details: [
+            'User interface design and development', 
+            'AI engine integration and optimization',
+            'Beta testing with initial user groups',
+            'Performance monitoring and refinement'
+          ]
+        },
+        {
+          title: 'Weeks 5-6: Launch',
+          timeline: '2 weeks',
+          details: [
+            'Full platform deployment and scaling',
+            'User onboarding and engagement systems',
+            'Analytics implementation and monitoring',
+            'Continuous improvement based on user data'
+          ]
         }
       ],
       keyInsight: 'AI recommendations become more accurate with user interaction data.'
@@ -327,93 +364,133 @@ const caseStudies: CaseStudy[] = [
     }
   },
   {
-    slug: 'digital-banking-platform',
-    title: 'Digital Banking Infrastructure',
-    description: 'Building next-generation banking infrastructure that serves millions of customers across emerging markets.',
-    keywords: 'fintech, banking, digital transformation, financial services, platform',
+    slug: 'bank-dib-transformation',
+    title: 'From Pilot to Premium Banking Platform in 6 Months',
+    description: 'Complete digital bank transformation: operations, brand, technology, and client growth during banking industry crisis.',
+    keywords: 'digital banking, fintech, transformation, crisis positioning, premium banking, wealthy clients',
     hero: {
-      title: 'Digital Banking Infrastructure',
-      subtitle: 'Banking infrastructure that launches countries',
+      title: 'From Pilot to Premium Banking Platform in 6 Months',
+      subtitle: 'Digital Banking Transformation',
       client: 'Bank DIB',
-      stage: 'Activate → Scale',
-      timeline: '8 weeks total',
-      keyResult: 'Platform serving 1M+ customers',
+      stage: 'Create → Activate → Accelerate',
+      timeline: '6 months core transformation',
+      keyResult: '5x client growth, 8x assets increase, $1M+ saved',
       image: '/images/showcase/bank-comparison.png',
       overlayType: 'dark'
     },
     challenge: {
-      overview: 'Traditional banking infrastructure couldn\'t scale to meet growing demand in emerging markets. Legacy systems created bottlenecks.',
-      constraint: 'Regulatory compliance across multiple jurisdictions.',
-      stakes: 'Market leadership in fastest-growing financial regions.'
+      overview: 'A digital bank in pilot phase needed a complete business overhaul to launch successfully in the competitive wealthy client banking market. Scattered processes, inefficient systems, and unclear positioning against traditional big bank red tape threatened their market entry.',
+      constraint: 'Limited infrastructure, small team, need to stand out against established big banks that offer better access and clearer pricing.',
+      stakes: 'Successfully launch and scale a boutique digital bank serving wealthy clients or fail to compete against established banks.'
     },
     discovery: {
-      title: 'Financial Infrastructure Analysis',
-      timeline: 'Week 1',
-      content: 'Regulatory requirements, scalability challenges, and user experience expectations in emerging markets.',
-      insights: ['Mobile-first approach critical', 'Regulatory compliance complex but manageable', 'User trust through transparency']
+      title: 'Banking Operations & Market Analysis',
+      timeline: 'Month 1',
+      content: 'Deep dive audit revealed major problems: scattered documentation systems, confusing customer forms causing people to quit mid-application, mismatched technology systems, and unclear market positioning in a crowded banking space. Market research found wealthy clients frustrated with big bank red tape and hidden fees—creating an opportunity for a boutique bank with better access and transparent pricing.',
+      backgroundImage: '/images/showcase/bank-bg.png',
+      insights: [
+        'Operations problem: Scattered processes preventing the bank from growing efficiently',
+        'Market opportunity: Wealthy clients want to escape big bank red tape and hidden fees'
+      ]
     },
     planning: {
-      title: 'Scalable Platform Strategy',
-      timeline: 'Week 2',
-      content: 'Platform architecture for millions of users, regulatory compliance framework, and user experience design.',
-      deliverables: ['Technical architecture', 'Compliance framework', 'User experience design', 'Security protocols']
+      title: 'Business Operations & Brand Strategy',
+      timeline: 'Month 1-2',
+      content: 'Strategic plan positioned Bank DIB as a premium boutique digital bank serving wealthy clients with better access and transparent pricing—cutting through big bank red tape. The roadmap included standardizing processes, upgrading technology systems, and developing the brand.',
+      backgroundImage: '/images/boardroom.png',
+      deliverables: [
+        'Premium wealthy client positioning emphasizing better access and transparent pricing',
+        'Business process framework for scalable boutique service delivery',
+        'Technology system upgrade plan and rollout strategy'
+      ]
     },
     solution: {
-      title: 'Modern Banking Platform',
-      timeline: 'Weeks 3-5',
-      content: 'Cloud-native banking infrastructure with advanced security, regulatory compliance, and intuitive user experiences.',
-      insights: ['Cloud-native enables rapid scaling', 'API-first architecture future-proofs platform', 'User experience drives adoption']
-    },
-    implementation: {
-      approach: 'Phased rollout with continuous compliance monitoring',
-      phases: [
+      title: 'Boutique Bank Positioning',
+      timeline: 'Days 3-4',
+      content: 'Positioned Bank DIB as the premium boutique alternative to traditional private banking. The differentiation focused on personal service, specialized expertise, and exclusive client relationships.',
+      steps: [
         {
-          title: 'Core Platform Development',
-          timeline: 'Weeks 3-5',
-          details: ['Banking core system implementation', 'Security and compliance integration', 'API development and testing']
+          title: 'Market Differentiation',
+          description: 'Position as boutique alternative to traditional private banking with personal service and specialized wealthy client expertise.',
+          icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'
         },
         {
-          title: 'Market Launch',
-          timeline: 'Weeks 6-8',
-          details: ['User interface deployment', 'Regulatory approval process', 'Phased customer onboarding']
+          title: 'Digital Excellence',
+          description: 'Create premium digital experience that reflects boutique positioning while enabling scalable client growth.',
+          icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
         }
       ],
-      keyInsight: 'Regulatory compliance integrated from the start prevents costly retrofitting.'
+      insights: [
+        'Boutique positioning attracts wealthy clients seeking personal alternative to big bank bureaucracy',
+        'Digital excellence becomes competitive advantage in traditional banking industry'
+      ]
+    },
+    implementation: {
+      approach: 'Six-month complete transformation building full banking platform with structured handoff to independent operation',
+      phases: [
+        {
+          title: 'Months 1-3: Foundation & Rebrand',
+          timeline: '3 months',
+          details: [
+            'Complete business audit and process standardization',
+            'Full rebrand execution and market positioning',
+            'Technology system research, negotiation, and migration',
+            'Professional referral network development with law firms and accounting firms'
+          ]
+        },
+        {
+          title: 'Months 4-6: Growth & Optimization',
+          timeline: '3 months',
+          details: [
+            'Technology platform customization and system connections',
+            'Client acquisition through professional referral networks',
+            'Process optimization and team training for independent operation',
+            'Market positioning validation and growth acceleration'
+          ]
+        }
+      ],
+      keyInsight: 'Six months delivered complete transformation with clean handoff to independent operation.'
     },
     results: {
       immediate: [
-        { metric: 'Platform Launch', impact: 'Successfully deployed across 3 countries' },
-        { metric: 'Regulatory Approval', impact: '100% compliance achieved in all markets' },
-        { metric: 'User Onboarding', impact: '50,000+ customers in first month' }
+        { metric: 'Operations Efficiency', impact: 'Scalable processes from scattered startup operations' },
+        { metric: 'Brand Positioning', impact: 'Complete rebrand executed in 4 weeks' },
+        { metric: 'Technology Upgrade', impact: 'Core banking system migration saving $1M+ annually' }
       ],
       longTerm: [
-        { metric: 'Scale Achievement', impact: '1M+ active customers within 6 months' },
-        { metric: 'Market Position', impact: 'Leading digital bank in target regions' },
-        { metric: 'Revenue Growth', impact: '500% increase in digital banking revenue' }
-      ]
+        { metric: 'Client Growth', impact: '5x increase through professional referral networks' },
+        { metric: 'Assets Under Management', impact: '8x increase through wealthy client focus' },
+        { metric: 'Market Position', impact: 'Recognition as premium boutique alternative to big bank red tape' }
+      ],
+      testimonial: {
+        quote: 'The transformation was comprehensive - from operational chaos to premium banking platform. The positioning against big bank red tape with better access and transparent pricing proved exactly what our wealthy clients needed.',
+        author: 'Leadership Team',
+        title: 'Executive Leadership',
+        company: 'Bank DIB'
+      }
     },
     advantage: {
-      title: 'Cloud-Native Banking Architecture',
+      title: 'Complete Banking Transformation vs. Traditional Consulting',
       traditional: {
-        approach: 'Legacy system modernization with gradual digital transformation',
-        timeline: '12-18 months for partial modernization',
-        outcome: 'Limited scalability and ongoing technical debt'
+        approach: 'Operations consultant → Brand agency → Technology vendor → Marketing firm → Separate implementations',
+        timeline: '12-18 months for foundation, additional time for optimization',
+        outcome: 'Disconnected solutions, cost overruns, extended timelines, dependency on multiple vendors'
       },
       nextstage: {
-        approach: 'Cloud-native platform built for scale with integrated compliance',
-        timeline: '8 weeks for full platform deployment',
-        outcome: 'Unlimited scalability and future-ready architecture'
+        approach: 'Complete transformation across all business functions in 6 months with structured handoff to independence',
+        timeline: '6 months core transformation, clean handoff to independent operation',
+        outcome: '5x client growth, 8x assets increase, $1M+ savings, independent operation capability'
       },
-      insight: 'Building cloud-native from the start eliminates technical debt and enables rapid scaling.'
+      insight: 'Banking transformation requires integrated expertise to prevent gaps between critical business functions. Six-month intensive approach delivers faster results than extended consulting engagements.'
     },
     lessons: {
       factors: [
-        { title: 'Compliance-First Design', description: 'Integrating regulatory requirements from the start prevents costly retrofitting.' },
-        { title: 'Cloud-Native Architecture', description: 'Modern infrastructure enables rapid scaling and reduced operational costs.' }
+        { title: 'Concurrent Transformation', description: 'Auditing existing while building new systems enables maximum efficiency and seamless transitions.' },
+        { title: 'Boutique Service Differentiation', description: 'Better access and transparent pricing create compelling alternative to big bank red tape for wealthy clients.' }
       ],
       businessLessons: [
-        { title: 'Mobile-First is Essential', description: 'Emerging markets require mobile-optimized experiences for mass adoption.' },
-        { title: 'Trust Through Transparency', description: 'Clear communication about security and compliance builds user confidence.' }
+        { title: 'Boutique Premium Positioning', description: 'Wealthy client focus with better access and transparent pricing creates sustainable advantage against big bank red tape.' },
+        { title: 'Complete Transformation Advantage', description: 'Operations + Brand + Technology + Growth working together prevents gaps and accelerates results.' }
       ]
     }
   }

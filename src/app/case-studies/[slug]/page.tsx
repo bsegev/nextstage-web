@@ -68,37 +68,37 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
         {/* Hero Section */}
         <div id="hero">
-          <CaseStudyHero data={caseStudy.hero} />
+        <CaseStudyHero data={caseStudy.hero} />
         </div>
 
         {/* Phase 1: The Challenge */}
         <div id="challenge">
-          <CaseStudyChallenge data={caseStudy.challenge} />
+        <CaseStudyChallenge data={caseStudy.challenge} />
         </div>
 
         {/* Phase 2: Discovery */}
         <div id="discovery">
-          <CaseStudyDiscovery data={caseStudy.discovery} />
+        <CaseStudyDiscovery data={caseStudy.discovery} />
         </div>
 
         {/* Phase 3: Planning */}
         <div id="planning">
-          <CaseStudyPlanning data={caseStudy.planning} />
+        <CaseStudyPlanning data={caseStudy.planning} />
         </div>
 
         {/* Phase 4: Solution */}
         <div id="solution">
-          <CaseStudySolution data={caseStudy.solution} />
+        <CaseStudySolution data={caseStudy.solution} />
         </div>
 
         {/* Implementation */}
         <div id="implementation">
-          <CaseStudyImplementation data={caseStudy.implementation} />
+        <CaseStudyImplementation data={caseStudy.implementation} />
         </div>
 
         {/* Results Section */}
         <div id="results">
-          <CaseStudyResults data={caseStudy.results} />
+        <CaseStudyResults data={caseStudy.results} />
         </div>
 
         {/* Testimonial Section - shown as part of Results now */}

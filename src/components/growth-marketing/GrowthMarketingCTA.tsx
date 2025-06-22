@@ -416,7 +416,7 @@ export default function GrowthMarketingCTA() {
             className="flex flex-col items-center space-y-4"
           >
             {/* Primary CTA */}
-            <Link href="/contact" className="group relative w-full">
+            <a href="https://cal.com/bensegev/30min" target="_blank" rel="noopener noreferrer" className="group relative w-full">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
               <div className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-accent text-obsidian rounded-full text-base font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1 w-full">
                 <span className="relative">
@@ -437,7 +437,7 @@ export default function GrowthMarketingCTA() {
                   </motion.svg>
                 </div>
               </div>
-            </Link>
+            </a>
 
             {/* Secondary CTA */}
                           <Link href="/case-studies" className="group relative w-full">
@@ -531,7 +531,7 @@ export default function GrowthMarketingCTA() {
               className="flex flex-row items-start justify-start space-x-6"
             >
               {/* Primary CTA */}
-              <Link href="/contact" className="group relative">
+              <a href="https://cal.com/bensegev/30min" target="_blank" rel="noopener noreferrer" className="group relative">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/40 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
                 <div className="relative inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-accent text-obsidian rounded-full text-base sm:text-base lg:text-lg font-medium transition-all duration-300 group-hover:bg-accent/90 group-hover:border-transparent group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:-translate-y-1">
                   <span className="relative">
@@ -552,7 +552,7 @@ export default function GrowthMarketingCTA() {
                     </motion.svg>
                   </div>
                 </div>
-              </Link>
+              </a>
 
               {/* Secondary CTA */}
               <Link href="/case-studies" className="group relative">
