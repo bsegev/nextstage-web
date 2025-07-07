@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   try {
     console.log('Setting up strategy chat database tables...');
 
@@ -127,20 +127,20 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Check if tables exist
-    const { data: sessions, error: sessionsError } = await supabaseAdmin
+    const { error: sessionsError } = await supabaseAdmin
       .from('strategy_chat_sessions')
       .select('count')
       .limit(1);
 
-    const { data: messages, error: messagesError } = await supabaseAdmin
+    const { error: messagesError } = await supabaseAdmin
       .from('strategy_chat_messages')
       .select('count')
       .limit(1);
 
-    const { data: insights, error: insightsError } = await supabaseAdmin
+    const { error: insightsError } = await supabaseAdmin
       .from('strategy_chat_insights')
       .select('count')
       .limit(1);

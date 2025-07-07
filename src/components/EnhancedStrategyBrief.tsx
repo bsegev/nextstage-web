@@ -503,7 +503,7 @@ export const EnhancedStrategyBrief = ({
           <div className="card-elegant p-8 bg-accent/10 border-accent/20">
             <h2 className="text-xl font-semibold text-bone mb-4">Ready to Take Action?</h2>
             <p className="text-bone/70 mb-6">
-              Let's discuss how to implement these strategies and accelerate your growth.
+              Let&apos;s discuss how to implement these strategies and accelerate your growth.
             </p>
             
             <div className="grid md:grid-cols-2 gap-4">

@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
       conversationHistory: []
     };
 
-    const agentRunner = new NextStageAgentRunner(testContext);
+    const agentRunner = new NextStageAgentRunner();
     
     // Test with a simple business description
     const testInput = "I'm building a SaaS platform for small businesses to manage their inventory and track sales.";
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
       conversationHistory: []
     };
 
-    const agentRunner = new NextStageAgentRunner(testContext);
+    const agentRunner = new NextStageAgentRunner();
     const agentResponse = await agentRunner.runAgent(testInput);
     
     return NextResponse.json({

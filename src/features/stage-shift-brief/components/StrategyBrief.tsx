@@ -231,7 +231,7 @@ export const StrategyBrief = ({ responses, submissionId, onRefine, onStartOver }
             <div className="flex items-center space-x-3">
               <Button
                 onClick={onRefine}
-                variant="ghost"
+                variant="secondary"
                 size="sm"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
@@ -239,7 +239,7 @@ export const StrategyBrief = ({ responses, submissionId, onRefine, onStartOver }
               </Button>
               <Button
                 onClick={onStartOver}
-                variant="ghost"
+                variant="secondary"
                 size="sm"
                 className="text-bone/60 hover:text-bone"
               >
@@ -251,7 +251,7 @@ export const StrategyBrief = ({ responses, submissionId, onRefine, onStartOver }
             <div className="flex items-center space-x-3">
               <Button
                 onClick={handlePrintDownload}
-                variant="ghost"
+                variant="secondary"
                 size="sm"
               >
                 <Download className="w-4 h-4 mr-2" />

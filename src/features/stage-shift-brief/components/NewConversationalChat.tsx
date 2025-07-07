@@ -431,7 +431,7 @@ export const NewConversationalChat = ({ onComplete }: NewConversationalChatProps
                         onClick={handleTextSubmit}
                         disabled={!currentAnswer.trim() && !(currentQuestion && 'optional' in currentQuestion && currentQuestion.optional)}
                         variant="default"
-                        size="default"
+                        size="md"
                         className="px-6 py-3"
                       >
                         <ArrowRight className="w-4 h-4" />

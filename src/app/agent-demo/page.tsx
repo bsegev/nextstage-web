@@ -1,274 +1,177 @@
-'use client'
-
-import { useState } from 'react'
-import AgentDiscoveryChat from '@/components/AgentDiscoveryChat'
-import { Button } from '@/features/strategy-chat/ui/Button'
-import { Brain, MessageCircle, Settings, Zap, Target, Users } from 'lucide-react'
-
 export default function AgentDemoPage() {
-  const [showChat, setShowChat] = useState(false)
-  const [briefGenerated, setBriefGenerated] = useState(false)
-  const [progress, setProgress] = useState(0)
-
-  const handleComplete = (briefContent: string) => {
-    setBriefGenerated(true)
-    console.log('Brief generated:', briefContent)
-  }
-
-  const handleProgress = (progressValue: number) => {
-    setProgress(progressValue)
-  }
-
-  if (showChat) {
-    return (
-      <div className="h-screen">
-        <AgentDiscoveryChat
-          onComplete={handleComplete}
-          onProgress={handleProgress}
-          userName="Demo User"
-        />
-      </div>
-    )
-  }
 
   return (
-    <div className="min-h-screen bg-obsidian text-bone">
-      <div className="container mx-auto px-4 py-12">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="mb-4 inline-block px-3 py-1 rounded-full bg-accent/20 text-accent border border-accent/30 text-sm font-medium">
-            AI Agent Demo
-          </div>
-          <h1 className="text-4xl font-display font-bold mb-4">
-            Strategic Discovery Agent
-          </h1>
-          <p className="text-xl text-bone/70 max-w-3xl mx-auto">
-            Experience the power of AI agents that adapt their conversation flow based on your responses, 
-            using the Agent pattern from Anthropic's building effective agents guide.
-          </p>
-        </div>
-
-        {/* Agent vs Workflow Comparison */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {/* Old Workflow */}
-          <div className="bg-accent/10 border border-accent/20 rounded-xl overflow-hidden">
-            <div className="px-6 py-4 border-b border-accent/20">
-              <h3 className="text-bone flex items-center gap-2 text-lg font-medium">
-                <Settings className="w-5 h-5" />
-                Old Workflow Pattern
-              </h3>
-              <p className="text-bone/70 text-sm mt-1">
-                Predefined questions in fixed sequence
-              </p>
-            </div>
-            <div className="px-6 py-4 text-bone/80">
-              <ul className="space-y-2 text-sm">
-                <li>• Fixed set of questions</li>
-                <li>• Same sequence for everyone</li>
-                <li>• No adaptation to responses</li>
-                <li>• Limited probing capability</li>
-                <li>• Basic brief generation</li>
-              </ul>
+    <div className="min-h-screen bg-obsidian text-bone p-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-4xl font-bold mb-8 text-center">Agent Demo</h1>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Strategic Discovery Agent */}
+          <div className="bg-bone/5 border border-bone/10 rounded-lg p-6">
+            <h2 className="text-2xl font-semibold mb-4 text-accent">Strategic Discovery Agent</h2>
+            <p className="text-bone/80 mb-4">
+              Advanced AI agent that conducts strategic business analysis through intelligent conversation.
+            </p>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-accent rounded-full"></div>
+                <span className="text-sm">Market opportunity analysis</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-accent rounded-full"></div>
+                <span className="text-sm">Competitive landscape assessment</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-accent rounded-full"></div>
+                <span className="text-sm">Strategic recommendations</span>
+              </div>
             </div>
           </div>
 
-          {/* New Agent */}
-          <div className="bg-accent/20 border border-accent/30 rounded-xl overflow-hidden">
-            <div className="px-6 py-4 border-b border-accent/30">
-              <h3 className="text-bone flex items-center gap-2 text-lg font-medium">
-                <Brain className="w-5 h-5" />
-                New Agent Pattern
-              </h3>
-              <p className="text-bone/70 text-sm mt-1">
-                AI dynamically directs conversation flow
-              </p>
-            </div>
-            <div className="px-6 py-4 text-bone/80">
-              <ul className="space-y-2 text-sm">
-                <li>• Dynamic question generation</li>
-                <li>• Adapts to user responses</li>
-                <li>• Probes deeper when needed</li>
-                <li>• Changes topics strategically</li>
-                <li>• Comprehensive brief generation</li>
-              </ul>
+          {/* Conversation Intelligence */}
+          <div className="bg-bone/5 border border-bone/10 rounded-lg p-6">
+            <h2 className="text-2xl font-semibold mb-4 text-accent">Conversation Intelligence</h2>
+            <p className="text-bone/80 mb-4">
+              Smart conversation engine that extracts key insights from natural dialogue.
+            </p>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-accent rounded-full"></div>
+                <span className="text-sm">Natural language processing</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-accent rounded-full"></div>
+                <span className="text-sm">Intent recognition</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-accent rounded-full"></div>
+                <span className="text-sm">Business context understanding</span>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Agent Capabilities */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-display font-bold mb-6 text-center">
-            Agent Capabilities
-          </h2>
+        {/* Features Overview */}
+        <div className="mt-12 bg-accent/10 border border-accent/20 rounded-lg p-8">
+          <h2 className="text-3xl font-semibold mb-6 text-center">Core Capabilities</h2>
+          
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-accent/10 border border-accent/20 rounded-xl overflow-hidden">
-              <div className="px-6 py-4 border-b border-accent/20">
-                <h3 className="text-bone flex items-center gap-2 text-lg font-medium">
-                  <MessageCircle className="w-5 h-5" />
-                  Dynamic Conversation
-                </h3>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl text-obsidian">🧠</span>
               </div>
-              <div className="px-6 py-4">
-                <p className="text-bone/70 text-sm">
-                  The agent analyzes your responses and decides what to ask next, 
-                  adapting its strategy based on your business context.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-accent/10 border border-accent/20 rounded-xl overflow-hidden">
-              <div className="px-6 py-4 border-b border-accent/20">
-                <h3 className="text-bone flex items-center gap-2 text-lg font-medium">
-                  <Target className="w-5 h-5" />
-                  Strategic Probing
-                </h3>
-              </div>
-              <div className="px-6 py-4">
-                <p className="text-bone/70 text-sm">
-                  When the agent detects opportunities or gaps, it probes deeper 
-                  to uncover strategic insights you might not have considered.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-accent/10 border border-accent/20 rounded-xl overflow-hidden">
-              <div className="px-6 py-4 border-b border-accent/20">
-                <h3 className="text-bone flex items-center gap-2 text-lg font-medium">
-                  <Zap className="w-5 h-5" />
-                  Intelligent Brief Generation
-                </h3>
-              </div>
-              <div className="px-6 py-4">
-                <p className="text-bone/70 text-sm">
-                  The agent generates a comprehensive strategic brief only when 
-                  it has gathered sufficient strategic intelligence about your business.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Agent Tools */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-display font-bold mb-6 text-center">
-            Agent Tools & Decision Making
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-accent/10 border border-accent/20 rounded-xl overflow-hidden">
-              <div className="px-6 py-4 border-b border-accent/20">
-                <h3 className="text-bone text-lg font-medium">Analysis Tools</h3>
-              </div>
-              <div className="px-6 py-4">
-                <ul className="text-bone/70 text-sm space-y-2">
-                  <li>• <strong>Conversation Analyzer:</strong> Evaluates business clarity & strategic readiness</li>
-                  <li>• <strong>Context Extractor:</strong> Identifies business type, industry, and competitive landscape</li>
-                  <li>• <strong>Decision Maker:</strong> Determines next best action based on analysis</li>
-                  <li>• <strong>Strategic Insights:</strong> Generates real-time insights about opportunities</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-accent/10 border border-accent/20 rounded-xl overflow-hidden">
-              <div className="px-6 py-4 border-b border-accent/20">
-                <h3 className="text-bone text-lg font-medium">Agent Actions</h3>
-              </div>
-              <div className="px-6 py-4">
-                <ul className="text-bone/70 text-sm space-y-2">
-                  <li>• <strong>Continue Discovery:</strong> Ask follow-up questions on current topic</li>
-                  <li>• <strong>Probe Deeper:</strong> Explore specific areas with strategic questioning</li>
-                  <li>• <strong>Change Topic:</strong> Shift focus to new strategic areas</li>
-                  <li>• <strong>Generate Brief:</strong> Create comprehensive strategic assessment</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Demo Section */}
-        <div className="text-center">
-          <div className="bg-accent/20 border border-accent/30 rounded-xl max-w-2xl mx-auto overflow-hidden">
-            <div className="px-6 py-4 border-b border-accent/30">
-              <h3 className="text-bone text-2xl font-medium">
-                Experience the Agent Pattern
-              </h3>
-              <p className="text-bone/70 text-sm mt-2">
-                Start a conversation with our AI agent and see how it adapts to your responses
+              <h3 className="text-xl font-medium mb-2">Strategic Analysis</h3>
+              <p className="text-bone/70">
+                Deep business intelligence powered by advanced AI reasoning
               </p>
             </div>
-            <div className="px-6 py-6">
-              <div className="space-y-4">
-                <div className="flex items-center justify-center gap-4">
-                  <Users className="w-8 h-8 text-accent" />
-                  <div className="text-left">
-                    <p className="text-bone font-medium">Interactive Discovery</p>
-                    <p className="text-bone/70 text-sm">
-                      Have a natural conversation about your business
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center justify-center gap-4">
-                  <Brain className="w-8 h-8 text-accent" />
-                  <div className="text-left">
-                    <p className="text-bone font-medium">AI Analysis</p>
-                    <p className="text-bone/70 text-sm">
-                      Agent analyzes responses and adapts questioning
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center justify-center gap-4">
-                  <Target className="w-8 h-8 text-accent" />
-                  <div className="text-left">
-                    <p className="text-bone font-medium">Strategic Brief</p>
-                    <p className="text-bone/70 text-sm">
-                      Comprehensive strategic assessment generated
-                    </p>
-                  </div>
-                </div>
-                
-                <Button 
-                  onClick={() => setShowChat(true)}
-                  className="w-full bg-accent hover:bg-accent/80 text-obsidian font-medium"
-                >
-                  Start Agent Discovery Session
-                </Button>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl text-obsidian">💬</span>
+              </div>
+              <h3 className="text-xl font-medium mb-2">Natural Conversation</h3>
+              <p className="text-bone/70">
+                Intuitive dialogue that feels like talking to a strategic advisor
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl text-obsidian">📊</span>
+              </div>
+              <h3 className="text-xl font-medium mb-2">Actionable Insights</h3>
+              <p className="text-bone/70">
+                Concrete recommendations backed by market research
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Technical Architecture */}
+        <div className="mt-12 bg-bone/5 border border-bone/10 rounded-lg p-8">
+          <h2 className="text-3xl font-semibold mb-6 text-center">Technical Architecture</h2>
+          
+          <div className="space-y-6">
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-obsidian font-bold">1</span>
+              </div>
+              <div>
+                <h3 className="text-lg font-medium mb-2">Conversation Engine</h3>
+                <p className="text-bone/70">
+                  Claude AI-powered conversation management with context awareness and strategic questioning
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-obsidian font-bold">2</span>
+              </div>
+              <div>
+                <h3 className="text-lg font-medium mb-2">Intelligence Layer</h3>
+                <p className="text-bone/70">
+                  Multi-agent system for business analysis, market research, and strategic reasoning
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-obsidian font-bold">3</span>
+              </div>
+              <div>
+                <h3 className="text-lg font-medium mb-2">Brief Generation</h3>
+                <p className="text-bone/70">
+                  Automated strategic brief creation with market insights and actionable recommendations
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Technical Implementation */}
-        <div className="mt-12">
-          <h2 className="text-2xl font-display font-bold mb-6 text-center">
-            Technical Implementation
-          </h2>
-          <div className="bg-accent/10 border border-accent/20 rounded-xl overflow-hidden">
-            <div className="px-6 py-4 border-b border-accent/20">
-              <h3 className="text-bone text-lg font-medium">From Anthropic's Agent Patterns</h3>
+        {/* Integration Points */}
+        <div className="mt-12 bg-accent/5 border border-accent/10 rounded-lg p-8">
+          <h2 className="text-3xl font-semibold mb-6 text-center text-accent">Integration Capabilities</h2>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <h3 className="text-xl font-medium">Data Sources</h3>
+              <ul className="space-y-2 text-bone/70">
+                <li>• Market research databases</li>
+                <li>• Industry trend analysis</li>
+                <li>• Competitive intelligence</li>
+                <li>• Customer behavior data</li>
+              </ul>
             </div>
-            <div className="px-6 py-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-semibold text-bone mb-2">Agent Architecture</h3>
-                  <ul className="text-bone/70 text-sm space-y-1">
-                    <li>• Maintains conversation context</li>
-                    <li>• Uses tools for analysis</li>
-                    <li>• Makes dynamic decisions</li>
-                    <li>• Adapts based on feedback</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-bone mb-2">Why Agent Pattern?</h3>
-                  <ul className="text-bone/70 text-sm space-y-1">
-                    <li>• Open-ended conversation flow</li>
-                    <li>• Dynamic decision making needed</li>
-                    <li>• Clear success criteria (brief generation)</li>
-                    <li>• Requires strategic adaptation</li>
-                  </ul>
-                </div>
-              </div>
+            
+            <div className="space-y-4">
+              <h3 className="text-xl font-medium">Output Formats</h3>
+              <ul className="space-y-2 text-bone/70">
+                <li>• Strategic briefs (PDF/HTML)</li>
+                <li>• Executive summaries</li>
+                <li>• Market analysis reports</li>
+                <li>• Implementation roadmaps</li>
+              </ul>
             </div>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="mt-12 text-center">
+          <h2 className="text-3xl font-semibold mb-4">Ready to Experience the Future of Strategy?</h2>
+          <p className="text-bone/70 mb-8 max-w-2xl mx-auto">
+            Our AI agents are ready to transform how you approach strategic planning and business development.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-accent text-obsidian px-8 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors">
+              Try Strategy Brief
+            </button>
+            <button className="border border-accent text-accent px-8 py-3 rounded-lg font-medium hover:bg-accent/10 transition-colors">
+              Learn More
+            </button>
           </div>
         </div>
       </div>

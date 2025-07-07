@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
 
+interface DatabaseMessage {
+  id: string;
+  conversation_id: string;
+  role: string;
+  content: string;
+  created_at: string;
+}
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -25,7 +33,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Transform messages to match frontend interface
-    const transformedMessages = messages.map((msg: any) => ({
+    const transformedMessages = messages.map((msg: DatabaseMessage) => ({
       id: msg.id,
       conversation_id: msg.conversation_id,
       role: msg.role,

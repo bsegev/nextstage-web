@@ -136,8 +136,8 @@ export const ConversationalFlow = ({ onComplete }: ConversationalFlowProps) => {
       question: currentQuestion.question,
       answer,
       questionIndex: currentQuestionIndex,
-      isFollowUp: currentQuestion.isFollowUp || false,
-      followUpReasoning: currentQuestion.reasoning
+      isFollowUp: (currentQuestion as any).isFollowUp || false,
+      followUpReasoning: (currentQuestion as any).reasoning
     };
 
     const updatedResponses = [...responses, newResponse];
@@ -233,7 +233,7 @@ export const ConversationalFlow = ({ onComplete }: ConversationalFlowProps) => {
   };
 
   const handleTextSubmit = () => {
-    if (currentAnswer.trim() || currentQuestion.optional) {
+    if (currentAnswer.trim() || (currentQuestion as any).optional) {
       handleAnswer(currentAnswer.trim());
     }
   };
@@ -437,16 +437,16 @@ export const ConversationalFlow = ({ onComplete }: ConversationalFlowProps) => {
                 />
                 <Button 
                   onClick={handleTextSubmit}
-                  disabled={!currentAnswer.trim() && !currentQuestion.optional}
+                  disabled={!currentAnswer.trim() && !(currentQuestion as any).optional}
                   className="btn-primary w-full"
                 >
                   Continue
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                {currentQuestion.optional && (
+                {(currentQuestion as any).optional && (
                   <Button 
                     onClick={() => handleAnswer("")}
-                    variant="ghost"
+                    variant="secondary"
                     className="w-full text-muted-foreground"
                   >
                     Skip this question

@@ -57,7 +57,7 @@ export default function NextStageNavbar() {
       ],
       cta: {
         title: "Ready to understand your market?",
-        description: "Let's uncover your strategic advantage"
+        description: "Let&apos;s uncover your strategic advantage"
       }
     },
     branding: {
@@ -87,7 +87,7 @@ export default function NextStageNavbar() {
       ],
       cta: {
         title: "Ready to elevate your brand?",
-        description: "Let's create experiences that convert"
+        description: "Let&apos;s create experiences that convert"
       }
     },
     tech: {
@@ -117,7 +117,7 @@ export default function NextStageNavbar() {
       ],
       cta: {
         title: "Ready to build your platform?",
-        description: "Let's create technology that scales"
+        description: "Let&apos;s create technology that scales"
       }
     },
     marketing: {
@@ -147,7 +147,7 @@ export default function NextStageNavbar() {
       ],
       cta: {
         title: "Ready to systematize growth?",
-        description: "Let's build systems that scale"
+        description: "Let&apos;s build systems that scale"
       }
     }
   };
@@ -314,17 +314,17 @@ export default function NextStageNavbar() {
           <p className="text-sm text-gray-600 dark:text-gray-300">Browse our complete portfolio of client projects and successful implementations</p>
         </a>
         
-        <a href="/case-studies" className="group block space-y-3 p-4 rounded-lg hover:bg-accent/5 transition-colors">
+        <Link href="/case-studies" className="group block space-y-3 p-4 rounded-lg hover:bg-accent/5 transition-colors">
           <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-accent transition-colors">Case Studies</h4>
           <p className="text-sm text-gray-600 dark:text-gray-300">Deep-dive analysis of our most impactful client transformations</p>
-        </a>
+        </Link>
       </div>
       
       <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
         <div className="flex items-center justify-between">
           <div>
-            <h5 className="font-medium text-gray-900 dark:text-white">Ready to see what's possible?</h5>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Let's discuss your project</p>
+            <h5 className="font-medium text-gray-900 dark:text-white">Ready to see what&apos;s possible?</h5>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Let&apos;s discuss your project</p>
           </div>
           <a href="/strategy-brief" className="px-4 py-2 bg-accent text-obsidian rounded-lg font-medium hover:bg-accent/90 transition-colors">
             Start Your Brief
@@ -358,7 +358,7 @@ export default function NextStageNavbar() {
         <div className="flex items-center justify-between">
           <div>
             <h5 className="font-medium text-gray-900 dark:text-white">Ready to work together?</h5>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Let's start with your strategic brief</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">Let&apos;s start with your strategic brief</p>
           </div>
           <a href="/strategy-brief" className="px-4 py-2 bg-accent text-obsidian rounded-lg font-medium hover:bg-accent/90 transition-colors">
             Get Started
