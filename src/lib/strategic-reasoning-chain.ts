@@ -205,19 +205,22 @@ Focus on strategic business analysis, not market research.`
     const audience = extractedInfo.audience || 'target market';
     const industry = extractedInfo.industry || 'technology';
 
-    try {
-      console.log('🔍 Conducting web search for market research...');
-      
-      // Use Anthropic's web search tool for market research
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'anthropic-version': '2023-06-01',
-          'x-api-key': process.env.ANTHROPIC_API_KEY || ''
-        },
-        body: JSON.stringify({
-          model: 'claude-3-5-sonnet-latest', // Updated to latest model with web search support
+    // Try both model versions - latest first, then fall back to specific version
+    const modelsToTry = [
+      'claude-3-5-sonnet-latest',
+      'claude-3-5-sonnet-20241022'
+    ];
+
+    for (let i = 0; i < modelsToTry.length; i++) {
+      const model = modelsToTry[i];
+      try {
+        console.log(`🔍 Attempting web search with model: ${model} (attempt ${i + 1}/${modelsToTry.length})`);
+        console.log('🔍 API Key available:', !!process.env.ANTHROPIC_API_KEY);
+        console.log('🔍 Search query context:', { project, audience, industry });
+        
+        // Use Anthropic's web search tool for market research
+        const requestBody = {
+          model: model,
           max_tokens: 3000,
           tools: [
             {
@@ -232,70 +235,168 @@ Focus on strategic business analysis, not market research.`
               content: `Search for current market size and growth trends of ${industry} relating to ${project} for ${audience}. Focus on market size, growth rates, competitive landscape, customer preferences, and emerging opportunities.`
             }
           ]
-        })
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log('✅ Web search completed successfully');
-        
-        // Debug: Log the full content structure
-        console.log('🔍 Full response content structure:', JSON.stringify(data.content.map((block: any) => ({ type: block.type, hasContent: !!block.content })), null, 2));
-        
-        // Extract text content from Claude's analysis
-        const researchContent = data.content
-          .filter((item: any) => item.type === 'text')
-          .map((item: any) => item.text)
-          .join(' ');
-
-        // NEW: Extract the actual web search results
-        const resultBlock = data.content.find((block: any) => block.type === 'web_search_tool_result');
-        const searchResults = resultBlock?.content || [];
-        
-        console.log('🌐 Search results found:', searchResults.length);
-        if (searchResults.length > 0) {
-          console.log('📄 First result sample:', {
-            title: searchResults[0]?.title,
-            url: searchResults[0]?.url,
-            hasContent: !!searchResults[0]?.encrypted_content
-          });
-        }
-
-        // Extract citations for credibility
-        const citations = data.content
-          .filter((item: any) => item.citations)
-          .flatMap((item: any) => item.citations)
-          .map((citation: any) => ({
-            url: citation.url,
-            title: citation.title,
-            text: citation.cited_text
-          }));
-
-        console.log('📎 Citations found:', citations.length);
-
-        return {
-          marketSize: this.extractMarketSizeFromResearch(researchContent),
-          growthTrends: this.extractGrowthTrendsFromResearch(researchContent),
-          competitiveLandscape: this.extractCompetitiveInfoFromResearch(researchContent),
-          customerInsights: this.extractCustomerInsightsFromResearch(researchContent),
-          opportunities: this.extractOpportunitiesFromResearch(researchContent),
-          sources: citations.slice(0, 5), // Top 5 sources
-          rawSearchResults: searchResults.slice(0, 3), // Include raw results for debugging
-          researchSummary: researchContent.substring(0, 500) + '...'
         };
-      } else {
-        console.warn('⚠️ Web search failed:', response.status, response.statusText);
-        const errorText = await response.text();
-        console.warn('Error details:', errorText);
-        throw new Error('Web search failed');
+
+        console.log('🔍 Request body:', JSON.stringify({...requestBody, messages: ['[message content hidden for brevity]']}, null, 2));
+
+        const response = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'anthropic-version': '2023-06-01',
+            'x-api-key': process.env.ANTHROPIC_API_KEY || ''
+          },
+          body: JSON.stringify(requestBody)
+        });
+
+        console.log(`🔍 Response status for ${model}:`, response.status, response.statusText);
+        console.log('🔍 Response headers:', Object.fromEntries(response.headers.entries()));
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log(`✅ Web search API call completed successfully with ${model}`);
+          console.log('🔍 Response data keys:', Object.keys(data));
+          console.log('🔍 Content blocks count:', data.content?.length || 0);
+          
+          // Debug: Log the full content structure
+          if (data.content) {
+            console.log('🔍 Full response content structure:', JSON.stringify(data.content.map((block: any) => ({ 
+              type: block.type, 
+              hasContent: !!block.content,
+              hasText: !!block.text,
+              blockKeys: Object.keys(block)
+            })), null, 2));
+          }
+          
+          // Extract text content from Claude's analysis
+          const researchContent = data.content
+            ?.filter((item: any) => item.type === 'text')
+            ?.map((item: any) => item.text)
+            ?.join(' ') || '';
+
+          console.log('📝 Research content length:', researchContent.length);
+          if (researchContent.length > 0) {
+            console.log('📝 Research content preview:', researchContent.substring(0, 200) + '...');
+          }
+
+          // Extract the actual web search results
+          const resultBlock = data.content?.find((block: any) => block.type === 'web_search_tool_result');
+          const searchResults = resultBlock?.content || [];
+          
+          console.log('🌐 Search results found:', searchResults.length);
+          if (searchResults.length > 0) {
+            console.log('📄 First result sample:', {
+              title: searchResults[0]?.title,
+              url: searchResults[0]?.url,
+              hasContent: !!searchResults[0]?.encrypted_content,
+              resultKeys: Object.keys(searchResults[0] || {})
+            });
+          }
+
+          // Extract citations for credibility
+          const citations = data.content
+            ?.filter((item: any) => item.citations)
+            ?.flatMap((item: any) => item.citations)
+            ?.map((citation: any) => ({
+              url: citation.url,
+              title: citation.title,
+              text: citation.cited_text
+            })) || [];
+
+          console.log('📎 Citations found:', citations.length);
+
+          // Check if we actually got useful research data
+          const hasWebSearchResults = searchResults.length > 0;
+          const hasUsefulContent = researchContent.length > 100; // Meaningful content threshold
+          
+          console.log('🔍 Web search success metrics:', {
+            model,
+            hasWebSearchResults,
+            hasUsefulContent,
+            contentLength: researchContent.length,
+            citationsCount: citations.length
+          });
+
+          if (hasWebSearchResults || hasUsefulContent) {
+            console.log(`✅ Web search provided useful data with ${model}, using research results`);
+            return {
+              marketSize: this.extractMarketSizeFromResearch(researchContent),
+              growthTrends: this.extractGrowthTrendsFromResearch(researchContent),
+              competitiveLandscape: this.extractCompetitiveInfoFromResearch(researchContent),
+              customerInsights: this.extractCustomerInsightsFromResearch(researchContent),
+              opportunities: this.extractOpportunitiesFromResearch(researchContent),
+              sources: citations.slice(0, 5), // Top 5 sources
+              rawSearchResults: searchResults.slice(0, 3), // Include raw results for debugging
+              researchSummary: researchContent.length > 500 ? researchContent.substring(0, 500) + '...' : researchContent || 'Web search completed but limited research data available'
+            };
+          } else {
+            console.warn(`⚠️ Web search with ${model} completed but no useful data returned`);
+            if (i < modelsToTry.length - 1) {
+              console.log(`🔄 Trying next model: ${modelsToTry[i + 1]}`);
+              continue;
+            }
+            throw new Error('Web search returned no useful data with any model');
+          }
+        } else {
+          console.warn(`⚠️ Web search API call failed with ${model}:`, response.status, response.statusText);
+          let errorText = 'Unknown error';
+          try {
+            errorText = await response.text();
+            console.warn('❌ Error response details:', errorText);
+            
+            // Try to parse error details
+            try {
+              const errorData = JSON.parse(errorText);
+              console.warn('❌ Parsed error data:', errorData);
+              
+              // Check for specific error types
+              if (errorData.error?.type === 'invalid_request_error' && errorData.error?.message?.includes('tool')) {
+                console.warn('❌ Web search tool not available for this model/account');
+              }
+            } catch (parseError) {
+              console.warn('❌ Could not parse error response as JSON');
+            }
+          } catch (e) {
+            console.warn('❌ Could not read error response text');
+          }
+          
+          if (i < modelsToTry.length - 1) {
+            console.log(`🔄 API failed with ${model}, trying next model: ${modelsToTry[i + 1]}`);
+            continue;
+          }
+          
+          throw new Error(`Web search API failed with all models: ${response.status} ${response.statusText}`);
+        }
+        
+      } catch (error) {
+        console.warn(`⚠️ Web search error with ${model}:`, error);
+        console.warn('⚠️ Error details:', {
+          message: error instanceof Error ? error.message : 'Unknown error',
+          stack: error instanceof Error ? error.stack : undefined
+        });
+        
+        if (i < modelsToTry.length - 1) {
+          console.log(`🔄 Error with ${model}, trying next model: ${modelsToTry[i + 1]}`);
+          continue;
+        }
+        
+        // All models failed, return unavailable research
+        console.warn('❌ All web search attempts failed, using conversation insights only');
+        break;
       }
-      
-    } catch (error) {
-      console.warn('⚠️ Web search error, falling back to industry knowledge:', error);
-      
-      // Fallback to intelligent mock research based on the inputs
-      return this.generateIntelligentFallbackResearch(extractedInfo, businessAnalysis);
     }
+
+    // Return minimal research indicating web search was unavailable
+    return {
+      marketSize: 'Market research unavailable - analysis based on conversation insights',
+      growthTrends: 'Growth trend analysis unavailable - analysis based on conversation insights', 
+      competitiveLandscape: 'Competitive analysis unavailable - analysis based on conversation insights',
+      customerInsights: 'Customer insights unavailable - analysis based on conversation insights',
+      opportunities: 'Market opportunities analysis unavailable - analysis based on conversation insights',
+      sources: [],
+      rawSearchResults: [],
+      researchSummary: 'Strategic analysis based on conversation insights (research unavailable)'
+    };
   }
 
   private extractMarketSizeFromResearch(content: string): string {
