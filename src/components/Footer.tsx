@@ -22,7 +22,7 @@ const Footer = () => {
     connect: [
       { name: "LinkedIn", href: "#linkedin" },
       { name: "Twitter", href: "#twitter" },
-      { name: "Email", href: "mailto:hello@nextstage.com" },
+      { name: "Email", href: "mailto:ben@nextstage.co" },
       { name: "Newsletter", href: "#newsletter" },
     ],
   };
@@ -102,10 +102,10 @@ const Footer = () => {
                     Ready to begin?
                   </p>
                   <a 
-                    href="mailto:hello@nextstage.com"
+                    href="mailto:ben@nextstage.co"
                     className="text-lg text-bone font-light group-hover:text-accent transition-all duration-500 tracking-wide"
                   >
-                    hello@nextstage.com
+                    ben@nextstage.co
                   </a>
                   <motion.div 
                     className="w-8 h-[1px] bg-accent/30 mx-auto mt-4 origin-left"
@@ -124,10 +124,10 @@ const Footer = () => {
                     Start a conversation
                   </p>
                   <a 
-                    href="tel:+1234567890"
+                    href="tel:+14165551234"
                     className="text-base text-bone font-light group-hover:text-accent transition-all duration-500 tracking-wide"
                   >
-                    +1 (234) 567-8900
+                    +1 (416) 555-1234
                   </a>
                 </motion.div>
               </div>
@@ -271,10 +271,10 @@ const Footer = () => {
                     Ready to begin?
                   </p>
                   <a 
-                    href="mailto:hello@nextstage.com"
+                    href="mailto:ben@nextstage.co"
                     className="text-base text-bone font-medium group-hover:text-accent transition-colors duration-300 relative"
                   >
-                    hello@nextstage.com
+                    ben@nextstage.co
                     <motion.div 
                       className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent group-hover:w-full transition-all duration-300"
                     />
@@ -290,10 +290,10 @@ const Footer = () => {
                     Start a conversation
                   </p>
                   <a 
-                    href="tel:+1234567890"
+                    href="tel:+14165551234"
                     className="text-base text-bone font-medium group-hover:text-accent transition-colors duration-300 relative"
                   >
-                    +1 (234) 567-8900
+                    +1 (416) 555-1234
                     <motion.div 
                       className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent group-hover:w-full transition-all duration-300"
                     />

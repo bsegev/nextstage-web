@@ -12,6 +12,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://nextstage.co'),
   title: "NextStage - Strategy, Brand & Transformation",
   description: "NextStage is your partner for strategy, brand, and transformation. We bring structure to vision, design what's missing, and build what works.",
 };

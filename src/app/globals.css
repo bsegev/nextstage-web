@@ -219,8 +219,6 @@ body {
     transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-
 .process-number {
   font-size: 3.5rem;
   font-weight: 700;
@@ -319,6 +317,328 @@ body {
     50% {
       background-position: 100% 50%;
     }
+  }
+}
+
+/* Stage Shift Brief Feature Styles */
+.card-elegant {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--obsidian);
+  border: none;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  color: var(--obsidian);
+  filter: brightness(0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 224, 215, 0.15);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: var(--obsidian);
+  transform: translateY(-2px);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, var(--obsidian) 0%, var(--accent) 100%);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+.text-hero {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1.1;
+}
+
+.text-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Chat Interface Animations */
+@keyframes messageSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes typingDots {
+  0%, 20% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-message-slide {
+  animation: messageSlide 0.4s ease-out;
+}
+
+.animate-typing-dots {
+  animation: typingDots 1.4s infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 224, 215, 0.2),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Chat bubble styles */
+.chat-bubble {
+  position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.chat-bubble::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 224, 215, 0.3), rgba(255, 224, 215, 0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* Glassmorphism effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Print Styles for PDF Generation */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+  }
+  
+  .print\:hidden {
+    display: none !important;
+  }
+  
+  .print\:block {
+    display: block !important;
+  }
+  
+  .print\:text-black {
+    color: black !important;
+  }
+  
+  .print\:text-gray-600 {
+    color: #4B5563 !important;
+  }
+  
+  .print\:text-gray-500 {
+    color: #6B7280 !important;
+  }
+  
+  .print\:bg-white {
+    background-color: white !important;
+  }
+  
+  .print\:bg-gray-50 {
+    background-color: #F9FAFB !important;
+  }
+  
+  .print\:border-gray-200 {
+    border-color: #E5E7EB !important;
+  }
+  
+  .print\:border-gray-300 {
+    border-color: #D1D5DB !important;
+  }
+  
+  .print\:rounded-lg {
+    border-radius: 0.5rem !important;
+  }
+  
+  .print\:p-4 {
+    padding: 1rem !important;
+  }
+  
+  .print\:p-3 {
+    padding: 0.75rem !important;
+  }
+  
+  .print\:mb-4 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .print\:mb-3 {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .print\:text-lg {
+    font-size: 1.125rem !important;
+  }
+  
+  .print\:text-base {
+    font-size: 1rem !important;
+  }
+  
+  .print\:text-sm {
+    font-size: 0.875rem !important;
+  }
+  
+  .print\:text-xs {
+    font-size: 0.75rem !important;
+  }
+  
+  .print\:leading-normal {
+    line-height: 1.5 !important;
+  }
+  
+  .print\:space-y-6 > * + * {
+    margin-top: 1.5rem !important;
+  }
+  
+  .print\:space-y-4 > * + * {
+    margin-top: 1rem !important;
+  }
+  
+  .print\:max-w-none {
+    max-width: none !important;
+  }
+  
+  .print\:overflow-visible {
+    overflow: visible !important;
+  }
+  
+  .print\:px-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  .print\:py-0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* Ensure page breaks work properly */
+  h1, h2, h3 {
+    page-break-after: avoid !important;
+  }
+  
+  /* Avoid breaking inside important content */
+  .print\:break-inside-avoid {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  
+  /* Font family for print */
+  .font-display {
+    font-family: "Times New Roman", Times, serif !important;
+  }
+  
+  /* Remove shadows and special effects for print */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
   }
 }
 

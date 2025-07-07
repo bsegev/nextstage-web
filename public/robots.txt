@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nextstage.co/sitemap.xml
+ 
+# Disallow demo pages
+Disallow: /glowing-cards-demo
+Disallow: /liquid-glass-subtle
+Disallow: /liquid-glass-test 

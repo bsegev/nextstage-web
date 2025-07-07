@@ -38,41 +38,41 @@ export default function TransformationTicker() {
   );
 }
 
-// Demo data - optimized for mobile readability
+// Real client transformations
 const transformations = [
   {
-    quote: "B2C retail brand launch: Strategy to first purchase in 7 days",
-    name: "E-commerce Startup",
-    title: "Brand + Strategy + Systems",
+    quote: "From name and logo to multi-million dollar funding in 30 days",
+    name: "SparrowPark Development",
+    title: "Brand + Strategy + Technology",
   },
   {
-    quote: "SaaS platform rebuild: 3x faster performance in 30 days",
-    name: "Tech Company",
-    title: "Strategy + Systems + Technology",
-  },
-  {
-    quote: "Fintech MVP: Concept to first user transaction in 25 days",
-    name: "Financial Services",
+    quote: "AI podcast platform: 300% increase in user engagement in 6 weeks",
+    name: "AI Odyssey",
     title: "Strategy + Design + Technology",
   },
   {
-    quote: "Enterprise rebrand: Complete identity to market rollout in 4 weeks",
-    name: "Fortune 500",
-    title: "Brand + Strategy + Design",
+    quote: "Digital bank transformation: 5x client growth, 8x assets increase",
+    name: "Bank DIB",
+    title: "Strategy + Brand + Systems",
   },
   {
-    quote: "E-commerce transformation: 200% conversion uplift in 28 days",
-    name: "Retail Platform",
-    title: "Strategy + Design + Systems",
-  },
-  {
-    quote: "B2B marketplace: Strategy to live platform in 35 days",
-    name: "SaaS Startup",
-    title: "Strategy + Technology + Systems",
-  },
-  {
-    quote: "Digital product launch: Idea to 1,000 users in 30 days",
-    name: "Consumer App",
+    quote: "Complete website and brand system launch in 4 weeks",
+    name: "Grid Aero",
     title: "Brand + Design + Technology",
+  },
+  {
+    quote: "Strategic rebrand and market positioning in under 1 month",
+    name: "Eccan",
+    title: "Brand + Strategy + Systems",
+  },
+  {
+    quote: "Digital platform build and go-to-market strategy in 6 weeks",
+    name: "WowWee",
+    title: "Strategy + Technology + Growth",
+  },
+  {
+    quote: "Brand identity to market launch in record time",
+    name: "SimilarWeb",
+    title: "Brand + Strategy + Design",
   },
 ]; 

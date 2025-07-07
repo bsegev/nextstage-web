@@ -33,12 +33,29 @@ export const AnimatedTestimonials = ({
     return index === active;
   };
 
+  // Calculate reading time based on text length
+  const calculateReadingTime = (text: string) => {
+    const wordsPerMinute = 200; // Average reading speed
+    const words = text.split(' ').length;
+    const readingTimeMinutes = words / wordsPerMinute;
+    const readingTimeMs = readingTimeMinutes * 60 * 1000;
+    
+    // Minimum 8 seconds, maximum 15 seconds for very long quotes
+    const minTime = 8000;
+    const maxTime = 15000;
+    
+    return Math.min(Math.max(readingTimeMs, minTime), maxTime);
+  };
+
   useEffect(() => {
     if (autoplay) {
-      const interval = setInterval(handleNext, 5000);
+      const currentTestimonial = testimonials[active];
+      const readingTime = calculateReadingTime(currentTestimonial.quote);
+      
+      const interval = setInterval(handleNext, readingTime);
       return () => clearInterval(interval);
     }
-  }, [autoplay]);
+  }, [autoplay, active, testimonials]);
 
   const getRotation = (index: number) => {
     // Use a deterministic pattern based on index

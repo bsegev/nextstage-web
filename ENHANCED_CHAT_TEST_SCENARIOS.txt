@@ -1,0 +1,154 @@
+ENHANCED CHAT TEST SCENARIOS
+=====================================
+
+## STANDARD TEST CASE (Happy Path)
+=====================================
+
+**Name:** "Ben"
+**Project:** "I'm building a scope management platform for freelance consultants. It's a SaaS tool that helps freelancers track project boundaries, prevent scope creep, and manage client expectations through automated alerts and clear documentation."
+**Audience:** "Freelance consultants and independent contractors who struggle with scope creep - particularly those in tech, marketing, and business consulting who work on project-based engagements."
+**Problem:** "Freelancers lose 20-30% of their potential revenue to scope creep because they don't have clear systems to track and communicate when clients request work outside the original agreement. This leads to burnout, unpaid work, and strained client relationships."
+**Success:** "In 6 months, I'd have 500 paying subscribers at $49/month, clear product-market fit, and freelancers saving an average of 10 hours per week on scope management tasks."
+**Timeline:** "3–6 months"
+**Budget:** "$50K+"
+**Additional:** "I'm particularly excited about the market research aspect - I want to understand the competitive landscape and see what funding opportunities exist for freelance productivity tools."
+
+## EDGE CASE SCENARIOS
+=====================================
+
+### 1. MINIMAL ANSWERS (Test Short Responses)
+**Name:** "Sam"
+**Project:** "App"
+**Audience:** "People"
+**Problem:** "Issues"
+**Success:** "Make money"
+**Timeline:** "Soon"
+**Budget:** "<$10K"
+**Additional:** "Nope"
+
+### 2. EXTREMELY DETAILED ANSWERS (Test Long Responses)
+**Name:** "Alexandra"
+**Project:** "I'm developing a comprehensive enterprise-grade AI-powered customer relationship management and sales automation platform specifically designed for B2B SaaS companies with complex sales cycles, multiple stakeholders, and high-value deals. The platform integrates advanced machine learning algorithms for predictive analytics, lead scoring, and automated personalization at scale, while also providing real-time collaboration tools for distributed sales teams, customizable reporting dashboards with advanced data visualization, and seamless integration with existing tech stacks including Salesforce, HubSpot, Slack, and various email marketing platforms."
+**Audience:** "Our target audience consists of mid-market to enterprise B2B SaaS companies with annual recurring revenue between $5M-$100M, typically employing 50-500 sales professionals across multiple geographic regions, who are currently struggling with fragmented sales processes, lack of unified customer data visibility, inefficient lead qualification procedures, and inadequate forecasting accuracy."
+**Problem:** "The core problem we're addressing is the massive inefficiency in B2B sales processes where sales teams waste 67% of their time on non-selling activities, deal cycles are 40% longer than they should be due to poor lead qualification, and companies lose an average of $2.3M annually due to inaccurate sales forecasting and pipeline management."
+**Success:** "Success would mean achieving $10M ARR with 200+ enterprise clients, reducing average sales cycle length by 35%, improving lead-to-close conversion rates by 50%, and becoming the recognized market leader in AI-powered sales automation for mid-market SaaS companies."
+**Timeline:** "Let's go now! 🚀"
+**Budget:** "$50K+"
+**Additional:** "I'm also interested in exploring strategic partnerships with major CRM vendors, understanding the competitive landscape in the sales automation space, and identifying potential acquisition targets or companies that might want to acquire us in the future."
+
+### 3. SPECIAL CHARACTERS & TYPOS (Test Input Handling)
+**Name:** "José-María"
+**Project:** "I'm building a FinTech app with ~$2M funding already secured! It's for crypto traders & DeFi enthusiasts... basically anyone who wants to trade 24/7 with AI-powered insights. The app uses machine learning to predict market movements & send real-time alerts."
+**Audience:** "Crypto traders, DeFi users, & institutional investors who need advanced analytics for digital asset trading"
+**Problem:** "Most crypto trading platforms suck at providing actionable insights - they're either too basic or too complex. Traders lose money because they can't react fast enough to market changes & don't have AI-powered analysis tools."
+**Success:** "1M+ active users, $100M+ in trading volume, partnerships with major exchanges like Binance & Coinbase"
+**Timeline:** "1–3 months"
+**Budget:** "Let's discuss"
+**Additional:** "We're looking at Series A fundraising & need help with go-to-market strategy + competitive analysis"
+
+### 4. NON-TECHNICAL USER (Test Industry Knowledge)
+**Name:** "Margaret"
+**Project:** "I want to start a bakery subscription service where people get artisanal breads and pastries delivered to their homes weekly. I'm not very tech-savvy but I know I need some kind of online platform."
+**Audience:** "Busy professionals and families who appreciate high-quality baked goods but don't have time to visit bakeries regularly"
+**Problem:** "Good bakeries are often inconvenient to get to, and people want consistent access to fresh, artisanal baked goods without the hassle of remembering to order or pick up"
+**Success:** "I'd love to have 500 regular subscribers and be making enough to quit my day job as a teacher"
+**Timeline:** "We're exploring"
+**Budget:** "<$10K"
+**Additional:** "I'm worried about the technical side - I can bake amazing bread but I don't understand websites or apps at all"
+
+### 5. B2B ENTERPRISE (Test Complex Business Models)
+**Name:** "David"
+**Project:** "Enterprise workflow automation platform for Fortune 500 companies that integrates with existing ERP systems, automates complex approval processes, and provides real-time compliance monitoring across multiple departments and regulatory frameworks."
+**Audience:** "Chief Digital Officers, IT Directors, and Operations VPs at Fortune 500 companies in regulated industries like healthcare, finance, and manufacturing"
+**Problem:** "Large enterprises waste $12M annually on manual processes, compliance failures, and inefficient workflows that could be automated. Current solutions are too rigid and don't integrate well with legacy systems."
+**Success:** "10 Fortune 500 clients paying $500K+ annually, proven ROI of 300%+ for implementations, and becoming the go-to automation partner for regulated industries"
+**Timeline:** "3–6 months"
+**Budget:** "$50K+"
+**Additional:** "We need help with enterprise sales strategy, regulatory compliance analysis, and competitive intelligence on IBM, Microsoft, and ServiceNow"
+
+### 6. CREATIVE/ARTISTIC PROJECT (Test Non-Tech Industries)
+**Name:** "Luna"
+**Project:** "I'm creating a platform that connects independent musicians with local venues for live performances. It's like Airbnb but for music gigs - venues can list their spaces and musicians can book them directly."
+**Audience:** "Independent musicians, small venue owners, and music fans who want to discover new artists at intimate venues"
+**Problem:** "Musicians struggle to find venues and venues struggle to find consistent musical acts. The current system relies on personal connections and word-of-mouth, which limits opportunities for both sides."
+**Success:** "1000+ musicians using the platform, 200+ venues listed, and 50+ bookings per month in our launch city"
+**Timeline:** "1–3 months"
+**Budget:** "$10–50K"
+**Additional:** "I'm curious about the market potential and whether there are investors who specifically fund music-tech startups"
+
+### 7. ALREADY SUCCESSFUL PROJECT (Test Scaling Scenarios)
+**Name:** "Ryan"
+**Project:** "We have a successful e-commerce platform for outdoor gear with $2M annual revenue. Now we want to expand internationally and add AI-powered product recommendations."
+**Audience:** "Outdoor enthusiasts, hikers, campers, and adventure travelers who need high-quality gear and expert advice"
+**Problem:** "We're hitting a growth ceiling in the US market and our product discovery experience isn't personalized enough. International expansion is complex and we're losing customers to better-personalized competitors."
+**Success:** "$10M annual revenue, successful launch in 3 international markets, and 40% improvement in customer lifetime value through better personalization"
+**Timeline:** "Let's go now! 🚀"
+**Budget:** "$50K+"
+**Additional:** "We're specifically interested in international market research, AI implementation strategy, and competitive analysis of our European competitors"
+
+### 8. SOCIAL IMPACT PROJECT (Test Mission-Driven Businesses)
+**Name:** "Priya"
+**Project:** "Educational platform that provides free coding education to underserved communities, with a focus on women and minorities in developing countries. We monetize through corporate partnerships and job placement fees."
+**Audience:** "Women and minorities in developing countries who want to learn programming but don't have access to quality education or can't afford traditional coding bootcamps"
+**Problem:** "There's a massive skills gap in tech, but traditional education is too expensive and inaccessible for most people who could benefit from it. This perpetuates inequality in the tech industry."
+**Success:** "10,000 students completing courses, 1,000+ job placements, and partnerships with 50+ tech companies for hiring and funding"
+**Timeline:** "3–6 months"
+**Budget:** "$10–50K"
+**Additional:** "I'm interested in grant opportunities, impact investor research, and understanding the competitive landscape in the educational technology space"
+
+## QUESTIONS TO EXPECT FROM THE ENHANCED CHAT:
+============================================
+
+Based on the conversation flow, you might encounter these questions:
+
+1. **Opening:** "What's your name?" / "What should I call you?"
+2. **Project Overview:** "What are you building?" / "Tell me about your project"
+3. **Target Audience:** "Who is this for?" / "Who are your customers?"
+4. **Problem Definition:** "What problem are you solving?" / "What pain point does this address?"
+5. **Success Vision:** "What would success look like?" / "What's your ideal outcome?"
+6. **Timeline:** "What's your timeline?" / "How quickly do you want to move?"
+7. **Budget:** "What's your budget range?" / "What are you planning to invest?"
+8. **Additional Context:** "Anything else you'd like to share?" / "Any other details?"
+
+## FOLLOW-UP QUESTIONS (The system might ask these based on your answers):
+=========================================================================
+
+- "Can you tell me more about [specific aspect of your project]?"
+- "What makes your solution different from existing options?"
+- "Have you validated this problem with potential customers?"
+- "What's your biggest concern about this project?"
+- "Do you have any existing traction or early customers?"
+- "What's your technical background?"
+- "Are you looking to raise funding?"
+- "What's your go-to-market strategy?"
+- "Who do you see as your main competitors?"
+- "What's your biggest risk or challenge?"
+
+## TESTING TIPS:
+================
+
+1. **Test the Name Extraction:** Try variations like "I'm Ben", "my name is Ben", "Ben here", "call me Ben"
+2. **Test Spell Check:** Include common typos like "anme" instead of "name", "teh" instead of "the"
+3. **Test Conversation Flow:** See if it asks intelligent follow-ups based on your answers
+4. **Test Market Research:** Mention specific industries/technologies to see if research is relevant
+5. **Test Edge Cases:** Very short answers, very long answers, special characters, emojis
+6. **Test Context Retention:** Reference earlier parts of the conversation to see if it remembers
+
+## WHAT TO LOOK FOR:
+===================
+
+✅ **Good Signs:**
+- Intelligent follow-up questions
+- Relevant market research
+- Personalized brief generation
+- Smooth conversation flow
+- Proper name extraction
+- Context retention
+
+❌ **Red Flags:**
+- Generic/irrelevant market research
+- Repetitive questions
+- Poor name extraction
+- Lost conversation context
+- API errors or timeouts
+- Irrelevant strategic advice 

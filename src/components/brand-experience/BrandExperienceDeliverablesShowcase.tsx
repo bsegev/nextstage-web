@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion, PanInfo } from 'motion/react';
 import { cn } from "@/lib/utils";
+
 import { 
   IconTarget,
   IconPalette, 
@@ -121,7 +122,8 @@ export default function BrandDesignDeliverablesShowcase() {
       title: "Startup Brand Identity System",
       description: "Complete logo suite, color palette, and typography for early-stage companies.",
       category: "Identity",
-      icon: IconPalette
+      icon: IconPalette,
+      href: "/deliverables/brand-identity-system"
     },
     {
       title: "Investor Pitch Deck Design",
@@ -133,7 +135,8 @@ export default function BrandDesignDeliverablesShowcase() {
       title: "Website Design & Development",
       description: "Conversion-focused website with mobile optimization and CMS integration.",
       category: "Digital",
-      icon: IconCode
+      icon: IconCode,
+      href: "/deliverables/website-design-development"
     },
     {
       title: "Brand Messaging & Voice Framework",
@@ -363,6 +366,7 @@ export default function BrandDesignDeliverablesShowcase() {
                     <motion.div 
                       className={cn(
                         "relative bg-gradient-to-br from-white via-white/98 to-bone/90 backdrop-blur-xl border rounded-3xl p-6 overflow-hidden h-full flex flex-col transition-all duration-700 group",
+                        deliverable.href ? "cursor-pointer" : "",
                         isActive 
                           ? "border-accent/30 shadow-2xl shadow-accent/[0.15] scale-[1.02]" 
                           : "border-obsidian/[0.08] shadow-lg hover:shadow-xl hover:border-accent/20"
@@ -372,6 +376,7 @@ export default function BrandDesignDeliverablesShowcase() {
                         opacity: isActive ? 1 : (isNext || isPrev) ? 0.8 : 0.6,
                       }}
                       transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+                      onClick={() => deliverable.href && window.open(deliverable.href, '_self')}
                     >
                       
                       {/* Active card glow effect */}
