@@ -1,7 +1,7 @@
-// Advanced Prompt Templates for NextStage Strategic Briefs
-// Sophisticated prompt engineering for different client scenarios and industries
+// NextStage Prompt Templates - Enhanced intelligent brief generation
+// Structured template system with contextual intelligence
 
-import { ClientProfile } from './openai'
+import { ClientProfile } from './types'
 import { INDUSTRY_TEMPLATES } from './nextstage-methodology'
 
 export interface PromptTemplate {

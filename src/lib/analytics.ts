@@ -1,7 +1,7 @@
 // NextStage Analytics Module
 // Track brief generation patterns, template effectiveness, and client engagement
 
-import { ClientProfile } from './openai'
+import { ClientProfile } from './types'
 
 export interface BriefGenerationEvent {
   timestamp: Date
