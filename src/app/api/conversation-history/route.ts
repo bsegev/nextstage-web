@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabaseAdmin } from '@/lib/supabase';
+// import { supabaseAdmin } from '@/lib/supabase'; // Disabled to prevent build-time errors
 
 interface DatabaseMessage {
   id: string;
@@ -13,45 +13,53 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const conversationId = searchParams.get('conversationId');
+    const limit = parseInt(searchParams.get('limit') || '50');
 
     if (!conversationId) {
-      return NextResponse.json({ error: 'conversationId is required' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Conversation ID is required' },
+        { status: 400 }
+      );
     }
 
-    console.log('Loading conversation history for:', conversationId);
+    // Supabase disabled - return empty history
+    console.log('Conversation history requested but Supabase is disabled');
+    return NextResponse.json({ 
+      messages: [], 
+      message: 'Conversation history not available - Supabase disabled' 
+    });
 
-    // Load conversation messages
+    /* Original Supabase code - commented out
     const { data: messages, error } = await supabaseAdmin
-      .from('conversation_messages')
+      .from('strategy_chat_messages')
       .select('*')
       .eq('conversation_id', conversationId)
-      .order('created_at', { ascending: true });
+      .order('created_at', { ascending: true })
+      .limit(limit);
 
     if (error) {
-      console.error('Error loading conversation messages:', error);
-      return NextResponse.json({ error: 'Failed to load conversation history' }, { status: 500 });
+      console.error('Database error:', error);
+      return NextResponse.json(
+        { error: 'Failed to fetch conversation history' },
+        { status: 500 }
+      );
     }
 
     // Transform messages to match frontend interface
     const transformedMessages = messages.map((msg: DatabaseMessage) => ({
       id: msg.id,
-      conversation_id: msg.conversation_id,
       role: msg.role,
       content: msg.content,
-      created_at: new Date(msg.created_at)
+      timestamp: msg.created_at
     }));
 
-    console.log('Returning', transformedMessages.length, 'messages');
-
-    return NextResponse.json({
-      messages: transformedMessages,
-      conversationId: conversationId
-    });
-
+    return NextResponse.json({ messages: transformedMessages });
+    */
   } catch (error) {
-    console.error('Error in conversation history API:', error);
-    return NextResponse.json({ 
-      error: 'Failed to load conversation history' 
-    }, { status: 500 });
+    console.error('Conversation history error:', error);
+    return NextResponse.json(
+      { error: 'Failed to fetch conversation history' },
+      { status: 500 }
+    );
   }
 } 

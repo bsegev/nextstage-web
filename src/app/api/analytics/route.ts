@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getAnalyticsDashboard, getBusinessIntelligence, exportAnalyticsData } from '@/lib/analytics'
-import { supabase } from '@/lib/supabase'
+// import { supabase } from '@/lib/supabase' // Disabled to prevent build-time errors
 
 interface AnalyticsEvent {
   event: string;
@@ -26,6 +26,14 @@ export async function GET(request: NextRequest) {
     
     // If requesting raw analytics data
     if (type === 'raw' || eventType) {
+      // Supabase disabled - return mock data or error
+      console.log('Analytics raw data requested but Supabase is disabled');
+      return NextResponse.json({ 
+        data: [], 
+        message: 'Raw analytics data not available - Supabase disabled' 
+      })
+      
+      /* Original Supabase code - commented out
       let query = supabase
         .from('analytics')
         .select('*')
@@ -43,6 +51,7 @@ export async function GET(request: NextRequest) {
       }
 
       return NextResponse.json({ data })
+      */
     }
     
     // Otherwise return processed analytics

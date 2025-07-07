@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Calendar, Mail, RefreshCw, Brain, CheckCircle2, ArrowLeft, Download } from "lucide-react";
 import { UserResponse } from "@/features/strategy-chat/types";
-import { supabase } from "@/lib/supabase";
+// import { supabase } from "@/lib/supabase"; // Disabled to prevent build-time errors
 import { useToast } from "../hooks/use-toast";
 import { motion } from "framer-motion";
 

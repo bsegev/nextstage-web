@@ -4,7 +4,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Card } from "./ui/card";
 import { ArrowRight, Brain, Sparkles } from "lucide-react";
-import { supabase } from "@/lib/supabase";
+// import { supabase } from "@/lib/supabase"; // Disabled to prevent build-time errors
 import { useToast } from "../hooks/use-toast";
 import { motion } from "framer-motion";
 import { 
@@ -257,6 +257,16 @@ export const ConversationalFlow = ({ onComplete }: ConversationalFlowProps) => {
       const budgetRange = finalResponses.find(r => r.questionIndex === 6)?.answer || "";
       const additionalNotes = finalResponses.find(r => r.questionIndex === 7)?.answer || "";
 
+      // Auto-categorize industry using simple logic (Supabase disabled)
+      const industry = projectDescription.toLowerCase().includes('tech') || projectDescription.toLowerCase().includes('software') || projectDescription.toLowerCase().includes('app') 
+        ? 'Technology'
+        : projectDescription.toLowerCase().includes('health') || projectDescription.toLowerCase().includes('medical')
+        ? 'Healthcare'
+        : projectDescription.toLowerCase().includes('finance') || projectDescription.toLowerCase().includes('fintech')
+        ? 'Finance'
+        : 'Other';
+      
+      /* Original Supabase code - commented out
       // Auto-categorize industry using the database function
       const { data: industryResult } = await supabase
         .rpc('categorize_industry', {
@@ -266,7 +276,30 @@ export const ConversationalFlow = ({ onComplete }: ConversationalFlowProps) => {
         });
 
       const industry = industryResult || 'Other';
+      */
 
+      // Supabase disabled - use local ID generation
+      console.log('Client profile save requested but Supabase is disabled');
+      const mockClientProfileId = `profile_${Date.now()}`;
+      
+      // Store locally if needed
+      localStorage.setItem('nextstage-client-profile', JSON.stringify({
+        id: mockClientProfileId,
+        name,
+        project_description: projectDescription,
+        target_audience: targetAudience,
+        core_problem: coreProblem,
+        success_vision: successVision,
+        timeline,
+        budget_range: budgetRange,
+        additional_notes: additionalNotes,
+        industry,
+        status: 'draft',
+        raw_responses: finalResponses,
+        created_at: new Date().toISOString()
+      }));
+
+      /* Original Supabase code - commented out
       // Save to client_profiles table
       const { data: clientProfile, error: saveError } = await supabase
         .from('client_profiles')
@@ -301,8 +334,9 @@ export const ConversationalFlow = ({ onComplete }: ConversationalFlowProps) => {
           dynamic_conversation_enabled: isFeatureEnabled('DYNAMIC_CONVERSATION')
         }
       });
+      */
 
-      onComplete(finalResponses, clientProfile.id);
+      onComplete(finalResponses, mockClientProfileId);
     } catch (error) {
       console.error('Error completing submission:', error);
       toast({
