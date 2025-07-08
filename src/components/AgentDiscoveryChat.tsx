@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { Button } from '@/features/strategy-chat/ui/Button'
 import { Input } from '@/features/strategy-chat/ui/Input'
 import { Bot, User, Brain, Sparkles, CheckCircle, ArrowRight } from 'lucide-react'
@@ -37,30 +37,8 @@ export default function AgentDiscoveryChat({ onComplete, onProgress, userName }:
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Start conversation when component mounts
-  useEffect(() => {
-    startConversation()
-  }, [])
-
-  // Auto-scroll to bottom when messages change
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages])
-
-  // Focus input when not loading
-  useEffect(() => {
-    if (!isLoading && inputRef.current) {
-      inputRef.current.focus()
-    }
-  }, [isLoading])
-
-  // Report progress to parent
-  useEffect(() => {
-    onProgress?.(completionScore)
-  }, [completionScore, onProgress])
-
   // Start conversation with agent
-  const startConversation = async () => {
+  const startConversation = useCallback(async () => {
     try {
       setIsLoading(true)
       
@@ -100,7 +78,29 @@ export default function AgentDiscoveryChat({ onComplete, onProgress, userName }:
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [userName])
+
+  // Start conversation when component mounts
+  useEffect(() => {
+    startConversation()
+  }, [startConversation])
+
+  // Auto-scroll to bottom when messages change
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages])
+
+  // Focus input when not loading
+  useEffect(() => {
+    if (!isLoading && inputRef.current) {
+      inputRef.current.focus()
+    }
+  }, [isLoading])
+
+  // Report progress to parent
+  useEffect(() => {
+    onProgress?.(completionScore)
+  }, [completionScore, onProgress])
 
   // Send message to agent
   const sendMessage = async () => {
