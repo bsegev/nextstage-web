@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 import { cn } from "@/lib/utils";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { MultiStepLoader } from "@/components/ui/multi-step-loader";
@@ -24,6 +25,14 @@ export default function GrowthMarketingConsultingServices() {
       ...prev,
       [serviceId]: state
     }));
+  };
+
+  // Service title to deliverable slug mapping
+  const serviceLinks = {
+    'Campaign Strategy': '/deliverables/customer-acquisition-system',
+    'Content Systems': '/deliverables/conversion-optimization-framework',
+    'Marketing Technology': '/deliverables/crm-optimization-system',
+    'Performance Optimization': '/deliverables/performance-analytics-dashboard'
   };
 
   const services = [
@@ -227,7 +236,8 @@ export default function GrowthMarketingConsultingServices() {
                       
                       <CardItem
                         translateZ={30}
-                        as="button"
+                        as={Link}
+                        href={serviceLinks[service.title as keyof typeof serviceLinks]}
                         className="w-full px-5 py-3 rounded-2xl border-2 border-transparent bg-gradient-to-r from-obsidian/[0.02] via-obsidian/[0.05] to-obsidian/[0.02] hover:from-obsidian/[0.05] hover:via-obsidian/[0.08] hover:to-obsidian/[0.05] text-obsidian/70 dark:text-white/70 text-base font-light tracking-[0.05em] hover:text-obsidian/90 dark:hover:text-white/90 hover:border-obsidian/10 dark:hover:border-white/10 transition-all duration-300 group/secondary backdrop-blur-sm"
                       >
                         <span className="flex items-center justify-center gap-1.5">

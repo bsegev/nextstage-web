@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from 'next/server';
 //   functionTools
 // } from '@/lib/nextstage-agents'; // Disabled - uses OpenAI
 
-export async function POST(request: NextRequest) {
+export async function POST(_request: NextRequest) {
   try {
     // Test agent system disabled - uses OpenAI which is no longer used
     console.log('Test agent system disabled - OpenAI dependency removed');
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
       success: false,
       error: 'Test agent system functionality is currently disabled',
       message: 'This feature has been temporarily disabled during system migration'
-    }, { status: 503 })
+    }, { status: 503 });
   } catch (error) {
     console.error('Error in test agent system:', error);
     return NextResponse.json(

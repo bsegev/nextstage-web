@@ -121,7 +121,8 @@ export default function GrowthMarketingDeliverablesShowcase() {
       title: "Customer Acquisition System",
       description: "Multi-channel acquisition funnel with automated tracking and optimization workflows.",
       category: "Acquisition",
-      icon: IconTrendingUp
+      icon: IconTrendingUp,
+      href: "/deliverables/customer-acquisition-system"
     },
     {
       title: "AI-Powered Content Strategy",
@@ -157,13 +158,15 @@ export default function GrowthMarketingDeliverablesShowcase() {
       title: "Conversion Optimization Framework",
       description: "Landing page optimization with messaging testing and conversion rate improvements.",
       category: "CRO",
-      icon: IconTarget
+      icon: IconTarget,
+      href: "/deliverables/conversion-optimization-framework"
     },
     {
       title: "Growth Analytics Dashboard",
       description: "Real-time growth metrics with automated reporting and actionable insights.",
       category: "Analytics",
-      icon: IconChartBar
+      icon: IconChartBar,
+      href: "/deliverables/performance-analytics-dashboard"
     },
     {
       title: "Influencer Partnership Strategy",

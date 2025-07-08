@@ -29,13 +29,6 @@ interface ResearchData {
   results: any[];
 }
 
-interface SearchResult {
-  title: string;
-  url: string;
-  snippet: string;
-  source: string;
-}
-
 // Reasoning Steps Component
 const ReasoningSteps = ({ steps }: { steps: any[] }) => {
   const getStepIcon = (status: string) => {
@@ -88,7 +81,7 @@ const ReasoningSteps = ({ steps }: { steps: any[] }) => {
 };
 
 // Research Accordion Component
-const ResearchAccordion = ({ research, index }: { research: ResearchData; index: number }) => {
+const ResearchAccordion = ({ research }: { research: ResearchData }) => {
   const [isOpen, setIsOpen] = useState(false);
   
   const formatToolName = (toolName: string | undefined) => {
@@ -461,7 +454,6 @@ export const EnhancedStrategyBrief = ({
                   <ResearchAccordion 
                     key={index}
                     research={research}
-                    index={index}
                   />
                 ))}
               </div>

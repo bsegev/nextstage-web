@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/features/strategy-chat/ui/Button'
 import { Input } from '@/features/strategy-chat/ui/Input'
-import { Textarea } from '@/features/strategy-chat/ui/Textarea'
 import { Bot, User, Brain, Sparkles, CheckCircle, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 

@@ -127,13 +127,15 @@ export default function StrategyDeliverablesShowcase() {
       title: "Market Validation Framework",
       description: "Customer discovery methodology with validation experiments and pivot criteria.",
       category: "Validation",
-      icon: IconTarget
+      icon: IconTarget,
+      href: "/deliverables/market-research-analysis"
     },
     {
       title: "Go-to-Market Playbook",
       description: "Step-by-step launch strategy with channel prioritization and messaging framework.",
       category: "Launch",
-      icon: IconRocket
+      icon: IconRocket,
+      href: "/deliverables/go-to-market-playbook"
     },
     {
       title: "AI Transformation Roadmap",
@@ -145,13 +147,15 @@ export default function StrategyDeliverablesShowcase() {
       title: "Business Model Design",
       description: "Revenue model optimization with pricing strategy and unit economics.",
       category: "Strategy",
-      icon: IconCurrency
+      icon: IconCurrency,
+      href: "/deliverables/strategic-business-planning"
     },
     {
       title: "Competitive Intelligence Report",
       description: "Market landscape analysis with competitive positioning and opportunity gaps.",
       category: "Intelligence",
-      icon: IconTrendingUp
+      icon: IconTrendingUp,
+      href: "/deliverables/competitive-positioning"
     },
     {
       title: "Operational Scaling Framework",

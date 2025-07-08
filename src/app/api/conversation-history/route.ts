@@ -1,19 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
-// import { supabaseAdmin } from '@/lib/supabase'; // Disabled to prevent build-time errors
+import { supabase } from '@/lib/supabase';
 
-interface DatabaseMessage {
+interface _DatabaseMessage {
   id: string;
-  conversation_id: string;
-  role: string;
+  role: 'user' | 'assistant';
   content: string;
-  created_at: string;
+  timestamp: Date;
+  conversation_id: string;
 }
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const conversationId = searchParams.get('conversationId');
-    const limit = parseInt(searchParams.get('limit') || '50');
+    const conversationId = searchParams.get('conversation_id');
+    const _limit = parseInt(searchParams.get('limit') || '50');
 
     if (!conversationId) {
       return NextResponse.json(

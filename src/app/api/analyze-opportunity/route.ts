@@ -413,6 +413,53 @@ function extractProblemArea(problem: string): string {
   return 'problem solving';
 }
 
+// Normalize opportunity scores to ensure consistent 0-100 scale across providers
+function normalizeOpportunityScore(score: any, provider: string): OpportunityScore {
+  console.log('Normalizing scores for provider:', provider, 'Raw scores:', score);
+  
+  if (!score || typeof score !== 'object') {
+    console.warn('Invalid score object, using fallback');
+    return {
+      marketMechanics: 75,
+      competitivePositioning: 75,
+      businessModelViability: 75,
+      strategicTiming: 75,
+      total: 75
+    };
+  }
+  
+  // Check if scores are in 0-25 range (need to scale up to 0-100)
+  const maxScore = Math.max(
+    score.marketMechanics || 0,
+    score.competitivePositioning || 0,
+    score.businessModelViability || 0,
+    score.strategicTiming || 0
+  );
+  
+  const isLowScale = maxScore <= 25;
+  const scaleFactor = isLowScale ? 4 : 1; // Scale up if using 0-25 range
+  
+  const normalizedScore = {
+    marketMechanics: Math.min(100, Math.max(0, (score.marketMechanics || 0) * scaleFactor)),
+    competitivePositioning: Math.min(100, Math.max(0, (score.competitivePositioning || 0) * scaleFactor)),
+    businessModelViability: Math.min(100, Math.max(0, (score.businessModelViability || 0) * scaleFactor)),
+    strategicTiming: Math.min(100, Math.max(0, (score.strategicTiming || 0) * scaleFactor)),
+    total: 0
+  };
+  
+  // Calculate total as average of all scores
+  normalizedScore.total = Math.round(
+    (normalizedScore.marketMechanics + 
+     normalizedScore.competitivePositioning + 
+     normalizedScore.businessModelViability + 
+     normalizedScore.strategicTiming) / 4
+  );
+  
+  console.log('Normalized scores:', normalizedScore, 'Scale factor:', scaleFactor);
+  
+  return normalizedScore;
+}
+
 async function generateOpportunityAnalysis(
   businessInfo: BusinessInfo,
   marketData: string,
@@ -439,11 +486,13 @@ ${marketData || 'Limited market data available - focus on strategic framework an
 ANALYSIS TASK:
 Provide a strategic business opportunity analysis with:
 
-1. OPPORTUNITY SCORING (0-100 scale):
-   - Market Mechanics (25 points): Market structure, demand elasticity, supply dynamics
-   - Competitive Positioning (25 points): Differentiation potential, resource advantages
-   - Business Model Viability (25 points): Revenue architecture, cost structure, capital efficiency
-   - Strategic Timing (25 points): Market timing, competitive window, execution readiness
+1. OPPORTUNITY SCORING (CRITICAL: Use 0-100 scale for each metric):
+   - Market Mechanics (0-100): Market structure, demand elasticity, supply dynamics
+   - Competitive Positioning (0-100): Differentiation potential, resource advantages
+   - Business Model Viability (0-100): Revenue architecture, cost structure, capital efficiency
+   - Strategic Timing (0-100): Market timing, competitive window, execution readiness
+   
+   IMPORTANT: Each score must be between 0-100, NOT 0-25. Calculate total as average of all four scores.
 
 2. STRATEGIC ANALYSIS SECTIONS:
    - Business Model Analysis
@@ -534,10 +583,13 @@ Make this analysis worth $5k+ in consulting value. Show strategic depth and prov
       throw new Error('Failed to parse analysis response');
     }
     
+    // Validate and normalize scoring to ensure 0-100 scale regardless of provider
+    const normalizedScore = normalizeOpportunityScore(analysis.opportunityScore, provider);
+    
     return {
       personalMessage: `Hi ${businessInfo.name}! I've completed a comprehensive strategic analysis of your ${businessInfo.industry} opportunity: ${reframeBusinessConcept(businessInfo.vision, businessInfo.industry)}. Based on market research and competitive analysis, here's your Business Opportunity Assessment.`,
       businessInfo,
-      opportunityScore: analysis.opportunityScore,
+      opportunityScore: normalizedScore,
       sections: analysis.sections,
       researchData: [],
       searchCost: 0.025,

@@ -142,7 +142,8 @@ export default function BrandDesignDeliverablesShowcase() {
       title: "Brand Messaging & Voice Framework",
       description: "Brand voice, key messages, and copywriting guidelines for all channels.",
       category: "Messaging",
-      icon: IconTarget
+      icon: IconTarget,
+      href: "/deliverables/brand-messaging-framework"
     },
     {
       title: "Marketing Collateral System",

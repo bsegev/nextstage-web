@@ -189,7 +189,7 @@ Focus on strategic business analysis, not market research.`
           }
         });
         return analysis;
-      } catch (e) {
+      } catch (_e) {
         return { businessModel: 'Analysis completed', summary: analysisText };
       }
     }
@@ -484,7 +484,7 @@ Focus on strategic business analysis, not market research.`
     return 'Multiple opportunities exist for innovative service delivery and market expansion';
   }
 
-  private generateIntelligentFallbackResearch(extractedInfo: ExtractedInfo, businessAnalysis: any): any {
+  private generateIntelligentFallbackResearch(extractedInfo: ExtractedInfo, _businessAnalysis: any): any {
     const project = extractedInfo.project || 'business';
     const audience = extractedInfo.audience || 'target market';
     const industry = extractedInfo.industry || 'technology';

@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server'
-// import { StrategicDiscoveryAgent } from '@/lib/strategic-discovery-agent' // Disabled - uses OpenAI
+import { NextRequest, NextResponse } from 'next/server';
+// import { StrategicDiscoveryAgent } from '@/lib/strategic-discovery-agent' // Disabled - uses OpenAI which is no longer used
 // import { supabase } from '@/lib/supabase' // Disabled to prevent build-time errors
 
-export async function POST(request: NextRequest) {
+export async function POST(_request: NextRequest) {
   try {
     // Strategic discovery agent disabled - uses OpenAI which is no longer used
     console.log('Strategic discovery agent disabled - OpenAI dependency removed');
@@ -11,18 +11,18 @@ export async function POST(request: NextRequest) {
       success: false,
       error: 'Strategic discovery agent functionality is currently disabled',
       message: 'This feature has been temporarily disabled during system migration'
-    }, { status: 503 })
+    }, { status: 503 });
   } catch (error) {
-    console.error('Strategic discovery agent error:', error)
+    console.error('Strategic discovery agent error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
-    )
+    );
   }
 }
 
 // GET method for retrieving conversation status
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   // Strategic discovery agent disabled - uses OpenAI which is no longer used
   console.log('Strategic discovery agent disabled - OpenAI dependency removed');
   
@@ -30,5 +30,5 @@ export async function GET(request: NextRequest) {
     success: false,
     error: 'Strategic discovery agent functionality is currently disabled',
     message: 'This feature has been temporarily disabled during system migration'
-  }, { status: 503 })
+  }, { status: 503 });
 } 

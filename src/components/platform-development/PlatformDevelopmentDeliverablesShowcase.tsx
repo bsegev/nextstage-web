@@ -121,7 +121,8 @@ export default function TechInnovationDeliverablesShowcase() {
       title: "MVP Development & Launch",
       description: "Fully functional minimum viable product ready for user testing and iteration.",
       category: "Product",
-      icon: IconRocket
+      icon: IconRocket,
+      href: "/deliverables/mvp-development"
     },
     {
       title: "Custom AI Assistant Development",
@@ -145,7 +146,8 @@ export default function TechInnovationDeliverablesShowcase() {
       title: "API Development & Integration",
       description: "Custom APIs with third-party integrations and comprehensive documentation.",
       category: "Integration",
-      icon: IconDashboard
+      icon: IconDashboard,
+      href: "/deliverables/system-integration-apis"
     },
     {
       title: "AI Prompt Engineering Library",
@@ -157,7 +159,8 @@ export default function TechInnovationDeliverablesShowcase() {
       title: "Cloud Infrastructure Setup",
       description: "Scalable cloud architecture with monitoring, security, and cost optimization.",
       category: "Infrastructure",
-      icon: IconTrendingUp
+      icon: IconTrendingUp,
+      href: "/deliverables/platform-architecture-scaling"
     },
     {
       title: "Mobile App Development",
@@ -175,7 +178,8 @@ export default function TechInnovationDeliverablesShowcase() {
       title: "Custom AI Tool Development",
       description: "Bespoke AI applications and tools tailored to specific business processes and needs.",
       category: "AI Tools",
-      icon: IconPalette
+      icon: IconPalette,
+      href: "/deliverables/custom-platform-development"
     },
     {
       title: "Digital Transformation Strategy",
