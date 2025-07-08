@@ -37,12 +37,12 @@ export default function NextStageNavbar() {
         {
           name: "Market Research & Analysis",
           description: "Comprehensive market analysis and competitive intelligence",
-          href: "/deliverables/market-research-analysis"
+          href: "/services/strategy#market-research"
         },
         {
           name: "Strategic Business Planning", 
           description: "Data-driven business strategy and execution roadmaps",
-          href: "/deliverables/strategic-business-planning"
+          href: "/services/strategy#business-planning"
         },
         {
           name: "Go-to-Market Strategy",
@@ -52,7 +52,7 @@ export default function NextStageNavbar() {
         {
           name: "Competitive Positioning",
           description: "Position for market leadership and differentiation",
-          href: "/deliverables/competitive-positioning"
+          href: "/services/strategy#competitive-positioning"
         }
       ],
       cta: {
@@ -77,12 +77,12 @@ export default function NextStageNavbar() {
         {
           name: "Brand Copywriting & Messaging",
           description: "Strategic messaging and content that converts",
-          href: "/deliverables/brand-messaging-framework"
+          href: "/services/branding#copywriting"
         },
         {
           name: "Design System Architecture",
           description: "Scalable design systems for consistent brand expression",
-          href: "/deliverables/brand-identity-system"
+          href: "/services/branding#design-systems"
         }
       ],
       cta: {
@@ -102,17 +102,17 @@ export default function NextStageNavbar() {
         {
           name: "System Integration & APIs",
           description: "Connect and optimize your technology ecosystem",
-          href: "/deliverables/system-integration-apis"
+          href: "/services/tech#system-integration"
         },
         {
-          name: "MVP Development",
-          description: "Launch validated products fast with lean development cycles",
-          href: "/deliverables/mvp-development"
+          name: "Digital Product Development",
+          description: "User-focused digital products from concept to launch",
+          href: "/services/tech#digital-products"
         },
         {
           name: "Platform Architecture & Scaling",
           description: "Scalable, secure foundations for growth",
-          href: "/deliverables/platform-architecture-scaling"
+          href: "/services/tech#platform-architecture"
         }
       ],
       cta: {
@@ -130,19 +130,19 @@ export default function NextStageNavbar() {
           href: "/deliverables/customer-acquisition-system"
         },
         {
-          name: "CRM Optimization System",
+          name: "CRM Setup & Optimization",
           description: "Sales systems that scale with your growth",
-          href: "/deliverables/crm-optimization-system"
+          href: "/services/marketing#crm-systems"
         },
         {
-          name: "Conversion Optimization Framework",
+          name: "Conversion Optimization",
           description: "Systematic optimization across all touchpoints",
-          href: "/deliverables/conversion-optimization-framework"
+          href: "/services/marketing#conversion-optimization"
         },
         {
-          name: "Performance Analytics Dashboard",
+          name: "Performance Analytics",
           description: "Data systems that drive marketing decisions",
-          href: "/deliverables/performance-analytics-dashboard"
+          href: "/services/marketing#performance-analytics"
         }
       ],
       cta: {
@@ -255,7 +255,7 @@ export default function NextStageNavbar() {
                 <h5 className="font-medium text-gray-900 dark:text-white">{serviceContent[activeService].cta.title}</h5>
                 <p className="text-sm text-gray-500 dark:text-gray-400">{serviceContent[activeService].cta.description}</p>
               </div>
-              <a href="/contact" className="px-4 py-2 bg-accent text-obsidian rounded-lg font-medium hover:bg-accent/90 transition-colors">
+              <a href="#contact" className="px-4 py-2 bg-accent text-obsidian rounded-lg font-medium hover:bg-accent/90 transition-colors">
                 Get Started
               </a>
             </div>

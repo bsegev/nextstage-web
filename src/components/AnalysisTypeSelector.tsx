@@ -14,7 +14,7 @@ interface AnalysisTypeSelectorProps {
 
 export const AnalysisTypeSelector = ({ 
   responses, 
-  submissionId: _submissionId, 
+  submissionId, 
   onSelectBrief, 
   onSelectOpportunityAnalysis 
 }: AnalysisTypeSelectorProps) => {

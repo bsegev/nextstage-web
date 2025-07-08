@@ -1,10 +1,13 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Bundle } from "@/lib/deliverables/bundles";
 import { LiquidGlass, LiquidGlassCard } from "@/components/ui/liquid-glass";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import Footer from "@/components/Footer";
 
 interface BundleTemplateProps {

@@ -3,104 +3,11 @@
 
 import { UserResponse, ExtractedInfo } from './simple-conversation-agent';
 
-// Business Analysis Types
-export interface BusinessAnalysis {
-  businessModel: string;
-  valueProposition: string;
-  targetMarket: string;
-  competitiveAdvantage: string;
-  businessStage: string;
-  keyRisks: string[];
-  marketOpportunity: string;
-  founderReadiness: string;
-  summary?: string;
-}
-
-// Market Research Types
-export interface MarketResearchSource {
-  url: string;
-  title: string;
-  text: string;
-}
-
-export interface MarketResearch {
-  marketSize: string;
-  growthTrends: string;
-  competitiveLandscape: string;
-  customerInsights: string;
-  opportunities: string;
-  sources: MarketResearchSource[];
-  rawSearchResults: unknown[];
-  researchSummary: string;
-}
-
-// Strategic Synthesis Types
-export interface StrategicSynthesis {
-  strategicPosition: string;
-  keyAdvantages: string[];
-  marketTiming: string;
-  competitiveStrategy: string;
-  growthOpportunities: string[];
-  strategicChallenges: string[];
-  differentiationStrategy: string;
-  summary?: string;
-}
-
-// Recommendations Types
-export interface PriorityAction {
-  action: string;
-  rationale: string;
-  timeframe: string;
-}
-
-export interface StrategicMove {
-  move: string;
-  rationale: string;
-}
-
-export interface RiskMitigation {
-  risk: string;
-  mitigation: string;
-}
-
-export interface StrategicRecommendations {
-  priorityActions: PriorityAction[];
-  strategicMoves: StrategicMove[];
-  riskMitigation: RiskMitigation[];
-  successMetrics: string[];
-}
-
-// Resource Plan Types
-export interface BudgetAllocation {
-  development: string;
-  marketing: string;
-  operations: string;
-  other?: string;
-}
-
-export interface TimelineBreakdown {
-  phase1: string;
-  phase2: string;
-  phase3: string;
-}
-
-export interface ResourcePlan {
-  budgetAllocation: BudgetAllocation;
-  timelineBreakdown: TimelineBreakdown;
-  keyResources: string[];
-  teamNeeds: string[];
-  technologyStack: string[];
-  fundingStrategy: string;
-}
-
-// Result Types
-export type ReasoningStepResult = BusinessAnalysis | MarketResearch | StrategicSynthesis | StrategicRecommendations | ResourcePlan;
-
 export interface ReasoningStep {
   step: string;
   title: string;
   status: 'pending' | 'in_progress' | 'completed' | 'failed';
-  result?: ReasoningStepResult;
+  result?: any;
   reasoning?: string;
 }
 
@@ -115,7 +22,7 @@ export interface StrategicBrief {
 
 export interface EnhancedBriefResult {
   brief: StrategicBrief;
-  researchData: MarketResearchSource[];
+  researchData: any[];
   researchSummary: string;
   reasoningSteps: ReasoningStep[];
 }
@@ -191,8 +98,8 @@ export class StrategicReasoningChain {
 
       return {
         brief,
-        researchData: marketResearch.sources || [],
-        researchSummary: marketResearch.researchSummary || 'Strategic analysis based on conversation insights',
+        researchData: marketResearch.data || [],
+        researchSummary: marketResearch.summary || 'Strategic analysis based on conversation insights',
         reasoningSteps: this.steps
       };
 
@@ -213,7 +120,7 @@ export class StrategicReasoningChain {
     stepNumber: number,
     status: ReasoningStep['status'],
     onStepUpdate?: (steps: ReasoningStep[]) => void,
-    result?: ReasoningStepResult
+    result?: any
   ): Promise<void> {
     const step = this.steps[stepNumber - 1];
     if (step) {
@@ -230,7 +137,7 @@ export class StrategicReasoningChain {
   private async analyzeBusinessFundamentals(
     conversationSummary: string,
     extractedInfo: ExtractedInfo
-  ): Promise<BusinessAnalysis> {
+  ): Promise<any> {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -282,38 +189,18 @@ Focus on strategic business analysis, not market research.`
           }
         });
         return analysis;
-      } catch (_e) {
-        return { 
-          businessModel: 'Analysis completed', 
-          valueProposition: 'Value proposition from conversation',
-          targetMarket: 'Target market identified',
-          competitiveAdvantage: 'Competitive advantage noted',
-          businessStage: 'Business stage assessed',
-          keyRisks: ['Risk assessment based on conversation'],
-          marketOpportunity: 'Market opportunity identified',
-          founderReadiness: 'Founder readiness assessed',
-          summary: analysisText 
-        };
+      } catch (e) {
+        return { businessModel: 'Analysis completed', summary: analysisText };
       }
     }
     
-    return { 
-      businessModel: 'Business analysis completed', 
-      valueProposition: 'Value proposition from conversation',
-      targetMarket: 'Target market identified',
-      competitiveAdvantage: 'Competitive advantage noted',
-      businessStage: 'Business stage assessed',
-      keyRisks: ['Risk assessment based on conversation'],
-      marketOpportunity: 'Market opportunity identified',
-      founderReadiness: 'Founder readiness assessed',
-      summary: 'Strategic analysis based on conversation' 
-    };
+    return { businessModel: 'Business analysis completed', summary: 'Strategic analysis based on conversation' };
   }
 
   private async conductMarketResearch(
     extractedInfo: ExtractedInfo,
-    businessAnalysis: BusinessAnalysis
-  ): Promise<MarketResearch> {
+    businessAnalysis: any
+  ): Promise<any> {
     const project = extractedInfo.project || 'business';
     const audience = extractedInfo.audience || 'target market';
     const industry = extractedInfo.industry || 'technology';
@@ -597,7 +484,7 @@ Focus on strategic business analysis, not market research.`
     return 'Multiple opportunities exist for innovative service delivery and market expansion';
   }
 
-  private generateIntelligentFallbackResearch(extractedInfo: ExtractedInfo, _businessAnalysis: BusinessAnalysis): MarketResearch {
+  private generateIntelligentFallbackResearch(extractedInfo: ExtractedInfo, businessAnalysis: any): any {
     const project = extractedInfo.project || 'business';
     const audience = extractedInfo.audience || 'target market';
     const industry = extractedInfo.industry || 'technology';
@@ -613,7 +500,6 @@ Focus on strategic business analysis, not market research.`
         { url: 'industry-analysis', title: 'Industry Analysis', text: 'Based on industry knowledge and trends' },
         { url: 'market-research', title: 'Market Research', text: 'Analysis of market conditions and opportunities' }
       ],
-      rawSearchResults: [], // No raw search results for fallback
       researchSummary: `Market analysis for ${project} targeting ${audience} in the ${industry} sector shows strong potential with emerging opportunities for growth and differentiation.`
     };
 
@@ -663,23 +549,23 @@ Focus on strategic business analysis, not market research.`
     return `Emerging opportunities include digital transformation, automation integration, and specialized ${industry.toLowerCase()} solutions with strong market demand for ${project.toLowerCase()} innovations`;
   }
 
-  private async performWebSearch(query: string): Promise<unknown> {
+  private async performWebSearch(query: string): Promise<any> {
     // This method is no longer used as we're using Anthropic's web search tool directly
     console.log('Legacy web search method called for:', query);
     return null;
   }
 
-  private generateMockResearchData(query: string): unknown[] {
+  private generateMockResearchData(query: string): any[] {
     // This method is no longer used as we're using Anthropic's web search tool
     console.log('Legacy mock data method called for:', query);
     return [];
   }
 
   private async synthesizeStrategicInsights(
-    businessAnalysis: BusinessAnalysis,
-    marketResearch: MarketResearch,
+    businessAnalysis: any,
+    marketResearch: any,
     extractedInfo: ExtractedInfo
-  ): Promise<StrategicSynthesis> {
+  ): Promise<any> {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -734,37 +620,19 @@ Focus on strategic positioning and competitive advantages.`
         });
         return synthesis;
       } catch (e) {
-        return { 
-          strategicPosition: 'Strategic analysis completed', 
-          keyAdvantages: ['Key advantage identified'],
-          marketTiming: 'Market timing assessed',
-          competitiveStrategy: 'Competitive strategy defined',
-          growthOpportunities: ['Growth opportunity identified'],
-          strategicChallenges: ['Strategic challenge noted'],
-          differentiationStrategy: 'Differentiation strategy outlined',
-          summary: synthesisText 
-        };
+        return { strategicPosition: 'Strategic analysis completed', summary: synthesisText };
       }
     }
     
-    return { 
-      strategicPosition: 'Strong strategic foundation', 
-      keyAdvantages: ['Key advantage identified'],
-      marketTiming: 'Market timing assessed',
-      competitiveStrategy: 'Competitive strategy defined',
-      growthOpportunities: ['Growth opportunity identified'],
-      strategicChallenges: ['Strategic challenge noted'],
-      differentiationStrategy: 'Differentiation strategy outlined',
-      summary: 'Strategic synthesis based on analysis' 
-    };
+    return { strategicPosition: 'Strong strategic foundation', summary: 'Strategic synthesis based on analysis' };
   }
 
   private async generateStrategicRecommendations(
-    businessAnalysis: BusinessAnalysis,
-    marketResearch: MarketResearch,
-    strategicSynthesis: StrategicSynthesis,
+    businessAnalysis: any,
+    marketResearch: any,
+    strategicSynthesis: any,
     extractedInfo: ExtractedInfo
-  ): Promise<StrategicRecommendations> {
+  ): Promise<any> {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -824,29 +692,19 @@ Focus on actionable, specific recommendations.`
         }
         return recommendations;
       } catch (e) {
-        return { 
-          priorityActions: [{ action: 'Customer validation', rationale: 'Validate market demand', timeframe: '30 days' }],
-          strategicMoves: [{ move: 'Market entry strategy', rationale: 'Strategic market positioning' }],
-          riskMitigation: [{ risk: 'Market risk', mitigation: 'Diversification strategy' }],
-          successMetrics: ['Customer acquisition rate', 'Market penetration', 'Revenue growth']
-        };
+        return { priorityActions: [{ action: 'Customer validation', rationale: 'Validate market demand', timeframe: '30 days' }] };
       }
     }
     
-    return { 
-      priorityActions: [{ action: 'Market validation', rationale: 'Confirm product-market fit', timeframe: '30 days' }],
-      strategicMoves: [{ move: 'Market entry strategy', rationale: 'Strategic market positioning' }],
-      riskMitigation: [{ risk: 'Market risk', mitigation: 'Diversification strategy' }],
-      successMetrics: ['Customer acquisition rate', 'Market penetration', 'Revenue growth']
-    };
+    return { priorityActions: [{ action: 'Market validation', rationale: 'Confirm product-market fit', timeframe: '30 days' }] };
   }
 
   private async developResourcePlan(
-    businessAnalysis: BusinessAnalysis,
-    marketResearch: MarketResearch,
-    recommendations: StrategicRecommendations,
+    businessAnalysis: any,
+    marketResearch: any,
+    recommendations: any,
     extractedInfo: ExtractedInfo
-  ): Promise<ResourcePlan> {
+  ): Promise<any> {
     const budget = extractedInfo.budget || 'To be determined';
     const timeline = extractedInfo.timeline || '3-6 months';
     
@@ -914,33 +772,19 @@ Be specific to their budget and timeline.`
         });
         return plan;
       } catch (e) {
-        return { 
-          budgetAllocation: { development: '40%', marketing: '30%', operations: '30%' },
-          timelineBreakdown: { phase1: 'Month 1-2: Planning', phase2: 'Month 3-4: Execution', phase3: 'Month 5-6: Launch' },
-          keyResources: ['Development team', 'Marketing resources', 'Operations support'],
-          teamNeeds: ['Technical lead', 'Marketing manager', 'Operations coordinator'],
-          technologyStack: ['Web technologies', 'Analytics tools', 'Communication platforms'],
-          fundingStrategy: 'Self-funded initial phase'
-        };
+        return { budgetAllocation: { development: '40%', marketing: '30%', operations: '30%' } };
       }
     }
     
-    return { 
-      budgetAllocation: { development: '40%', marketing: '30%', operations: '30%' },
-      timelineBreakdown: { phase1: 'Month 1-2: Planning', phase2: 'Month 3-4: Execution', phase3: 'Month 5-6: Launch' },
-      keyResources: ['Development team', 'Marketing resources', 'Operations support'],
-      teamNeeds: ['Technical lead', 'Marketing manager', 'Operations coordinator'],
-      technologyStack: ['Web technologies', 'Analytics tools', 'Communication platforms'],
-      fundingStrategy: 'Self-funded initial phase'
-    };
+    return { budgetAllocation: { development: '40%', marketing: '30%', operations: '30%' } };
   }
 
   private async compileFinalBrief(
-    businessAnalysis: BusinessAnalysis,
-    marketResearch: MarketResearch,
-    strategicSynthesis: StrategicSynthesis,
-    recommendations: StrategicRecommendations,
-    resourcePlan: ResourcePlan,
+    businessAnalysis: any,
+    marketResearch: any,
+    strategicSynthesis: any,
+    recommendations: any,
+    resourcePlan: any,
     extractedInfo: ExtractedInfo
   ): Promise<StrategicBrief> {
     const name = extractedInfo.name || 'there';

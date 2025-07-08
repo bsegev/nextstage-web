@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Download, TrendingUp, Target, Shield, Lightbulb } from 'lucide-react';
+import { ArrowLeft, Download, TrendingUp, Target, Shield, Lightbulb, Mail } from 'lucide-react';
 import { UserResponse } from '@/features/strategy-chat/types';
 
 interface OpportunityScore {
