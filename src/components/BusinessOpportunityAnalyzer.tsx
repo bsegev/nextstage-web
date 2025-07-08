@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Download, TrendingUp, Target, Shield, Lightbulb } from 'lucide-react';
 import { UserResponse } from '@/features/strategy-chat/types';
@@ -71,7 +71,11 @@ export const BusinessOpportunityAnalyzer = ({
   const [loadingStage, setLoadingStage] = useState<'analyzing' | 'researching' | 'compiling'>('analyzing');
   const [loadingProgress, setLoadingProgress] = useState(0);
 
-  const loadAnalysis = useCallback(async () => {
+  useEffect(() => {
+    loadAnalysis();
+  }, [submissionId, currentProvider]);
+
+  const loadAnalysis = async () => {
     setIsLoading(true);
     setLoadingStage('analyzing');
     setLoadingProgress(0);
@@ -127,11 +131,7 @@ export const BusinessOpportunityAnalyzer = ({
       clearInterval(progressTimer);
       setIsLoading(false);
     }
-  }, [responses, submissionId, currentProvider]);
-
-  useEffect(() => {
-    loadAnalysis();
-  }, [loadAnalysis]);
+  };
 
   const handleSendEmail = async () => {
     if (!email.trim()) return;

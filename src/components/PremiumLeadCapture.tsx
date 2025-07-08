@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Sparkles, CheckCircle, Brain, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -63,7 +63,13 @@ const PremiumLeadCapture = ({ onComplete }: PremiumLeadCaptureProps) => {
     scrollToBottom();
   }, [messages]);
 
-  const initializeSession = useCallback(async () => {
+  useEffect(() => {
+    setIsMounted(true);
+    // Initialize conversation session
+    initializeSession();
+  }, []);
+
+  const initializeSession = async () => {
     try {
       console.log('Initializing conversation session:', sessionId);
       // Reset any existing session to start fresh
@@ -74,13 +80,7 @@ const PremiumLeadCapture = ({ onComplete }: PremiumLeadCaptureProps) => {
     } catch (error) {
       console.warn('Session reset failed:', error);
     }
-  }, [sessionId]);
-
-  useEffect(() => {
-    setIsMounted(true);
-    // Initialize conversation session
-    initializeSession();
-  }, [initializeSession]);
+  };
 
   const sendMessage = async () => {
     if (!currentMessage.trim()) return;

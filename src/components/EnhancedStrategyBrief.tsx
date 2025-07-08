@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -171,7 +171,11 @@ export const EnhancedStrategyBrief = ({
   const [isLoading, setIsLoading] = useState(true);
   const [isRegenerating, setIsRegenerating] = useState(false);
 
-  const loadEnhancedBrief = useCallback(async () => {
+  useEffect(() => {
+    loadEnhancedBrief();
+  }, [submissionId]);
+
+  const loadEnhancedBrief = async () => {
     try {
       const response = await fetch('/api/enhanced-brief-generation', {
         method: 'POST',
@@ -201,11 +205,7 @@ export const EnhancedStrategyBrief = ({
     } finally {
       setIsLoading(false);
     }
-  }, [responses, extractedInfo, submissionId]);
-
-  useEffect(() => {
-    loadEnhancedBrief();
-  }, [loadEnhancedBrief]);
+  };
 
   const generateFallbackBrief = (): Brief => {
     const name = extractedInfo?.name || "Friend";
