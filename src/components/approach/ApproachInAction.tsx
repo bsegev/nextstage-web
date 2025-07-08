@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 

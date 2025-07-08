@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'motion/react';
+import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import React, { useRef, useState } from 'react';
 import { Highlight } from '@/components/ui/hero-highlight';
 import { LiquidGlass, LiquidGlassPanel } from '@/components/ui/liquid-glass';

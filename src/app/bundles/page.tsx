@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { getAllBundles } from "@/lib/deliverables";
 import { LiquidGlass, LiquidGlassCard } from "@/components/ui/liquid-glass";

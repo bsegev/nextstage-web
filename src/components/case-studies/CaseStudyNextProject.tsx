@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { getAllCaseStudies } from "@/lib/case-studies";
 import { cn } from "@/lib/utils";

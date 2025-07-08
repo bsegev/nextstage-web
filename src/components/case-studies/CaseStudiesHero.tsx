@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { LiquidGlass } from '@/components/ui/liquid-glass';
 import Link from 'next/link';
 import { cn } from "@/lib/utils";

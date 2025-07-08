@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 export default function GrowthMarketingConsultingHero() {

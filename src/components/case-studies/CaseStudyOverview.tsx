@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import type { CaseStudyChallenge as CaseStudyChallengeType } from "@/lib/case-studies";
 import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 import { GlowingEffect } from "@/components/ui/glowing-effect";

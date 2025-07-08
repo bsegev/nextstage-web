@@ -5,7 +5,7 @@ import {
   useScroll,
   useTransform,
   motion,
-} from "motion/react";
+} from "framer-motion";
 
 interface TimelineEntry {
   title: string;

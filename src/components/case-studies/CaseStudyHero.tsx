@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
 import { LiquidGlass, LiquidGlassCard } from "@/components/ui/liquid-glass";

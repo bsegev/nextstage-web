@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { Card, CardSkeletonContainer, CardTitle, CardDescription } from "@/components/services/cards-demo-1";
-import { animate } from "motion/react";
+import { animate } from "framer-motion";
 import React, { useEffect, useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 import { 

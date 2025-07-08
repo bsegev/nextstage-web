@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { motion, useMotionValue, animate, useTransform } from 'motion/react';
+import { motion, useMotionValue, animate, useTransform } from 'framer-motion';
 
 // Dynamic Progress Bars Component
 function DynamicProgressBars({ mounted }: { mounted: boolean }) {
