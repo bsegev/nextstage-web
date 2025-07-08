@@ -105,9 +105,9 @@ export default function NextStageNavbar() {
           href: "/deliverables/system-integration-apis"
         },
         {
-          name: "Digital Product Development",
-          description: "User-focused digital products from concept to launch",
-          href: "/deliverables/digital-product-development"
+          name: "MVP Development",
+          description: "Launch validated products fast with lean development cycles",
+          href: "/deliverables/mvp-development"
         },
         {
           name: "Platform Architecture & Scaling",
@@ -130,19 +130,19 @@ export default function NextStageNavbar() {
           href: "/deliverables/customer-acquisition-system"
         },
         {
-          name: "CRM Setup & Optimization",
+          name: "CRM Optimization System",
           description: "Sales systems that scale with your growth",
-          href: "/deliverables/crm-setup-optimization"
+          href: "/deliverables/crm-optimization-system"
         },
         {
-          name: "Conversion Optimization",
+          name: "Conversion Optimization Framework",
           description: "Systematic optimization across all touchpoints",
-          href: "/deliverables/conversion-optimization"
+          href: "/deliverables/conversion-optimization-framework"
         },
         {
-          name: "Performance Analytics",
+          name: "Performance Analytics Dashboard",
           description: "Data systems that drive marketing decisions",
-          href: "/deliverables/performance-analytics"
+          href: "/deliverables/performance-analytics-dashboard"
         }
       ],
       cta: {
