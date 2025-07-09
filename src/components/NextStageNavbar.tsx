@@ -37,12 +37,12 @@ export default function NextStageNavbar() {
         {
           name: "Market Research & Analysis",
           description: "Comprehensive market analysis and competitive intelligence",
-          href: "/services/strategy#market-research"
+          href: "/deliverables/market-research-analysis"
         },
         {
           name: "Strategic Business Planning", 
           description: "Data-driven business strategy and execution roadmaps",
-          href: "/services/strategy#business-planning"
+          href: "/deliverables/strategic-business-planning"
         },
         {
           name: "Go-to-Market Strategy",
@@ -52,7 +52,7 @@ export default function NextStageNavbar() {
         {
           name: "Competitive Positioning",
           description: "Position for market leadership and differentiation",
-          href: "/services/strategy#competitive-positioning"
+          href: "/deliverables/competitive-positioning"
         }
       ],
       cta: {
@@ -65,24 +65,24 @@ export default function NextStageNavbar() {
       description: "Create cohesive brand experiences that drive recognition and conversion",
       services: [
         {
-          name: "Brand Identity & Guidelines",
+          name: "Brand Identity System",
           description: "Complete visual identity and brand system development",
           href: "/deliverables/brand-identity-system"
         },
         {
-          name: "Digital Experience Design",
+          name: "Website Design & Development",
           description: "User-centered websites and digital product interfaces",
           href: "/deliverables/website-design-development"
         },
         {
-          name: "Brand Copywriting & Messaging",
+          name: "Brand Messaging Framework",
           description: "Strategic messaging and content that converts",
-          href: "/services/branding#copywriting"
+          href: "/deliverables/brand-messaging-framework"
         },
         {
           name: "Design System Architecture",
           description: "Scalable design systems for consistent brand expression",
-          href: "/services/branding#design-systems"
+          href: "/deliverables/design-system-architecture"
         }
       ],
       cta: {
@@ -97,22 +97,22 @@ export default function NextStageNavbar() {
         {
           name: "Custom Platform Development",
           description: "End-to-end development of digital business platforms",
-          href: "/deliverables/mvp-development"
+          href: "/deliverables/custom-platform-development"
         },
         {
           name: "System Integration & APIs",
           description: "Connect and optimize your technology ecosystem",
-          href: "/services/tech#system-integration"
+          href: "/deliverables/system-integration-apis"
         },
         {
-          name: "Digital Product Development",
+          name: "MVP Development",
           description: "User-focused digital products from concept to launch",
-          href: "/services/tech#digital-products"
+          href: "/deliverables/mvp-development"
         },
         {
           name: "Platform Architecture & Scaling",
           description: "Scalable, secure foundations for growth",
-          href: "/services/tech#platform-architecture"
+          href: "/deliverables/platform-architecture-scaling"
         }
       ],
       cta: {
@@ -125,24 +125,24 @@ export default function NextStageNavbar() {
       description: "Scale efficiently with integrated marketing and automation systems",
       services: [
         {
-          name: "Marketing Automation Systems",
+          name: "Customer Acquisition System",
           description: "Automated workflows that nurture and convert",
           href: "/deliverables/customer-acquisition-system"
         },
         {
           name: "CRM Setup & Optimization",
           description: "Sales systems that scale with your growth",
-          href: "/services/marketing#crm-systems"
+          href: "/deliverables/crm-optimization-system"
         },
         {
           name: "Conversion Optimization",
           description: "Systematic optimization across all touchpoints",
-          href: "/services/marketing#conversion-optimization"
+          href: "/deliverables/conversion-optimization-framework"
         },
         {
-          name: "Performance Analytics",
+          name: "Performance Analytics Dashboard",
           description: "Data systems that drive marketing decisions",
-          href: "/services/marketing#performance-analytics"
+          href: "/deliverables/performance-analytics-dashboard"
         }
       ],
       cta: {

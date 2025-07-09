@@ -10,10 +10,10 @@ import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 export default function GrowthMarketingConsultingServices() {
   const [mounted, setMounted] = useState(false);
   const [loadingStates, setLoadingStates] = useState({
-    'brand-identity': false,
-    'user-experience': false,
-    'visual-systems': false,
-    'digital-experiences': false
+    'customer acquisition system': false,
+    'crm setup & optimization': false,
+    'conversion optimization': false,
+    'performance analytics dashboard': false
   });
 
   useEffect(() => {
@@ -29,67 +29,67 @@ export default function GrowthMarketingConsultingServices() {
 
   // Service title to deliverable slug mapping
   const serviceLinks = {
-    'Campaign Strategy': '/deliverables/customer-acquisition-system',
-    'Content Systems': '/deliverables/conversion-optimization-framework',
-    'Marketing Technology': '/deliverables/crm-optimization-system',
-    'Performance Optimization': '/deliverables/performance-analytics-dashboard'
+    'Customer Acquisition System': '/deliverables/customer-acquisition-system',
+    'CRM Setup & Optimization': '/deliverables/crm-optimization-system',
+    'Conversion Optimization': '/deliverables/conversion-optimization-framework',
+    'Performance Analytics Dashboard': '/deliverables/performance-analytics-dashboard'
   };
 
   const services = [
     {
-      title: "Campaign Strategy",
-      context: "When you're not sure who to target or where to find them",
-      description: "Target the right customers through the channels where they actively make decisions.",
+      title: "Customer Acquisition System",
+      context: "When you need to attract and convert qualified prospects",
+      description: "Automated workflows that nurture and convert leads into customers.",
       icon: "/images/growth-marketing/campaign-strategy.png",
       gradient: "from-accent/15 to-accent/5",
       loadingSteps: [
-        { text: "Looking at who's already buying from you", duration: 1200 },
-        { text: "Finding where your best customers hang out online", duration: 1400 },
-        { text: "Creating messages that actually get their attention", duration: 1600 },
-        { text: "Setting up ways to track what's working", duration: 1800 },
-        { text: "Running campaigns that bring in real customers", duration: 2000 }
+        { text: "Analyzing your current customer acquisition process", duration: 1200 },
+        { text: "Identifying the most effective lead generation channels", duration: 1400 },
+        { text: "Creating automated workflows for lead nurturing", duration: 1600 },
+        { text: "Setting up tracking and optimization systems", duration: 1800 },
+        { text: "Building systems that scale with your growth", duration: 2000 }
       ]
     },
     {
-      title: "Content Systems",
-      context: "When you're spending too much time creating content that nobody sees",
-      description: "Create content that attracts qualified prospects and guides them toward purchase.",
-      icon: "/images/growth-marketing/content-systems.png",
-      gradient: "from-accent/15 to-accent/5",
-      loadingSteps: [
-        { text: "Seeing what content is actually working for you", duration: 1100 },
-        { text: "Planning content that your customers want to see", duration: 1300 },
-        { text: "Creating templates so content gets easier to make", duration: 1500 },
-        { text: "Setting up systems to get your content seen", duration: 1700 },
-        { text: "Tracking what content brings in business", duration: 1900 }
-      ]
-    },
-    {
-      title: "Marketing Technology",
-      context: "When your marketing tools don't talk to each other",
-      description: "Connect your marketing tools to automate workflows and track customer journeys.",
+      title: "CRM Setup & Optimization",
+      context: "When your sales process needs better organization and tracking",
+      description: "Sales systems that scale with your growth and improve conversion.",
       icon: "/images/growth-marketing/marketing-technology.png",
       gradient: "from-accent/15 to-accent/5",
       loadingSteps: [
-        { text: "Looking at what tools you're using and how they work", duration: 1000 },
-        { text: "Finding where things are broken or missing", duration: 1200 },
-        { text: "Connecting everything so data flows properly", duration: 1400 },
-        { text: "Setting up automation for repetitive tasks", duration: 1600 },
-        { text: "Creating dashboards so you can see what's happening", duration: 1800 }
+        { text: "Analyzing your current sales process and bottlenecks", duration: 1100 },
+        { text: "Setting up CRM systems that fit your workflow", duration: 1300 },
+        { text: "Creating automation for lead scoring and follow-up", duration: 1500 },
+        { text: "Integrating with your existing marketing tools", duration: 1700 },
+        { text: "Training your team on the new systems", duration: 1900 }
       ]
     },
     {
-      title: "Performance Optimization",
-      context: "When you're spending money on marketing but not seeing results",
-      description: "Improve conversion rates and customer experience through systematic testing.",
+      title: "Conversion Optimization",
+      context: "When you have traffic but need better conversion rates",
+      description: "Systematic optimization across all touchpoints to increase conversions.",
+      icon: "/images/growth-marketing/content-systems.png",
+      gradient: "from-accent/15 to-accent/5",
+      loadingSteps: [
+        { text: "Analyzing where prospects drop off in your funnel", duration: 1000 },
+        { text: "Testing different approaches to improve conversions", duration: 1200 },
+        { text: "Optimizing your website and landing pages", duration: 1400 },
+        { text: "Improving your messaging and calls-to-action", duration: 1600 },
+        { text: "Setting up systems for ongoing optimization", duration: 1800 }
+      ]
+    },
+    {
+      title: "Performance Analytics Dashboard",
+      context: "When you need clear insights into marketing performance",
+      description: "Data systems that drive informed marketing decisions and growth.",
       icon: "/images/growth-marketing/performance-optimization.png",
       gradient: "from-accent/15 to-accent/5",
       loadingSteps: [
-        { text: "Looking at where you're losing potential customers", duration: 1300 },
-        { text: "Finding the biggest opportunities to improve", duration: 1500 },
-        { text: "Testing different approaches to see what works better", duration: 1700 },
-        { text: "Improving your website and ads based on what we learn", duration: 1900 },
-        { text: "Focusing your budget on what actually brings in business", duration: 2100 }
+        { text: "Identifying the metrics that matter most for your business", duration: 1300 },
+        { text: "Setting up tracking across all your marketing channels", duration: 1500 },
+        { text: "Creating dashboards that show performance at a glance", duration: 1700 },
+        { text: "Building reports that help you make better decisions", duration: 1900 },
+        { text: "Training your team to use data for growth", duration: 2100 }
       ]
     }
   ];

@@ -10,10 +10,10 @@ import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 export default function TechInnovationConsultingServices() {
   const [mounted, setMounted] = useState(false);
   const [loadingStates, setLoadingStates] = useState({
+    'custom-platform-development': false,
+    'system-integration-apis': false,
     'mvp-development': false,
-    'automated-workflows': false,
-    'custom-software': false,
-    'ai-enhanced-software': false
+    'platform-architecture-scaling': false
   });
 
   useEffect(() => {
@@ -28,6 +28,20 @@ export default function TechInnovationConsultingServices() {
   };
 
   const serviceLoadingSteps = {
+    'custom-platform-development': [
+      { text: "Analyzing core platform requirements and business logic" },
+      { text: "Building scalable architecture and technology stack" },
+      { text: "Creating comprehensive platform with full functionality" },
+      { text: "Testing platform performance and user experience" },
+      { text: "Deploying platform with ongoing support and maintenance" },
+    ],
+    'system-integration-apis': [
+      { text: "Mapping current systems and integration points" },
+      { text: "Identifying high-impact integration opportunities" },
+      { text: "Building API connections and data flows" },
+      { text: "Connecting with existing systems and databases" },
+      { text: "Testing integrations and optimizing performance" },
+    ],
     'mvp-development': [
       { text: "Analyzing core feature requirements and user journeys" },
       { text: "Building lean development architecture and tech stack" },
@@ -35,73 +49,59 @@ export default function TechInnovationConsultingServices() {
       { text: "Testing with target users and gathering feedback" },
       { text: "Preparing scalable foundation for market launch" },
     ],
-    'automated-workflows': [
-      { text: "Mapping current manual processes and pain points" },
-      { text: "Identifying high-impact automation opportunities" },
-      { text: "Building intelligent workflow logic and integrations" },
-      { text: "Connecting with existing systems and data sources" },
-      { text: "Testing automated flows and optimizing performance" },
-    ],
-    'custom-software': [
-      { text: "Analyzing specific business requirements and constraints" },
-      { text: "Designing scalable system architecture and interfaces" },
-      { text: "Building core functionality with custom features" },
-      { text: "Creating intuitive user interface and experience" },
-      { text: "Testing, deployment, and team training procedures" },
-    ],
-    'ai-enhanced-software': [
-      { text: "Analyzing data patterns and intelligence opportunities" },
-      { text: "Training AI models specific to business context" },
-      { text: "Building intelligent features and decision systems" },
-      { text: "Integrating AI capabilities with existing workflows" },
-      { text: "Optimizing performance and continuous learning" },
+    'platform-architecture-scaling': [
+      { text: "Analyzing current architecture and performance bottlenecks" },
+      { text: "Designing scalable infrastructure and optimization strategies" },
+      { text: "Building enhanced architecture with improved performance" },
+      { text: "Implementing security and monitoring systems" },
+      { text: "Optimizing for growth and continuous improvement" },
     ]
   };
 
   // Service ID to deliverable slug mapping
   const serviceLinks = {
+    'custom-platform-development': '/deliverables/custom-platform-development',
+    'system-integration-apis': '/deliverables/system-integration-apis',
     'mvp-development': '/deliverables/mvp-development',
-    'automated-workflows': '/deliverables/system-integration-apis',
-    'custom-software': '/deliverables/custom-platform-development',
-    'ai-enhanced-software': '/deliverables/custom-platform-development'
+    'platform-architecture-scaling': '/deliverables/platform-architecture-scaling'
   };
 
   const services = [
     {
-      id: 'mvp-development',
-      title: 'MVP Development',
-      context: 'When you need to test ideas quickly',
-      description: 'Launch validated products fast with lean development cycles.',
+      id: 'custom-platform-development',
+      title: 'Custom Platform Development',
+      context: 'When you need a complete business platform',
+      description: 'End-to-end development of digital business platforms.',
       pattern: 'diverging-paths',
       accent: 'from-accent/15 to-accent/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
-      image: '/images/tech-innovation/mvp-development.png'
+      image: '/images/tech-innovation/internal-software-2.png'
     },
     {
-      id: 'automated-workflows', 
-      title: 'Automated Workflows',
-      context: 'When repetitive tasks consume time',
-      description: 'Transform manual processes into intelligent systems.',
+      id: 'system-integration-apis', 
+      title: 'System Integration & APIs',
+      context: 'When systems need to work together seamlessly',
+      description: 'Connect and optimize your technology ecosystem.',
       pattern: 'signal-in-noise',
       accent: 'from-obsidian/15 to-obsidian/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
       image: '/images/tech-innovation/automated-workflows.png'
     },
     {
-      id: 'custom-software',
-      title: 'Custom Software',
-      context: 'When your team needs tools that don&apos;t exist',
-      description: 'Purpose-built applications that solve specific challenges.',
+      id: 'mvp-development',
+      title: 'MVP Development',
+      context: 'When you need to test ideas quickly',
+      description: 'User-focused digital products from concept to launch.',
       pattern: 'velocity-focused',
       accent: 'from-accent/20 to-accent/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
-      image: '/images/tech-innovation/internal-software-2.png'
+      image: '/images/tech-innovation/mvp-development.png'
     },
     {
-      id: 'ai-enhanced-software',
-      title: 'AI-Enhanced Software',
-      context: 'When you want intelligence built in',
-      description: 'Integrate AI capabilities that learn and improve over time.',
+      id: 'platform-architecture-scaling',
+      title: 'Platform Architecture & Scaling',
+      context: 'When you need technology that grows with you',
+      description: 'Scalable, secure foundations for growth.',
       pattern: 'evolution-bridge',
       accent: 'from-bone/25 to-bone/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',

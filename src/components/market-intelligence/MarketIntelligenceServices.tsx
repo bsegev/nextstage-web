@@ -10,10 +10,10 @@ import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 export default function StrategyConsultingServices() {
   const [mounted, setMounted] = useState(false);
   const [loadingStates, setLoadingStates] = useState({
-    'business-strategy': false,
-    'brand-strategy': false,
-    'gtm-planning': false,
-    'digital-transformation': false
+    'market-research-analysis': false,
+    'strategic-business-planning': false,
+    'go-to-market-playbook': false,
+    'competitive-positioning': false
   });
 
   useEffect(() => {
@@ -28,28 +28,28 @@ export default function StrategyConsultingServices() {
   };
 
   const serviceLoadingSteps = {
-    'business-strategy': [
+    'market-research-analysis': [
       { text: "Analyzing current market position and competitive dynamics" },
       { text: "Identifying untapped growth opportunities and market gaps" },
       { text: "Evaluating competitive landscape and positioning options" },
       { text: "Defining strategic priorities and resource allocation" },
       { text: "Creating detailed execution roadmap with milestones" },
     ],
-    'brand-strategy': [
+    'strategic-business-planning': [
       { text: "Researching target audience behaviors and preferences" },
       { text: "Analyzing current brand perception and market position" },
       { text: "Defining unique positioning that commands premium" },
       { text: "Crafting compelling brand messaging and narrative" },
       { text: "Developing comprehensive brand guidelines and assets" },
     ],
-    'gtm-planning': [
+    'go-to-market-playbook': [
       { text: "Identifying high-value target segments and personas" },
       { text: "Mapping complete customer journey and touchpoints" },
       { text: "Defining compelling value proposition and messaging" },
       { text: "Planning multi-channel launch strategy and tactics" },
       { text: "Setting success metrics and performance tracking" },
     ],
-    'digital-transformation': [
+    'competitive-positioning': [
       { text: "Assessing current systems and technology landscape" },
       { text: "Identifying key transformation areas and opportunities" },
       { text: "Planning comprehensive digital strategy and architecture" },
@@ -60,52 +60,52 @@ export default function StrategyConsultingServices() {
 
   // Service ID to deliverable slug mapping
   const serviceLinks = {
-    'business-strategy': '/deliverables/strategic-business-planning',
-    'brand-strategy': '/deliverables/brand-messaging-framework',
-    'gtm-planning': '/deliverables/go-to-market-playbook',
-    'digital-transformation': '/deliverables/strategic-business-planning'
+    'market-research-analysis': '/deliverables/market-research-analysis',
+    'strategic-business-planning': '/deliverables/strategic-business-planning',
+    'go-to-market-playbook': '/deliverables/go-to-market-playbook',
+    'competitive-positioning': '/deliverables/competitive-positioning'
   };
 
   const services = [
     {
-      id: 'business-strategy',
-      title: 'Business Strategy',
+      id: 'market-research-analysis',
+      title: 'Market Research & Analysis',
       context: 'When the path forward isn&apos;t clear',
-      description: 'Choose the right direction with confidence.',
+      description: 'Comprehensive market intelligence and competitive analysis.',
       pattern: 'diverging-paths',
       accent: 'from-accent/15 to-accent/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
       image: '/images/strategy-consulting/compass.png'
     },
     {
-      id: 'brand-strategy', 
-      title: 'Brand Strategy',
-      context: 'When you&apos;re fighting to stand out',
-      description: 'Define and own a unique position that commands premium.',
+      id: 'strategic-business-planning', 
+      title: 'Strategic Business Planning',
+      context: 'When you need clear direction and execution',
+      description: 'Data-driven business strategy and execution roadmaps.',
       pattern: 'signal-in-noise',
       accent: 'from-obsidian/15 to-obsidian/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
-      image: '/images/strategy-consulting/prism.png'
+      image: '/images/strategy-consulting/bridge.png'
     },
     {
-      id: 'gtm-planning',
-      title: 'Go-to-Market',
+      id: 'go-to-market-playbook',
+      title: 'Go-to-Market Strategy',
       context: 'When speed to market matters',
-      description: 'Reach market faster with the right strategy.',
+      description: 'Launch strategies that capture market opportunity.',
       pattern: 'velocity-focused',
       accent: 'from-accent/20 to-accent/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
       image: '/images/strategy-consulting/plane.png'
     },
     {
-      id: 'digital-transformation',
-      title: 'Digital Transformation',
-      context: 'When staying current means survival',
-      description: 'Evolve without losing what makes you valuable.',
+      id: 'competitive-positioning',
+      title: 'Competitive Positioning',
+      context: 'When you need to stand out in crowded markets',
+      description: 'Strategic positioning that commands market leadership.',
       pattern: 'evolution-bridge',
       accent: 'from-bone/25 to-bone/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
-      image: '/images/strategy-consulting/bridge.png'
+      image: '/images/strategy-consulting/prism.png'
     }
   ];
 

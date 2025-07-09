@@ -10,10 +10,10 @@ import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 export default function BrandDesignConsultingServices() {
   const [mounted, setMounted] = useState(false);
   const [loadingStates, setLoadingStates] = useState({
-    'brand-identity': false,
-    'user-experience': false,
-    'visual-systems': false,
-    'digital-experiences': false
+    'brand-identity-system': false,
+    'website-design-development': false,
+    'brand-messaging-framework': false,
+    'design-system-architecture': false
   });
 
   useEffect(() => {
@@ -28,28 +28,28 @@ export default function BrandDesignConsultingServices() {
   };
 
   const serviceLoadingSteps = {
-    'brand-identity': [
+    'brand-identity-system': [
       { text: "Researching brand positioning" },
       { text: "Analyzing competitor landscape" },
       { text: "Defining visual direction" },
       { text: "Creating logo concepts" },
       { text: "Developing brand guidelines" },
     ],
-    'user-experience': [
+    'website-design-development': [
       { text: "Mapping user journeys" },
       { text: "Analyzing user behavior" },
       { text: "Creating wireframes" },
       { text: "Designing interactions" },
       { text: "Testing usability" },
     ],
-    'visual-systems': [
+    'brand-messaging-framework': [
       { text: "Auditing current materials" },
       { text: "Defining design principles" },
       { text: "Creating color palette" },
       { text: "Selecting typography" },
       { text: "Building template library" },
     ],
-    'digital-experiences': [
+    'design-system-architecture': [
       { text: "Analyzing user flows" },
       { text: "Designing page layouts" },
       { text: "Creating responsive designs" },
@@ -60,52 +60,52 @@ export default function BrandDesignConsultingServices() {
 
   // Service ID to deliverable slug mapping
   const serviceLinks = {
-    'brand-identity': '/deliverables/brand-identity-system',
-    'user-experience': '/deliverables/website-design-development',
-    'visual-systems': '/deliverables/design-system-architecture',
-    'digital-experiences': '/deliverables/website-design-development'
+    'brand-identity-system': '/deliverables/brand-identity-system',
+    'website-design-development': '/deliverables/website-design-development',
+    'brand-messaging-framework': '/deliverables/brand-messaging-framework',
+    'design-system-architecture': '/deliverables/design-system-architecture'
   };
 
   const services = [
     {
-      id: 'brand-identity',
-      title: 'Brand Identity',
+      id: 'brand-identity-system',
+      title: 'Brand Identity System',
       context: 'When your brand lacks clarity or connection',
-      description: 'Define who you are, what you stand for, and how you show up consistently across every touchpoint.',
+      description: 'Complete visual identity and brand system development.',
       pattern: 'diverging-paths',
       accent: 'from-accent/15 to-accent/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
       image: '/images/brand-design/brand-identity.png'
     },
     {
-      id: 'user-experience', 
-      title: 'User Experience Design',
+      id: 'website-design-development', 
+      title: 'Website Design & Development',
       context: 'When customers struggle to navigate your digital presence',
-      description: 'Create intuitive experiences that guide users effortlessly from discovery to conversion.',
+      description: 'User-centered websites and digital product interfaces.',
       pattern: 'signal-in-noise',
       accent: 'from-obsidian/15 to-obsidian/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
-      image: '/images/brand-design/ux-design.png'
+      image: '/images/brand-design/digital-experience.png'
     },
     {
-      id: 'visual-systems',
-      title: 'Visual Systems',
-      context: 'When your materials look disconnected or unprofessional',
-      description: 'Develop comprehensive design systems that ensure consistency and impact across all channels.',
+      id: 'brand-messaging-framework',
+      title: 'Brand Messaging Framework',
+      context: 'When your messaging feels disconnected or unclear',
+      description: 'Strategic messaging and content that converts.',
       pattern: 'velocity-focused',
       accent: 'from-accent/20 to-accent/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
       image: '/images/brand-design/visual-system.png'
     },
     {
-      id: 'digital-experiences',
-      title: 'Digital Experiences',
-      context: 'When your website or app doesn&apos;t reflect your brand&apos;s potential',
-      description: 'Build digital platforms that showcase your brand beautifully while driving business results.',
+      id: 'design-system-architecture',
+      title: 'Design System Architecture',
+      context: 'When your materials look disconnected or unprofessional',
+      description: 'Scalable design systems for consistent brand expression.',
       pattern: 'evolution-bridge',
       accent: 'from-bone/25 to-bone/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
-      image: '/images/brand-design/digital-experience.png'
+      image: '/images/brand-design/digital-experience-2.png'
     }
   ];
 
