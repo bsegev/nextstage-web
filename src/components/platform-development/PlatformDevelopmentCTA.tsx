@@ -575,11 +575,11 @@ export default function TechInnovationCTA() {
             <div className="text-left">
               <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                Ready to accelerate your business?
+                Ready to build your technology?
               </span>
             </h2>
               <p className="text-lg sm:text-lg text-bone/75 font-light max-w-2xl">
-              Transform your operations with technology that scales exponentially.
+              Turn your ideas into technology that makes your business more efficient and helps you grow.
             </p>
             </div>
 

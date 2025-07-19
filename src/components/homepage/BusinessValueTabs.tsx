@@ -57,31 +57,31 @@ export default function BusinessValueTabs() {
   const deliverables = {
     ideate: [
       "Market research report",
-      "Clear business plan", 
+      "Actionable business plan", 
       "Success roadmap",
       "And more..."
     ],
     create: [
-      "Working prototype",
+      "Functional prototype",
       "Brand and messaging",
       "Launch plan", 
       "And more..."
     ],
     activate: [
       "Live product launch",
-      "Customer acquisition system",
+      "Customer acquisition strategy",
       "Sales tracking dashboard",
       "And more..."
     ],
     elevate: [
-      "Automated workflows",
+      "Operational systems",
       "Performance analytics",
       "Customer experience upgrades",
       "And more..."
     ],
     accelerate: [
       "Scaling infrastructure",
-      "Growth tracking system", 
+      "Performance tracking", 
       "Expansion strategy",
       "And more..."
     ]

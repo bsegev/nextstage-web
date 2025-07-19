@@ -4,7 +4,6 @@ import {
   Hero,
   TransformationTicker,
   PowerInConvergence,
-  SpeedProof,
   BusinessValueTabs,
   LogoShowcase,
   CTASection,
@@ -19,7 +18,6 @@ export default function Home() {
         <TransformationTicker />
         <PowerInConvergence />
         <KeyDeliverablesShowcase />
-        <SpeedProof />
         <BusinessValueTabs />
         <LogoShowcase />
         <CTASection />

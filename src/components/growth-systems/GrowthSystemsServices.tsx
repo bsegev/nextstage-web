@@ -129,7 +129,7 @@ export default function GrowthMarketingConsultingServices() {
           </h2>
           
           <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light leading-relaxed max-w-4xl mx-auto">
-            Surface-level campaigns and vanity metrics don&apos;t build businesses. Every system we create connects you with the right customers, builds meaningful relationships, and drives sustainable growth.
+            Good marketing does more than get attention—it helps you connect with the right customers and build lasting relationships.
           </p>
         </div>
 

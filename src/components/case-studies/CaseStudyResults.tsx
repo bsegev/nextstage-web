@@ -39,7 +39,7 @@ export default function CaseStudyResults({ data }: CaseStudyResultsProps) {
             Results That Matter
           </h2>
             <p className="text-lg sm:text-xl lg:text-2xl text-bone/80 font-light max-w-3xl mx-auto leading-relaxed">
-              Measurable impact and tangible outcomes that validate strategic execution
+              Clear results and real outcomes that show our approach works
             </p>
             <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent/30 mx-auto mt-8" />
           </div>

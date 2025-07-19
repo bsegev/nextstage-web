@@ -117,17 +117,17 @@ export const Header = () => {
         <p className="text-lg sm:text-xl md:text-2xl leading-[1.5] text-foreground/80 font-light max-w-2xl">
           Banking platforms that{' '}
           <span className="relative inline-block">
-            <span className="text-foreground font-medium">launch countries</span>
+            <span className="text-foreground font-medium">serve millions</span>
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/50 to-accent/25 block" />
           </span>
           . AI systems that{' '}
           <span className="relative inline-block">
-            <span className="text-foreground font-medium">redefine industries</span>
+            <span className="text-foreground font-medium">transform businesses</span>
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/25 to-accent/50 block" />
           </span>
           . Brands that{' '}
           <span className="relative inline-block">
-            <span className="text-foreground font-medium">become legends</span>
+            <span className="text-foreground font-medium">connect with people</span>
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/50 to-accent/25 block" />
           </span>
           . This is our track record.

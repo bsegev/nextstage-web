@@ -139,12 +139,12 @@ export default function StrategyConsultingServices() {
           
           <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 md:mb-8">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-              Every business faces moments of truth
+              Every business needs clear direction
             </span>
           </h2>
           
           <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed">
-            Critical junctures where the right strategic choice determines your trajectory.
+            Key decisions that shape your business future.
           </p>
         </div>
 
@@ -285,7 +285,7 @@ export default function StrategyConsultingServices() {
             <p className="text-xl lg:text-2xl text-obsidian/60 font-light leading-relaxed mb-8">
               Strategy isn&apos;t about predicting the future.
               <br className="hidden sm:block" />
-              <span className="italic">It&apos;s about building the capability to adapt when the future surprises you.</span>
+              <span className="italic">It&apos;s about building the capability to adapt when the future surprises you—but your next steps can begin today.</span>
             </p>
             
             <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto"></div>

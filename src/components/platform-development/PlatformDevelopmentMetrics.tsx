@@ -192,7 +192,7 @@ export default function TechInnovationMetrics() {
             >
               <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-2 sm:mb-3">
                 <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                  Why Technology & Innovation Matters
+                  Why Tech & Software Matters
                 </span>
               </h2>
               

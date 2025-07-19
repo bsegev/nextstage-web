@@ -137,11 +137,11 @@ export default function StrategyCTA() {
           >
             <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                Ready to architect your future?
+                Ready to build your strategy?
               </span>
             </h2>
             <p className="text-lg sm:text-lg text-bone/75 font-light max-w-2xl mx-auto">
-              Strategic clarity isn&apos;t built overnight—but transformation can begin today.
+              Clear direction isn&apos;t built overnight—but your next steps can begin today.
             </p>
           </motion.div>
 

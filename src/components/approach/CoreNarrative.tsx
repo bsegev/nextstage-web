@@ -52,9 +52,9 @@ export default function CoreNarrative() {
               
               <div className="space-y-6 sm:space-y-8">
                 {[
-                  "Designers disconnected from strategy.",
-                  "Strategists detached from execution.", 
-                  "Complex hiring processes that drain your resources."
+                  "Design that doesn't match your strategy.",
+                  "Plans that never get built.", 
+                  "Hiring that takes forever and costs too much."
                 ].map((text, index) => (
                   <motion.div
                     key={index}

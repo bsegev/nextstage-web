@@ -390,7 +390,7 @@ const Sparkles = ({ color = "blue" }: { color?: string }) => {
 const services = [
   {
     title: "Strategy & Planning",
-    description: "Transform uncertainty into strategic advantage with market insights and data-driven planning.",
+    description: "Turn uncertainty into clear direction with market insights and data-driven planning.",
     href: "/services/strategy-planning",
     skeleton: MarketIntelligenceSkeleton,
     backgroundImage: "/images/strategy-hero.png",
@@ -398,7 +398,7 @@ const services = [
   },
   {
     title: "Branding & Design",
-    description: "Create cohesive brand experiences that drive recognition and conversion across touchpoints.",
+    description: "Build brands that connect with your audience and drive recognition across all touchpoints.",
     href: "/services/branding-design", 
     skeleton: BrandExperienceSkeleton,
     backgroundImage: "/images/brand-design.png",
@@ -406,7 +406,7 @@ const services = [
   },
   {
     title: "Tech & Software",
-    description: "Build scalable digital platforms and custom solutions that grow with your business needs.",
+    description: "Create digital solutions that grow with your business and meet your specific needs.",
     href: "/services/tech-software",
     skeleton: PlatformDevelopmentSkeleton,
     backgroundImage: "/images/tech-innovation-hero-bg.png",
@@ -414,7 +414,7 @@ const services = [
   },
   {
     title: "Marketing & Growth",
-    description: "Scale efficiently with marketing automation and systematic growth acceleration.",
+    description: "Grow your business with smart marketing systems and systematic growth acceleration.",
     href: "/services/marketing-growth",
     skeleton: GrowthSystemsSkeleton,
     backgroundImage: "/images/growth-marketing-hero-bg-2.png",

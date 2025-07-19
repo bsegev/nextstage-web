@@ -195,7 +195,7 @@ export default function BrandDesignMetrics() {
             >
               <h2 className="font-display text-3xl sm:text-2xl md:text-3xl tracking-[-0.02em] leading-[0.9] mb-2 sm:mb-3">
                 <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                  Why Brand & Design Matters
+                  Why Branding & Design Matters
                 </span>
               </h2>
               

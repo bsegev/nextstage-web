@@ -8,6 +8,11 @@ export default function HeroParallaxDemo() {
 
 export const products = [
   {
+    title: "SparrowPark Development",
+    link: "/case-studies/sparrowpark-development",
+    thumbnail: "/images/showcase/sp_deck.jpg",
+  },
+  {
     title: "AI Podcast Platform",
     link: "/case-studies/ai-podcast-platform",
     thumbnail: "/images/showcase/ai-podcast-mockup.jpg",
@@ -19,27 +24,22 @@ export const products = [
   },
   {
     title: "Crypto Investment Platform",
-    link: "/case-studies/crypto-investment-platform",
+    link: "#",
     thumbnail: "/images/showcase/crypto-carousel.png",
   },
   {
     title: "Energy Trading Platform",
-    link: "/case-studies/energy-trading-platform",
+    link: "#",
     thumbnail: "/images/showcase/energy-comparison.jpg",
   },
   {
     title: "Photography Portfolio",
-    link: "/case-studies/photography-portfolio",
+    link: "#",
     thumbnail: "/images/showcase/photographer-portfolio.png",
   },
   {
-    title: "SparrowPark Development",
-    link: "/case-studies/sparrowpark-development",
-    thumbnail: "/images/showcase/sp_deck.jpg",
-  },
-  {
     title: "Health & Wellness App",
-    link: "/case-studies/health-wellness-app",
+    link: "#",
     thumbnail: "/images/showcase/weight-loss-comparison.png",
   },
   {

@@ -178,8 +178,8 @@ export default function HandoffProblem() {
             <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
               <p className="text-lg sm:text-base lg:text-lg text-obsidian/70 font-light leading-relaxed">
                 After years leading projects across consulting and innovation, I kept seeing the same pattern: <br className="hidden sm:block" />
-                brilliant strategies dying in translation, beautiful designs compromised in development, <br className="hidden sm:block" />
-                technical marvels that missed the business mark.
+                great ideas getting lost in translation, designs that don&apos;t get built right, <br className="hidden sm:block" />
+                technology that doesn&apos;t solve the real problem.
               </p>
               
               <div className="w-16 h-px bg-obsidian/20 mx-auto" />
@@ -519,7 +519,7 @@ export default function HandoffProblem() {
                 Integration as partnership advantage
               </p>
               <p className="text-sm sm:text-sm text-obsidian/60 font-light">
-                When strategy, design, and technology flow from one source, your vision stays intact from concept to launch. No handoffs, no dilution — just unified execution at the speed of opportunity.
+                When strategy, design, and technology work together from the start, your vision stays intact from concept to launch. No handoffs, no dilution — just unified execution at the speed of opportunity.
               </p>
             </motion.div>
           </motion.div>

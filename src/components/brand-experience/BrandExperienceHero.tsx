@@ -102,7 +102,7 @@ export default function BrandDesignConsultingHero() {
           <div className={`transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="mb-8 sm:mb-10 lg:mb-12 relative">
               <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] text-foreground/80 font-light text-center sm:text-left">
-                Transform how customers see and interact with your business. From brand identity to digital experiences, we create cohesive design systems that drive recognition, trust, and conversions.
+                We help you create designs that connect with your customers and drive real business results.
               </p>
             </div>
           </div>

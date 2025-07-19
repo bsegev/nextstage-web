@@ -100,7 +100,7 @@ export default function GrowthMarketingConsultingHero() {
             </h1>
               
               <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] text-foreground/80 font-light max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl">
-                Every business has a story worth telling and customers who need what you offer. We help you find those customers, communicate your value clearly, and build relationships that drive sustainable growth.
+                We help you find the right customers and build relationships that drive sustainable growth.
               </p>
             </motion.div>
 

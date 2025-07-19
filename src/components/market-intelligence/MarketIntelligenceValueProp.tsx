@@ -23,13 +23,13 @@ export default function StrategyConsultingValueProp() {
               <div className="mb-8 sm:mb-12">
                 <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
                   <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                    Where your limitations become your secret weapon
+                    Where your constraints become your advantage
                   </span>
                 </h2>
                 
                 <div className="max-w-3xl mx-auto">
                   <p className="text-lg sm:text-lg md:text-xl leading-[1.6] text-obsidian/70 font-light">
-                    Other companies have bigger budgets. You have something better—focus.
+                    Other companies have bigger budgets. You have something better—clarity and focus.
                   </p>
                 </div>
               </div>

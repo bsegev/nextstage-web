@@ -34,7 +34,7 @@ export default function FounderIntro() {
             </span>
           </h2>
           <p className="text-lg sm:text-base lg:text-lg text-obsidian/80 font-light max-w-2xl mx-auto">
-            After watching brilliant strategies get diluted through traditional consulting handoffs, I created the embedded partnership that actually delivers.
+            After seeing great ideas get lost in traditional consulting handoffs, I created the integrated partnership that actually gets things done.
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export default function FounderIntro() {
                   {/* Story */}
                   <div className="space-y-4 sm:space-y-6 text-obsidian/75 font-light text-lg sm:text-base lg:text-lg leading-relaxed max-w-2xl lg:max-w-none">
                     <p>
-                      I&apos;ve launched a digital bank from zero, steered product lines in consumer tech, and rebuilt brands across healthcare, real estate, and AI. Each project taught me the same lesson: <span className="text-obsidian font-medium">great strategy collapses the moment it&apos;s handed off to different teams with different priorities.</span>
+                      I&apos;ve launched a digital bank from zero, steered product lines in consumer tech, and rebuilt brands across healthcare, real estate, and AI. Each project taught me the same lesson: <span className="text-obsidian font-medium">great ideas get lost the moment they&apos;re handed off to different teams with different priorities.</span>
                     </p>
                     <p>
                       So I eliminated the handoffs. NextStage is the integrated partnership I kept searching for but never found: strategy, design, and technology moving through one accountable team at startup speed.
@@ -115,7 +115,7 @@ export default function FounderIntro() {
               </h3>
               <div className="space-y-4 sm:space-y-6 text-obsidian/70 font-light text-lg sm:text-base lg:text-lg leading-relaxed">
                 <p>
-                  We&apos;ve assembled multidisciplinary founder-operators who move at startup velocity—designers who code, technologists who understand brand strategy, strategists who&apos;ve scaled their own companies.
+                  We&apos;ve built a team of founders and operators who work at startup speed—designers who code, technologists who understand business, strategists who&apos;ve built their own companies.
                 </p>
                 <p>
                   No handoffs, no dilution—just unified execution delivered in weeks, not months.

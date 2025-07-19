@@ -144,7 +144,7 @@ export default function TechInnovationConsultingServices() {
           </h2>
           
           <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed">
-            Functional isn&apos;t enough. Every system we build accelerates operations, reduces costs, and enables growth that wasn&apos;t possible before.
+            Good technology does more than just work—it makes your business more efficient and helps you grow faster.
           </p>
         </div>
 

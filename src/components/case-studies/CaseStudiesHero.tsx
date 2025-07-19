@@ -120,7 +120,7 @@ export default function CaseStudiesHero() {
           <div className={`transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="mb-8 sm:mb-10 lg:mb-12 relative">
               <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] text-foreground/80 font-light text-center sm:text-left">
-                See how we&apos;ve helped businesses transform their market position, accelerate growth, and achieve measurable results through strategic design, technology, and systems thinking.
+                See how we&apos;ve helped businesses grow faster, reach more customers, and achieve clear results through integrated strategy, design, and technology.
               </p>
             </div>
           </div>

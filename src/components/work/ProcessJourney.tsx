@@ -10,37 +10,37 @@ const processPhases = [
   {
     phase: "01",
     title: "Discovery",
-    subtitle: "Identify transformation opportunities",
-    description: "Deep-dive sessions to uncover friction points and align stakeholders.",
-    details: ["Organizational audit", "Stakeholder synthesis"],
-    timeline: "Week 1-2",
+    subtitle: "Understand your business and goals",
+    description: "We meet your team and understand your business, market, and objectives.",
+    details: ["Business analysis", "Goal alignment"],
+    timeline: "1-2 weeks",
     deliverable: "Roadmap"
   },
   {
     phase: "02", 
     title: "Planning",
-    subtitle: "Strategic transformation blueprint",
-    description: "Strategy framework and architecture design tailored to your context.",
-    details: ["Strategic framework", "System architecture"],
-    timeline: "Week 3-4",
+    subtitle: "Create your strategic blueprint",
+    description: "We design your strategy and system architecture based on your specific needs.",
+    details: ["Strategy design", "System planning"],
+    timeline: "1-2 weeks",
     deliverable: "Blueprint"
   },
   {
     phase: "03",
     title: "Design & Build", 
-    subtitle: "Technology meets strategy",
-    description: "Detailed solution design with technology stack and implementation plan.",
-    details: ["Technology stack", "Implementation plan", "Team structure"],
-    timeline: "Week 5-8",
+    subtitle: "Create your solution",
+    description: "We design and build your solution with the right technology and implementation plan.",
+    details: ["Solution design", "Technology build", "Implementation"],
+    timeline: "2-4 weeks",
     deliverable: "Solution Map"
   },
   {
     phase: "04",
     title: "Launch & Handoff",
-    subtitle: "Full-scale implementation and handoff", 
-    description: "Sprint-based delivery with knowledge transfer and capability building.",
-    details: ["Agile delivery", "Knowledge transfer"],
-    timeline: "Week 9-20",
+    subtitle: "Launch and handoff your solution", 
+    description: "We launch your solution and ensure you have everything needed for success.",
+    details: ["Solution launch", "Knowledge transfer"],
+    timeline: "2-4 weeks",
     deliverable: "Live Systems"
   }
 ];
@@ -144,7 +144,7 @@ export default function ProcessJourney() {
             </span>
           </h2>
           <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-2xl mx-auto leading-relaxed">
-            Our 4-phase process gets you from concept to live solution in 20 weeks. Here&apos;s exactly what happens.
+            Our 4-phase process gets you from concept to live solution. Here&apos;s exactly what happens.
           </p>
         </div>
 

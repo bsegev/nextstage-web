@@ -102,7 +102,7 @@ export default function TechInnovationConsultingHero() {
           <div className={`transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 relative">
               <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] sm:leading-[1.5] text-foreground/80 font-light text-center sm:text-left max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto sm:mx-0">
-                Transform ideas into powerful digital solutions. From custom platforms to automation systems, we build technology that accelerates growth, improves efficiency, and creates competitive advantages.
+                We help you build technology that makes your business more efficient and helps you grow faster.
               </p>
             </div>
           </div>

@@ -53,7 +53,7 @@ export default function ContactHero() {
             <h1 className="font-display tracking-tight leading-[0.9] sm:leading-[0.95] mb-4 sm:mb-6 lg:mb-8 text-center sm:text-left">
               <span className="block relative">
                 <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian dark:from-bone dark:via-accent dark:to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-sm">
-                  Let&apos;s Build Something Extraordinary
+                  Let&apos;s Build Something Great Together
                 </span>
                 <span className="absolute -inset-1 bg-gradient-to-r from-accent/15 to-accent/30 rounded-lg sm:rounded-xl blur-md sm:blur-lg opacity-20 animate-pulse block" />
               </span>
@@ -64,9 +64,9 @@ export default function ContactHero() {
           <div className={`transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="mb-8 sm:mb-10 lg:mb-12 relative">
               <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] sm:leading-[1.5] text-foreground/80 font-light text-center sm:text-left max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto sm:mx-0">
-                Ready to transform your vision into{' '}
+                Ready to turn your vision into{' '}
                 <span className="relative inline-block">
-                  <span className="text-foreground font-medium">measurable impact</span>
+                  <span className="text-foreground font-medium">real results</span>
                   <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/50 to-accent/25 block" />
                 </span>
                 ? Every transformation story starts with a single conversation.

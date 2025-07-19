@@ -134,11 +134,11 @@ export default function BrandDesignCTA() {
           <div className="mb-12">
             <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                Ready to elevate your brand?
+                Ready to improve your design?
               </span>
             </h2>
             <p className="text-lg sm:text-lg text-bone/75 font-light max-w-2xl mx-auto">
-              Transform your vision into extraordinary design that captivates and converts.
+              Turn your vision into design that connects with customers and drives results.
             </p>
           </div>
 
@@ -519,11 +519,11 @@ export default function BrandDesignCTA() {
             <div className="text-left">
               <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6">
                 <span className="bg-gradient-to-r from-bone via-accent to-bone bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                  Ready to elevate your brand?
+                  Ready to improve your design?
                 </span>
               </h2>
               <p className="text-lg sm:text-lg text-bone/75 font-light max-w-2xl">
-                Transform your vision into extraordinary design that captivates and converts.
+                Turn your vision into design that connects with customers and drives results.
               </p>
             </div>
 

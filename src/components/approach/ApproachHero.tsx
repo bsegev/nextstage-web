@@ -57,22 +57,22 @@ export default function ApproachHero() {
           <div className={`transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 relative">
               <p className="text-lg sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] sm:leading-[1.5] text-foreground/80 font-light text-center sm:text-left max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto sm:mx-0">
-                Our methodology combines{' '}
+                We combine{' '}
                 <span className="relative inline-block">
-                  <span className="text-foreground font-medium">strategic depth</span>
+                  <span className="text-foreground font-medium">deep strategy</span>
                   <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/50 to-accent/25 block" />
                 </span>
                 {' '}with{' '}
                 <span className="relative inline-block">
-                  <span className="text-foreground font-medium">rapid execution</span>
+                  <span className="text-foreground font-medium">fast execution</span>
                   <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/25 to-accent/50 block" />
                 </span>
-                —delivering{' '}
+                {' '}to deliver{' '}
                 <span className="relative inline-block">
-                  <span className="text-foreground font-medium">measurable results</span>
+                  <span className="text-foreground font-medium">results that build on each other</span>
                   <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/50 to-accent/25 block" />
                 </span>
-                {' '}that compound over time.
+                .
               </p>
             </div>
           </div>

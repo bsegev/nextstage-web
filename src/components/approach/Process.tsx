@@ -119,31 +119,31 @@ export function Process() {
       number: "01",
       title: "Discovery Session",
       description:
-        "An in-depth meeting to dive into your business, your team, the market you're going after, as well as your goals. We'll set timelines and cover expectations for our collaboration.",
+        "We meet your team and understand your business, market, and goals. We set clear timelines and expectations for working together.",
     },
     {
       number: "02",
       title: "Strategic Deep Dive",
       description:
-        "1:1 sessions to see the world through your eyes. We'll analyze your business, market, and backgrounds to conceptualize strategies and designs that will ensure your story resonates.",
+        "We work with you to understand your vision and analyze your business and market. We create strategies and designs that tell your story effectively.",
     },
     {
       number: "03",
       title: "Concept Workshop",
       description:
-        "We'll share our initial design and strategic ideas with you, develop an even deeper understanding of your vision, and collectively agree on a path forward that aligns with your goals.",
+        "We show you our ideas and get your feedback. We refine our understanding of your vision and agree on the best path forward.",
     },
     {
       number: "04",
       title: "Creation & Refinement",
       description:
-        "Kick back while we use our expertise to craft bespoke assets that celebrate your story, highlight your strengths, and move from ideas to tangible reality.",
+        "We use our expertise to create assets that tell your story, highlight your strengths, and turn ideas into reality.",
     },
     {
       number: "05",
       title: "Delivery & Implementation",
       description:
-        "We deliver your finished assets, integrate any feedback you have, provide strategic guidance for implementation, and ensure you have everything needed for continued success.",
+        "We deliver your finished assets, incorporate your feedback, provide guidance for implementation, and ensure you have everything needed for success.",
     },
   ]
 
