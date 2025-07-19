@@ -41,7 +41,7 @@ export const websiteDesignDeliverable = {
     },
     {
       phase: "Optimize",
-      whatWeDo: "Test and refine based on how real visitors actually use your site",
+      whatWeDo: "Analyze performance data and refine based on visitor behavior analytics",
       whatEmerges: "Website that gets better at converting visitors into customers over time"
     }
   ],
@@ -104,7 +104,7 @@ export const websiteDesignDeliverable = {
           ],
           process: [
             "Business goal alignment to understand what your website needs to accomplish",
-            "User research to understand who visits your site and what they're looking for",
+            "User intelligence development using available data to understand visitor needs and behavior",
             "Site planning that creates clear paths from visitor interest to customer action",
             "Conversion optimization strategy based on your specific business objectives"
           ],
@@ -142,13 +142,13 @@ export const websiteDesignDeliverable = {
             "Professional website development with focus on speed and user experience",
             "Content management system that makes it easy for your team to maintain the site",
             "Analytics and tracking setup so you can see how your website drives business results",
-            "Optimization recommendations based on real user behavior and business performance"
+            "Optimization recommendations based on analytics data and business performance"
           ],
           process: [
             "Website development with focus on performance, security, and user experience",
             "Content management setup that works for your team and business workflow",
             "Analytics implementation to track website performance and business impact",
-            "Optimization planning based on user behavior data and business results"
+            "Optimization planning based on analytics data and business performance metrics"
           ],
           outcome: "A high-performing website that delivers excellent user experience while driving measurable business results for your company."
         }

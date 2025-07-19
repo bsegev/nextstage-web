@@ -141,13 +141,13 @@ export const digitalBrandManagementDeliverable = {
           whatYouGet: [
             "Implementation of consistent branding across all your current digital touchpoints",
             "Systems and processes for maintaining brand consistency as you add new digital presence",
-            "Team training on digital brand standards and how to maintain them effectively",
+            "Executive briefing on digital brand standards and how to maintain them effectively",
             "Ongoing monitoring and optimization to ensure brand quality stays high over time"
           ],
           process: [
             "Brand implementation across existing digital touchpoints and platforms",
             "System development for maintaining consistency as digital presence expands",
-            "Team training and process documentation for sustainable brand management",
+            "Executive briefing and process documentation for sustainable brand management",
             "Monitoring and optimization framework for ongoing brand quality improvement"
           ],
           outcome: "A digital brand management system that maintains professional consistency across all touchpoints while scaling effectively with your business growth."

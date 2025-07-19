@@ -73,8 +73,8 @@ export default function NextStageNavbar() {
           href: "/deliverables/strategic-partnerships"
         },
         {
-          name: "Investor Relations",
-          href: "/deliverables/investor-relations"
+          name: "Business Intelligence",
+          href: "/deliverables/business-intelligence"
         }
       ],
       cta: {
@@ -129,36 +129,36 @@ export default function NextStageNavbar() {
       description: "The engine • How to build it",
       services: [
         {
+          name: "Custom GPT Development",
+          href: "/deliverables/custom-gpt-development"
+        },
+        {
+          name: "Workflow Automation",
+          href: "/deliverables/workflow-automation"
+        },
+        {
+          name: "Digital Transformation",
+          href: "/deliverables/digital-transformation"
+        },
+        {
           name: "MVP Development",
           href: "/deliverables/mvp-development"
         },
         {
-          name: "Product Development",
-          href: "/deliverables/product-development"
+          name: "Interactive Demo",
+          href: "/deliverables/interactive-demo"
         },
         {
-          name: "AI Implementation",
-          href: "/deliverables/ai-implementation"
+          name: "UX/UI Prototypes",
+          href: "/deliverables/ux-ui-prototypes"
         },
         {
-          name: "System Integration",
-          href: "/deliverables/system-integration"
-        },
-        {
-          name: "Technical Architecture",
-          href: "/deliverables/technical-architecture"
-        },
-        {
-          name: "API Development",
-          href: "/deliverables/api-development"
+          name: "Productivity Stack Setup",
+          href: "/deliverables/productivity-stack-setup"
         },
         {
           name: "Software Consulting",
           href: "/deliverables/software-consulting"
-        },
-        {
-          name: "Platform Migration",
-          href: "/deliverables/platform-migration"
         }
       ],
       cta: {

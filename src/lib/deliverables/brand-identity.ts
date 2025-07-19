@@ -41,7 +41,7 @@ export const brandIdentityDeliverable = {
     },
     {
       phase: "Launch",
-      whatWeDo: "Help implement across key touchpoints and train your team",
+      whatWeDo: "Help implement across key touchpoints and provide executive guidance",
       whatEmerges: "Brand system working across all customer interactions"
     }
   ],
@@ -95,18 +95,18 @@ export const brandIdentityDeliverable = {
         description: "Research your market and define your unique position before any design starts",
         icon: Target,
         details: {
-          overview: "We start with business strategy, not design trends. Who are your competitors? What do customers actually care about? How can you position differently?",
+          overview: "We start with business strategy, not design trends. Who are your competitors? What do customers actually care about based on available data? How can you position differently?",
           whatYouGet: [
             "Competitive analysis showing how others position themselves",
-            "Customer research revealing what drives their buying decisions",
+            "Customer intelligence revealing what drives their buying decisions",
             "Clear brand positioning that differentiates you in the market",
             "Strategic foundation that guides all design decisions"
           ],
           process: [
             "Market research and competitive landscape analysis",
-            "Customer interviews and decision-making factor identification",
-            "Brand positioning workshops and differentiation strategy",
-            "Strategic foundation documentation and team alignment"
+            "Customer intelligence development using available market data and insights",
+            "Brand positioning analysis and differentiation strategy development",
+            "Strategic foundation documentation and positioning framework creation"
           ],
           outcome: "A clear understanding of how your brand should position in the market and what visual identity needs to communicate to customers."
         }
@@ -127,7 +127,7 @@ export const brandIdentityDeliverable = {
             "Design exploration based on strategic positioning requirements",
             "Visual system development with business application focus",
             "Brand guideline creation with practical usage examples",
-            "Asset preparation and team implementation training"
+            "Asset preparation and implementation guide development"
           ],
           outcome: "A professional visual identity that makes you look established, builds customer trust, and consistently communicates your value."
         }
@@ -142,13 +142,13 @@ export const brandIdentityDeliverable = {
             "Brand application templates for common business needs",
             "Implementation guidelines for different team members and contexts",
             "Quality control checklists to maintain brand consistency",
-            "Training materials so everyone understands how to use the brand"
+            "Executive briefing materials so leadership understands how to manage brand usage"
           ],
           process: [
             "Implementation planning based on your specific business needs",
             "Template and guideline development for key applications",
-            "Team training and implementation process documentation",
-            "Quality control system setup and ongoing support planning"
+            "Executive briefing and implementation process documentation",
+            "Quality control system setup and ongoing management framework"
           ],
           outcome: "A brand system that your team can use confidently and consistently, maintaining professional appearance across all customer touchpoints."
         }

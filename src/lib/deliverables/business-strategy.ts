@@ -18,7 +18,7 @@ export const businessStrategyDeliverable = {
   // What This Actually Is
   whatItIs: {
     realDefinition: "A comprehensive strategic framework that defines how you compete, where you play, and what capabilities you build to win in your market.",
-    notJust: "A mission statement or SWOT analysis that sounds good in presentations",
+    notJust: "A mission statement or basic competitive analysis that sounds good in presentations",
     butAlso: "The operational blueprint that guides resource allocation, capability building, and competitive positioning for sustainable business growth"
   },
   
@@ -74,12 +74,12 @@ export const businessStrategyDeliverable = {
   // Performance Metrics
   performanceMetrics: {
     title: "Business Strategy Impact",
-    description: "What happens when strategy actually drives execution",
+    description: "Organizations with clear strategic direction achieve 5-10x increase in speed of change and decision-making",
     metric: {
       value: "5-10x",
       number: 10,
       label: "Faster Decision-Making",
-      description: "Organizations redesigning operating models to align with business strategy achieve 5-10x increase in speed of change and decision-making",
+      description: "Organizations with clear strategic direction achieve 5-10x increase in speed of change and decision-making",
       source: "McKinsey research on operating model transformation",
       icon: TrendingUp
     },
@@ -105,7 +105,7 @@ export const businessStrategyDeliverable = {
           ],
           process: [
             "Competitive intelligence gathering and market dynamics analysis",
-            "Customer research to understand decision-making criteria and value drivers",
+            "Customer value research using available data and market intelligence",
             "Strategic opportunity mapping and competitive advantage identification",
             "Market positioning strategy development with differentiation framework"
           ],
@@ -125,10 +125,10 @@ export const businessStrategyDeliverable = {
             "Resource allocation framework for strategic decision-making"
           ],
           process: [
-            "Strategic visioning workshops to define competitive direction and priorities",
+            "Strategic analysis and direction development based on competitive intelligence",
             "Value proposition development and competitive differentiation strategy",
             "Capability gap analysis and strategic investment planning",
-            "Strategic framework validation and stakeholder alignment"
+            "Strategic framework validation and executive implementation guide"
           ],
           outcome: "A powerful strategic framework that clearly defines how you compete and guides all major business decisions and resource allocation."
         }
@@ -146,10 +146,10 @@ export const businessStrategyDeliverable = {
             "Implementation tools and processes for consistent strategic execution"
           ],
           process: [
-            "Execution planning workshops to translate strategy into actionable initiatives",
-            "Performance measurement system design and strategic KPI development",
-            "Decision-making process optimization and strategic governance setup",
-            "Implementation support and strategic execution system training"
+            "Execution planning and strategy translation into actionable initiatives",
+            "Performance measurement system design and key metric development",
+            "Decision-making process optimization and strategic governance framework",
+            "Executive briefing and implementation guide for strategic execution"
           ],
           outcome: "A complete strategic operating system that enables consistent execution and measurable progress toward your strategic objectives."
         }

@@ -10,8 +10,8 @@ export const goToMarketStrategyDeliverable = {
   
   // The NextStage Way
   ourApproach: {
-    headline: "Market research, customer strategy & execution planning working together",
-    description: "We don't just plan product launches, we design market entry systems. Our strategy combines customer research with competitive analysis to create systematic approaches for market success.",
+    headline: "Market research, customer intelligence & execution planning working together",
+    description: "We don't just plan product launches, we design market entry systems. Our strategy combines customer intelligence with competitive analysis to create systematic approaches for market success.",
     keyPrinciple: "Go-to-market strategy that drives customer acquisition, not just product awareness"
   },
   
@@ -79,7 +79,7 @@ export const goToMarketStrategyDeliverable = {
       value: "2x",
       number: 2,
       label: "Revenue Growth",
-      description: "Companies with advanced GTM strategies achieve 2x the average revenue growth of their sectors",
+      description: "Companies with strategic go-to-market approaches achieve 2x the average revenue growth of their sectors",
       source: "Bain 2025 B2B Growth Winners research",
       icon: Rocket
     },
@@ -89,23 +89,23 @@ export const goToMarketStrategyDeliverable = {
   // Methodology
   methodology: {
     title: "Everything you need for successful market entry",
-    subtitle: "Our go-to-market process combines customer research with strategic planning to create systematic approaches for customer acquisition and revenue growth.",
+    subtitle: "Our go-to-market process combines customer intelligence with strategic planning to create systematic approaches for customer acquisition and revenue growth.",
     items: [
       {
-        title: "Market Research & Customer Analysis",
+        title: "Market Research & Customer Intelligence",
         description: "Understand your target market and customer decision-making process",
         icon: Target,
         details: {
-          overview: "We research your target market to understand customer needs, buying behavior, and decision-making process, creating foundation for effective market entry strategy.",
+          overview: "We research your target market using available data and competitive intelligence to understand customer needs, buying behavior, and decision-making process, creating foundation for effective market entry strategy.",
           whatYouGet: [
             "Target market analysis with customer segment identification and prioritization",
-            "Customer research revealing needs, pain points, and buying behavior",
+            "Customer intelligence revealing needs, pain points, and buying behavior patterns",
             "Competitive analysis showing market positioning and differentiation opportunities",
             "Market sizing and opportunity assessment for strategic planning"
           ],
           process: [
-            "Market research and customer segment identification",
-            "Customer interview process to understand needs and buying behavior",
+            "Market research and customer segment identification using available data",
+            "Customer intelligence development using market data and competitive analysis",
             "Competitive landscape analysis and positioning opportunity identification",
             "Market opportunity assessment and segment prioritization"
           ],
@@ -126,7 +126,7 @@ export const goToMarketStrategyDeliverable = {
           ],
           process: [
             "Positioning strategy development based on market research and competitive analysis",
-            "Value proposition creation and customer validation testing",
+            "Value proposition creation and strategic validation framework",
             "Messaging framework development for different customer segments",
             "Positioning refinement and competitive differentiation optimization"
           ],
@@ -149,7 +149,7 @@ export const goToMarketStrategyDeliverable = {
             "Customer acquisition channel analysis and strategy development",
             "Sales and marketing process design for target customer conversion",
             "Go-to-market planning with timeline and milestone development",
-            "Implementation framework creation and team training"
+            "Implementation framework creation and executive briefing"
           ],
           outcome: "A complete customer acquisition system that enables systematic market entry and measurable progress toward revenue growth objectives."
         }

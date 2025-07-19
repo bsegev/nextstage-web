@@ -98,13 +98,13 @@ export const brandStrategyDeliverable = {
           overview: "We map your competitive landscape to find positioning gaps you can own. Who are your real competitors? What do customers actually decide between? Where can you be uniquely valuable?",
           whatYouGet: [
             "Complete competitive positioning map showing how everyone positions themselves",
-            "Customer decision-making research revealing what drives their choices",
+            "Customer intelligence analysis revealing what drives their choices",
             "Market opportunity analysis highlighting gaps you can fill profitably",
             "Strategic positioning recommendations based on real competitive advantage"
           ],
           process: [
             "Competitive audit of direct and indirect competitors' positioning strategies",
-            "Customer interview process to understand actual decision-making criteria",
+            "Customer intelligence development using available market data and insights",
             "Market gap analysis to identify ownable positioning territory",
             "Strategic opportunity assessment and positioning recommendations"
           ],
@@ -124,8 +124,8 @@ export const brandStrategyDeliverable = {
             "Brand personality and communication principles that reinforce positioning"
           ],
           process: [
-            "Positioning workshops to define your unique value and market space",
-            "Value proposition development and customer validation testing",
+            "Positioning analysis and strategic development to define your unique value and market space",
+            "Value proposition development and strategic validation framework",
             "Differentiation strategy creation with competitive proof points",
             "Brand personality definition that supports strategic positioning"
           ],
@@ -145,10 +145,10 @@ export const brandStrategyDeliverable = {
             "Message hierarchy showing what to emphasize in different situations"
           ],
           process: [
-            "Message development workshops to create core positioning language",
+            "Message development and core positioning language creation",
             "Audience segmentation and tailored messaging creation for each segment",
             "Brand voice development and communication style guidelines",
-            "Message testing and optimization with real customers and stakeholders"
+            "Message optimization and strategic validation framework"
           ],
           outcome: "Clear, compelling messaging that consistently reinforces your strategic position and drives customer preference across all touchpoints."
         }

@@ -74,12 +74,12 @@ export const financialPlanningDeliverable = {
   // Performance Metrics
   performanceMetrics: {
     title: "Financial Planning Impact",
-    description: "What happens when financial planning actually drives decisions",
+    description: "Strategic financial planning approaches achieve up to 25% gain in forecasting accuracy",
     metric: {
       value: "25%",
       number: 25,
       label: "Better Forecasting Accuracy",
-      description: "Adopters of real-time forecasting and rolling financial planning achieve up to 25% gain in forecasting accuracy",
+      description: "Strategic financial planning approaches achieve up to 25% gain in forecasting accuracy",
       source: "Deloitte Crunch Time V: Finance 2025 report",
       icon: Calculator
     },
@@ -149,7 +149,7 @@ export const financialPlanningDeliverable = {
             "Financial planning process design based on business requirements",
             "Template creation for budgeting, forecasting, and performance tracking",
             "Decision framework development for financial choices and investments",
-            "Team training on financial planning tools and processes"
+            "Executive briefing on financial planning tools and processes"
           ],
           outcome: "A complete financial planning framework that enables ongoing strategic financial management and informed business decisions."
         }

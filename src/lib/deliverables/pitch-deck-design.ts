@@ -104,10 +104,10 @@ export const pitchDeckDesignDeliverable = {
             "Risk mitigation strategy and competitive differentiation story"
           ],
           process: [
-            "Business model analysis and investor concern identification workshops",
+            "Business model analysis and investor concern identification",
             "Story structure development using Y Combinator and proven funding frameworks",
             "Message hierarchy creation and proof point development",
-            "Narrative testing and refinement with investor feedback integration"
+            "Narrative optimization and strategic framework integration"
           ],
           outcome: "A powerful business story that systematically builds investor confidence and addresses their key concerns about market, model, and execution."
         }
@@ -138,15 +138,15 @@ export const pitchDeckDesignDeliverable = {
         description: "Refine presentation based on investor feedback and funding best practices",
         icon: BarChart,
         details: {
-          overview: "Optimize your presentation for maximum investor impact by testing key messages and refining based on actual investor feedback and funding success patterns.",
+          overview: "Optimize your presentation for maximum investor impact using proven frameworks and funding best practices based on successful funding patterns.",
           whatYouGet: [
-            "Content optimization based on investor feedback patterns and objections",
+            "Content optimization based on funding best practices and investor psychology patterns",
             "Presentation flow refinement for maximum impact and engagement",
             "Multiple format versions for different investor contexts and meeting types",
             "Performance tracking recommendations and iteration guidelines"
           ],
           process: [
-            "Content review and optimization based on investor feedback and funding best practices",
+            "Content review and optimization based on funding best practices and investor psychology",
             "Flow testing and refinement for logical progression and investor psychology",
             "Format adaptation for pitch competitions, investor meetings, and due diligence",
             "Performance tracking setup and continuous improvement recommendations"

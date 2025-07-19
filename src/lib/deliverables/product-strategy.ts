@@ -99,14 +99,14 @@ export const productStrategyDeliverable = {
           overview: "We research your market to understand customer needs, competitive landscape, and product opportunities that inform strategic product direction and positioning.",
           whatYouGet: [
             "Market analysis showing customer needs and product opportunity assessment",
-            "Customer research revealing requirements and decision-making criteria",
+            "Customer intelligence revealing requirements and decision-making criteria",
             "Competitive product analysis showing differentiation opportunities",
             "Market sizing and opportunity prioritization for product development"
           ],
           process: [
             "Market research and customer needs analysis for product requirements",
             "Competitive product analysis and differentiation opportunity identification",
-            "Customer interview process to understand product decision criteria",
+            "Customer intelligence development using market data and competitive research",
             "Market opportunity assessment and product priority development"
           ],
           outcome: "Clear understanding of market opportunity and customer requirements that inform strategic product decisions and development priorities."
@@ -149,7 +149,7 @@ export const productStrategyDeliverable = {
             "Implementation framework design based on product strategy and business requirements",
             "Template creation for strategic product planning and decision-making",
             "Performance measurement system development for product strategy tracking",
-            "Team training on product strategy tools and implementation processes"
+            "Executive briefing on product strategy tools and implementation processes"
           ],
           outcome: "A complete product strategy implementation system that enables consistent strategic product decisions and measurable progress toward market objectives."
         }

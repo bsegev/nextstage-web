@@ -127,7 +127,7 @@ export const marketingCollateralDeliverable = {
             "Custom design development based on your brand, audience, and business objectives",
             "Material creation that balances professional appearance with practical usability",
             "Brand integration to ensure consistency across all customer touchpoints",
-            "Design optimization based on real-world usage and sales team feedback"
+            "Design optimization based on practical usage requirements and business goals"
           ],
           outcome: "Professional marketing materials that are custom-designed for your business and support your sales process while maintaining perfect brand consistency."
         }
@@ -141,13 +141,13 @@ export const marketingCollateralDeliverable = {
           whatYouGet: [
             "Implementation guidelines that ensure materials are used consistently and effectively",
             "Quality control processes that maintain brand standards across all materials",
-            "Team training on how to use and maintain your marketing material system",
+            "Executive briefing on how to manage and maintain your marketing material system",
             "Scaling framework that grows with your business and evolving material needs"
           ],
           process: [
             "Implementation planning based on your team capabilities and business workflow",
             "Quality control system development to maintain consistency and professional standards",
-            "Team training and documentation to ensure proper usage and brand compliance",
+            "Executive briefing and documentation to ensure proper usage and brand compliance",
             "Scaling strategy that adapts as your business grows and material needs evolve"
           ],
           outcome: "A marketing collateral system that maintains professional quality and brand consistency while scaling effectively with your business growth."

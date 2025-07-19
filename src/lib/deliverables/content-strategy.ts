@@ -99,13 +99,13 @@ export const contentStrategyDeliverable = {
           overview: "We start by understanding your specific business goals and researching your actual customers. Not generic personas—real research into who buys from you and why.",
           whatYouGet: [
             "Clear connection between your content strategy and specific business objectives",
-            "Research into your actual customers and what motivates their buying decisions",
+            "Intelligence about your actual customers and what motivates their buying decisions",
             "Analysis of your current content and what's working (or not working) for your business",
             "Custom strategy for how content fits into your sales process and customer journey"
           ],
           process: [
-            "Business goals alignment sessions to understand what success looks like for you",
-            "Customer research to understand who actually buys from you and why",
+            "Business goals analysis to understand what success looks like for you",
+            "Customer intelligence development to understand who actually buys from you and why",
             "Content audit to see what's currently working and what isn't driving results",
             "Competitive analysis to understand what opportunities exist in your market"
           ],

@@ -182,9 +182,9 @@ export default function StrategyDeliverablesShowcase() {
       icon: IconScale
     },
     {
-      title: "Investor Relations Playbook",
-      description: "Ongoing investor communication templates and reporting frameworks.",
-      category: "Fundraising",
+      title: "Business Intelligence Framework",
+      description: "Strategic reporting and intelligence systems for decision-making.",
+      category: "Analytics",
       icon: IconUsers
     },
     {

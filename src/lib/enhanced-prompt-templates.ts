@@ -130,7 +130,7 @@ function getExpertiseAreas(businessModel: BusinessModel, context: ContextualInte
   if (context.strategicPriority === 'Fundraising') {
     areas.push('- Investor pitch development and fundraising strategy')
     areas.push('- Financial modeling and valuation optimization')
-    areas.push('- Due diligence preparation and investor relations')
+    areas.push('- Due diligence preparation and business intelligence systems')
   }
   
   if (context.urgencyLevel === 'High Urgency') {
@@ -304,7 +304,7 @@ function getContextualRequirements(context: ContextualIntelligence): string {
   
   if (context.strategicPriority === 'Fundraising') {
     requirements += '- Include investor-ready financial projections and valuation framework\n'
-    requirements += '- Address due diligence preparation and investor relations strategy\n'
+    requirements += '- Address due diligence preparation and business intelligence strategy\n'
   }
   
   if (context.strategicPriority === 'Market Entry') {

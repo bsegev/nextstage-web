@@ -140,13 +140,13 @@ export const socialMediaAssetsDeliverable = {
           overview: "We set up systems that work specifically for your team and your business. How you work, who's involved, what you need—everything customized for your situation.",
           whatYouGet: [
             "Custom workflow designed for how your team actually works",
-            "Training and setup specific to your business needs and team capabilities",
+            "Executive briefing and setup specific to your business needs and team capabilities",
             "Quality guidelines that maintain your brand standards across all content",
             "Scaling plan that grows with your business and evolving needs"
           ],
           process: [
             "Design workflow that fits your team, timeline, and business requirements",
-            "Train your team on the custom systems and assets we've created for you",
+            "Provide executive briefing on the custom systems and assets we've created for you",
             "Set up quality control processes that work for your business standards",
             "Create scaling strategy that adapts as your business and social presence grow"
           ],

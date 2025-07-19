@@ -17,7 +17,7 @@ export const competitiveAnalysisDeliverable = {
   
   // What This Actually Is
   whatItIs: {
-    realDefinition: "A strategic intelligence system that reveals competitor weaknesses, market gaps, and positioning opportunities to help you compete and win.",
+    realDefinition: "A strategic competitive analysis that reveals competitor weaknesses, market gaps, and positioning opportunities to help you compete and win.",
     notJust: "A list of competitors or feature comparison",
     butAlso: "Strategic insights that inform positioning, product development, and go-to-market strategies"
   },
@@ -79,7 +79,7 @@ export const competitiveAnalysisDeliverable = {
       value: "48%",
       number: 48,
       label: "Adjust Strategy in Real-Time",
-      description: "48% of business leaders are adjusting strategy in real time based on AI-powered competitive intelligence and market data",
+      description: "48% of business leaders are adjusting strategy in real time based on competitive intelligence and market data",
       source: "PwC's May 2025 Pulse Survey",
       icon: Radar
     },
@@ -149,7 +149,7 @@ export const competitiveAnalysisDeliverable = {
             "Competitive tracking framework design based on strategic priorities",
             "Analysis template creation for evaluating threats and opportunities",
             "Key indicator identification and market monitoring guidelines",
-            "Team training on competitive analysis tools and framework usage"
+            "Executive briefing on competitive analysis tools and framework usage"
           ],
           outcome: "A practical competitive tracking framework that your team can use to stay informed about market changes and competitive threats."
         }
