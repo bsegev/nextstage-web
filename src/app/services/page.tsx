@@ -1,11 +1,10 @@
 import { Metadata } from 'next';
-import NextStageNavbar from '@/components/NextStageNavbar';
+import { NextStageNavbar, Footer } from '@/components/layout';
 import ServicesHero from '@/components/services/ServicesHero';
 
 import ServicesFeatures from '@/components/services/ServicesFeatures';
 import ServicesShowcase from '@/components/ServicesShowcase';
 import ServicesCTA from '@/components/services/ServicesCTA';
-import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Services | NextStage',

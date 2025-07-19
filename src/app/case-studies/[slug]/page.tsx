@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import NextStageNavbar from '@/components/NextStageNavbar';
-import Footer from '@/components/Footer';
+import { NextStageNavbar, Footer } from '@/components/layout';
 import CaseStudyHero from '@/components/case-studies/CaseStudyHero';
 import CaseStudyFloatingNav from '@/components/case-studies/CaseStudyFloatingNav';
 import CaseStudyMobileNav from '@/components/case-studies/CaseStudyMobileNav';

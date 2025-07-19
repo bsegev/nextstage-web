@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
-import NextStageNavbar from '@/components/NextStageNavbar';
-import Footer from '@/components/Footer';
-import HeroParallaxDemo from '@/components/hero-parallax-demo';
+import { NextStageNavbar, Footer } from '@/components/layout';
+import { HeroParallaxDemo } from '@/components/demos';
 
 export const metadata: Metadata = {
   title: 'Case Studies | NextStage - Real Results from Real Projects',

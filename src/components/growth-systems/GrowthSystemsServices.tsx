@@ -10,10 +10,10 @@ import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 export default function GrowthMarketingConsultingServices() {
   const [mounted, setMounted] = useState(false);
   const [loadingStates, setLoadingStates] = useState({
-    'customer acquisition system': false,
-    'crm setup & optimization': false,
-    'conversion optimization': false,
-    'performance analytics dashboard': false
+    'customer acquisition': false,
+    'marketing systems': false,
+    'revenue systems': false,
+    'growth operations': false
   });
 
   useEffect(() => {
@@ -29,67 +29,67 @@ export default function GrowthMarketingConsultingServices() {
 
   // Service title to deliverable slug mapping
   const serviceLinks = {
-    'Customer Acquisition System': '/deliverables/customer-acquisition-system',
-    'CRM Setup & Optimization': '/deliverables/crm-optimization-system',
-    'Conversion Optimization': '/deliverables/conversion-optimization-framework',
-    'Performance Analytics Dashboard': '/deliverables/performance-analytics-dashboard'
+    'Customer Acquisition': '/deliverables/customer-acquisition-system',
+    'Marketing Systems': '/deliverables/sales-process-optimization',
+    'Revenue Systems': '/deliverables/retention-loyalty-programs',
+    'Growth Operations': '/deliverables/revenue-operations'
   };
 
   const services = [
     {
-      title: "Customer Acquisition System",
+      title: "Customer Acquisition",
       context: "When you need to attract and convert qualified prospects",
-      description: "Automated workflows that nurture and convert leads into customers.",
+      description: "Systems that consistently bring in the right customers at the right cost.",
       icon: "/images/growth-marketing/campaign-strategy.png",
       gradient: "from-accent/15 to-accent/5",
       loadingSteps: [
-        { text: "Analyzing your current customer acquisition process", duration: 1200 },
-        { text: "Identifying the most effective lead generation channels", duration: 1400 },
-        { text: "Creating automated workflows for lead nurturing", duration: 1600 },
-        { text: "Setting up tracking and optimization systems", duration: 1800 },
-        { text: "Building systems that scale with your growth", duration: 2000 }
+        { text: "Mapping your ideal customer profile and buying journey", duration: 1200 },
+        { text: "Building targeted acquisition channels and funnels", duration: 1400 },
+        { text: "Creating automated lead qualification and nurturing", duration: 1600 },
+        { text: "Setting up conversion tracking and optimization", duration: 1800 },
+        { text: "Implementing scalable customer acquisition systems", duration: 2000 }
       ]
     },
     {
-      title: "CRM Setup & Optimization",
-      context: "When your sales process needs better organization and tracking",
-      description: "Sales systems that scale with your growth and improve conversion.",
+      title: "Marketing Systems",
+      context: "When your marketing efforts feel scattered and ineffective",
+      description: "Integrated marketing infrastructure that drives consistent results.",
       icon: "/images/growth-marketing/marketing-technology.png",
       gradient: "from-accent/15 to-accent/5",
       loadingSteps: [
-        { text: "Analyzing your current sales process and bottlenecks", duration: 1100 },
-        { text: "Setting up CRM systems that fit your workflow", duration: 1300 },
-        { text: "Creating automation for lead scoring and follow-up", duration: 1500 },
-        { text: "Integrating with your existing marketing tools", duration: 1700 },
-        { text: "Training your team on the new systems", duration: 1900 }
+        { text: "Auditing current marketing channels and performance", duration: 1100 },
+        { text: "Designing integrated marketing system architecture", duration: 1300 },
+        { text: "Building automated workflows and campaign sequences", duration: 1500 },
+        { text: "Connecting marketing tools and data systems", duration: 1700 },
+        { text: "Training team on unified marketing operations", duration: 1900 }
       ]
     },
     {
-      title: "Conversion Optimization",
-      context: "When you have traffic but need better conversion rates",
-      description: "Systematic optimization across all touchpoints to increase conversions.",
+      title: "Revenue Systems",
+      context: "When you need to optimize conversion across all touchpoints",
+      description: "Revenue optimization systems that turn prospects into customers.",
       icon: "/images/growth-marketing/content-systems.png",
       gradient: "from-accent/15 to-accent/5",
       loadingSteps: [
-        { text: "Analyzing where prospects drop off in your funnel", duration: 1000 },
-        { text: "Testing different approaches to improve conversions", duration: 1200 },
-        { text: "Optimizing your website and landing pages", duration: 1400 },
-        { text: "Improving your messaging and calls-to-action", duration: 1600 },
-        { text: "Setting up systems for ongoing optimization", duration: 1800 }
+        { text: "Analyzing revenue funnel and conversion bottlenecks", duration: 1000 },
+        { text: "Designing systematic conversion optimization process", duration: 1200 },
+        { text: "Building revenue tracking and attribution systems", duration: 1400 },
+        { text: "Implementing systematic testing and optimization", duration: 1600 },
+        { text: "Creating ongoing revenue optimization operations", duration: 1800 }
       ]
     },
     {
-      title: "Performance Analytics Dashboard",
-      context: "When you need clear insights into marketing performance",
-      description: "Data systems that drive informed marketing decisions and growth.",
+      title: "Growth Operations",
+      context: "When you need systematic growth management and insights",
+      description: "Operational systems that drive sustainable, scalable growth.",
       icon: "/images/growth-marketing/performance-optimization.png",
       gradient: "from-accent/15 to-accent/5",
       loadingSteps: [
-        { text: "Identifying the metrics that matter most for your business", duration: 1300 },
-        { text: "Setting up tracking across all your marketing channels", duration: 1500 },
-        { text: "Creating dashboards that show performance at a glance", duration: 1700 },
-        { text: "Building reports that help you make better decisions", duration: 1900 },
-        { text: "Training your team to use data for growth", duration: 2100 }
+        { text: "Building comprehensive growth metrics and KPI systems", duration: 1300 },
+        { text: "Creating growth experimentation and testing frameworks", duration: 1500 },
+        { text: "Designing growth operations workflows and processes", duration: 1700 },
+        { text: "Building automated growth reporting and insights", duration: 1900 },
+        { text: "Implementing systematic growth management operations", duration: 2100 }
       ]
     }
   ];

@@ -37,8 +37,8 @@ export interface TemplatePerformanceMetrics {
 }
 
 // In-memory analytics store (would be replaced with database in production)
-let briefGenerationEvents: BriefGenerationEvent[] = []
-let clientEngagementData: ClientEngagementMetrics[] = []
+const briefGenerationEvents: BriefGenerationEvent[] = []
+const clientEngagementData: ClientEngagementMetrics[] = []
 
 // Track brief generation event
 export function trackBriefGeneration(event: BriefGenerationEvent): void {

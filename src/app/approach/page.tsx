@@ -1,11 +1,10 @@
 import { Metadata } from 'next';
-import NextStageNavbar from '@/components/NextStageNavbar';
+import { NextStageNavbar, Footer } from '@/components/layout';
 import ApproachHero from '@/components/approach/ApproachHero';
 import CoreNarrative from '@/components/approach/CoreNarrative';
 import { Process } from '@/components/approach/Process';
 import ApproachInAction from '@/components/approach/ApproachInAction';
 import ApproachCTA from '@/components/approach/ApproachCTA';
-import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Our Approach | NextStage',

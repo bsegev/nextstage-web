@@ -1,5 +1,5 @@
 import OpenAI from 'openai'
-import { UserResponse } from '@/features/stage-shift-brief/components/ConversationalFlow'
+import { UserResponse } from '@/lib/types'
 import { 
   NEXTSTAGE_FRAMEWORK, 
   INDUSTRY_TEMPLATES, 

@@ -1,5 +1,4 @@
-import NextStageNavbar from "@/components/NextStageNavbar";
-import Footer from "@/components/Footer";
+import { NextStageNavbar, Footer } from "@/components/layout";
 import KeyDeliverablesShowcase from "@/components/ui/features-section-demo-2";
 import {
   Hero,

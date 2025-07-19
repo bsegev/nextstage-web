@@ -1,14 +1,13 @@
 import { Metadata } from 'next';
-import NextStageNavbar from '@/components/NextStageNavbar';
-import Footer from '@/components/Footer';
+import { NextStageNavbar, Footer } from '@/components/layout';
 import { 
   PlatformDevelopmentHero, 
   PlatformDevelopmentValueProp,
   PlatformDevelopmentServices,
   PlatformDevelopmentDeliverablesShowcase,
   PlatformDevelopmentMetrics,
-  PlatformDevelopmentCTA
-} from '@/components/platform-development';
+  PlatformDevelopmentCTA,
+} from "@/components/platform-development";
 
 export const metadata: Metadata = {
   title: 'Platform Development | NextStage',

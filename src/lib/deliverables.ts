@@ -3,10 +3,7 @@ export * from './deliverables/index';
 
 // Maintain backward compatibility with existing imports
 export {
-  deliverables,
-  getDeliverablesByCategory,
-  getDeliverableById,
-  getAllCategories,
-} from './deliverables/index';
-
-export type { Deliverable } from './deliverables/types'; 
+  DELIVERABLES as deliverables,
+  getDeliverableBySlug,
+  getAllDeliverableSlugs,
+} from './deliverables/index'; 

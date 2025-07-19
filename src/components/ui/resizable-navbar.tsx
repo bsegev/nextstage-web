@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 
 
 interface NavbarProps {
@@ -116,45 +116,77 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 };
 
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
-  const [hovered, setHovered] = useState<number | null>(null);
-  const [active, setActive] = useState<string | null>(null);
+  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isInDropdown, setIsInDropdown] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseEnterItem = (idx: number, itemName: string) => {
-    // Clear any pending close timeout
+  // Debounced close function
+  const debouncedClose = useCallback(() => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
     }
-    setHovered(idx);
-    setActive(itemName);
-  };
-
-  const handleMouseLeaveItem = () => {
-    // Set a small delay before closing to allow smooth transition to dropdown
     closeTimeoutRef.current = setTimeout(() => {
-      setActive(null);
-      setHovered(null);
-    }, 100);
-  };
+      if (!isInDropdown) {
+        setIsClosing(true);
+        setActiveDropdown(null);
+        setHoveredItem(null);
+        // Reset closing state after animation completes
+        setTimeout(() => setIsClosing(false), 100);
+      }
+    }, 50); // Reduced from 150ms to 50ms
+  }, [isInDropdown]);
 
-  const handleMouseEnterDropdown = (idx: number, itemName: string) => {
-    // Clear any pending close timeout when entering dropdown
+  // Handle mouse enter on nav item
+  const handleItemMouseEnter = useCallback((idx: number, itemName: string) => {
+    if (isClosing) return; // Prevent re-opening during close animation
+    
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
       closeTimeoutRef.current = null;
     }
-    setHovered(idx);
-    setActive(itemName);
-  };
+    setHoveredItem(idx);
+    setActiveDropdown(itemName);
+    setIsInDropdown(false);
+  }, [isClosing]);
 
-  const handleMouseLeaveDropdown = () => {
-    // Close immediately when leaving dropdown area
-    setActive(null);
-    setHovered(null);
-  };
+  // Handle mouse leave from nav item
+  const handleItemMouseLeave = useCallback(() => {
+    debouncedClose();
+  }, [debouncedClose]);
 
-  // Cleanup timeout on unmount
+  // Handle mouse enter on dropdown
+  const handleDropdownMouseEnter = useCallback(() => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setIsInDropdown(true);
+  }, []);
+
+  // Handle mouse leave from dropdown
+  const handleDropdownMouseLeave = useCallback(() => {
+    setIsInDropdown(false);
+    debouncedClose();
+  }, [debouncedClose]);
+
+  // Handle mouse leave from entire nav area
+  const handleNavMouseLeave = useCallback(() => {
+    setIsInDropdown(false);
+    setIsClosing(true);
+    setActiveDropdown(null);
+    setHoveredItem(null);
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    // Reset closing state after animation completes
+    setTimeout(() => setIsClosing(false), 100);
+  }, []);
+
+  // Cleanup on unmount
   useEffect(() => {
     return () => {
       if (closeTimeoutRef.current) {
@@ -165,6 +197,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
 
   return (
     <motion.div
+      onMouseLeave={handleNavMouseLeave}
       className={cn(
         "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
         className,
@@ -175,11 +208,11 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           return (
             <div
               key={`dropdown-${idx}`}
-              onMouseEnter={() => handleMouseEnterItem(idx, item.name)}
-              onMouseLeave={handleMouseLeaveItem}
+              onMouseEnter={() => handleItemMouseEnter(idx, item.name)}
+              onMouseLeave={handleItemMouseLeave}
               className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300 cursor-pointer"
             >
-              {hovered === idx && (
+              {hoveredItem === idx && (
                 <motion.div
                   layoutId="hovered"
                   className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
@@ -188,31 +221,30 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               <span className="relative z-20">{item.name}</span>
               
               <AnimatePresence>
-                {active === item.name && (
+                {activeDropdown === item.name && (
                   <motion.div
+                    ref={dropdownRef}
                     initial={{ opacity: 0, scale: 0.85, y: 10 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.85, y: 10 }}
                     transition={{
                       type: "spring",
-                      mass: 0.5,
-                      damping: 11.5,
-                      stiffness: 100,
+                      mass: 0.3, // Reduced mass for faster animation
+                      damping: 15, // Increased damping for less bounce
+                      stiffness: 150, // Increased stiffness for faster response
                       restDelta: 0.001,
                       restSpeed: 0.001,
+                      duration: 0.15, // Explicit shorter duration
                     }}
-                    onMouseEnter={() => handleMouseEnterDropdown(idx, item.name)}
-                    onMouseLeave={handleMouseLeaveDropdown}
-                    className="absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2 z-50"
+                    onMouseEnter={handleDropdownMouseEnter}
+                    onMouseLeave={handleDropdownMouseLeave}
+                    className="absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2 z-50 pointer-events-auto"
                   >
-                    <motion.div
-                      layoutId="dropdown-active"
-                      className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
-                    >
-                      <motion.div layout className="w-max h-full p-4">
+                    <div className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl">
+                      <div className="w-max h-full p-4">
                         {item.dropdown}
-                      </motion.div>
-                    </motion.div>
+                      </div>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -223,27 +255,29 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         return (
           <a
             onMouseEnter={() => {
-              // Clear any pending close timeout
+              if (isClosing) return; // Prevent re-opening during close animation
+              
               if (closeTimeoutRef.current) {
                 clearTimeout(closeTimeoutRef.current);
                 closeTimeoutRef.current = null;
               }
-              setHovered(idx);
-              setActive(null); // Close any open dropdowns
+              setHoveredItem(idx);
+              setActiveDropdown(null);
+              setIsInDropdown(false);
             }}
-          onClick={onItemClick}
-          className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
-          key={`link-${idx}`}
-          href={item.link}
-        >
-          {hovered === idx && (
-            <motion.div
-              layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
-            />
-          )}
-          <span className="relative z-20">{item.name}</span>
-        </a>
+            onClick={onItemClick}
+            className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+            key={`link-${idx}`}
+            href={item.link}
+          >
+            {hoveredItem === idx && (
+              <motion.div
+                layoutId="hovered"
+                className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
+              />
+            )}
+            <span className="relative z-20">{item.name}</span>
+          </a>
         );
       })}
     </motion.div>

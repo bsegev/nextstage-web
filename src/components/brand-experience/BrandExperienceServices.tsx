@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { cn } from "@/lib/utils";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { MultiStepLoader } from "@/components/ui/multi-step-loader";
@@ -29,49 +30,49 @@ export default function BrandDesignConsultingServices() {
 
   const serviceLoadingSteps = {
     'brand-identity-system': [
-      { text: "Researching brand positioning" },
-      { text: "Analyzing competitor landscape" },
-      { text: "Defining visual direction" },
-      { text: "Creating logo concepts" },
-      { text: "Developing brand guidelines" },
+      { text: "Defining brand strategy and positioning foundation" },
+      { text: "Creating visual identity and logo concepts" },
+      { text: "Developing brand voice and personality" },
+      { text: "Building comprehensive brand guidelines" },
+      { text: "Implementing brand identity across touchpoints" },
     ],
     'website-design-development': [
-      { text: "Mapping user journeys" },
-      { text: "Analyzing user behavior" },
-      { text: "Creating wireframes" },
-      { text: "Designing interactions" },
-      { text: "Testing usability" },
+      { text: "Analyzing user behavior and conversion goals" },
+      { text: "Designing user-centered website architecture" },
+      { text: "Building responsive, high-performance website" },
+      { text: "Optimizing for conversions and user experience" },
+      { text: "Testing and launching conversion-focused site" },
     ],
     'brand-messaging-framework': [
-      { text: "Auditing current materials" },
-      { text: "Defining design principles" },
-      { text: "Creating color palette" },
-      { text: "Selecting typography" },
-      { text: "Building template library" },
+      { text: "Auditing current content and messaging effectiveness" },
+      { text: "Developing strategic content framework and voice" },
+      { text: "Creating content systems and production workflows" },
+      { text: "Building content templates and guidelines" },
+      { text: "Implementing content strategy across channels" },
     ],
     'design-system-architecture': [
-      { text: "Analyzing user flows" },
-      { text: "Designing page layouts" },
-      { text: "Creating responsive designs" },
-      { text: "Optimizing for conversions" },
-      { text: "Testing across devices" },
+      { text: "Auditing current design inconsistencies and gaps" },
+      { text: "Creating scalable design system architecture" },
+      { text: "Building component library and style guides" },
+      { text: "Implementing design system across platforms" },
+      { text: "Training team on design system usage" },
     ]
   };
 
   // Service ID to deliverable slug mapping
   const serviceLinks = {
-    'brand-identity-system': '/deliverables/brand-identity-system',
-    'website-design-development': '/deliverables/website-design-development',
-    'brand-messaging-framework': '/deliverables/brand-messaging-framework',
-    'design-system-architecture': '/deliverables/design-system-architecture'
+    'brand-identity-system': '/deliverables/brand-identity-positioning',
+    'website-design-development': '/deliverables/website-that-converts',
+    'brand-messaging-framework': '/deliverables/content-strategy-systems',
+    'design-system-architecture': '/deliverables/customer-experience-design'
   };
 
   const services = [
     {
       id: 'brand-identity-system',
-      title: 'Brand Identity System',
+      title: 'Brand Identity',
       context: 'When your brand lacks clarity or connection',
-      description: 'Complete visual identity and brand system development.',
+      description: 'Strategic brand foundation that differentiates and drives recognition.',
       pattern: 'diverging-paths',
       accent: 'from-accent/15 to-accent/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -79,9 +80,9 @@ export default function BrandDesignConsultingServices() {
     },
     {
       id: 'website-design-development', 
-      title: 'Website Design & Development',
-      context: 'When customers struggle to navigate your digital presence',
-      description: 'User-centered websites and digital product interfaces.',
+      title: 'Website Development',
+      context: 'When your website fails to convert visitors into customers',
+      description: 'High-converting websites that turn visitors into customers.',
       pattern: 'signal-in-noise',
       accent: 'from-obsidian/15 to-obsidian/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -89,9 +90,9 @@ export default function BrandDesignConsultingServices() {
     },
     {
       id: 'brand-messaging-framework',
-      title: 'Brand Messaging Framework',
-      context: 'When your messaging feels disconnected or unclear',
-      description: 'Strategic messaging and content that converts.',
+      title: 'Content Strategy',
+      context: 'When your messaging fails to resonate with your audience',
+      description: 'Strategic content systems that engage and convert.',
       pattern: 'velocity-focused',
       accent: 'from-accent/20 to-accent/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -99,9 +100,9 @@ export default function BrandDesignConsultingServices() {
     },
     {
       id: 'design-system-architecture',
-      title: 'Design System Architecture',
-      context: 'When your materials look disconnected or unprofessional',
-      description: 'Scalable design systems for consistent brand expression.',
+      title: 'Design Systems',
+      context: 'When your brand expression lacks consistency across touchpoints',
+      description: 'Scalable design infrastructure for consistent brand experience.',
       pattern: 'evolution-bridge',
       accent: 'from-bone/25 to-bone/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -217,9 +218,11 @@ export default function BrandDesignConsultingServices() {
                         
                         {/* Strategy Image */}
                         <div className="transition-all duration-1000 ease-out group-hover/card:scale-110 relative z-10 w-full h-full">
-                          <img 
+                          <Image 
                             src={service.image} 
                             alt={service.title}
+                            width={320}
+                            height={80}
                             className="w-full h-full object-cover opacity-60 group-hover/card:opacity-90 transition-all duration-1000 filter drop-shadow-sm group-hover/card:drop-shadow-md"
                           />
                         </div>

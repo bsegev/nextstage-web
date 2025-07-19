@@ -1,4 +1,4 @@
-import NextStageNavbar from "@/components/NextStageNavbar";
+import { NextStageNavbar } from "@/components/layout";
 import Link from "next/link";
 
 export default function NotFound() {

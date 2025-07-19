@@ -1,14 +1,26 @@
 'use client';
 
 import { useState } from 'react';
-import { PremiumLeadCapture } from '@/components/PremiumLeadCapture';
-import { EnhancedStrategyBrief } from '@/components/EnhancedStrategyBrief';
-import { BusinessOpportunityAnalyzer } from '@/components/BusinessOpportunityAnalyzer';
-import { AnalysisTypeSelector } from '@/components/AnalysisTypeSelector';
+import { PremiumLeadCapture } from '@/components/chat';
+import { EnhancedStrategyBrief } from '@/components/chat';
+import { BusinessOpportunityAnalyzer } from '@/components/chat';
+import { AnalysisTypeSelector } from '@/components/chat';
+import { UserResponse } from '@/lib/types';
+
+interface ExtractedInfo {
+  businessName?: string;
+  industry?: string;
+  problem?: string;
+  solution?: string;
+  targetMarket?: string;
+  revenueModel?: string;
+  timeline?: string;
+  budget?: string;
+}
 
 interface BriefData {
-  responses: any[];
-  extractedInfo: any;
+  responses: UserResponse[];
+  extractedInfo: ExtractedInfo;
   submissionId: string;
 }
 
@@ -20,7 +32,7 @@ export default function StrategyBriefPage() {
   const [analysisType, setAnalysisType] = useState<AnalysisType>('selector');
   const [searchProvider, setSearchProvider] = useState<'brave' | 'anthropic'>('brave');
 
-  const handleComplete = (responses: any[], extractedInfo: any, submissionId: string) => {
+  const handleComplete = (responses: UserResponse[], extractedInfo: ExtractedInfo, submissionId: string) => {
     setBriefData({ responses, extractedInfo, submissionId });
     setIsComplete(true);
     setAnalysisType('selector'); // Show selector first

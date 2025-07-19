@@ -147,7 +147,7 @@ export default function TechInnovationDeliverablesShowcase() {
       description: "Custom APIs with third-party integrations and comprehensive documentation.",
       category: "Integration",
       icon: IconDashboard,
-      href: "/deliverables/system-integration-apis"
+      href: "/deliverables/system-integration"
     },
     {
       title: "AI Prompt Engineering Library",
@@ -160,7 +160,7 @@ export default function TechInnovationDeliverablesShowcase() {
       description: "Scalable cloud architecture with monitoring, security, and cost optimization.",
       category: "Infrastructure",
       icon: IconTrendingUp,
-      href: "/deliverables/platform-architecture-scaling"
+      href: "/deliverables/business-process-automation"
     },
     {
       title: "Mobile App Development",
@@ -179,7 +179,7 @@ export default function TechInnovationDeliverablesShowcase() {
       description: "Bespoke AI applications and tools tailored to specific business processes and needs.",
       category: "AI Tools",
       icon: IconPalette,
-      href: "/deliverables/custom-platform-development"
+      href: "/deliverables/custom-software-solutions"
     },
     {
       title: "Digital Transformation Strategy",

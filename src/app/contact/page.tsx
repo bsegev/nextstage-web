@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
-import NextStageNavbar from '@/components/NextStageNavbar';
+import { NextStageNavbar, Footer } from '@/components/layout';
 import ContactHero from '@/components/contact/ContactHero';
 import ContactMethods from '@/components/contact/ContactMethods';
-import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Contact | NextStage',

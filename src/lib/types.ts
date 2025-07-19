@@ -25,7 +25,18 @@ export interface GeneratedBrief {
 }
 
 export interface UserResponse {
-  questionIndex: number
-  question: string
-  answer: string
+  question: string;
+  answer: string;
+  questionIndex: number;
+  timestamp: Date;
+}
+
+export interface ChatSession {
+  id: string;
+  responses: UserResponse[];
+  currentQuestionIndex: number;
+  isComplete: boolean;
+  userName?: string;
+  startedAt: Date;
+  completedAt?: Date;
 } 

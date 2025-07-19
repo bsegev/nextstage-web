@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { EnhancedConversationalFlow } from '@/components/EnhancedConversationalFlow'
-import { EnhancedStrategyBrief } from '@/components/EnhancedStrategyBrief'
+import { EnhancedConversationalFlow } from '@/components/archive/EnhancedConversationalFlow'
+import { EnhancedStrategyBrief } from '@/components/chat/EnhancedStrategyBrief'
 
 export default function EnhancedChatOldPage() {
   const [isComplete, setIsComplete] = useState(false)

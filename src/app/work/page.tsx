@@ -1,10 +1,5 @@
-import NextStageNavbar from "@/components/NextStageNavbar";
-import WorkHero from "@/components/WorkHero";
-import TrustBanner from "@/components/TrustBanner";
-import ShowcaseCarousel from "@/components/ShowcaseCarousel";
-import ProcessJourney from "@/components/ProcessJourney";
-import WorkCTA from "@/components/WorkCTA";
-import Footer from "@/components/Footer";
+import { NextStageNavbar, Footer } from "@/components/layout";
+import { WorkHero, TrustBanner, ShowcaseCarousel, ProcessJourney, WorkCTA } from "@/components/work";
 
 export default function WorkPage() {
   return (

@@ -29,49 +29,49 @@ export default function StrategyConsultingServices() {
 
   const serviceLoadingSteps = {
     'market-research-analysis': [
-      { text: "Analyzing current market position and competitive dynamics" },
-      { text: "Identifying untapped growth opportunities and market gaps" },
-      { text: "Evaluating competitive landscape and positioning options" },
-      { text: "Defining strategic priorities and resource allocation" },
-      { text: "Creating detailed execution roadmap with milestones" },
+      { text: "Analyzing current business model and revenue streams" },
+      { text: "Identifying market opportunities and value creation gaps" },
+      { text: "Designing optimized business model architecture" },
+      { text: "Creating implementation roadmap and success metrics" },
+      { text: "Building sustainable business model operations" },
     ],
     'strategic-business-planning': [
-      { text: "Researching target audience behaviors and preferences" },
-      { text: "Analyzing current brand perception and market position" },
-      { text: "Defining unique positioning that commands premium" },
-      { text: "Crafting compelling brand messaging and narrative" },
-      { text: "Developing comprehensive brand guidelines and assets" },
+      { text: "Analyzing target market dynamics and entry opportunities" },
+      { text: "Developing market positioning and value proposition" },
+      { text: "Creating comprehensive go-to-market strategy" },
+      { text: "Building market entry execution plan and timeline" },
+      { text: "Implementing go-to-market systems and tracking" },
     ],
     'go-to-market-playbook': [
-      { text: "Identifying high-value target segments and personas" },
-      { text: "Mapping complete customer journey and touchpoints" },
-      { text: "Defining compelling value proposition and messaging" },
-      { text: "Planning multi-channel launch strategy and tactics" },
-      { text: "Setting success metrics and performance tracking" },
+      { text: "Auditing current operational systems and workflows" },
+      { text: "Identifying optimization opportunities and bottlenecks" },
+      { text: "Designing streamlined operations architecture" },
+      { text: "Building scalable operational systems and processes" },
+      { text: "Implementing optimized operations and performance monitoring" },
     ],
     'competitive-positioning': [
-      { text: "Assessing current systems and technology landscape" },
-      { text: "Identifying key transformation areas and opportunities" },
-      { text: "Planning comprehensive digital strategy and architecture" },
-      { text: "Designing optimized processes and user experiences" },
-      { text: "Creating phased implementation roadmap and timeline" },
+      { text: "Analyzing competitive landscape and market positioning" },
+      { text: "Identifying differentiation opportunities and advantages" },
+      { text: "Developing strategic competitive positioning framework" },
+      { text: "Creating competitive advantage implementation plan" },
+      { text: "Building sustainable competitive positioning systems" },
     ]
   };
 
   // Service ID to deliverable slug mapping
   const serviceLinks = {
-    'market-research-analysis': '/deliverables/market-research-analysis',
-    'strategic-business-planning': '/deliverables/strategic-business-planning',
-    'go-to-market-playbook': '/deliverables/go-to-market-playbook',
-    'competitive-positioning': '/deliverables/competitive-positioning'
+    'market-research-analysis': '/deliverables/market-opportunity-analysis',
+    'strategic-business-planning': '/deliverables/business-model-optimization',
+    'go-to-market-playbook': '/deliverables/go-to-market-strategy',
+    'competitive-positioning': '/deliverables/competitive-intelligence'
   };
 
   const services = [
     {
       id: 'market-research-analysis',
-      title: 'Market Research & Analysis',
-      context: 'When the path forward isn&apos;t clear',
-      description: 'Comprehensive market intelligence and competitive analysis.',
+      title: 'Business Model Strategy',
+      context: 'When you need to optimize how your business creates value',
+      description: 'Strategic business model design that drives sustainable growth.',
       pattern: 'diverging-paths',
       accent: 'from-accent/15 to-accent/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -79,9 +79,9 @@ export default function StrategyConsultingServices() {
     },
     {
       id: 'strategic-business-planning', 
-      title: 'Strategic Business Planning',
-      context: 'When you need clear direction and execution',
-      description: 'Data-driven business strategy and execution roadmaps.',
+      title: 'Go-to-Market Strategy',
+      context: 'When you need to successfully launch or expand into markets',
+      description: 'Market entry strategies that capture opportunity and drive growth.',
       pattern: 'signal-in-noise',
       accent: 'from-obsidian/15 to-obsidian/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -89,9 +89,9 @@ export default function StrategyConsultingServices() {
     },
     {
       id: 'go-to-market-playbook',
-      title: 'Go-to-Market Strategy',
-      context: 'When speed to market matters',
-      description: 'Launch strategies that capture market opportunity.',
+      title: 'Operations Systems',
+      context: 'When operational inefficiencies limit your growth potential',
+      description: 'Systematic operations optimization that scales with your business.',
       pattern: 'velocity-focused',
       accent: 'from-accent/20 to-accent/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -99,9 +99,9 @@ export default function StrategyConsultingServices() {
     },
     {
       id: 'competitive-positioning',
-      title: 'Competitive Positioning',
-      context: 'When you need to stand out in crowded markets',
-      description: 'Strategic positioning that commands market leadership.',
+      title: 'Competitive Strategy',
+      context: 'When you need to differentiate and win in competitive markets',
+      description: 'Strategic positioning that creates sustainable competitive advantage.',
       pattern: 'evolution-bridge',
       accent: 'from-bone/25 to-bone/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',

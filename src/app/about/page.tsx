@@ -1,6 +1,5 @@
-import NextStageNavbar from "@/components/NextStageNavbar";
+import { NextStageNavbar, Footer } from "@/components/layout";
 import WhyNextStage from "@/components/approach/WhyNextStage";
-import Footer from "@/components/Footer";
 import {
   AboutHero,
   HandoffProblem,

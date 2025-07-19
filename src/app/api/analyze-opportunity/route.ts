@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { UserResponse } from '@/lib/simple-conversation-agent';
-import { createWebSearchTool, aggregateSearchResults } from '@/lib/web-search-tools';
+import { createWebSearchTool, aggregateSearchResults, WebSearchResponse } from '@/lib/web-search-tools';
 
 interface BusinessInfo {
   name: string;
@@ -22,6 +22,13 @@ interface OpportunityScore {
   total: number;
 }
 
+interface ResearchData {
+  query: string;
+  results: string[];
+  summary: string;
+  cost: number;
+}
+
 interface OpportunityAnalysis {
   personalMessage: string;
   businessInfo: BusinessInfo;
@@ -31,7 +38,7 @@ interface OpportunityAnalysis {
     content: string;
     reasoning: string;
   }[];
-  researchData: any[];
+  researchData: ResearchData[];
   searchCost: number;
   searchProvider: string;
 }
@@ -414,7 +421,7 @@ function extractProblemArea(problem: string): string {
 }
 
 // Normalize opportunity scores to ensure consistent 0-100 scale across providers
-function normalizeOpportunityScore(score: any, provider: string): OpportunityScore {
+function normalizeOpportunityScore(score: Partial<OpportunityScore> | unknown, provider: string): OpportunityScore {
   console.log('Normalizing scores for provider:', provider, 'Raw scores:', score);
   
   if (!score || typeof score !== 'object') {
@@ -428,22 +435,25 @@ function normalizeOpportunityScore(score: any, provider: string): OpportunitySco
     };
   }
   
+  // Type guard to ensure score has the expected properties
+  const scoreObj = score as Partial<OpportunityScore>;
+  
   // Check if scores are in 0-25 range (need to scale up to 0-100)
   const maxScore = Math.max(
-    score.marketMechanics || 0,
-    score.competitivePositioning || 0,
-    score.businessModelViability || 0,
-    score.strategicTiming || 0
+    scoreObj.marketMechanics || 0,
+    scoreObj.competitivePositioning || 0,
+    scoreObj.businessModelViability || 0,
+    scoreObj.strategicTiming || 0
   );
   
   const isLowScale = maxScore <= 25;
   const scaleFactor = isLowScale ? 4 : 1; // Scale up if using 0-25 range
   
   const normalizedScore = {
-    marketMechanics: Math.min(100, Math.max(0, (score.marketMechanics || 0) * scaleFactor)),
-    competitivePositioning: Math.min(100, Math.max(0, (score.competitivePositioning || 0) * scaleFactor)),
-    businessModelViability: Math.min(100, Math.max(0, (score.businessModelViability || 0) * scaleFactor)),
-    strategicTiming: Math.min(100, Math.max(0, (score.strategicTiming || 0) * scaleFactor)),
+    marketMechanics: Math.min(100, Math.max(0, (scoreObj.marketMechanics || 0) * scaleFactor)),
+    competitivePositioning: Math.min(100, Math.max(0, (scoreObj.competitivePositioning || 0) * scaleFactor)),
+    businessModelViability: Math.min(100, Math.max(0, (scoreObj.businessModelViability || 0) * scaleFactor)),
+    strategicTiming: Math.min(100, Math.max(0, (scoreObj.strategicTiming || 0) * scaleFactor)),
     total: 0
   };
   
@@ -684,7 +694,7 @@ export async function POST(request: NextRequest) {
     let combinedSummary = '';
     let totalCost = 0;
     let successRate = 0;
-    let searchResults: any[] = [];
+    let searchResults: WebSearchResponse[] = [];
 
     console.log('🔍 Starting market research phase...');
     try {

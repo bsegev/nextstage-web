@@ -1,13 +1,13 @@
-import NextStageNavbar from '@/components/NextStageNavbar';
-import Footer from '@/components/Footer';
+import { Metadata } from 'next';
+import { NextStageNavbar, Footer } from '@/components/layout';
 import { 
   MarketIntelligenceHero, 
   MarketIntelligenceValueProp,
   MarketIntelligenceServices,
   MarketIntelligenceDeliverablesShowcase,
   MarketIntelligenceMetrics,
-  MarketIntelligenceCTA
-} from '@/components/market-intelligence';
+  MarketIntelligenceCTA,
+} from "@/components/market-intelligence";
 
 export default function StrategyConsultingPage() {
   return (

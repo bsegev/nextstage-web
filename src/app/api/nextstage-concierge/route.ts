@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { NextStageConcierge } from '@/features/strategy-chat/utils/nextstage-concierge';
+import { NextStageConcierge } from '@/lib/nextstage-concierge';
 
 export async function POST(request: NextRequest) {
   console.log('NextStage Concierge API called');

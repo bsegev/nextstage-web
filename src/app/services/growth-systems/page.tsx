@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-import NextStageNavbar from '@/components/NextStageNavbar';
-import Footer from '@/components/Footer';
+import { NextStageNavbar, Footer } from '@/components/layout';
 import { 
   GrowthSystemsHero, 
   GrowthSystemsValueProp,

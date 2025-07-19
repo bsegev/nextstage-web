@@ -296,8 +296,15 @@ export function createWebSearchTool(provider: 'brave' | 'anthropic'): WebSearchT
   }
 }
 
+interface BusinessSearchInfo {
+  description?: string;
+  targetMarket?: string;
+  industry?: string;
+  revenueModel?: string;
+}
+
 // Search Queries Generator for Business Opportunity Analysis
-export function generateBusinessSearchQueries(businessInfo: any): string[] {
+export function generateBusinessSearchQueries(businessInfo: BusinessSearchInfo): string[] {
   const { description, targetMarket, industry, revenueModel } = businessInfo;
   
   const queries = [

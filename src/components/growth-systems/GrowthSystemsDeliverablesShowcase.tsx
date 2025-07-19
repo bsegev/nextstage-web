@@ -159,14 +159,14 @@ export default function GrowthMarketingDeliverablesShowcase() {
       description: "Landing page optimization with messaging testing and conversion rate improvements.",
       category: "CRO",
       icon: IconTarget,
-      href: "/deliverables/conversion-optimization-framework"
+      href: "/deliverables/retention-loyalty-programs"
     },
     {
       title: "Growth Analytics Dashboard",
       description: "Real-time growth metrics with automated reporting and actionable insights.",
       category: "Analytics",
       icon: IconChartBar,
-      href: "/deliverables/performance-analytics-dashboard"
+      href: "/deliverables/revenue-operations"
     },
     {
       title: "Influencer Partnership Strategy",

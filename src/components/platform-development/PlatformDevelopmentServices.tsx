@@ -29,49 +29,49 @@ export default function TechInnovationConsultingServices() {
 
   const serviceLoadingSteps = {
     'custom-platform-development': [
-      { text: "Analyzing core platform requirements and business logic" },
-      { text: "Building scalable architecture and technology stack" },
-      { text: "Creating comprehensive platform with full functionality" },
-      { text: "Testing platform performance and user experience" },
-      { text: "Deploying platform with ongoing support and maintenance" },
+      { text: "Analyzing business requirements and technology needs" },
+      { text: "Evaluating current systems and identifying gaps" },
+      { text: "Creating comprehensive technology strategy roadmap" },
+      { text: "Designing scalable technology architecture" },
+      { text: "Planning implementation timeline and resources" },
     ],
     'system-integration-apis': [
-      { text: "Mapping current systems and integration points" },
-      { text: "Identifying high-impact integration opportunities" },
-      { text: "Building API connections and data flows" },
-      { text: "Connecting with existing systems and databases" },
-      { text: "Testing integrations and optimizing performance" },
+      { text: "Analyzing requirements for custom software solution" },
+      { text: "Designing user-centered application architecture" },
+      { text: "Building custom software with modern technologies" },
+      { text: "Testing functionality and user experience" },
+      { text: "Deploying and optimizing custom application" },
     ],
     'mvp-development': [
-      { text: "Analyzing core feature requirements and user journeys" },
-      { text: "Building lean development architecture and tech stack" },
-      { text: "Creating MVP with essential functionality for validation" },
-      { text: "Testing with target users and gathering feedback" },
-      { text: "Preparing scalable foundation for market launch" },
+      { text: "Auditing current digital operations and workflows" },
+      { text: "Identifying optimization opportunities and bottlenecks" },
+      { text: "Designing streamlined digital operation systems" },
+      { text: "Implementing operational improvements and monitoring" },
+      { text: "Training team on optimized digital operations" },
     ],
     'platform-architecture-scaling': [
-      { text: "Analyzing current architecture and performance bottlenecks" },
-      { text: "Designing scalable infrastructure and optimization strategies" },
-      { text: "Building enhanced architecture with improved performance" },
-      { text: "Implementing security and monitoring systems" },
-      { text: "Optimizing for growth and continuous improvement" },
+      { text: "Mapping current processes and automation opportunities" },
+      { text: "Designing intelligent automation workflows" },
+      { text: "Building automated systems and integration points" },
+      { text: "Testing automation performance and reliability" },
+      { text: "Implementing and monitoring automated processes" },
     ]
   };
 
   // Service ID to deliverable slug mapping
   const serviceLinks = {
-    'custom-platform-development': '/deliverables/custom-platform-development',
-    'system-integration-apis': '/deliverables/system-integration-apis',
+    'custom-platform-development': '/deliverables/custom-software-solutions',
+    'system-integration-apis': '/deliverables/system-integration',
     'mvp-development': '/deliverables/mvp-development',
-    'platform-architecture-scaling': '/deliverables/platform-architecture-scaling'
+    'platform-architecture-scaling': '/deliverables/business-process-automation'
   };
 
   const services = [
     {
       id: 'custom-platform-development',
-      title: 'Custom Platform Development',
-      context: 'When you need a complete business platform',
-      description: 'End-to-end development of digital business platforms.',
+      title: 'Technology Strategy',
+      context: 'When you need clarity on your technology roadmap',
+      description: 'Strategic technology planning that aligns with business goals.',
       pattern: 'diverging-paths',
       accent: 'from-accent/15 to-accent/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -79,9 +79,9 @@ export default function TechInnovationConsultingServices() {
     },
     {
       id: 'system-integration-apis', 
-      title: 'System Integration & APIs',
-      context: 'When systems need to work together seamlessly',
-      description: 'Connect and optimize your technology ecosystem.',
+      title: 'Custom Development',
+      context: 'When you need custom solutions that fit your specific needs',
+      description: 'Tailored software development that solves your unique challenges.',
       pattern: 'signal-in-noise',
       accent: 'from-obsidian/15 to-obsidian/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -89,9 +89,9 @@ export default function TechInnovationConsultingServices() {
     },
     {
       id: 'mvp-development',
-      title: 'MVP Development',
-      context: 'When you need to test ideas quickly',
-      description: 'User-focused digital products from concept to launch.',
+      title: 'Digital Operations',
+      context: 'When your digital operations need optimization and scaling',
+      description: 'Streamlined digital operations that support business growth.',
       pattern: 'velocity-focused',
       accent: 'from-accent/20 to-accent/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -99,9 +99,9 @@ export default function TechInnovationConsultingServices() {
     },
     {
       id: 'platform-architecture-scaling',
-      title: 'Platform Architecture & Scaling',
-      context: 'When you need technology that grows with you',
-      description: 'Scalable, secure foundations for growth.',
+      title: 'Process Automation',
+      context: 'When manual processes limit your growth potential',
+      description: 'Intelligent automation that eliminates bottlenecks and scales operations.',
       pattern: 'evolution-bridge',
       accent: 'from-bone/25 to-bone/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',

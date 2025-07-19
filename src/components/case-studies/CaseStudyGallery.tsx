@@ -1,6 +1,6 @@
 "use client";
 
-
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface CaseStudyGalleryType {
@@ -33,7 +33,13 @@ export default function CaseStudyGallery({ data }: CaseStudyGalleryProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {data.images.map((image, index) => (
             <div key={index} className="aspect-video rounded-lg overflow-hidden">
-              <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
+              <Image 
+                src={image.src} 
+                alt={image.alt} 
+                width={400}
+                height={225}
+                className="w-full h-full object-cover" 
+              />
             </div>
           ))}
         </div>

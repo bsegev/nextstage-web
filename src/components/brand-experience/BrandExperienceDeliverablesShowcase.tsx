@@ -123,7 +123,7 @@ export default function BrandDesignDeliverablesShowcase() {
       description: "Complete logo suite, color palette, and typography for early-stage companies.",
       category: "Identity",
       icon: IconPalette,
-      href: "/deliverables/brand-identity-system"
+      href: "/deliverables/brand-identity-positioning"
     },
     {
       title: "Investor Pitch Deck Design",
@@ -136,14 +136,14 @@ export default function BrandDesignDeliverablesShowcase() {
       description: "Conversion-focused website with mobile optimization and CMS integration.",
       category: "Digital",
       icon: IconCode,
-      href: "/deliverables/website-design-development"
+      href: "/deliverables/website-that-converts"
     },
     {
       title: "Brand Messaging & Voice Framework",
       description: "Brand voice, key messages, and copywriting guidelines for all channels.",
       category: "Messaging",
       icon: IconTarget,
-      href: "/deliverables/brand-messaging-framework"
+      href: "/deliverables/content-strategy-systems"
     },
     {
       title: "Marketing Collateral System",

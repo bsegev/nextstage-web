@@ -22,7 +22,6 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url)
     const type = searchParams.get('type') || 'dashboard'
     const eventType = searchParams.get('event_type')
-    const limit = parseInt(searchParams.get('limit') || '100')
     
     // If requesting raw analytics data
     if (type === 'raw' || eventType) {
@@ -107,35 +106,4 @@ export async function POST(request: NextRequest) {
 
 
 
-// Helper functions (not exported as route handlers)
-async function trackEvent(eventName: string, data: Record<string, unknown> = {}) {
-  try {
-    const event: AnalyticsEvent = {
-      event: eventName,
-      timestamp: new Date().toISOString(),
-      data
-    };
-
-    // In a real implementation, you would send this to your analytics service
-    console.log('Tracking event:', event);
-    
-    return { success: true };
-  } catch (error) {
-    console.error('Event tracking error:', error);
-    return { success: false, error };
-  }
-}
-
-function calculateConversionMetrics(events: AnalyticsEvent[]) {
-  const totalStarts = events.filter(e => e.event === 'chat_started').length;
-  const totalCompletions = events.filter(e => e.event === 'brief_generated').length;
-  const totalEmails = events.filter(e => e.event === 'email_sent').length;
-  const totalCalls = events.filter(e => e.event === 'call_booked').length;
-
-  return {
-    chatToCompletion: totalStarts > 0 ? (totalCompletions / totalStarts) * 100 : 0,
-    completionToEmail: totalCompletions > 0 ? (totalEmails / totalCompletions) * 100 : 0,
-    emailToCall: totalEmails > 0 ? (totalCalls / totalEmails) * 100 : 0,
-    overallConversion: totalStarts > 0 ? (totalCalls / totalStarts) * 100 : 0
-  };
-} 
+ 

@@ -1,0 +1,9 @@
+export { default as ThreeDCardDemo } from './3d-card-demo';
+export { default as BentoGridDemo } from './bento-grid-demo';
+export { default as GoogleGeminiEffectDemo } from './google-gemini-effect-demo';
+export { default as HeroParallaxDemo } from './hero-parallax-demo';
+export { default as MultiStepLoaderDemo } from './multi-step-loader-demo';
+export { default as SidebarDemo } from './sidebar-demo';
+export { default as MacbookScrollDemo } from './macbook-scroll-demo';
+export { default as PointerHighlightDemo } from './pointer-highlight-demo';
+export { default as TabsDemo } from './tabs-demo'; 
