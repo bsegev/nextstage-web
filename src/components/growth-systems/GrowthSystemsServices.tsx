@@ -10,10 +10,10 @@ import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 export default function GrowthMarketingConsultingServices() {
   const [mounted, setMounted] = useState(false);
   const [loadingStates, setLoadingStates] = useState({
-    'customer acquisition': false,
-    'marketing systems': false,
-    'revenue systems': false,
-    'growth operations': false
+    'digital-marketing-assessment': false,
+    'lead-generation-campaign': false,
+    'content-copywriting': false,
+    'sales-funnel-development': false
   });
 
   useEffect(() => {
@@ -27,70 +27,85 @@ export default function GrowthMarketingConsultingServices() {
     }));
   };
 
-  // Service title to deliverable slug mapping
+  const serviceLoadingSteps = {
+    'digital-marketing-assessment': [
+      { text: "Auditing current digital marketing channels and performance" },
+      { text: "Analyzing marketing ROI and conversion metrics" },
+      { text: "Identifying optimization opportunities and gaps" },
+      { text: "Creating digital marketing optimization roadmap" },
+      { text: "Implementing marketing improvements and tracking" },
+    ],
+    'lead-generation-campaign': [
+      { text: "Mapping ideal customer profile and buying journey" },
+      { text: "Designing targeted lead generation campaigns" },
+      { text: "Building automated lead qualification and nurturing" },
+      { text: "Setting up conversion tracking and optimization" },
+      { text: "Launching and optimizing lead generation campaigns" },
+    ],
+    'content-copywriting': [
+      { text: "Auditing current content and messaging effectiveness" },
+      { text: "Developing strategic content framework and voice" },
+      { text: "Creating compelling copy for all touchpoints" },
+      { text: "Building content systems and production workflows" },
+      { text: "Implementing content strategy across channels" },
+    ],
+    'sales-funnel-development': [
+      { text: "Analyzing current sales funnel and conversion bottlenecks" },
+      { text: "Designing optimized sales funnel architecture" },
+      { text: "Building conversion-optimized funnel pages" },
+      { text: "Implementing systematic testing and optimization" },
+      { text: "Launching and monitoring sales funnel performance" },
+    ]
+  };
+
+  // Service ID to subservice slug mapping
   const serviceLinks = {
-    'Customer Acquisition': '/deliverables/customer-acquisition-system',
-    'Marketing Systems': '/deliverables/sales-process-optimization',
-    'Revenue Systems': '/deliverables/retention-loyalty-programs',
-    'Growth Operations': '/deliverables/revenue-operations'
+    'digital-marketing-assessment': '/services/marketing-growth/digital-marketing-assessment',
+    'lead-generation-campaign': '/services/marketing-growth/lead-generation-campaign',
+    'content-copywriting': '/services/marketing-growth/content-copywriting',
+    'sales-funnel-development': '/services/marketing-growth/sales-funnel-development'
   };
 
   const services = [
     {
-      title: "Customer Acquisition",
-      context: "When you need to attract and convert qualified prospects",
-      description: "Systems that consistently bring in the right customers at the right cost.",
-      icon: "/images/growth-marketing/campaign-strategy.png",
-      gradient: "from-accent/15 to-accent/5",
-      loadingSteps: [
-        { text: "Mapping your ideal customer profile and buying journey", duration: 1200 },
-        { text: "Building targeted acquisition channels and funnels", duration: 1400 },
-        { text: "Creating automated lead qualification and nurturing", duration: 1600 },
-        { text: "Setting up conversion tracking and optimization", duration: 1800 },
-        { text: "Implementing scalable customer acquisition systems", duration: 2000 }
-      ]
+      id: 'digital-marketing-assessment',
+      title: "Digital Marketing Assessment",
+      context: "When your marketing spend isn't delivering results",
+      description: "Review your marketing channels and identify what's working best.",
+      pattern: 'diverging-paths',
+      accent: 'from-accent/15 to-accent/5',
+      borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
+      image: "/images/growth-marketing/campaign-strategy.png"
     },
     {
-      title: "Marketing Systems",
-      context: "When your marketing efforts feel scattered and ineffective",
-      description: "Integrated marketing infrastructure that drives consistent results.",
-      icon: "/images/growth-marketing/marketing-technology.png",
-      gradient: "from-accent/15 to-accent/5",
-      loadingSteps: [
-        { text: "Auditing current marketing channels and performance", duration: 1100 },
-        { text: "Designing integrated marketing system architecture", duration: 1300 },
-        { text: "Building automated workflows and campaign sequences", duration: 1500 },
-        { text: "Connecting marketing tools and data systems", duration: 1700 },
-        { text: "Training team on unified marketing operations", duration: 1900 }
-      ]
+      id: 'lead-generation-campaign',
+      title: "Lead Generation Campaign",
+      context: "When you need more qualified leads for your sales team",
+      description: "Develop lead generation systems that attract the right customers.",
+      pattern: 'signal-in-noise',
+      accent: 'from-obsidian/15 to-obsidian/5',
+      borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
+      image: "/images/growth-marketing/marketing-technology.png"
     },
     {
-      title: "Revenue Systems",
-      context: "When you need to optimize conversion across all touchpoints",
-      description: "Revenue optimization systems that turn prospects into customers.",
-      icon: "/images/growth-marketing/content-systems.png",
-      gradient: "from-accent/15 to-accent/5",
-      loadingSteps: [
-        { text: "Analyzing revenue funnel and conversion bottlenecks", duration: 1000 },
-        { text: "Designing systematic conversion optimization process", duration: 1200 },
-        { text: "Building revenue tracking and attribution systems", duration: 1400 },
-        { text: "Implementing systematic testing and optimization", duration: 1600 },
-        { text: "Creating ongoing revenue optimization operations", duration: 1800 }
-      ]
+      id: 'content-copywriting',
+      title: "Content & Copywriting",
+      context: "When your content isn't driving business results",
+      description: "Create content and copy that clearly communicates your value proposition.",
+      pattern: 'velocity-focused',
+      accent: 'from-accent/20 to-accent/8',
+      borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
+      image: "/images/growth-marketing/content-systems.png"
     },
     {
-      title: "Growth Operations",
-      context: "When you need systematic growth management and insights",
-      description: "Operational systems that drive sustainable, scalable growth.",
-      icon: "/images/growth-marketing/performance-optimization.png",
-      gradient: "from-accent/15 to-accent/5",
-      loadingSteps: [
-        { text: "Building comprehensive growth metrics and KPI systems", duration: 1300 },
-        { text: "Creating growth experimentation and testing frameworks", duration: 1500 },
-        { text: "Designing growth operations workflows and processes", duration: 1700 },
-        { text: "Building automated growth reporting and insights", duration: 1900 },
-        { text: "Implementing systematic growth management operations", duration: 2100 }
-      ]
+      id: 'sales-funnel-development',
+      title: "Sales Funnel Development",
+      context: "When too many prospects drop off before buying",
+      description: "Design sales processes that guide prospects through your offering.",
+      pattern: 'evolution-bridge',
+      accent: 'from-bone/25 to-bone/8',
+      borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
+      image: "/images/growth-marketing/performance-optimization.png"
     }
   ];
 
@@ -100,9 +115,9 @@ export default function GrowthMarketingConsultingServices() {
       {/* Fixed Multi-step loaders for each service */}
       {services.map((service) => (
         <MultiStepLoader
-          key={`loader-${service.title}`}
-          loadingStates={service.loadingSteps}
-          loading={loadingStates[service.title.toLowerCase() as keyof typeof loadingStates]}
+          key={`loader-${service.id}`}
+          loadingStates={serviceLoadingSteps[service.id as keyof typeof serviceLoadingSteps]}
+          loading={loadingStates[service.id as keyof typeof loadingStates]}
           duration={1500}
           loop={false}
         />
@@ -139,7 +154,7 @@ export default function GrowthMarketingConsultingServices() {
             
             {services.map((service, index) => (
               <motion.div
-                key={service.title}
+                key={service.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -157,7 +172,7 @@ export default function GrowthMarketingConsultingServices() {
                     <div className={cn(
                       "absolute inset-0 rounded-3xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-1000",
                       "bg-gradient-to-br p-[2px]",
-                      service.gradient
+                      service.borderGradient
                     )}>
                       <div className="absolute inset-[2px] bg-white/95 rounded-3xl" />
                     </div>
@@ -166,14 +181,17 @@ export default function GrowthMarketingConsultingServices() {
                     <div className={cn(
                       "absolute top-0 right-0 w-32 h-32 opacity-[0.008] group-hover/card:opacity-[0.015] transition-opacity duration-1000 rounded-3xl",
                       "bg-gradient-to-bl",
-                      service.gradient
+                      service.accent
                     )} />
                     
                     {/* Premium background texture with service-specific patterns */}
                     <div className="absolute inset-0 opacity-[0.02] group-hover/card:opacity-[0.035] transition-opacity duration-1000 rounded-3xl overflow-hidden">
                       <div className={cn(
                         "absolute inset-0",
-                        "bg-[radial-gradient(ellipse_at_center,rgba(30,41,59,0.12)_0%,transparent_65%)]",
+                        service.pattern === 'diverging-paths' && "bg-[radial-gradient(ellipse_at_center,rgba(30,41,59,0.12)_0%,transparent_65%)]",
+                        service.pattern === 'signal-in-noise' && "bg-[linear-gradient(45deg,rgba(30,41,59,0.08)_25%,transparent_25%,transparent_75%,rgba(30,41,59,0.08)_75%)] bg-[length:20px_20px]",
+                        service.pattern === 'velocity-focused' && "bg-[linear-gradient(90deg,transparent_0%,rgba(30,41,59,0.12)_50%,transparent_100%)] bg-[length:40px_100%]",
+                        service.pattern === 'evolution-bridge' && "bg-[conic-gradient(from_0deg_at_50%_50%,rgba(30,41,59,0.12)_0deg,transparent_65deg,rgba(30,41,59,0.12)_125deg,transparent_180deg)]"
                       )} />
                     </div>
                     
@@ -200,7 +218,7 @@ export default function GrowthMarketingConsultingServices() {
                         {/* Strategy Image */}
                         <div className="transition-all duration-1000 ease-out group-hover/card:scale-110 relative z-10 w-full h-full">
                           <img 
-                            src={service.icon} 
+                            src={service.image} 
                             alt={service.title}
                             className="w-full h-full object-cover opacity-60 group-hover/card:opacity-90 transition-all duration-1000 filter drop-shadow-sm group-hover/card:drop-shadow-md"
                           />
@@ -222,7 +240,7 @@ export default function GrowthMarketingConsultingServices() {
                       <CardItem
                         translateZ={50}
                         as="button"
-                        onClick={() => handleLoaderToggle(service.title.toLowerCase(), true)}
+                        onClick={() => handleLoaderToggle(service.id, true)}
                         className="w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-accent via-accent/95 to-accent text-obsidian text-base font-medium tracking-[0.05em] hover:from-accent/95 hover:via-accent/90 hover:to-accent/95 hover:shadow-xl hover:shadow-accent/[0.15] transition-all duration-500 hover:-translate-y-1 group/primary border border-accent/20 hover:border-accent/30"
                       >
                         <span className="flex items-center justify-center gap-2">
@@ -237,7 +255,7 @@ export default function GrowthMarketingConsultingServices() {
                       <CardItem
                         translateZ={30}
                         as={Link}
-                        href={serviceLinks[service.title as keyof typeof serviceLinks]}
+                        href={serviceLinks[service.id as keyof typeof serviceLinks]}
                         className="w-full px-5 py-3 rounded-2xl border-2 border-transparent bg-gradient-to-r from-obsidian/[0.02] via-obsidian/[0.05] to-obsidian/[0.02] hover:from-obsidian/[0.05] hover:via-obsidian/[0.08] hover:to-obsidian/[0.05] text-obsidian/70 dark:text-white/70 text-base font-light tracking-[0.05em] hover:text-obsidian/90 dark:hover:text-white/90 hover:border-obsidian/10 dark:hover:border-white/10 transition-all duration-300 group/secondary backdrop-blur-sm"
                       >
                         <span className="flex items-center justify-center gap-1.5">
@@ -256,13 +274,23 @@ export default function GrowthMarketingConsultingServices() {
         </div>
 
         {/* Closing Statement */}
-        <div className="text-center mt-12 lg:mt-16">
-          <p className="text-xl lg:text-2xl text-obsidian/60 font-light leading-relaxed max-w-3xl mx-auto">
-            Great growth isn&apos;t about quick wins or viral moments.
-            <br />
-            It&apos;s about building authentic connections that create lasting value for everyone involved.
-          </p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-center mt-16 lg:mt-24"
+        >
+          <div className="max-w-4xl mx-auto">
+            <p className="text-xl lg:text-2xl text-obsidian/60 font-light leading-relaxed mb-8">
+              Great growth isn&apos;t about quick wins or viral moments.
+              <br className="hidden sm:block" />
+              <span className="italic">It&apos;s about building authentic connections that create lasting value for everyone involved.</span>
+            </p>
+            
+            <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto"></div>
           </div>
+        </motion.div>
       </div>
 
       {/* Enhanced close buttons for active loaders */}

@@ -10,10 +10,10 @@ import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 export default function TechInnovationConsultingServices() {
   const [mounted, setMounted] = useState(false);
   const [loadingStates, setLoadingStates] = useState({
-    'custom-platform-development': false,
-    'system-integration-apis': false,
-    'mvp-development': false,
-    'platform-architecture-scaling': false
+    'tech-stack-assessment': false,
+    'mvp-development-validation': false,
+    'workflow-automation': false,
+    'custom-gpt-development': false
   });
 
   useEffect(() => {
@@ -28,80 +28,80 @@ export default function TechInnovationConsultingServices() {
   };
 
   const serviceLoadingSteps = {
-    'custom-platform-development': [
-      { text: "Analyzing business requirements and technology needs" },
-      { text: "Evaluating current systems and identifying gaps" },
-      { text: "Creating comprehensive technology strategy roadmap" },
-      { text: "Designing scalable technology architecture" },
-      { text: "Planning implementation timeline and resources" },
+    'tech-stack-assessment': [
+      { text: "Analyzing current technology infrastructure and systems" },
+      { text: "Evaluating technology stack performance and gaps" },
+      { text: "Identifying optimization opportunities and recommendations" },
+      { text: "Creating technology optimization roadmap" },
+      { text: "Planning implementation strategy and timeline" },
     ],
-    'system-integration-apis': [
-      { text: "Analyzing requirements for custom software solution" },
-      { text: "Designing user-centered application architecture" },
-      { text: "Building custom software with modern technologies" },
-      { text: "Testing functionality and user experience" },
-      { text: "Deploying and optimizing custom application" },
+    'mvp-development-validation': [
+      { text: "Analyzing product requirements and market needs" },
+      { text: "Designing MVP architecture and feature set" },
+      { text: "Building rapid MVP with core functionality" },
+      { text: "Testing MVP with target users and market validation" },
+      { text: "Iterating based on feedback and market response" },
     ],
-    'mvp-development': [
-      { text: "Auditing current digital operations and workflows" },
-      { text: "Identifying optimization opportunities and bottlenecks" },
-      { text: "Designing streamlined digital operation systems" },
-      { text: "Implementing operational improvements and monitoring" },
-      { text: "Training team on optimized digital operations" },
-    ],
-    'platform-architecture-scaling': [
+    'workflow-automation': [
       { text: "Mapping current processes and automation opportunities" },
       { text: "Designing intelligent automation workflows" },
       { text: "Building automated systems and integration points" },
       { text: "Testing automation performance and reliability" },
       { text: "Implementing and monitoring automated processes" },
+    ],
+    'custom-gpt-development': [
+      { text: "Analyzing business use cases and AI requirements" },
+      { text: "Designing custom GPT architecture and training data" },
+      { text: "Building and training custom GPT model" },
+      { text: "Testing AI performance and user experience" },
+      { text: "Deploying and optimizing custom AI solution" },
     ]
   };
 
-  // Service ID to deliverable slug mapping
+  // Service ID to subservice slug mapping
   const serviceLinks = {
-    'custom-platform-development': '/deliverables/custom-software-solutions',
-    'system-integration-apis': '/deliverables/system-integration',
-    'mvp-development': '/deliverables/mvp-development',
-    'platform-architecture-scaling': '/deliverables/business-process-automation'
+    'tech-stack-assessment': '/services/tech-software/tech-stack-assessment',
+    'mvp-development-validation': '/services/tech-software/mvp-development-validation',
+    'workflow-automation': '/services/tech-software/workflow-automation',
+    'custom-gpt-development': '/services/tech-software/custom-gpt-development'
   };
 
   const services = [
     {
-      id: 'custom-platform-development',
-      title: 'Technology Strategy',
-      context: 'When you need clarity on your technology roadmap',
-      description: 'Strategic technology planning that aligns with business goals.',
+      id: 'tech-stack-assessment',
+      title: 'Tech Stack Assessment',
+      context: 'When your current technology is slowing your business down',
+      description: 'Review your tech setup and identify opportunities for improvement.',
       pattern: 'diverging-paths',
       accent: 'from-accent/15 to-accent/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
       image: '/images/tech-innovation/internal-software-2.png'
     },
     {
-      id: 'system-integration-apis', 
-      title: 'Custom Development',
-      context: 'When you need custom solutions that fit your specific needs',
-      description: 'Tailored software development that solves your unique challenges.',
+      id: 'mvp-development-validation', 
+      title: 'MVP Development',
+      context: 'When you need to test your product idea with real users',
+      description: 'Develop a working version of your product to validate with users.',
       pattern: 'signal-in-noise',
       accent: 'from-obsidian/15 to-obsidian/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
       image: '/images/tech-innovation/automated-workflows.png'
     },
     {
-      id: 'mvp-development',
-      title: 'Digital Operations',
-      context: 'When your digital operations need optimization and scaling',
-      description: 'Streamlined digital operations that support business growth.',
+      id: 'workflow-automation',
+      title: 'Workflow Automation',
+      context: 'When repetitive tasks are eating up your team time',
+      description: 'Automate routine tasks so your team can focus on important work.',
       pattern: 'velocity-focused',
       accent: 'from-accent/20 to-accent/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
       image: '/images/tech-innovation/mvp-development.png'
     },
     {
-      id: 'platform-architecture-scaling',
-      title: 'Process Automation',
-      context: 'When manual processes limit your growth potential',
-      description: 'Intelligent automation that eliminates bottlenecks and scales operations.',
+      id: 'custom-gpt-development',
+      title: 'Custom GPT Development',
+      context: 'When you need AI that understands your specific business',
+      description: 'Develop custom AI tools tailored to your specific business needs.',
       pattern: 'evolution-bridge',
       accent: 'from-bone/25 to-bone/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -163,7 +163,7 @@ export default function TechInnovationConsultingServices() {
               >
                 
                 <CardContainer 
-                  className="inter-var py-0 w-full h-[420px]"
+                  className="inter-var py-0 w-full h-[480px]"
                   containerClassName="py-0 flex items-start justify-start w-full h-full"
                 >
                   <CardBody className="bg-white/95 backdrop-blur-xl relative group/card dark:hover:shadow-2xl dark:hover:shadow-obsidian/[0.1] dark:bg-obsidian/98 dark:border-white/[0.08] border-2 border-transparent bg-gradient-to-br from-white via-white/98 to-bone/90 w-full h-full min-w-[320px] max-w-none rounded-3xl p-6 lg:p-8 hover:shadow-2xl hover:shadow-obsidian/[0.06] transition-all duration-1000 ease-out overflow-hidden flex flex-col">

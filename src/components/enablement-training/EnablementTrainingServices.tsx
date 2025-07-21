@@ -3,21 +3,17 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { cn } from "@/lib/utils";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 
-export default function BrandDesignConsultingServices() {
+export default function EnablementTrainingServices() {
   const [mounted, setMounted] = useState(false);
-  const [navigatingTo, setNavigatingTo] = useState<string | null>(null);
-  const router = useRouter();
   const [loadingStates, setLoadingStates] = useState({
-    'brand-audit-refresh': false,
-    'visual-identity-package': false,
-    'website-landing-development': false,
-    'pitch-sales-marketing': false
+    'ai-prompting-skills': false,
+    'pitch-presentation-excellence': false,
+    'sales-excellence-skills': false,
+    'custom-team-skills': false
   });
 
   useEffect(() => {
@@ -31,92 +27,85 @@ export default function BrandDesignConsultingServices() {
     }));
   };
 
-  const handleNavigation = async (href: string, serviceId: string) => {
-    setNavigatingTo(serviceId);
-    router.push(href);
-    // Reset after a delay to account for navigation
-    setTimeout(() => setNavigatingTo(null), 2000);
-  };
-
   const serviceLoadingSteps = {
-    'brand-audit-refresh': [
-      { text: "Analyzing current brand positioning and market perception" },
-      { text: "Identifying brand strengths, weaknesses, and opportunities" },
-      { text: "Developing strategic brand refresh recommendations" },
-      { text: "Creating brand evolution roadmap and implementation plan" },
-      { text: "Implementing brand refresh across key touchpoints" },
+    'ai-prompting-skills': [
+      { text: "Assessing current AI knowledge and skills gaps" },
+      { text: "Designing personalized AI training curriculum" },
+      { text: "Teaching advanced prompting techniques and strategies" },
+      { text: "Practicing real-world AI applications and use cases" },
+      { text: "Implementing AI workflows and productivity systems" },
     ],
-    'visual-identity-package': [
-      { text: "Researching market positioning and competitive landscape" },
-      { text: "Creating comprehensive visual identity system" },
-      { text: "Developing brand guidelines and usage standards" },
-      { text: "Building complete asset library and templates" },
-      { text: "Delivering professional brand identity package" },
+    'pitch-presentation-excellence': [
+      { text: "Evaluating current presentation skills and style" },
+      { text: "Developing compelling narrative and messaging framework" },
+      { text: "Mastering delivery techniques and audience engagement" },
+      { text: "Creating impactful visual presentations and materials" },
+      { text: "Practicing and refining pitch delivery and Q&A handling" },
     ],
-    'website-landing-development': [
-      { text: "Analyzing user behavior and conversion goals" },
-      { text: "Designing user-centered website architecture" },
-      { text: "Building responsive, high-performance websites" },
-      { text: "Optimizing for conversions and user experience" },
-      { text: "Testing and launching conversion-focused sites" },
+    'sales-excellence-skills': [
+      { text: "Analyzing current sales processes and performance" },
+      { text: "Developing consultative selling and relationship building" },
+      { text: "Mastering objection handling and closing techniques" },
+      { text: "Building sales pipeline and lead qualification systems" },
+      { text: "Implementing sales enablement tools and processes" },
     ],
-    'pitch-sales-marketing': [
-      { text: "Auditing current sales materials and messaging" },
-      { text: "Developing strategic messaging and value propositions" },
-      { text: "Creating professional pitch decks and sales collateral" },
-      { text: "Building marketing materials and campaign assets" },
-      { text: "Implementing sales and marketing collateral system" },
+    'custom-team-skills': [
+      { text: "Assessing team capabilities and skill requirements" },
+      { text: "Designing customized training programs and curriculum" },
+      { text: "Developing role-specific skills and competencies" },
+      { text: "Implementing training delivery and assessment systems" },
+      { text: "Measuring training effectiveness and performance improvement" },
     ]
   };
 
   // Service ID to subservice slug mapping
   const serviceLinks = {
-    'brand-audit-refresh': '/services/branding-design/brand-audit-refresh',
-    'visual-identity-package': '/services/branding-design/visual-identity-package',
-    'website-landing-development': '/services/branding-design/website-landing-development',
-    'pitch-sales-marketing': '/services/branding-design/pitch-sales-marketing'
+    'ai-prompting-skills': '/services/enablement-training/ai-prompting-skills',
+    'pitch-presentation-excellence': '/services/enablement-training/pitch-presentation-excellence',
+    'sales-excellence-skills': '/services/enablement-training/sales-excellence-skills',
+    'custom-team-skills': '/services/enablement-training/custom-team-skills'
   };
 
   const services = [
     {
-      id: 'brand-audit-refresh',
-      title: 'Brand Audit & Refresh',
-      context: 'When your brand looks outdated or confuses customers',
-      description: 'Refine your brand and create clear messaging that resonates with customers.',
+      id: 'ai-prompting-skills',
+      title: 'AI & Prompting Upskilling',
+      context: 'When your team needs to use AI tools productively',
+      description: 'Learn practical AI tools and prompting methods to work more efficiently.',
       pattern: 'diverging-paths',
       accent: 'from-accent/15 to-accent/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
-      image: '/images/brand-design/brand-identity.png'
+      image: '/images/tech-innovation/ai-enhanced.png'
     },
     {
-      id: 'visual-identity-package', 
-      title: 'Visual Identity Package',
-      context: 'When you need professional brand assets that work everywhere',
-      description: 'Logo, colors, fonts, and guidelines that give your business credibility.',
+      id: 'pitch-presentation-excellence', 
+      title: 'Pitch & Presentation Training',
+      context: 'When your presentations need to close deals',
+      description: 'Develop clear presentation skills that connect with your audience.',
       pattern: 'signal-in-noise',
       accent: 'from-obsidian/15 to-obsidian/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
-      image: '/images/brand-design/digital-experience.png'
+      image: '/images/strategy-consulting/compass.png'
     },
     {
-      id: 'website-landing-development',
-      title: 'Website & Landing Pages',
-      context: 'When your website visitors leave without taking action',
-      description: 'Websites and landing pages designed to engage visitors effectively.',
+      id: 'sales-excellence-skills',
+      title: 'Sales Excellence Skills Program',
+      context: 'When your sales team needs to close more deals',
+      description: 'Practical sales techniques and processes that help teams perform better.',
       pattern: 'velocity-focused',
       accent: 'from-accent/20 to-accent/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
-      image: '/images/brand-design/visual-system.png'
+      image: '/images/growth-marketing/campaign-strategy.png'
     },
     {
-      id: 'pitch-sales-marketing',
-      title: 'Pitch & Marketing Collateral',
-      context: 'When your sales materials aren\'t closing deals',
-      description: 'Pitch decks and sales materials that clearly explain your value.',
+      id: 'custom-team-skills',
+      title: 'Custom Skill Development',
+      context: 'When you need training for specific business challenges',
+      description: 'Targeted training programs that solve your specific skill gaps.',
       pattern: 'evolution-bridge',
       accent: 'from-bone/25 to-bone/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
-      image: '/images/brand-design/digital-experience-2.png'
+      image: '/images/strategy-consulting/bridge.png'
     }
   ];
 
@@ -145,17 +134,17 @@ export default function BrandDesignConsultingServices() {
         {/* Section Header */}
         <div className={`text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="mb-6 sm:mb-8 text-sm font-medium text-obsidian/60 tracking-[0.2em] uppercase">
-            <span>What We Create</span>
+            <span>Enablement & Upskilling</span>
           </div>
           
           <h2 className="font-display text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-[-0.02em] leading-[0.9] mb-4 sm:mb-6 md:mb-8">
             <span className="bg-gradient-to-r from-obsidian via-accent to-obsidian bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-              Design that works as hard as you do
+              Upskilling that delivers results
             </span>
           </h2>
           
           <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-obsidian/80 font-light max-w-4xl mx-auto leading-relaxed">
-            Beautiful isn&apos;t enough. Every element we create drives recognition, builds trust, and converts prospects into customers.
+            Practical skill development that drives measurable business performance.
           </p>
         </div>
 
@@ -226,13 +215,11 @@ export default function BrandDesignConsultingServices() {
                     <CardItem translateZ="120" className="w-full mb-4 flex-shrink-0">
                       <div className="h-20 w-full bg-gradient-to-br from-bone/30 via-white/50 to-bone/20 dark:from-white/5 dark:to-white/2 rounded-2xl flex items-center justify-center group-hover/card:shadow-xl group-hover/card:shadow-obsidian/[0.03] border-2 border-transparent group-hover/card:border-accent/[0.08] transition-all duration-1000 backdrop-blur-sm relative overflow-hidden">
                         
-                        {/* Strategy Image */}
+                        {/* Technology Image */}
                         <div className="transition-all duration-1000 ease-out group-hover/card:scale-110 relative z-10 w-full h-full">
-                          <Image 
+                          <img 
                             src={service.image} 
                             alt={service.title}
-                            width={320}
-                            height={80}
                             className="w-full h-full object-cover opacity-60 group-hover/card:opacity-90 transition-all duration-1000 filter drop-shadow-sm group-hover/card:drop-shadow-md"
                           />
                         </div>
@@ -267,32 +254,15 @@ export default function BrandDesignConsultingServices() {
                       
                       <CardItem
                         translateZ={30}
-                        as="button"
-                        onClick={() => handleNavigation(serviceLinks[service.id as keyof typeof serviceLinks], service.id)}
-                        disabled={navigatingTo === service.id}
-                        className={cn(
-                          "w-full px-5 py-3 rounded-2xl border-2 border-transparent bg-gradient-to-r text-base font-light tracking-[0.05em] transition-all duration-300 group/secondary backdrop-blur-sm",
-                          navigatingTo === service.id 
-                            ? "from-accent/20 via-accent/30 to-accent/20 text-obsidian border-accent/30 cursor-wait"
-                            : "from-obsidian/[0.02] via-obsidian/[0.05] to-obsidian/[0.02] hover:from-obsidian/[0.05] hover:via-obsidian/[0.08] hover:to-obsidian/[0.05] text-obsidian/70 dark:text-white/70 hover:text-obsidian/90 dark:hover:text-white/90 hover:border-obsidian/10 dark:hover:border-white/10"
-                        )}
+                        as={Link}
+                        href={serviceLinks[service.id as keyof typeof serviceLinks]}
+                        className="w-full px-5 py-3 rounded-2xl border-2 border-transparent bg-gradient-to-r from-obsidian/[0.02] via-obsidian/[0.05] to-obsidian/[0.02] hover:from-obsidian/[0.05] hover:via-obsidian/[0.08] hover:to-obsidian/[0.05] text-obsidian/70 dark:text-white/70 text-base font-light tracking-[0.05em] hover:text-obsidian/90 dark:hover:text-white/90 hover:border-obsidian/10 dark:hover:border-white/10 transition-all duration-300 group/secondary backdrop-blur-sm"
                       >
                         <span className="flex items-center justify-center gap-1.5">
-                          {navigatingTo === service.id ? (
-                            <>
-                              Loading...
-                              <svg className="w-3.5 h-3.5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                              </svg>
-                            </>
-                          ) : (
-                            <>
-                              Learn More
-                              <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover/secondary:rotate-45 group-hover/secondary:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                              </svg>
-                            </>
-                          )}
+                          Learn More
+                          <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover/secondary:rotate-45 group-hover/secondary:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
                         </span>
                       </CardItem>
                     </div>
@@ -313,9 +283,9 @@ export default function BrandDesignConsultingServices() {
         >
           <div className="max-w-4xl mx-auto">
             <p className="text-xl lg:text-2xl text-obsidian/60 font-light leading-relaxed mb-8">
-              Great design isn&apos;t about making things look pretty.
+              Great upskilling creates competitive advantage.
               <br className="hidden sm:block" />
-              <span className="italic">It&apos;s about creating experiences that drive real business results.</span>
+              <span className="italic">It&apos;s about empowering people to achieve exceptional performance.</span>
             </p>
             
             <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto"></div>

@@ -10,10 +10,10 @@ import { MultiStepLoader } from "@/components/ui/multi-step-loader";
 export default function StrategyConsultingServices() {
   const [mounted, setMounted] = useState(false);
   const [loadingStates, setLoadingStates] = useState({
-    'market-research-analysis': false,
-    'strategic-business-planning': false,
-    'go-to-market-playbook': false,
-    'competitive-positioning': false
+    'market-research-competitive': false,
+    'go-to-market-launch': false,
+    'positioning-messaging': false,
+    'business-strategy-growth': false
   });
 
   useEffect(() => {
@@ -28,80 +28,80 @@ export default function StrategyConsultingServices() {
   };
 
   const serviceLoadingSteps = {
-    'market-research-analysis': [
-      { text: "Analyzing current business model and revenue streams" },
-      { text: "Identifying market opportunities and value creation gaps" },
-      { text: "Designing optimized business model architecture" },
-      { text: "Creating implementation roadmap and success metrics" },
-      { text: "Building sustainable business model operations" },
+    'market-research-competitive': [
+      { text: "Analyzing market size, trends, and growth opportunities" },
+      { text: "Researching competitive landscape and positioning" },
+      { text: "Identifying customer segments and buying behavior" },
+      { text: "Creating comprehensive market analysis report" },
+      { text: "Developing strategic recommendations and insights" },
     ],
-    'strategic-business-planning': [
+    'go-to-market-launch': [
       { text: "Analyzing target market dynamics and entry opportunities" },
-      { text: "Developing market positioning and value proposition" },
-      { text: "Creating comprehensive go-to-market strategy" },
-      { text: "Building market entry execution plan and timeline" },
+      { text: "Developing comprehensive go-to-market strategy" },
+      { text: "Creating market entry execution plan and timeline" },
+      { text: "Building launch sequence and rollout strategy" },
       { text: "Implementing go-to-market systems and tracking" },
     ],
-    'go-to-market-playbook': [
-      { text: "Auditing current operational systems and workflows" },
-      { text: "Identifying optimization opportunities and bottlenecks" },
-      { text: "Designing streamlined operations architecture" },
-      { text: "Building scalable operational systems and processes" },
-      { text: "Implementing optimized operations and performance monitoring" },
-    ],
-    'competitive-positioning': [
+    'positioning-messaging': [
       { text: "Analyzing competitive landscape and market positioning" },
       { text: "Identifying differentiation opportunities and advantages" },
-      { text: "Developing strategic competitive positioning framework" },
-      { text: "Creating competitive advantage implementation plan" },
-      { text: "Building sustainable competitive positioning systems" },
+      { text: "Developing strategic positioning framework" },
+      { text: "Creating compelling messaging and value propositions" },
+      { text: "Building positioning and messaging implementation plan" },
+    ],
+    'business-strategy-growth': [
+      { text: "Analyzing current business model and growth trajectory" },
+      { text: "Identifying strategic opportunities and growth drivers" },
+      { text: "Developing comprehensive business strategy" },
+      { text: "Creating growth roadmap and implementation plan" },
+      { text: "Building strategic execution and monitoring systems" },
     ]
   };
 
-  // Service ID to deliverable slug mapping
+  // Service ID to subservice slug mapping
   const serviceLinks = {
-    'market-research-analysis': '/deliverables/market-opportunity-analysis',
-    'strategic-business-planning': '/deliverables/business-model-optimization',
-    'go-to-market-playbook': '/deliverables/go-to-market-strategy',
-    'competitive-positioning': '/deliverables/competitive-intelligence'
+    'market-research-competitive': '/services/strategy-planning/market-research-competitive',
+    'go-to-market-launch': '/services/strategy-planning/go-to-market-launch',
+    'positioning-messaging': '/services/strategy-planning/positioning-messaging',
+    'business-strategy-growth': '/services/strategy-planning/business-strategy-growth'
   };
 
   const services = [
     {
-      id: 'market-research-analysis',
-      title: 'Business Model Strategy',
-      context: 'When you need to optimize how your business creates value',
-      description: 'Strategic business model design that drives sustainable growth.',
+      id: 'market-research-competitive',
+      title: 'Market Research & Analysis',
+      context: 'When you need to understand who you\'re competing against',
+      description: 'Research your market and competitors to understand the landscape.',
       pattern: 'diverging-paths',
       accent: 'from-accent/15 to-accent/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
       image: '/images/strategy-consulting/compass.png'
     },
     {
-      id: 'strategic-business-planning', 
+      id: 'go-to-market-launch', 
       title: 'Go-to-Market Strategy',
-      context: 'When you need to successfully launch or expand into markets',
-      description: 'Market entry strategies that capture opportunity and drive growth.',
+      context: 'When you need a plan to launch your product or service',
+      description: 'Develop a thoughtful launch plan that reaches your target market.',
       pattern: 'signal-in-noise',
       accent: 'from-obsidian/15 to-obsidian/5',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
       image: '/images/strategy-consulting/bridge.png'
     },
     {
-      id: 'go-to-market-playbook',
-      title: 'Operations Systems',
-      context: 'When operational inefficiencies limit your growth potential',
-      description: 'Systematic operations optimization that scales with your business.',
+      id: 'positioning-messaging',
+      title: 'Positioning & Messaging',
+      context: 'When customers don\'t understand what makes you different',
+      description: 'Clear messaging that articulates your unique value to customers.',
       pattern: 'velocity-focused',
       accent: 'from-accent/20 to-accent/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
       image: '/images/strategy-consulting/plane.png'
     },
     {
-      id: 'competitive-positioning',
-      title: 'Competitive Strategy',
-      context: 'When you need to differentiate and win in competitive markets',
-      description: 'Strategic positioning that creates sustainable competitive advantage.',
+      id: 'business-strategy-growth',
+      title: 'Business Strategy & Growth',
+      context: 'When you need a clear plan to grow your business',
+      description: 'Business strategy and growth plan that fits your specific situation.',
       pattern: 'evolution-bridge',
       accent: 'from-bone/25 to-bone/8',
       borderGradient: 'from-obsidian/20 via-obsidian/10 to-transparent',
@@ -163,7 +163,7 @@ export default function StrategyConsultingServices() {
               >
                 
                 <CardContainer 
-                  className="inter-var py-0 w-full h-[420px]"
+                  className="inter-var py-0 w-full h-[480px]"
                   containerClassName="py-0 flex items-start justify-start w-full h-full"
                 >
                   <CardBody className="bg-white/95 backdrop-blur-xl relative group/card dark:hover:shadow-2xl dark:hover:shadow-obsidian/[0.1] dark:bg-obsidian/98 dark:border-white/[0.08] border-2 border-transparent bg-gradient-to-br from-white via-white/98 to-bone/90 w-full h-full min-w-[320px] max-w-none rounded-3xl p-6 lg:p-8 hover:shadow-2xl hover:shadow-obsidian/[0.06] transition-all duration-1000 ease-out overflow-hidden flex flex-col">

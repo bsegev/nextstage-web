@@ -20,7 +20,8 @@ import {
   IconRocket, 
   IconTrendingUp, 
   IconCurrency,
-  IconChartLine
+  IconChartLine,
+  IconUsers
 } from '@tabler/icons-react';
 
 const NextStageLogo = () => {
@@ -35,7 +36,7 @@ const NextStageLogo = () => {
 };
 
 export default function NextStageNavbar() {
-  const [activeService, setActiveService] = useState<"strategy" | "branding" | "tech" | "marketing">("strategy");
+  const [activeService, setActiveService] = useState<"strategy" | "branding" | "tech" | "marketing" | "enablement">("strategy");
   const [activeTrack, setActiveTrack] = useState<"launch" | "growth" | "fundraising">("launch");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -206,6 +207,48 @@ export default function NextStageNavbar() {
       cta: {
         title: "Ready to accelerate your growth?",
         description: "Let's build systems that scale"
+      }
+    },
+    enablement: {
+      title: "Enablement & Upskilling",
+      description: "The people • How to empower them",
+      services: [
+        {
+          name: "AI & Prompting Skills",
+          href: "/services/enablement-training/ai-prompting-skills"
+        },
+        {
+          name: "Pitch & Presentation Excellence",
+          href: "/services/enablement-training/pitch-presentation-excellence"
+        },
+        {
+          name: "Sales Excellence Skills",
+          href: "/services/enablement-training/sales-excellence-skills"
+        },
+        {
+          name: "Custom Team Skills",
+          href: "/services/enablement-training/custom-team-skills"
+        },
+        {
+          name: "Digital Upskilling",
+          href: "/services/enablement-training/digital-upskilling"
+        },
+        {
+          name: "Leadership Development",
+          href: "/services/enablement-training/leadership-development"
+        },
+        {
+          name: "Future-Proof Skills",
+          href: "/services/enablement-training/future-proof-skills"
+        },
+        {
+          name: "Performance Coaching",
+          href: "/services/enablement-training/performance-coaching"
+        }
+      ],
+      cta: {
+        title: "Ready to empower your team?",
+        description: "Let's build capabilities that drive meaningful growth"
       }
     }
   };
@@ -407,6 +450,25 @@ export default function NextStageNavbar() {
                     <IconChartLine className="w-4 h-4 text-accent" />
                   </div>
                   <span>Marketing & Growth</span>
+                </a>
+                <a 
+                  href="/services/enablement-training"
+                  role="menuitem"
+                  tabIndex={0}
+                  onClick={() => setActiveService("enablement")}
+                  onMouseEnter={() => setActiveService("enablement")}
+                  onFocus={() => setActiveService("enablement")}
+                  className={`flex items-center gap-3 w-full text-left px-4 py-3 hover:text-bone hover:bg-accent/10 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent/50 ${
+                    activeService === "enablement" 
+                      ? "text-bone border-l-2 border-accent bg-accent/5" 
+                      : "text-bone/60"
+                  }`}
+                  aria-describedby="enablement-desc"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 bg-obsidian/80 rounded-lg flex items-center justify-center">
+                    <IconUsers className="w-4 h-4 text-accent" />
+                  </div>
+                  <span>Enablement & Upskilling</span>
                 </a>
               </div>
             </div>
@@ -777,7 +839,9 @@ export default function NextStageNavbar() {
                   const serviceUrls = {
                     strategy: "/services/strategy-planning",
                     branding: "/services/branding-design", 
-                    tech: "/services/tech-software"
+                    tech: "/services/tech-software",
+                    marketing: "/services/marketing-growth",
+                    enablement: "/services/enablement-training"
                   };
                   
                   return (

@@ -419,6 +419,14 @@ const services = [
     skeleton: GrowthSystemsSkeleton,
     backgroundImage: "/images/growth-marketing-hero-bg-2.png",
     delay: 0.3,
+  },
+  {
+    title: "Enablement & Upskilling",
+    description: "Empower your team with AI-powered skill development that drives meaningful business impact.",
+    href: "/services/enablement-training",
+    skeleton: GrowthSystemsSkeleton, // We'll update this later with a proper skeleton
+    backgroundImage: "/images/growth-marketing-hero-bg-2.png", // We'll update this later with proper image
+    delay: 0.4,
   }
 ];
 
