@@ -283,10 +283,10 @@ export default function GrowthMarketingConsultingServices() {
         >
           <div className="max-w-4xl mx-auto">
             <p className="text-xl lg:text-2xl text-obsidian/60 font-light leading-relaxed mb-8">
-              Great growth isn&apos;t about quick wins or viral moments.
+            Great growth isn&apos;t about quick wins or viral moments.
               <br className="hidden sm:block" />
               <span className="italic">It&apos;s about building authentic connections that create lasting value for everyone involved.</span>
-            </p>
+          </p>
             
             <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto"></div>
           </div>

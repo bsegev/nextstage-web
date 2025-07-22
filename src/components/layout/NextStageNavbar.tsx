@@ -46,41 +46,25 @@ export default function NextStageNavbar() {
       description: "The brain • What to do",
       services: [
         {
-          name: "Business Strategy",
-          href: "/deliverables/business-strategy"
-        },
-        {
-          name: "Market Research",
-          href: "/deliverables/market-research"
-        },
-        {
-          name: "Competitive Analysis",
-          href: "/deliverables/competitive-analysis"
-        },
-        {
-          name: "Financial Planning",
-          href: "/deliverables/financial-planning"
+          name: "Market Research & Analysis",
+          href: "/services/strategy-planning/market-research-competitive"
         },
         {
           name: "Go-to-Market Strategy",
-          href: "/deliverables/go-to-market-strategy"
+          href: "/services/strategy-planning/go-to-market-launch"
         },
         {
-          name: "Product Strategy",
-          href: "/deliverables/product-strategy"
+          name: "Positioning & Messaging",
+          href: "/services/strategy-planning/positioning-messaging"
         },
         {
-          name: "Strategic Partnerships",
-          href: "/deliverables/strategic-partnerships"
-        },
-        {
-          name: "Business Intelligence",
-          href: "/deliverables/business-intelligence"
+          name: "Business Strategy & Growth",
+          href: "/services/strategy-planning/business-strategy-growth"
         }
       ],
       cta: {
-        title: "Ready to build your strategic advantage?",
-        description: "Let's create your roadmap to success"
+        title: "Ready to build your strategy?",
+        description: "Let's map your plan to success"
       }
     },
     branding: {
@@ -88,41 +72,25 @@ export default function NextStageNavbar() {
       description: "The face • How to present it",
       services: [
         {
-          name: "Brand Identity",
-          href: "/deliverables/brand-identity"
+          name: "Brand Audit & Refresh",
+          href: "/services/branding-design/brand-audit-refresh"
         },
         {
-          name: "Website Design",
-          href: "/deliverables/website-design"
+          name: "Visual Identity Package",
+          href: "/services/branding-design/visual-identity-package"
         },
         {
-          name: "Brand Strategy",
-          href: "/deliverables/brand-strategy"
+          name: "Website & Landing Pages",
+          href: "/services/branding-design/website-landing-development"
         },
         {
-          name: "Marketing Collateral",
-          href: "/deliverables/marketing-collateral"
-        },
-        {
-          name: "Pitch Deck Design",
-          href: "/deliverables/pitch-deck-design"
-        },
-        {
-          name: "Social Media Assets",
-          href: "/deliverables/social-media-assets"
-        },
-        {
-          name: "Content Strategy",
-          href: "/deliverables/content-strategy"
-        },
-        {
-          name: "Digital Brand Management",
-          href: "/deliverables/digital-brand-management"
+          name: "Pitch & Marketing Collateral",
+          href: "/services/branding-design/pitch-sales-marketing"
         }
       ],
       cta: {
         title: "Ready to elevate your brand?",
-        description: "Let's create experiences that convert"
+        description: "Let's create visuals that convert"
       }
     },
     tech: {
@@ -130,41 +98,25 @@ export default function NextStageNavbar() {
       description: "The engine • How to build it",
       services: [
         {
-          name: "Custom GPT Development",
-          href: "/deliverables/custom-gpt-development"
-        },
-        {
-          name: "Workflow Automation",
-          href: "/deliverables/workflow-automation"
-        },
-        {
-          name: "Digital Transformation",
-          href: "/deliverables/digital-transformation"
+          name: "Tech Stack Assessment",
+          href: "/services/tech-software/tech-stack-assessment"
         },
         {
           name: "MVP Development",
-          href: "/deliverables/mvp-development"
+          href: "/services/tech-software/mvp-development"
         },
         {
-          name: "Interactive Demo",
-          href: "/deliverables/interactive-demo"
+          name: "Workflow Automation",
+          href: "/services/tech-software/workflow-automation"
         },
         {
-          name: "UX/UI Prototypes",
-          href: "/deliverables/ux-ui-prototypes"
-        },
-        {
-          name: "Productivity Stack Setup",
-          href: "/deliverables/productivity-stack-setup"
-        },
-        {
-          name: "Software Consulting",
-          href: "/deliverables/software-consulting"
+          name: "Custom GPT Development",
+          href: "/services/tech-software/custom-gpt-development"
         }
       ],
       cta: {
         title: "Ready to build your platform?",
-        description: "Let's create technology that scales"
+        description: "Let's build tech that scales"
       }
     },
     marketing: {
@@ -172,83 +124,51 @@ export default function NextStageNavbar() {
       description: "The fuel • How to scale it",
       services: [
         {
-          name: "Performance Marketing",
-          href: "/deliverables/performance-marketing"
+          name: "Digital Marketing Assessment",
+          href: "/services/marketing-growth/digital-marketing-assessment"
         },
         {
-          name: "Content Marketing Systems",
-          href: "/deliverables/content-marketing-systems"
+          name: "Lead Generation Campaign",
+          href: "/services/marketing-growth/lead-generation-campaign"
         },
         {
-          name: "Email Marketing Automation",
-          href: "/deliverables/email-marketing-automation"
-        },
-        {
-          name: "Conversion Rate Optimization",
-          href: "/deliverables/conversion-rate-optimization"
-        },
-        {
-          name: "Customer Acquisition Strategy",
-          href: "/deliverables/customer-acquisition-strategy"
-        },
-        {
-          name: "Marketing Analytics Setup",
-          href: "/deliverables/marketing-analytics-setup"
+          name: "Content & Copywriting",
+          href: "/services/marketing-growth/content-copywriting"
         },
         {
           name: "Sales Funnel Development",
-          href: "/deliverables/sales-funnel-development"
-        },
-        {
-          name: "Growth Strategy",
-          href: "/deliverables/growth-strategy"
+          href: "/services/marketing-growth/sales-funnel-development"
         }
       ],
       cta: {
         title: "Ready to accelerate your growth?",
-        description: "Let's build systems that scale"
+        description: "Let's grow your audience"
       }
     },
     enablement: {
-      title: "Enablement & Upskilling",
+      title: "Enablement & Coaching",
       description: "The people • How to empower them",
       services: [
         {
-          name: "AI & Prompting Skills",
+          name: "AI & Prompting Upskilling",
           href: "/services/enablement-training/ai-prompting-skills"
         },
         {
-          name: "Pitch & Presentation Excellence",
+          name: "Pitch & Presentation Training",
           href: "/services/enablement-training/pitch-presentation-excellence"
         },
         {
-          name: "Sales Excellence Skills",
+          name: "Sales Excellence Skills Program",
           href: "/services/enablement-training/sales-excellence-skills"
         },
         {
-          name: "Custom Team Skills",
+          name: "Custom Skill Development",
           href: "/services/enablement-training/custom-team-skills"
-        },
-        {
-          name: "Digital Upskilling",
-          href: "/services/enablement-training/digital-upskilling"
-        },
-        {
-          name: "Leadership Development",
-          href: "/services/enablement-training/leadership-development"
-        },
-        {
-          name: "Future-Proof Skills",
-          href: "/services/enablement-training/future-proof-skills"
-        },
-        {
-          name: "Performance Coaching",
-          href: "/services/enablement-training/performance-coaching"
         }
       ],
       cta: {
         title: "Ready to empower your team?",
-        description: "Let's build capabilities that drive meaningful growth"
+        description: "Let's upskill your workforce"
       }
     }
   };
@@ -359,12 +279,12 @@ export default function NextStageNavbar() {
   };
 
   const servicesDropdown = (
-    <div className="w-[1200px] bg-gradient-to-br from-white via-gray-50 to-accent/5 dark:from-black dark:via-neutral-900 dark:to-accent/5"
+    <div className="w-[1000px] bg-gradient-to-br from-white via-gray-50 to-accent/5 dark:from-black dark:via-neutral-900 dark:to-accent/5"
          role="menu"
          aria-label="Services and tracks navigation">
       <div className="grid grid-cols-12 min-h-[500px]">
         {/* Left Navigation */}
-        <div className="col-span-3 bg-obsidian/95 p-8 flex flex-col">
+        <div className="col-span-4 bg-obsidian/95 p-8 flex flex-col">
           <div className="mb-8">
             <h3 className="text-2xl font-display font-semibold text-bone mb-2">What We Do</h3>
             <p className="text-bone/60 text-sm leading-relaxed">Complete solutions for every stage of your journey</p>
@@ -468,7 +388,7 @@ export default function NextStageNavbar() {
                   <div className="flex-shrink-0 w-8 h-8 bg-obsidian/80 rounded-lg flex items-center justify-center">
                     <IconUsers className="w-4 h-4 text-accent" />
                   </div>
-                  <span>Enablement & Upskilling</span>
+                  <span>Enablement & Coaching</span>
                 </a>
               </div>
             </div>
@@ -487,7 +407,7 @@ export default function NextStageNavbar() {
         </div>
 
         {/* Center Content */}
-        <div className="col-span-6 p-8">
+        <div className="col-span-5 p-8">
           <div className="mb-8">
             <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2" id={`${activeService}-desc`}>
               {serviceContent[activeService].title}
@@ -495,29 +415,16 @@ export default function NextStageNavbar() {
             <p className="text-gray-600 dark:text-gray-300 text-sm">{serviceContent[activeService].description}</p>
           </div>
 
-              <div className="grid grid-cols-2 gap-10">
-                <div className="space-y-5">
-                  {serviceContent[activeService].services.slice(0, 4).map((service, idx) => (
-                    <a key={idx} href={service.href} className="block group focus:outline-none focus:ring-2 focus:ring-accent/50 rounded-xl transition-all duration-200">
-                      <div className="p-5 bg-gray-50/30 dark:bg-gray-800/30 rounded-xl border border-gray-200/30 dark:border-gray-700/30 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 hover:border-accent/30 group-focus:border-accent/50 hover:shadow-sm">
-                        <h5 className="font-medium text-gray-900 dark:text-white transition-colors text-sm">
-                          {service.name}
-                        </h5>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-                <div className="space-y-5">
-                  {serviceContent[activeService].services.slice(4, 8).map((service, idx) => (
-                    <a key={idx} href={service.href} className="block group focus:outline-none focus:ring-2 focus:ring-accent/50 rounded-xl transition-all duration-200">
-                      <div className="p-5 bg-gray-50/30 dark:bg-gray-800/30 rounded-xl border border-gray-200/30 dark:border-gray-700/30 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 hover:border-accent/30 group-focus:border-accent/50 hover:shadow-sm">
-                        <h5 className="font-medium text-gray-900 dark:text-white transition-colors text-sm">
-                          {service.name}
-                        </h5>
-                      </div>
-                    </a>
-                  ))}
-                </div>
+              <div className="space-y-5">
+                {serviceContent[activeService].services.map((service, idx) => (
+                  <a key={idx} href={service.href} className="block group focus:outline-none focus:ring-2 focus:ring-accent/50 rounded-xl transition-all duration-200">
+                    <div className="p-5 bg-gray-50/30 dark:bg-gray-800/30 rounded-xl border border-gray-200/30 dark:border-gray-700/30 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 hover:border-accent/30 group-focus:border-accent/50 hover:shadow-sm">
+                      <h5 className="font-medium text-gray-900 dark:text-white transition-colors text-sm">
+                        {service.name}
+                      </h5>
+                    </div>
+                  </a>
+                ))}
               </div>
 
               <div className="pt-8 border-t border-gray-200 dark:border-gray-700 mt-10">

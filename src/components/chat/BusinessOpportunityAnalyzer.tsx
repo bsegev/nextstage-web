@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+
 import { motion } from 'framer-motion';
 import { ArrowLeft, Download, TrendingUp, Target, Shield, Lightbulb } from 'lucide-react';
 import { UserResponse } from '@/lib/types';
@@ -310,6 +311,162 @@ export const BusinessOpportunityAnalyzer = ({
     );
   }
 
+  // Handle emphasized text (words in ALL CAPS or **bold**)
+  const formatInlineText = (text: string) => {
+    // Handle **bold** text
+    let formatted = text.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-bone">$1</strong>');
+    
+    // Handle ALL CAPS words (but not entire sentences)
+    formatted = formatted.replace(/\b[A-Z]{2,}\b/g, (match) => {
+      if (match.length > 15) return match; // Don't format very long caps
+      return `<span class="font-semibold text-accent">${match}</span>`;
+    });
+    
+    return formatted;
+  };
+
+  // Smart content renderer that preserves Claude's natural formatting
+  const renderSmartContent = (content: string) => {
+    // Split content by double line breaks to preserve Claude's paragraph structure
+    const blocks = content.split(/\n\s*\n/).filter(block => block.trim());
+    
+    return blocks.map((block, blockIndex) => {
+      const trimmed = block.trim();
+      
+      // Check if this block contains numbered list items
+      const hasNumberedItems = /^\d+\.\s/.test(trimmed) || /\n\d+\.\s/.test(trimmed);
+      
+      if (hasNumberedItems) {
+        // Split by numbered items while preserving the number
+        const items = trimmed.split(/(?=\n?\d+\.\s)/).filter(item => item.trim());
+        
+        return (
+          <div key={blockIndex} className="mb-6">
+            {items.map((item, itemIndex) => {
+              const itemTrimmed = item.trim();
+              
+              // Extract the number and content
+              const numberMatch = itemTrimmed.match(/^(\d+)\.\s*([\s\S]*)$/);
+              if (numberMatch) {
+                const [, number, itemContent] = numberMatch;
+                
+                // Process the content inside this numbered item
+                const lines = itemContent.split('\n').filter(line => line.trim());
+                
+                return (
+                  <div key={itemIndex} className="mb-4 flex items-start space-x-3">
+                    <span className="text-accent font-medium text-sm mt-1 flex-shrink-0">
+                      {number}.
+                    </span>
+                    <div className="flex-1">
+                      {lines.map((line, lineIndex) => {
+                        const lineTrimmed = line.trim();
+                        
+                        // Handle bullet points within numbered items
+                        if (/^[•\-\*]\s/.test(lineTrimmed)) {
+                          const bulletContent = lineTrimmed.replace(/^[•\-\*]\s*/, '');
+                          return (
+                            <div key={lineIndex} className="flex items-start space-x-2 mb-1">
+                              <span className="text-accent/70 text-xs mt-1.5 flex-shrink-0">•</span>
+                              <span 
+                                className="text-bone/90 text-sm leading-relaxed"
+                                dangerouslySetInnerHTML={{ __html: formatInlineText(bulletContent) }}
+                              />
+                            </div>
+                          );
+                        } else {
+                          // Regular content line within numbered item
+                          return (
+                            <p 
+                              key={lineIndex}
+                              className="text-bone/90 leading-relaxed mb-1"
+                              dangerouslySetInnerHTML={{ __html: formatInlineText(lineTrimmed) }}
+                            />
+                          );
+                        }
+                      })}
+                    </div>
+                  </div>
+                );
+              }
+              
+              // Fallback for items that don't match the expected pattern
+              return (
+                <div key={itemIndex} className="mb-2">
+                  <span 
+                    className="text-bone/90 leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: formatInlineText(itemTrimmed) }}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        );
+      }
+      
+      // Check if this block contains bullet points (but no numbers)
+      const hasBulletPoints = /^[•\-\*]\s/.test(trimmed) || /\n[•\-\*]\s/.test(trimmed);
+      
+      if (hasBulletPoints) {
+        // Split by bullet points
+        const items = trimmed.split(/\n(?=[•\-\*]\s)/).filter(item => item.trim());
+        
+        return (
+          <ul key={blockIndex} className="space-y-3 mb-6">
+            {items.map((item, itemIndex) => {
+              const cleanItem = item.replace(/^[•\-\*]\s*/, '').trim();
+              
+              // Handle multi-line bullet items
+              const lines = cleanItem.split('\n').filter(line => line.trim());
+              
+              return (
+                <li key={itemIndex} className="flex items-start space-x-3">
+                  <span className="text-accent mt-1 flex-shrink-0 text-sm">•</span>
+                  <div className="flex-1">
+                    {lines.map((line, lineIndex) => (
+                      <p 
+                        key={lineIndex}
+                        className="text-bone/90 leading-relaxed mb-1 last:mb-0"
+                        dangerouslySetInnerHTML={{ __html: formatInlineText(line.trim()) }}
+                      />
+                    ))}
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        );
+      }
+      
+      // Regular paragraph(s) - handle line breaks within the block
+      const lines = trimmed.split('\n').filter(line => line.trim());
+      
+      if (lines.length === 1) {
+        // Single line paragraph
+        return (
+          <p 
+            key={blockIndex} 
+            className="text-bone/90 leading-relaxed mb-4"
+            dangerouslySetInnerHTML={{ __html: formatInlineText(lines[0]) }}
+          />
+        );
+      } else {
+        // Multi-line paragraph (preserve line breaks)
+        return (
+          <div key={blockIndex} className="mb-4 space-y-1">
+            {lines.map((line, lineIndex) => (
+              <p 
+                key={lineIndex} 
+                className="text-bone/90 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: formatInlineText(line) }}
+              />
+            ))}
+          </div>
+        );
+      }
+    });
+  };
+
   return (
     <div className="min-h-screen bg-obsidian text-bone">
       {/* Header */}
@@ -522,9 +679,9 @@ export const BusinessOpportunityAnalyzer = ({
               <h3 className="font-display text-lg sm:text-xl font-semibold text-bone mb-3 sm:mb-4">
                 {section.title}
               </h3>
-              <p className="text-bone/90 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
-                {section.content}
-              </p>
+              <div className="prose prose-bone max-w-none text-bone/90 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                {renderSmartContent(section.content)}
+              </div>
               <div className="border-t border-accent/10 pt-3 sm:pt-4">
                 <p className="text-bone/60 text-xs sm:text-sm italic">
                   <strong>Strategic Insight:</strong> {section.reasoning}

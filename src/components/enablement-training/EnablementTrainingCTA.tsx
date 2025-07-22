@@ -27,8 +27,7 @@ export default function EnablementTrainingCTA() {
   // Enhanced central pulse for supercharged mode
   const centralPulse = useMotionValue(1);
   
-  // Continuous supercharged effects (not tied to scroll)
-  const treeScale = useMotionValue(1);
+  // Continuous supercharged effects (not tied to scroll) - refined for elegance
   const energyPulse = useMotionValue(1);
   const magicalGlow = useMotionValue(0);
   
@@ -44,29 +43,26 @@ export default function EnablementTrainingCTA() {
     return unsubscribe;
   }, [scrollYProgress, isSupercharged]);
   
-  // Animate supercharged effects continuously
+  // Animate supercharged effects continuously - refined for elegance
   useEffect(() => {
     if (isSupercharged) {
-      // Set larger scale when supercharged
-      treeScale.set(1.15);
-      
-      // Continuous energy pulsing
-      const pulseAnimation = animate(energyPulse, [1, 1.2, 1], {
-        duration: 2,
+      // Subtle, graceful energy pulsing - more restrained
+      const pulseAnimation = animate(energyPulse, [1, 1.08, 1], {
+        duration: 4,
         repeat: Infinity,
         ease: "easeInOut"
       });
       
-      // Magical glow cycling
-      const glowAnimation = animate(magicalGlow, [0.3, 0.8, 0.3], {
+      // Gentle, sophisticated glow cycling - slower and more refined
+      const glowAnimation = animate(magicalGlow, [0.2, 0.5, 0.2], {
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut"
+      });
+      
+      // Subtle central pulse enhancement - very gentle
+      const centralAnimation = animate(centralPulse, [1, 1.1, 1], {
         duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut"
-      });
-      
-      // Enhanced central pulse
-      const centralAnimation = animate(centralPulse, [1, 1.5, 1], {
-        duration: 1.5,
         repeat: Infinity,
         ease: "easeInOut"
       });
@@ -77,11 +73,12 @@ export default function EnablementTrainingCTA() {
         centralAnimation.stop();
       };
     } else {
-      // Reset scale when not supercharged
-      treeScale.set(1);
+      // Graceful reset
+      energyPulse.set(1);
+      magicalGlow.set(0);
       centralPulse.set(baseCentralPulse.get());
     }
-  }, [isSupercharged, treeScale, energyPulse, magicalGlow, centralPulse, baseCentralPulse]);
+  }, [isSupercharged, energyPulse, magicalGlow, centralPulse, baseCentralPulse]);
   
   // Assembly-style rings for consistency
   const assemblyProgress = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0, 0.5, 1]);
@@ -187,10 +184,6 @@ export default function EnablementTrainingCTA() {
           <div className="relative h-80 mb-12">
             <motion.div 
               className="absolute inset-0 flex items-center justify-center"
-              style={{
-                scale: treeScale,
-                transformOrigin: "50% 50%"
-              }}
             >
               {/* Enhanced SVG with Assembly Rings */}
               <svg className="w-full h-full max-w-sm" viewBox="0 0 320 320" suppressHydrationWarning>
@@ -414,7 +407,7 @@ export default function EnablementTrainingCTA() {
                             // 3D depth-based opacity + magical glow burst
                             const depthOpacity = Math.max(0.3, (nodeData.baseZ + 8) / 16);
                             const baseOpacity = nodeData.energyLevel * tierProgress * depthOpacity;
-                            const magicalBoost = 1 + magicalGlow.get() * 0.6;
+                            const magicalBoost = 1 + magicalGlow.get() * 0.3;
                             return baseOpacity * magicalBoost;
                           }),
                           scale: useTransform(treeFormation, (progress) => {
@@ -425,23 +418,23 @@ export default function EnablementTrainingCTA() {
                           }),
                           filter: useTransform(magicalGlow, (glow) => {
                             if (glow === 0) return nodeData.energyLevel > 0.8 ? "url(#softGlow)" : "none";
-                            return `url(#softGlow) drop-shadow(0 0 ${glow * 6}px rgba(255, 224, 215, ${glow * 0.9}))`;
+                            return `url(#softGlow) drop-shadow(0 0 ${glow * 2}px rgba(255, 224, 215, ${glow * 0.4}))`;
                           })
                         }}
                         fill={nodeData.energyLevel > 0.7 ? "#FFE0D7" : 
                               nodeData.baseZ > 2 ? "#FFE0D7" : "#FFFFFF"} // Foreground nodes highlighted
                         filter={nodeData.energyLevel > 0.8 ? "url(#softGlow)" : "none"}
-                        animate={{
+                          animate={{
                           scale: [1, 1.1 + nodeData.energyLevel * 0.3, 1],
-                        }}
-                        transition={{
+                          }}
+                          transition={{
                           duration: 2.5 + i * 0.02,
-                          repeat: Infinity,
+                            repeat: Infinity,
                           delay: i * 0.01
-                        }}
-                        suppressHydrationWarning
-                      />
-                    );
+                          }}
+                          suppressHydrationWarning
+                        />
+                      );
                   })}
                   
                   {/* Organic Branch Connections - 3D curved paths */}
@@ -520,9 +513,9 @@ export default function EnablementTrainingCTA() {
                       
                       return connections[i] || {x1: 0, y1: 0, z1: 0, x2: 0, y2: 0, z2: 0, type: 'branch'};
                     }, [i]);
-                    
-                    return (
-                      <motion.line
+                        
+                        return (
+                          <motion.line
                         key={`organic-connection-${i}`}
                         x1={useTransform(treeFormation, (progress) => 160 + connectionData.x1 * Math.min(1, progress * 2))}
                         y1={useTransform(treeFormation, (progress) => 180 + connectionData.y1 * Math.min(1, progress * 2))}
@@ -555,7 +548,7 @@ export default function EnablementTrainingCTA() {
                                               connectionData.type === 'leaf' ? 0.1 :
                                               0.08;
                             const baseOpacity = Math.min(typeOpacity, progress * 0.6) * depthOpacity;
-                            const magicalBoost = 1 + magicalGlow.get() * 0.8;
+                            const magicalBoost = 1 + magicalGlow.get() * 0.4;
                             return baseOpacity * magicalBoost;
                           }),
                           filter: useTransform(magicalGlow, (glow) => {
@@ -564,9 +557,9 @@ export default function EnablementTrainingCTA() {
                             return `drop-shadow(0 0 ${intensity}px rgba(255, 224, 215, ${glow * 0.7}))`;
                           })
                         }}
-                        suppressHydrationWarning
-                      />
-                    );
+                            suppressHydrationWarning
+                          />
+                        );
                   })}
                   
                   {/* Central Core */}
@@ -576,11 +569,11 @@ export default function EnablementTrainingCTA() {
                     r="8"
                     fill="url(#galaxyCenterMobile)"
                     style={{ 
-                      opacity: useTransform(magicalGlow, (glow) => 0.8 + glow * 0.4),
+                      opacity: useTransform(magicalGlow, (glow) => 0.8 + glow * 0.2),
                       scale: centralPulse,
                       filter: useTransform(magicalGlow, (glow) => {
                         if (glow === 0) return "url(#softGlow)";
-                        return `url(#softGlow) drop-shadow(0 0 ${glow * 15}px rgba(255, 224, 215, ${glow}))`;
+                        return `url(#softGlow) drop-shadow(0 0 ${glow * 4}px rgba(255, 224, 215, ${glow * 0.6}))`;
                       })
                     }}
                     suppressHydrationWarning
@@ -848,10 +841,6 @@ export default function EnablementTrainingCTA() {
           <div className="col-span-5 relative h-96 lg:h-full">
             <motion.div 
               className="absolute inset-0 flex items-center justify-center"
-              style={{
-                scale: treeScale,
-                transformOrigin: "50% 50%"
-              }}
             >
               {/* Enhanced SVG with Assembly Rings - Desktop */}
               <svg className="w-full h-full max-w-md" viewBox="0 0 400 400" suppressHydrationWarning>
@@ -929,7 +918,7 @@ export default function EnablementTrainingCTA() {
                   }}
                 />
 
-                                {/* eslint-disable react-hooks/rules-of-hooks */}
+                {/* eslint-disable react-hooks/rules-of-hooks */}
                 <motion.g>
                   {/* 3D Tree of Knowledge - Desktop (larger organic system) */}
                   {Array.from({ length: 85 }).map((_, i) => {
@@ -1075,7 +1064,7 @@ export default function EnablementTrainingCTA() {
                             // 3D depth-based opacity + magical glow burst
                             const depthOpacity = Math.max(0.25, (nodeData.baseZ + 10) / 20);
                             const baseOpacity = nodeData.energyLevel * tierProgress * depthOpacity;
-                            const magicalBoost = 1 + magicalGlow.get() * 0.7;
+                            const magicalBoost = 1 + magicalGlow.get() * 0.35;
                             return baseOpacity * magicalBoost;
                           }),
                           scale: useTransform(treeFormation, (progress) => {
@@ -1086,23 +1075,23 @@ export default function EnablementTrainingCTA() {
                           }),
                           filter: useTransform(magicalGlow, (glow) => {
                             if (glow === 0) return nodeData.energyLevel > 0.8 ? "url(#softGlowDesktop)" : "none";
-                            return `url(#softGlowDesktop) drop-shadow(0 0 ${glow * 8}px rgba(255, 224, 215, ${glow * 0.9}))`;
+                            return `url(#softGlowDesktop) drop-shadow(0 0 ${glow * 3}px rgba(255, 224, 215, ${glow * 0.5}))`;
                           })
                         }}
                         fill={nodeData.energyLevel > 0.7 ? "#FFE0D7" : 
                               nodeData.baseZ > 3 ? "#FFE0D7" : "#FFFFFF"} // Foreground nodes highlighted
                         filter={nodeData.energyLevel > 0.8 ? "url(#softGlowDesktop)" : "none"}
-                        animate={{
+                          animate={{
                           scale: [1, 1.15 + nodeData.energyLevel * 0.4, 1],
-                        }}
-                        transition={{
+                          }}
+                          transition={{
                           duration: 2.8 + i * 0.015,
-                          repeat: Infinity,
+                            repeat: Infinity,
                           delay: i * 0.008
-                        }}
-                        suppressHydrationWarning
-                      />
-                    );
+                          }}
+                          suppressHydrationWarning
+                        />
+                      );
                   })}
                   
                   {/* Organic Branch Connections - Desktop (enhanced with more detail) */}
@@ -1201,9 +1190,9 @@ export default function EnablementTrainingCTA() {
                       
                       return connections[i] || {x1: 0, y1: 0, z1: 0, x2: 0, y2: 0, z2: 0, type: 'branch'};
                     }, [i]);
-                    
-                    return (
-                      <motion.line
+                        
+                        return (
+                          <motion.line
                         key={`organic-connection-desktop-${i}`}
                         x1={useTransform(treeFormation, (progress) => 200 + connectionData.x1 * Math.min(1, progress * 1.8))}
                         y1={useTransform(treeFormation, (progress) => 220 + connectionData.y1 * Math.min(1, progress * 1.8))}
@@ -1245,7 +1234,7 @@ export default function EnablementTrainingCTA() {
                                                connectionData.type === 'network' ? 0.06 :
                                                0.05;
                              const baseOpacity = Math.min(typeOpacity, progress * 0.7) * depthOpacity;
-                             const magicalBoost = 1 + magicalGlow.get() * 0.9;
+                             const magicalBoost = 1 + magicalGlow.get() * 0.45;
                              return baseOpacity * magicalBoost;
                            }),
                            filter: useTransform(magicalGlow, (glow) => {
@@ -1254,9 +1243,9 @@ export default function EnablementTrainingCTA() {
                              return `drop-shadow(0 0 ${intensity}px rgba(255, 224, 215, ${glow * 0.8}))`;
                            })
                          }}
-                        suppressHydrationWarning
-                      />
-                    );
+                            suppressHydrationWarning
+                          />
+                        );
                   })}
                   
                   {/* Central Core - Desktop */}
@@ -1266,11 +1255,11 @@ export default function EnablementTrainingCTA() {
                     r="12"
                     fill="url(#galaxyCenterDesktop)"
                     style={{ 
-                      opacity: useTransform(magicalGlow, (glow) => 0.8 + glow * 0.5),
+                      opacity: useTransform(magicalGlow, (glow) => 0.8 + glow * 0.25),
                       scale: centralPulse,
                       filter: useTransform(magicalGlow, (glow) => {
                         if (glow === 0) return "url(#softGlowDesktop)";
-                        return `url(#softGlowDesktop) drop-shadow(0 0 ${glow * 20}px rgba(255, 224, 215, ${glow}))`;
+                        return `url(#softGlowDesktop) drop-shadow(0 0 ${glow * 5}px rgba(255, 224, 215, ${glow * 0.7}))`;
                       })
                     }}
                     suppressHydrationWarning

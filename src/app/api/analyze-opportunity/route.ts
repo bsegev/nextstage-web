@@ -29,6 +29,21 @@ interface ResearchData {
   cost: number;
 }
 
+interface BusinessConcept {
+  coreBusiness: string;
+  specialization: string;
+  targetMarket: string;
+  geographicScope: string;
+  businessModel: string;
+  keyDifferentiators: string[];
+  marketPositioning: string;
+}
+
+interface EnhancedResearchData extends ResearchData {
+  relevanceScore: number;
+  businessConcept: BusinessConcept;
+}
+
 interface OpportunityAnalysis {
   personalMessage: string;
   businessInfo: BusinessInfo;
@@ -41,9 +56,10 @@ interface OpportunityAnalysis {
   researchData: ResearchData[];
   searchCost: number;
   searchProvider: string;
+  businessConcept?: BusinessConcept;
 }
 
-function extractBusinessInfo(responses: UserResponse[]): BusinessInfo {
+async function extractBusinessInfo(responses: UserResponse[]): Promise<BusinessInfo> {
   // Extract by array index since SimpleConversationAgent processes questions in order:
   // 0: name, 1: vision, 2: audience, 3: problem, 4: success, 5: budget (timeline included)
   const name = responses[0]?.answer || "Friend";
@@ -55,8 +71,9 @@ function extractBusinessInfo(responses: UserResponse[]): BusinessInfo {
   const timeline = extractTimeline(budget); // Timeline is extracted from budget question
   const additional = responses[6]?.answer || ""; // In case there are more responses
   
-  // Extract industry from vision, audience, and problem
-  const industry = extractIndustry(vision, audience, problem);
+  // Use AI-powered intelligent classification
+  const classification = await classifyBusinessIntelligently(vision, audience, problem);
+  const industry = classification.industry;
   
   console.log('Business info extracted:', {
     name,
@@ -268,54 +285,237 @@ function extractIndustry(vision: string, audience: string, problem: string): str
 }
 
 // Strategic search query generation for business intelligence
-function generateSmartSearchQueries(businessInfo: BusinessInfo): string[] {
-  const queries: string[] = [];
+// AI-powered business concept summarization for precise market research
+async function summarizeBusinessConcept(businessInfo: BusinessInfo): Promise<BusinessConcept> {
+  const apiKey = process.env.ANTHROPIC_API_KEY || '';
   
-  // Only generate queries if we have actual business info (not empty strings)
-  if (businessInfo.vision && businessInfo.vision.length > 10) {
-    
-    // Extract key business components for smarter queries
-    const businessType = extractBusinessType(businessInfo.vision);
-    const location = extractLocation(businessInfo.audience);
-    const targetDemographic = extractTargetDemographic(businessInfo.audience);
-    const problemArea = extractProblemArea(businessInfo.problem);
-    
-    // 1. Market size and opportunity (industry-specific)
-    if (businessInfo.industry !== 'general business') {
-      queries.push(`${businessType} market size ${location} 2024 revenue trends ${businessInfo.industry}`);
-    } else {
-      queries.push(`${businessType} market opportunity ${location} 2024 industry analysis`);
+  const prompt = `Analyze this business and create a precise business concept summary for high-fidelity market research:
+
+Business Details:
+- Vision: ${businessInfo.vision}
+- Audience: ${businessInfo.audience}
+- Problem: ${businessInfo.problem}
+- Success Vision: ${businessInfo.success}
+- Industry: ${businessInfo.industry}
+
+Create a structured business concept that captures the SPECIFIC nature of this business, not generic categories. Be as precise as possible to enable targeted market research.
+
+Examples:
+- Instead of "medical clinic" → "intragastric balloon weight loss clinic"
+- Instead of "tech startup" → "AI-powered inventory management SaaS for restaurants"
+- Instead of "consulting" → "digital transformation consulting for mid-market manufacturing"
+
+Return ONLY valid JSON in this exact format:
+{
+  "coreBusiness": "specific business type (not generic)",
+  "specialization": "what makes it unique and specific",
+  "targetMarket": "precise customer segment with demographics",
+  "geographicScope": "specific location/region mentioned",
+  "businessModel": "how it generates revenue specifically",
+  "keyDifferentiators": ["unique feature 1", "unique feature 2", "unique feature 3"],
+  "marketPositioning": "how it positions itself in the market"
+}`;
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'anthropic-version': '2023-06-01',
+        'x-api-key': apiKey
+      },
+      body: JSON.stringify({
+        model: 'claude-3-5-sonnet-20241022',
+        max_tokens: 800,
+        messages: [
+          {
+            role: 'user',
+            content: prompt
+          }
+        ]
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Claude API error: ${response.status}`);
     }
+
+    const data = await response.json();
+    const content = data.content[0]?.text || '';
     
-    // 2. Competitive landscape (specific to business type and location)
-    queries.push(`${businessType} competitors ${location} ${problemArea} market leaders competitive analysis`);
+    // Parse the JSON response
+    const jsonMatch = content.match(/\{[\s\S]*\}/);
+    const jsonContent = jsonMatch ? jsonMatch[0] : content;
+    const businessConcept = JSON.parse(jsonContent);
     
-    // 3. Customer demographics and behavior
-    if (targetDemographic && location) {
-      queries.push(`${targetDemographic} ${location} market research customer behavior ${problemArea}`);
-    }
+    console.log('Business concept summarized:', businessConcept);
+    return businessConcept;
     
-    // 4. Business model and pricing (industry-specific)
-    queries.push(`${businessType} business model revenue pricing strategy ${businessInfo.industry} profitability`);
+  } catch (error) {
+    console.error('Failed to summarize business concept:', error);
     
-    // 5. Regulatory and operational insights
-    if (businessInfo.industry === 'healthtech' || businessInfo.vision.includes('clinic') || businessInfo.vision.includes('medical')) {
-      queries.push(`${businessType} ${location} regulations licensing requirements medical practice startup costs`);
-    } else {
-      queries.push(`${businessType} ${location} regulations startup requirements operational costs`);
-    }
+    // Fallback to basic extraction if AI fails
+    return {
+      coreBusiness: extractBusinessType(businessInfo.vision),
+      specialization: businessInfo.vision.slice(0, 100),
+      targetMarket: businessInfo.audience,
+      geographicScope: extractLocation(businessInfo.audience),
+      businessModel: "business services",
+      keyDifferentiators: [businessInfo.problem.slice(0, 50)],
+      marketPositioning: "market solution"
+    };
+  }
+}
+
+// AI-powered intelligent search query generation
+async function generateIntelligentSearchQueries(businessConcept: BusinessConcept): Promise<string[]> {
+  const apiKey = process.env.ANTHROPIC_API_KEY || '';
+  
+  const prompt = `Generate 5 highly targeted market research queries for this business:
+
+BUSINESS CONCEPT:
+- Core Business: ${businessConcept.coreBusiness}
+- Specialization: ${businessConcept.specialization}
+- Target Market: ${businessConcept.targetMarket}
+- Geographic Scope: ${businessConcept.geographicScope}
+- Business Model: ${businessConcept.businessModel}
+- Market Positioning: ${businessConcept.marketPositioning}
+
+Generate 5 search queries that will yield the most valuable market intelligence:
+1. Market Size & Growth - specific to this exact business type and geography
+2. Target Demographics - precise customer segment data and spending patterns
+3. Direct Competitive Intelligence - companies offering identical/similar services
+4. Industry Dynamics - regulations, trends, barriers specific to this sector
+5. Pricing & Customer Demand - market pricing analysis and demand indicators
+
+Make queries specific enough to find actionable data, not generic industry reports.
+
+Return ONLY a JSON array of 5 search query strings:
+["query1", "query2", "query3", "query4", "query5"]`;
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'anthropic-version': '2023-06-01',
+        'x-api-key': apiKey
+      },
+      body: JSON.stringify({
+        model: 'claude-3-5-sonnet-20241022',
+        max_tokens: 800,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    const data = await response.json();
+    const content = data.content[0]?.text || '';
+    const jsonMatch = content.match(/\[[\s\S]*\]/);
+    const queries = JSON.parse(jsonMatch ? jsonMatch[0] : content);
+    
+    console.log('AI-generated intelligent queries:', queries);
+    return queries;
+    
+  } catch (error) {
+    console.error('AI query generation failed, using fallback:', error);
+    return generateFoundationalQueries(businessConcept);
+  }
+}
+
+// Fallback foundational search strategy
+function generateFoundationalQueries(businessConcept: BusinessConcept): string[] {
+  const location = businessConcept.geographicScope || 'North America';
+  const industry = extractIndustryFromBusiness(businessConcept.coreBusiness);
+  const demographic = extractDemographicFromTarget(businessConcept.targetMarket);
+  const businessType = businessConcept.coreBusiness;
+  
+  // 5 FOUNDATIONAL searches for comprehensive picture
+  const queries = [
+    // 1. SPECIFIC MARKET SIZE & DEMOGRAPHICS 
+    `"${businessType}" market size revenue statistics "${location}" 2024 growth trends industry analysis`,
+    
+    // 2. TARGET AUDIENCE DATA - specific demographics and spending
+    `"${demographic}" population statistics income spending behavior "${location}" market research data`,
+    
+    // 3. DIRECT COMPETITORS - specific companies offering the same core service
+    `"${businessType}" companies competitors "${location}" pricing services market share`,
+    
+    // 4. INDUSTRY TRENDS & REGULATIONS
+    `"${industry}" industry trends regulations "${location}" market growth opportunities 2024`,
+    
+    // 5. CUSTOMER DEMAND & PRICING
+    `"${businessType}" customer demand pricing analysis "${location}" market penetration statistics`
+  ];
+  
+  console.log('Foundational queries generated:', queries);
+  return queries;
+}
+
+// Helper to extract broad industry from specific business
+function extractIndustryFromBusiness(coreBusiness: string): string {
+  const business = coreBusiness.toLowerCase();
+  
+  if (business.includes('clinic') || business.includes('medical') || business.includes('health') || business.includes('wellness')) {
+    return 'healthcare';
+  }
+  if (business.includes('tech') || business.includes('software') || business.includes('app') || business.includes('platform')) {
+    return 'technology';
+  }
+  if (business.includes('restaurant') || business.includes('food') || business.includes('catering')) {
+    return 'food service';
+  }
+  if (business.includes('retail') || business.includes('store') || business.includes('shop') || business.includes('e-commerce')) {
+    return 'retail';
+  }
+  if (business.includes('consulting') || business.includes('advisory') || business.includes('service')) {
+    return 'professional services';
+  }
+  if (business.includes('education') || business.includes('training') || business.includes('course')) {
+    return 'education';
   }
   
-  // Fallback queries if business info is insufficient
-  if (queries.length === 0) {
-    queries.push(
-      'startup market analysis framework 2024',
-      'business opportunity assessment methodology',
-      'competitive positioning strategies'
-    );
+  // Default to extracting the key noun
+  const words = business.split(' ');
+  return words[words.length - 1] || 'business';
+}
+
+// Helper to extract broad demographic from specific target market
+function extractDemographicFromTarget(targetMarket: string): string {
+  const target = targetMarket.toLowerCase();
+  
+  if (target.includes('business') || target.includes('b2b') || target.includes('enterprise') || target.includes('company')) {
+    return 'business owners entrepreneurs';
+  }
+  if (target.includes('young') || target.includes('millennial') || target.includes('gen z') || target.includes('student')) {
+    return 'young adults millennials';
+  }
+  if (target.includes('parent') || target.includes('family') || target.includes('mom') || target.includes('dad')) {
+    return 'parents families';
+  }
+  if (target.includes('senior') || target.includes('older') || target.includes('retirement') || target.includes('baby boomer')) {
+    return 'seniors older adults';
+  }
+  if (target.includes('professional') || target.includes('executive') || target.includes('manager')) {
+    return 'professionals executives';
+  }
+  if (target.includes('fitness') || target.includes('health') || target.includes('weight') || target.includes('wellness')) {
+    return 'health conscious consumers';
   }
   
-  return queries.slice(0, 3); // Limit to 3 queries to respect rate limits and control costs
+  // Default to general consumer
+  return 'consumers adults';
+}
+
+// Generate high-fidelity search queries based on business concept
+async function generateHighFidelityQueries(businessConcept: BusinessConcept): Promise<string[]> {
+  console.log('Using AI-powered intelligent search strategy');
+  return await generateIntelligentSearchQueries(businessConcept);
+}
+
+// Simplified fallback using the same foundational approach
+function generateSmartSearchQueries(businessConcept: BusinessConcept): string[] {
+  // Use the same foundational approach as the main function
+  return generateFoundationalQueries(businessConcept);
 }
 
 // Helper functions to extract specific business intelligence components
@@ -473,11 +673,24 @@ function normalizeOpportunityScore(score: Partial<OpportunityScore> | unknown, p
 async function generateOpportunityAnalysis(
   businessInfo: BusinessInfo,
   marketData: string,
-  provider: 'brave' | 'anthropic'
+  provider: 'brave' | 'anthropic',
+  businessConcept: BusinessConcept
 ): Promise<OpportunityAnalysis> {
   const apiKey = process.env.ANTHROPIC_API_KEY || '';
   
-  const prompt = `You are NextStage's senior strategist analyzing a business opportunity. Use the business information and market research to provide a comprehensive strategic analysis.
+  const prompt = `You are NextStage's lead strategic intelligence analyst - an expert with 15+ years in McKinsey-level strategy consulting, venture capital due diligence, and market intelligence. You analyze business opportunities with the rigor of top-tier consulting and the insight of successful entrepreneurs.
+
+ANALYSIS CONTEXT:
+You are conducting a comprehensive strategic assessment that will guide major business decisions. This analysis will determine whether to pursue, pivot, or abandon this opportunity. Your insights must be actionable, data-driven, and strategically sophisticated.
+
+ANALYTICAL FRAMEWORK:
+Apply advanced strategic frameworks including:
+- Porter's Five Forces competitive dynamics
+- Blue Ocean vs Red Ocean market positioning  
+- Jobs-to-be-Done customer insights
+- Platform vs Pipeline business model analysis
+- Network effects and defensibility assessment
+- Capital efficiency and unit economics evaluation
 
 BUSINESS INFORMATION:
 - Name: ${businessInfo.name}
@@ -493,8 +706,18 @@ BUSINESS INFORMATION:
 MARKET RESEARCH DATA:
 ${marketData || 'Limited market data available - focus on strategic framework analysis.'}
 
+🚨 CRITICAL REQUIREMENT - FAILURE TO FOLLOW = UNUSABLE RESPONSE:
+YOU MUST BASE YOUR ENTIRE ANALYSIS ON THE MARKET RESEARCH DATA ABOVE. 
+- DO NOT use generic business advice
+- DO NOT echo back user inputs 
+- DO NOT make up statistics
+- YOU MUST extract specific numbers, percentages, company names, market sizes, demographics from the research
+- YOU MUST cite actual findings from the data provided
+- Every section must reference concrete data points from the research
+- COMPETITOR ANALYSIS: Distinguish between direct competitors (offering the exact same core service) vs indirect competitors (related services in the broader market category). If research shows no direct competitors, clearly state this as a market opportunity.
+
 ANALYSIS TASK:
-Provide a strategic business opportunity analysis with:
+Provide a strategic business opportunity analysis that heavily incorporates the market research data with:
 
 1. OPPORTUNITY SCORING (CRITICAL: Use 0-100 scale for each metric):
    - Market Mechanics (0-100): Market structure, demand elasticity, supply dynamics
@@ -504,12 +727,29 @@ Provide a strategic business opportunity analysis with:
    
    IMPORTANT: Each score must be between 0-100, NOT 0-25. Calculate total as average of all four scores.
 
-2. STRATEGIC ANALYSIS SECTIONS:
+2. STRATEGIC ANALYSIS SECTIONS (Use clear formatting with line breaks and bullet points):
    - Business Model Analysis
-   - Market Opportunity Assessment
+   - Market Opportunity Assessment (MUST include TAM/SAM/SOM calculations using research data)
    - Competitive Landscape
    - Strategic Recommendations
    - Risk Assessment
+   
+   FORMAT REQUIREMENTS:
+   - Write in natural paragraphs and sentences
+   - Use bullet points (•) only when listing multiple related items
+   - Use numbered lists (1. 2. 3.) for sequential steps or priorities
+   - Bold key concepts with **text** when emphasizing
+   - MANDATORY: Include specific numbers, percentages, company names, and data points from the market research
+   - Cite actual market data rather than generic industry estimates
+   - Quote specific findings and statistics from the research provided
+   - Structure content as if writing for a sophisticated business audience
+
+   MARKET OPPORTUNITY ASSESSMENT REQUIREMENTS:
+   - TAM (Total Addressable Market): Use population data from research to calculate total market universe
+   - SAM (Serviceable Addressable Market): Apply demographic filters (age, income, health conditions) from research
+   - SOM (Serviceable Obtainable Market): Realistic market share based on competitive landscape research
+   - Include actual population numbers, demographic percentages, and growth rates from the market research
+   - Show clear mathematical calculations using the research data
 
 Return response in this exact JSON format:
 {
@@ -523,27 +763,27 @@ Return response in this exact JSON format:
   "sections": [
     {
       "title": "Business Model Analysis",
-      "content": "Detailed analysis of their business model...",
+      "content": "MUST include actual revenue data, competitor pricing, industry benchmarks, and financial metrics from the market research. Use specific dollar amounts, percentages, and company examples from the data.",
       "reasoning": "Why this analysis matters strategically..."
     },
     {
       "title": "Market Opportunity Assessment", 
-      "content": "Analysis of market opportunity...",
+      "content": "MANDATORY: Calculate TAM/SAM/SOM using specific population numbers, demographic percentages, and market size data from the research. Include: total population, target demographic percentage, average spending, competitive market share, and growth rates - all from the actual research data.",
       "reasoning": "Strategic insight about market dynamics..."
     },
     {
-      "title": "Competitive Landscape",
-      "content": "Competitive analysis and positioning...",
+      "title": "Competitive Landscape", 
+      "content": "MUST distinguish between direct competitors (offering the exact same core service) and indirect competitors (related services in the broader market category). Identify specific company names, pricing, and services from research data. If no direct competitors exist, clearly state this and explain the competitive gap as a market opportunity.",
       "reasoning": "How to leverage competitive advantages..."
     },
     {
       "title": "Strategic Recommendations",
-      "content": "Specific actionable recommendations...",
+      "content": "Specific actionable recommendations based on market research findings and competitive intelligence...",
       "reasoning": "Why these actions will drive success..."
     },
     {
       "title": "Risk Assessment",
-      "content": "Key risks and mitigation strategies...",
+      "content": "Key risks identified from market research and mitigation strategies based on actual market conditions...",
       "reasoning": "How to manage and minimize risks..."
     }
   ]
@@ -578,32 +818,63 @@ Make this analysis worth $5k+ in consulting value. Show strategic depth and prov
     const data = await response.json();
     const content = data.content[0]?.text || '';
     
-    // Parse the JSON response with better error handling
+    // Parse the JSON response with enhanced error handling and cleaning
     let analysis;
     try {
       // Clean the content first - sometimes Claude adds extra text
       const jsonMatch = content.match(/\{[\s\S]*\}/);
-      const jsonContent = jsonMatch ? jsonMatch[0] : content;
-      analysis = JSON.parse(jsonContent);
-    } catch (parseError) {
-      console.error('Failed to parse Claude response as JSON:', parseError);
-      console.error('Raw content:', content);
+      let jsonContent = jsonMatch ? jsonMatch[0] : content;
       
-      // Fallback to structured analysis if JSON parsing fails
-      throw new Error('Failed to parse analysis response');
+      // Clean problematic control characters that break JSON parsing while preserving structure
+      jsonContent = jsonContent
+        .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '') // Remove control chars except \t, \n, \r
+        .trim();
+      
+      console.log('Attempting to parse cleaned JSON...');
+      analysis = JSON.parse(jsonContent);
+      console.log('✅ Successfully parsed JSON response');
+    } catch (parseError) {
+      console.error('❌ Failed to parse Claude response as JSON:', parseError);
+      console.error('Raw content preview:', content.substring(0, 200) + '...');
+      
+      // Try to extract the data manually using regex patterns
+      try {
+        console.log('🔧 Attempting manual data extraction...');
+        
+        // Extract scores
+        const scoresMatch = content.match(/"opportunityScore":\s*\{[^}]+\}/);
+        const sectionsMatch = content.match(/"sections":\s*\[[\s\S]*\]/);
+        
+        if (scoresMatch && sectionsMatch) {
+          const scoresStr = scoresMatch[0].replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '');
+          const sectionsStr = sectionsMatch[0].replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '');
+          
+          const reconstructedJson = `{${scoresStr},${sectionsStr}}`;
+          analysis = JSON.parse(reconstructedJson);
+          console.log('✅ Successfully extracted data manually');
+        } else {
+          throw new Error('Could not extract required data patterns');
+        }
+      } catch (extractionError) {
+        console.error('❌ Manual extraction failed:', extractionError);
+        
+        // Final fallback to structured analysis
+        throw new Error('Failed to parse analysis response - falling back to generic analysis');
+      }
     }
     
     // Validate and normalize scoring to ensure 0-100 scale regardless of provider
     const normalizedScore = normalizeOpportunityScore(analysis.opportunityScore, provider);
     
     return {
-      personalMessage: `Hi ${businessInfo.name}! I've completed a comprehensive strategic analysis of your ${businessInfo.industry} opportunity: ${reframeBusinessConcept(businessInfo.vision, businessInfo.industry)}. Based on market research and competitive analysis, here's your Business Opportunity Assessment.`,
+      personalMessage: `Hi ${businessInfo.name}! I've completed a comprehensive strategic analysis of your ${businessConcept.coreBusiness} opportunity: ${businessConcept.specialization}. Based on targeted market research and competitive analysis, here's your Business Opportunity Assessment.`,
       businessInfo,
       opportunityScore: normalizedScore,
       sections: analysis.sections,
       researchData: [],
       searchCost: 0.025,
-      searchProvider: provider
+      searchProvider: provider,
+      businessConcept: businessConcept
     };
 
   } catch (error) {
@@ -658,6 +929,177 @@ function generateFallbackAnalysis(businessInfo: BusinessInfo, provider: string):
   };
 }
 
+// AI-powered industry classification - replaces hardcoded mapping
+async function classifyBusinessIntelligently(vision: string, audience: string, problem: string): Promise<{
+  industry: string;
+  subIndustry: string;
+  businessModel: string;
+  targetSegment: string;
+}> {
+  const apiKey = process.env.ANTHROPIC_API_KEY || '';
+  
+  const prompt = `Analyze this business and provide intelligent classification:
+
+BUSINESS DATA:
+- Vision: ${vision}
+- Audience: ${audience}  
+- Problem: ${problem}
+
+Classify this business intelligently, not just by keywords. Consider:
+- Core value proposition
+- Business model characteristics
+- Target market dynamics
+- Revenue generation method
+- Industry ecosystem
+
+Return ONLY valid JSON:
+{
+  "industry": "specific industry (e.g., 'medical technology', 'enterprise software', 'consumer fintech')",
+  "subIndustry": "niche specialization (e.g., 'non-surgical weight loss', 'inventory management SaaS', 'micro-lending')",
+  "businessModel": "how it makes money (e.g., 'procedure-based with recurring coaching', 'subscription software', 'transaction fees')",
+  "targetSegment": "specific customer segment (e.g., 'urban professionals 25-60 with disposable income', 'SME restaurants', 'gig economy workers')"
+}`;
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'anthropic-version': '2023-06-01',
+        'x-api-key': apiKey
+      },
+      body: JSON.stringify({
+        model: 'claude-3-5-sonnet-20241022',
+        max_tokens: 500,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    const data = await response.json();
+    const content = data.content[0]?.text || '';
+    const jsonMatch = content.match(/\{[\s\S]*\}/);
+    const classification = JSON.parse(jsonMatch ? jsonMatch[0] : content);
+    
+    console.log('AI business classification:', classification);
+    return classification;
+    
+  } catch (error) {
+    console.error('AI classification failed:', error);
+    
+    // Intelligent fallback using semantic analysis
+    return {
+      industry: extractIndustrySemanically(vision, audience, problem),
+      subIndustry: extractBusinessFocus(vision),
+      businessModel: extractBusinessModel(vision, problem),
+      targetSegment: extractTargetSegment(audience)
+    };
+  }
+}
+
+// Semantic industry extraction - smarter than keyword matching
+function extractIndustrySemanically(vision: string, audience: string, problem: string): string {
+  const text = `${vision} ${audience} ${problem}`.toLowerCase();
+  
+  // Semantic patterns - look for intent and value proposition, not just keywords
+  if (text.match(/(treat|cure|heal|medical|patient|clinic|doctor|health outcomes|wellness|therapy)/)) {
+    return 'healthcare technology';
+  }
+  if (text.match(/(software|platform|app|digital solution|automation|data|analytics|ai|ml)/)) {
+    return 'technology solutions';
+  }
+  if (text.match(/(payment|financial|money|invest|lending|banking|fintech|transaction)/)) {
+    return 'financial technology';
+  }
+  if (text.match(/(learn|education|training|skill|course|teach|knowledge)/)) {
+    return 'education technology';
+  }
+  if (text.match(/(sell|buy|marketplace|retail|product|inventory|commerce)/)) {
+    return 'commerce technology';
+  }
+  if (text.match(/(consult|advise|strategy|professional service|expertise|guidance)/)) {
+    return 'professional services';
+  }
+  
+  return 'business services';
+}
+
+function extractBusinessFocus(vision: string): string {
+  const visionLower = vision.toLowerCase();
+  
+  // Extract the core focus using semantic analysis
+  if (visionLower.match(/(weight.*loss|obesity|bmi|bariatric|gastric)/)) {
+    return 'weight management solutions';
+  }
+  if (visionLower.match(/(inventory|stock|supply.*chain|logistics)/)) {
+    return 'supply chain optimization';
+  }
+  if (visionLower.match(/(customer.*relationship|crm|sales.*management)/)) {
+    return 'customer relationship management';
+  }
+  if (visionLower.match(/(payment.*processing|transaction|billing)/)) {
+    return 'payment processing';
+  }
+  
+  // Extract key nouns and concepts
+  const words = visionLower.split(/\s+/);
+  const businessNouns = words.filter(word => 
+    word.length > 4 && 
+    !['with', 'that', 'will', 'help', 'provide', 'offer', 'create'].includes(word)
+  );
+  
+  return businessNouns.slice(0, 2).join(' ') || 'business solutions';
+}
+
+function extractBusinessModel(vision: string, problem: string): string {
+  const text = `${vision} ${problem}`.toLowerCase();
+  
+  if (text.match(/(subscription|monthly|recurring|saas)/)) {
+    return 'subscription-based';
+  }
+  if (text.match(/(procedure|service.*fee|consultation|treatment)/)) {
+    return 'fee-for-service';
+  }
+  if (text.match(/(marketplace|commission|transaction.*fee|percentage)/)) {
+    return 'transaction-based';
+  }
+  if (text.match(/(advertising|ads|marketing|sponsored)/)) {
+    return 'advertising-based';
+  }
+  if (text.match(/(license|enterprise|b2b|corporate)/)) {
+    return 'licensing-based';
+  }
+  
+  return 'value-based pricing';
+}
+
+function extractTargetSegment(audience: string): string {
+  const audienceLower = audience.toLowerCase();
+  
+  // Intelligent segment extraction
+  const segments = [];
+  
+  // Demographics
+  if (audienceLower.match(/(young|millennial|gen.*z|student)/)) segments.push('young adults');
+  if (audienceLower.match(/(professional|executive|manager|corporate)/)) segments.push('professionals');
+  if (audienceLower.match(/(senior|older|retirement|baby.*boomer)/)) segments.push('seniors');
+  if (audienceLower.match(/(parent|family|mom|dad)/)) segments.push('families');
+  
+  // Psychographics
+  if (audienceLower.match(/(health.*conscious|fitness|wellness|weight)/)) segments.push('health-focused');
+  if (audienceLower.match(/(tech.*savvy|early.*adopter|digital)/)) segments.push('tech-forward');
+  if (audienceLower.match(/(busy|time.*constrained|efficient)/)) segments.push('time-conscious');
+  
+  // Business type
+  if (audienceLower.match(/(small.*business|startup|entrepreneur)/)) segments.push('SME owners');
+  if (audienceLower.match(/(enterprise|large.*company|corporation)/)) segments.push('enterprise clients');
+  
+  // Geographic
+  if (audienceLower.match(/(urban|city|metropolitan)/)) segments.push('urban');
+  if (audienceLower.match(/(montreal|toronto|vancouver)/)) segments.push('Canadian');
+  
+  return segments.length > 0 ? segments.join(' ') : 'general consumers';
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { responses, submissionId, searchProvider = 'brave' } = await request.json() as {
@@ -677,7 +1119,7 @@ export async function POST(request: NextRequest) {
     console.log('Using search provider:', searchProvider);
 
     // Extract business information with correct mapping
-    const businessInfo = extractBusinessInfo(responses);
+    const businessInfo = await extractBusinessInfo(responses);
     console.log('Extracted business info:', {
       name: businessInfo.name,
       industry: businessInfo.industry,
@@ -686,9 +1128,15 @@ export async function POST(request: NextRequest) {
       hasProblem: businessInfo.problem.length > 0
     });
 
-    // Generate smart search queries
-    const searchQueries = generateSmartSearchQueries(businessInfo);
-    console.log('Generated search queries:', searchQueries);
+    // Step 1: Summarize business concept for high-fidelity research
+    console.log('🧠 Analyzing business concept for targeted research...');
+    const businessConcept = await summarizeBusinessConcept(businessInfo);
+    console.log('Business concept analyzed:', businessConcept);
+
+    // Step 2: Generate high-fidelity search queries
+    console.log('🎯 Generating high-fidelity search queries...');
+    const searchQueries = await generateHighFidelityQueries(businessConcept);
+    console.log('High-fidelity queries generated:', searchQueries);
 
     // Perform market research with proper completion tracking
     let combinedSummary = '';
@@ -736,7 +1184,7 @@ export async function POST(request: NextRequest) {
     console.log('🧠 Starting strategic analysis phase...');
     // Generate strategic analysis with cleaned business info
     const cleanedBusinessInfo = cleanBusinessInfo(businessInfo);
-    const analysis = await generateOpportunityAnalysis(cleanedBusinessInfo, combinedSummary, searchProvider);
+    const analysis = await generateOpportunityAnalysis(cleanedBusinessInfo, combinedSummary, searchProvider, businessConcept);
 
     console.log('Opportunity analysis completed for:', submissionId);
 
