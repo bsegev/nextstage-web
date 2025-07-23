@@ -772,7 +772,7 @@ Return response in this exact JSON format:
       "reasoning": "Strategic insight about market dynamics..."
     },
     {
-      "title": "Competitive Landscape", 
+      "title": "Competitive Landscape",
       "content": "MUST distinguish between direct competitors (offering the exact same core service) and indirect competitors (related services in the broader market category). Identify specific company names, pricing, and services from research data. If no direct competitors exist, clearly state this and explain the competitive gap as a market opportunity.",
       "reasoning": "How to leverage competitive advantages..."
     },

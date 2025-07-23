@@ -1,0 +1,152 @@
+=== STRATEGIC BRIEF TEST DATA ===
+
+Test Scenario 1: Enterprise SaaS Startup
+========================================
+Name: Sarah Chen
+Building: B2B compliance automation platform for financial services
+For: Mid-market financial institutions (100-500 employees)
+Problem: Manual compliance processes causing audit failures and regulatory fines
+Success in 6 months: 10 enterprise customers, $500K ARR, SOC2 certification
+Budget: $100K - $250K
+
+Test Scenario 2: E-commerce AI Tool
+===================================
+Name: Marcus Rodriguez
+Building: AI-powered customer support chatbot for online stores
+For: E-commerce businesses with high customer service volume
+Problem: High customer service costs and slow response times hurting customer satisfaction
+Success in 6 months: 50 paying customers, 80% response time improvement, $200K revenue
+Budget: $25K - $75K
+
+Test Scenario 3: Early Stage Consumer App
+=========================================
+Name: Priya Patel
+Building: Mobile app for wellness and mental health tracking
+For: Young professionals dealing with work stress
+Problem: Lack of accessible, personalized mental health tools
+Success in 6 months: 10,000 active users, app store feature, partnership with wellness brands
+Budget: $15K - $40K
+
+Test Scenario 4: B2B Productivity Tool
+======================================
+Name: Alex Thompson
+Building: Team collaboration platform with AI insights
+For: Remote teams struggling with productivity and communication
+Problem: Scattered tools and poor work-life balance in remote work
+Success in 6 months: 1,000 teams using the platform, integration partnerships
+Budget: $50K - $100K
+
+Test Scenario 5: Minimal "Lazy User" Responses
+==============================================
+Name: Mike
+Building: Something for small businesses
+For: Small business owners
+Problem: They need help with something
+Success in 6 months: Make money
+Budget: $5K - $15K
+
+Test Scenario 6: Established Business Expansion
+==============================================
+Name: Jennifer Kim
+Building: Expanding our existing consultancy into a SaaS platform
+For: Mid-market companies needing strategic planning tools
+Problem: Our manual consulting process doesn't scale and clients want self-service options
+Success in 6 months: Launch SaaS platform, convert 30% of existing clients, $300K new revenue
+Budget: $75K - $150K
+
+Test Scenario 7: Hardware/IoT Startup
+=====================================
+Name: David Park
+Building: Smart home security system with AI monitoring
+For: Tech-savvy homeowners and small business owners
+Problem: Current security systems are reactive, not predictive, and create too many false alarms
+Success in 6 months: 500 units sold, retail partnerships, Series A funding round
+Budget: $200K - $500K
+
+Test Scenario 8: Healthcare Innovation
+======================================
+Name: Dr. Lisa Chang
+Building: Telemedicine platform specialized for chronic disease management
+For: Patients with diabetes, hypertension, and heart conditions
+Problem: Poor patient compliance and lack of continuous monitoring between doctor visits
+Success in 6 months: Partner with 3 health systems, 1,000 patients enrolled, FDA pathway clear
+Budget: $150K - $300K
+
+=== CURL COMMAND EXAMPLES ===
+
+# Test with Enterprise SaaS (Scenario 1):
+curl -X POST http://localhost:3000/api/enhanced-brief-generation \
+  -H "Content-Type: application/json" \
+  -d '{
+    "responses": [
+      {"question": "What'\''s your first name?", "answer": "Sarah Chen"},
+      {"question": "What are you building?", "answer": "B2B compliance automation platform for financial services"},
+      {"question": "Who is this for?", "answer": "Mid-market financial institutions (100-500 employees)"},
+      {"question": "What problem are you solving?", "answer": "Manual compliance processes causing audit failures and regulatory fines"},
+      {"question": "What would success look like in 6 months?", "answer": "10 enterprise customers, $500K ARR, SOC2 certification"},
+      {"question": "What'\''s your budget range?", "answer": "$100K - $250K"}
+    ],
+    "extractedInfo": {
+      "name": "Sarah Chen",
+      "project": "B2B compliance automation platform for financial services",
+      "audience": "Mid-market financial institutions (100-500 employees)",
+      "problem": "Manual compliance processes causing audit failures and regulatory fines",
+      "success": "10 enterprise customers, $500K ARR, SOC2 certification",
+      "budget": "$100K - $250K"
+    },
+    "submissionId": "test-enterprise-saas"
+  }'
+
+# Test with Lazy User (Scenario 5):
+curl -X POST http://localhost:3000/api/enhanced-brief-generation \
+  -H "Content-Type: application/json" \
+  -d '{
+    "responses": [
+      {"question": "What'\''s your first name?", "answer": "Mike"},
+      {"question": "What are you building?", "answer": "Something for small businesses"},
+      {"question": "Who is this for?", "answer": "Small business owners"},
+      {"question": "What problem are you solving?", "answer": "They need help with something"},
+      {"question": "What would success look like in 6 months?", "answer": "Make money"},
+      {"question": "What'\''s your budget range?", "answer": "$5K - $15K"}
+    ],
+    "extractedInfo": {
+      "name": "Mike",
+      "project": "Something for small businesses",
+      "audience": "Small business owners",
+      "problem": "They need help with something",
+      "success": "Make money",
+      "budget": "$5K - $15K"
+    },
+    "submissionId": "test-lazy-user"
+  }'
+
+# Test with E-commerce AI (Scenario 2):
+curl -X POST http://localhost:3000/api/enhanced-brief-generation \
+  -H "Content-Type: application/json" \
+  -d '{
+    "responses": [
+      {"question": "What'\''s your first name?", "answer": "Marcus Rodriguez"},
+      {"question": "What are you building?", "answer": "AI-powered customer support chatbot for online stores"},
+      {"question": "Who is this for?", "answer": "E-commerce businesses with high customer service volume"},
+      {"question": "What problem are you solving?", "answer": "High customer service costs and slow response times hurting customer satisfaction"},
+      {"question": "What would success look like in 6 months?", "answer": "50 paying customers, 80% response time improvement, $200K revenue"},
+      {"question": "What'\''s your budget range?", "answer": "$25K - $75K"}
+    ],
+    "extractedInfo": {
+      "name": "Marcus Rodriguez",
+      "project": "AI-powered customer support chatbot for online stores",
+      "audience": "E-commerce businesses with high customer service volume",
+      "problem": "High customer service costs and slow response times hurting customer satisfaction",
+      "success": "50 paying customers, 80% response time improvement, $200K revenue",
+      "budget": "$25K - $75K"
+    },
+    "submissionId": "test-ecommerce-ai"
+  }'
+
+=== QUICK TEST COMMANDS ===
+
+# Quick Enterprise Test:
+curl -X POST localhost:3000/api/enhanced-brief-generation -H "Content-Type: application/json" -d '{"responses":[{"question":"Name?","answer":"Sarah"},{"question":"Building?","answer":"B2B compliance platform"},{"question":"For?","answer":"Financial institutions"},{"question":"Problem?","answer":"Manual compliance processes"},{"question":"Success?","answer":"10 customers, $500K ARR"},{"question":"Budget?","answer":"$100K-$250K"}],"extractedInfo":{"name":"Sarah","project":"B2B compliance platform","audience":"Financial institutions","problem":"Manual compliance processes","success":"10 customers, $500K ARR","budget":"$100K-$250K"},"submissionId":"quick-test"}'
+
+# Quick Minimal Test:
+curl -X POST localhost:3000/api/enhanced-brief-generation -H "Content-Type: application/json" -d '{"responses":[{"question":"Name?","answer":"Alex"},{"question":"Building?","answer":"An app"},{"question":"For?","answer":"People"},{"question":"Problem?","answer":"Need help"},{"question":"Success?","answer":"Success"},{"question":"Budget?","answer":"$10K"}],"extractedInfo":{"name":"Alex","project":"An app","audience":"People","problem":"Need help","success":"Success","budget":"$10K"},"submissionId":"minimal-test"}' 
