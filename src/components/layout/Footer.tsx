@@ -14,16 +14,16 @@ const Footer = () => {
       { name: "Experience Strategy", href: "#experience" },
     ],
     company: [
-      { name: "About", href: "#about" },
-      { name: "Our Approach", href: "#approach" },
-      { name: "Work", href: "#work" },
-      { name: "Insights", href: "#insights" },
+      { name: "About", href: "/about" },
+      { name: "Our Approach", href: "/approach" },
+      { name: "Work", href: "/work" },
+      { name: "Case Studies", href: "/case-studies" },
     ],
     connect: [
       { name: "LinkedIn", href: "#linkedin" },
       { name: "Twitter", href: "#twitter" },
       { name: "Email", href: "mailto:ben@nextstage.co" },
-      { name: "Newsletter", href: "#newsletter" },
+      { name: "Contact", href: "/contact" },
     ],
   };
 
