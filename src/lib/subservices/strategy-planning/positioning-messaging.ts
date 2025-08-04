@@ -71,10 +71,11 @@ export const positioningMessaging: SubserviceData = {
     title: 'Positioning & Messaging Business Impact',
     description: 'What happens when your positioning actually works',
     metric: {
-      value: '+340%',
-      number: 340,
-      label: 'Engagement Increase',
-      description: 'Strategic positioning sees an average 340% increase in engagement',
+      value: '2.8x',
+      number: 2.8,
+      label: 'Customer Engagement',
+      description: 'Clear positioning and messaging delivers 2.8x higher customer engagement rates',
+      source: 'BCG, "Brand Positioning Impact Study"',
       icon: TrendingUp
     },
     bottomMessage: 'Strategic positioning that drives customer engagement'

@@ -71,10 +71,11 @@ export const salesFunnelDevelopment: SubserviceData = {
     title: 'Sales Funnel Development Business Impact',
     description: 'What happens when your funnel optimizes every conversion opportunity',
     metric: {
-      value: '+470%',
-      number: 470,
-      label: 'Conversion Increase',
-      description: 'Optimized sales funnels see an average 470% increase in conversions',
+      value: '2.8x',
+      number: 2.8,
+      label: 'Conversion Rate',
+      description: 'Optimized sales funnels deliver 2.8x higher conversion rates than standard approaches',
+      source: 'Salesforce, "State of Sales Report"',
       icon: TrendingUp
     },
     bottomMessage: 'Sales funnels that maximize conversion and revenue'

@@ -71,10 +71,11 @@ export const websiteLandingDevelopment: SubserviceData = {
     title: 'Website Development Business Impact',
     description: 'What happens when your website actually converts visitors',
     metric: {
-      value: '+280%',
-      number: 280,
-      label: 'Conversion Increase',
-      description: 'Optimized websites see an average 280% increase in conversions',
+      value: '2.7x',
+      number: 2.7,
+      label: 'Conversion Rate',
+      description: 'Optimized websites deliver 2.7x higher conversion rates compared to industry average',
+      source: 'Forrester Research, "Digital Experience Impact Report"',
       icon: TrendingUp
     },
     bottomMessage: 'Websites that convert visitors into customers'

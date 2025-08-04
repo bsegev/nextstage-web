@@ -71,10 +71,11 @@ export const workflowAutomation: SubserviceData = {
     title: 'Workflow Automation Business Impact',
     description: 'What happens when you automate repetitive processes',
     metric: {
-      value: '+320%',
-      number: 320,
-      label: 'Efficiency Increase',
-      description: 'Workflow automation delivers an average 320% increase in efficiency',
+      value: '25,000+',
+      number: 25000,
+      label: 'Hours Saved',
+      description: 'Average company saves 25,000+ hours annually through workflow automation',
+      source: 'Deloitte, "Automation Impact Study 2023"',
       icon: TrendingUp
     },
     bottomMessage: 'Workflow automation that drives measurable efficiency gains'

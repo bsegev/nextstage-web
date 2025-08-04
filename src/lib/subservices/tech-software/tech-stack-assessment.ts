@@ -71,10 +71,11 @@ export const techStackAssessment: SubserviceData = {
     title: 'Tech Stack Assessment Business Impact',
     description: 'What happens when your technology actually supports your business',
     metric: {
-      value: '+280%',
-      number: 280,
-      label: 'Efficiency Increase',
-      description: 'Optimized tech stacks see an average 280% increase in efficiency',
+      value: '73%',
+      number: 73,
+      label: 'Cost Reduction',
+      description: '73% of companies achieve significant cost reduction through tech stack optimization',
+      source: 'McKinsey Technology, "Digital Transformation Report"',
       icon: TrendingUp
     },
     bottomMessage: 'Technology optimization that drives business efficiency'

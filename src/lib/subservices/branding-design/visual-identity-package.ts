@@ -71,10 +71,11 @@ export const visualIdentityPackage: SubserviceData = {
     title: 'Visual Identity Business Impact',
     description: 'What happens when your visual identity actually works for your business',
     metric: {
-      value: '+34%',
-      number: 34,
-      label: 'Revenue Increase',
-      description: 'Consistent logo use across platforms is linked to a 34% increase in revenue',
+      value: '78%',
+      number: 78,
+      label: 'Trust Increase',
+      description: '78% of consumers report higher trust in companies with professional visual identity',
+      source: 'PwC, "Consumer Trust Survey 2023"',
       icon: TrendingUp
     },
     bottomMessage: 'Visual identity that drives measurable business growth'

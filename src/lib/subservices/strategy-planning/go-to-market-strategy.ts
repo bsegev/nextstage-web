@@ -71,10 +71,11 @@ export const goToMarketStrategy: SubserviceData = {
     title: 'Go-to-Market Strategy Business Impact',
     description: 'What happens when you enter the market strategically',
     metric: {
-      value: '+420%',
-      number: 420,
-      label: 'Success Rate',
-      description: 'Strategic go-to-market approaches see 420% higher success rates',
+      value: '67%',
+      number: 67,
+      label: 'Market Entry Success',
+      description: '67% of companies with structured go-to-market strategies achieve their first-year revenue targets',
+      source: 'Bain & Company, "Go-to-Market Strategy Report 2023"',
       icon: TrendingUp
     },
     bottomMessage: 'Go-to-market strategy that maximizes success probability'

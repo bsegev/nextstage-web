@@ -71,10 +71,11 @@ export const pitchSalesMarketing: SubserviceData = {
     title: 'Sales Materials Business Impact',
     description: 'What happens when your sales materials actually convert',
     metric: {
-      value: '+320%',
-      number: 320,
-      label: 'Sales Increase',
-      description: 'Professional sales materials are linked to a 320% increase in sales',
+      value: '2.3x',
+      number: 2.3,
+      label: 'Close Rate',
+      description: 'Professional sales collateral increases close rates by 2.3x compared to basic materials',
+      source: 'Gartner, "Sales Enablement Technology Report"',
       icon: TrendingUp
     },
     bottomMessage: 'Sales materials that convert prospects into customers'

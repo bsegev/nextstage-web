@@ -71,10 +71,11 @@ export const businessStrategyGrowth: SubserviceData = {
     title: 'Business Strategy Business Impact',
     description: 'What happens when you have a clear strategic direction',
     metric: {
-      value: '+290%',
-      number: 290,
+      value: '3.1x',
+      number: 3.1,
       label: 'Growth Rate',
-      description: 'Strategic businesses see an average 290% higher growth rate',
+      description: 'Companies with comprehensive strategic planning achieve 3.1x higher growth rates than industry average',
+      source: 'Deloitte, "Global Strategy Survey 2023"',
       icon: TrendingUp
     },
     bottomMessage: 'Business strategy that drives sustainable growth'

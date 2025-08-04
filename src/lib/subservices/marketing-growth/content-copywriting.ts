@@ -71,10 +71,11 @@ export const contentCopywriting: SubserviceData = {
     title: 'Content & Copywriting Business Impact',
     description: 'What happens when your content resonates with your audience',
     metric: {
-      value: '+390%',
-      number: 390,
-      label: 'Engagement Increase',
-      description: 'Strategic content sees an average 390% increase in engagement',
+      value: '2.6x',
+      number: 2.6,
+      label: 'Engagement Rate',
+      description: 'Strategic copywriting increases content engagement by 2.6x compared to standard content',
+      source: 'Content Marketing Institute, "B2B Content Marketing Report"',
       icon: TrendingUp
     },
     bottomMessage: 'Content that builds relationships and drives conversions'

@@ -71,10 +71,11 @@ export const digitalMarketingAssessment: SubserviceData = {
     title: 'Marketing Assessment Business Impact',
     description: 'What happens when you optimize your marketing based on data',
     metric: {
-      value: '+360%',
-      number: 360,
-      label: 'ROI Increase',
-      description: 'Optimized marketing campaigns see an average 360% increase in ROI',
+      value: '2.9x',
+      number: 2.9,
+      label: 'ROI Improvement',
+      description: 'Optimized digital marketing campaigns achieve 2.9x higher ROI than industry average',
+      source: 'Forrester, "Marketing ROI Benchmark Report"',
       icon: TrendingUp
     },
     bottomMessage: 'Marketing optimization that drives measurable business growth'

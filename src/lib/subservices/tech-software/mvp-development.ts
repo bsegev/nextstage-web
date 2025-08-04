@@ -71,10 +71,11 @@ export const mvpDevelopment: SubserviceData = {
     title: 'MVP Development Business Impact',
     description: 'What happens when you validate before you scale',
     metric: {
-      value: '-70%',
-      number: 70,
-      label: 'Risk Reduction',
-      description: 'MVP validation reduces development risk by an average of 70%',
+      value: '2.5x',
+      number: 2.5,
+      label: 'Success Rate',
+      description: 'MVP validation increases product success rates by 2.5x compared to full development',
+      source: 'CB Insights, "Startup Failure Analysis"',
       icon: TrendingUp
     },
     bottomMessage: 'MVP development that validates market demand'

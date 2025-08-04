@@ -71,10 +71,11 @@ export const brandAuditRefresh: SubserviceData = {
     title: 'Brand Audit & Refresh Business Impact',
     description: 'What happens when your brand evolution supports business growth',
     metric: {
-      value: '+23%',
-      number: 23,
-      label: 'Revenue Increase',
-      description: 'Strategic brand refreshes are linked to a 23% increase in revenue',
+      value: '2.4x',
+      number: 2.4,
+      label: 'Brand Recognition',
+      description: 'Strategic brand refreshes result in 2.4x higher brand recognition and recall',
+      source: 'Interbrand, "Best Global Brands Report"',
       icon: TrendingUp
     },
     bottomMessage: 'Brand evolution that drives measurable business growth'

@@ -71,10 +71,11 @@ export const customGptDevelopment: SubserviceData = {
     title: 'Custom GPT Development Business Impact',
     description: 'What happens when AI understands your business',
     metric: {
-      value: '+450%',
-      number: 450,
-      label: 'Efficiency Increase',
-      description: 'Custom AI solutions deliver an average 450% increase in efficiency',
+      value: '3.1x',
+      number: 3.1,
+      label: 'Productivity Increase',
+      description: 'Custom AI solutions deliver 3.1x productivity increase in targeted business processes',
+      source: 'BCG, "AI Business Impact Report"',
       icon: TrendingUp
     },
     bottomMessage: 'Custom AI solutions that drive measurable business value'

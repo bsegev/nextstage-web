@@ -71,10 +71,11 @@ export const marketResearchCompetitive: SubserviceData = {
     title: 'Market Research Business Impact',
     description: 'What happens when your decisions are based on data',
     metric: {
-      value: '+380%',
-      number: 380,
-      label: 'Success Rate',
-      description: 'Data-driven decisions see an average 380% higher success rate',
+      value: '3.2x',
+      number: 3.2,
+      label: 'Decision Success Rate',
+      description: 'Companies with data-driven market research achieve 3.2x higher success rates in strategic decisions',
+      source: 'McKinsey Global Institute, "The Business Value of Data"',
       icon: TrendingUp
     },
     bottomMessage: 'Market research that drives strategic business decisions'

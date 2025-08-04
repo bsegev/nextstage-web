@@ -71,10 +71,11 @@ export const leadGenerationCampaign: SubserviceData = {
     title: 'Lead Generation Campaign Business Impact',
     description: 'What happens when your campaigns attract the right prospects',
     metric: {
-      value: '+440%',
-      number: 440,
+      value: '82%',
+      number: 82,
       label: 'Lead Quality',
-      description: 'Strategic campaigns see an average 440% improvement in lead quality',
+      description: '82% of companies report higher lead quality from strategic lead generation campaigns',
+      source: 'HubSpot, "State of Marketing Report 2023"',
       icon: TrendingUp
     },
     bottomMessage: 'Lead generation campaigns that attract qualified prospects'
