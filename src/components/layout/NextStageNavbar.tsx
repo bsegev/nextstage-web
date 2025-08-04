@@ -51,7 +51,7 @@ export default function NextStageNavbar() {
         },
         {
           name: "Go-to-Market Strategy",
-          href: "/services/strategy-planning/go-to-market-launch"
+          href: "/services/strategy-planning/go-to-market-strategy"
         },
         {
           name: "Positioning & Messaging",
@@ -700,8 +700,8 @@ export default function NextStageNavbar() {
       dropdown: aboutDropdown,
     },
     {
-      name: "Strategy Brief",
-      link: "/strategy-brief",
+      name: "NS Tech",
+      link: "/ns-tech",
     },
   ];
 
@@ -963,10 +963,10 @@ export default function NextStageNavbar() {
               </div>
             </div>
 
-            {/* Strategy Brief Section */}
+            {/* NS Tech Section */}
             <div className="space-y-8">
               <motion.a
-                href="/strategy-brief"
+                href="/ns-tech"
                 onClick={() => setIsMobileMenuOpen(false)}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -979,9 +979,9 @@ export default function NextStageNavbar() {
               >
                 <div>
                   <span className="text-lg font-display font-medium text-obsidian group-hover:text-accent transition-colors duration-300">
-                    Strategy Brief
+                    NS Tech
                   </span>
-                  <p className="text-sm text-obsidian/60 mt-1">Get your AI-powered strategic analysis</p>
+                  <p className="text-sm text-obsidian/60 mt-1">Explore our AI-powered apps and tools</p>
                 </div>
                 <motion.div
                   initial={{ x: 0 }}

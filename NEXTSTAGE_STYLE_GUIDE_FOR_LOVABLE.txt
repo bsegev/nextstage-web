@@ -1,0 +1,277 @@
+NEXTSTAGE BRAND STYLE GUIDE FOR LOVABLE
+=============================================
+
+BRAND OVERVIEW
+--------------
+NextStage is a strategic business consultancy that works "side-by-side until it's done." We combine strategy, design, and technology to help businesses grow. Our brand embodies sophistication, professionalism, and forward-thinking innovation while maintaining approachability and clarity.
+
+BRAND PERSONALITY
+-----------------
+• Sophisticated yet approachable
+• Professional but not corporate
+• Innovative and forward-thinking
+• Results-focused and practical
+• Collaborative and partnership-oriented
+• Premium quality without being pretentious
+
+DESIGN PHILOSOPHY
+-----------------
+"Liquid Glass" - Our signature design language combines:
+• Transparency and depth (glassmorphism effects)
+• Fluid, organic movements and animations
+• Sophisticated layering and depth
+• Subtle, elegant interactions
+• High contrast for readability
+• Premium feel without being flashy
+
+COLOR SYSTEM
+------------
+Primary Colors:
+• Obsidian: #0A0A0A (Deep black - primary text, backgrounds)
+• Bone: #F5F4F1 (Off-white - secondary backgrounds, light text)
+• Accent: #FFE0D7 (Warm peach/salmon - highlights, CTAs, accents)
+• Olive: #6B7264 (Muted green-gray - secondary text, borders)
+
+Color Usage:
+• Light Mode: Bone background, Obsidian text
+• Dark Mode: Obsidian background, Bone text
+• Accent color used sparingly for CTAs, highlights, and key elements
+• Olive for secondary information and subtle borders
+
+TYPOGRAPHY
+----------
+Primary Font: Geist Sans (System font fallback)
+Display Font: Fraunces (Serif for headlines)
+
+Font Hierarchy:
+• H1: Fraunces, 4xl-6xl, font-light, tracking-tight
+• H2: Fraunces, 3xl-5xl, font-semibold, tracking-tight
+• H3: Fraunces, 2xl-3xl, font-semibold
+• Body: Geist Sans, base-lg, font-light
+• Captions: Geist Sans, sm, font-medium
+
+Key Typography Rules:
+• Use Fraunces for headlines and display text
+• Use Geist Sans for body text and UI elements
+• Maintain generous line height (1.5-1.6 for body)
+• Use font-light for body text to create elegance
+• Implement proper text contrast ratios
+
+COMPONENT STYLES
+----------------
+
+Buttons:
+Primary CTA:
+• Background: Obsidian (#0A0A0A)
+• Text: Bone (#F5F4F1)
+• Border radius: rounded-xl or rounded-full
+• Hover: subtle scale (-translate-y-1), shadow enhancement
+• Glow effect: accent color blur on hover
+
+Secondary CTA:
+• Background: Transparent with LiquidGlass effect
+• Text: Obsidian/Bone (depending on mode)
+• Border: subtle accent color border
+• Hover: scale and glow effects
+
+Cards & Containers:
+LiquidGlass Effect:
+• Background: rgba(255, 255, 255, 0.04) to rgba(255, 255, 255, 0.01)
+• Backdrop blur: 8px-16px depending on intensity
+• Border: subtle white/obsidian borders with gradient
+• Shadow: soft, layered shadows
+• Border radius: rounded-2xl or rounded-3xl
+
+Focus Cards:
+• Hover effects that blur other cards
+• Scale animations on hover
+• Gradient borders and glows
+• Smooth transitions (300-500ms)
+
+Navigation:
+• Clean, minimal design
+• Subtle hover states
+• Clear hierarchy
+• Mobile-first responsive design
+
+ANIMATIONS & INTERACTIONS
+-------------------------
+Animation Principles:
+• Smooth, organic movements
+• Easing: cubic-bezier(0.4, 0, 0.2, 1)
+• Duration: 300-500ms for interactions
+• Subtle scale and translate effects
+• Staggered animations for lists
+
+Key Animations:
+• Gradient text animation (6s ease infinite)
+• Floating orbs (4-6s ease-in-out infinite)
+• Card hover effects with blur
+• Button hover with glow and lift
+• Page transitions with fade and slide
+
+Micro-interactions:
+• Button hover: scale, glow, lift
+• Card hover: blur others, scale self
+• Link hover: underline animation
+• Loading states: subtle pulse or shimmer
+
+LAYOUT & SPACING
+----------------
+Grid System:
+• Responsive grid with 1-3 columns
+• Generous spacing between elements
+• Consistent padding (p-6, p-8, p-12)
+• Max-width containers for readability
+
+Spacing Scale:
+• xs: 0.5rem (8px)
+• sm: 1rem (16px)
+• md: 1.5rem (24px)
+• lg: 2rem (32px)
+• xl: 3rem (48px)
+• 2xl: 4rem (64px)
+
+Section Spacing:
+• Section padding: py-24 lg:py-32
+• Container max-width: max-w-7xl
+• Content max-width: max-w-3xl for text
+
+VISUAL ELEMENTS
+---------------
+Backgrounds:
+• Subtle gradient overlays
+• Floating animated orbs
+• Grid patterns (very subtle)
+• LiquidGlass effects
+
+Icons:
+• Tabler Icons (consistent style)
+• 24px default size
+• Accent color for primary icons
+• Subtle animations on hover
+
+Images:
+• High-quality, professional photography
+• Consistent aspect ratios
+• Subtle shadows and borders
+• Optimized for performance
+
+SPECIFIC COMPONENT SPECIFICATIONS
+---------------------------------
+
+Hero Sections:
+• Full-height or 90vh minimum
+• Large, bold headlines with gradient text
+• Subtitle with underline accent
+• Primary CTA button with glow effect
+• Floating background elements
+
+Service Cards:
+• LiquidGlass container
+• Icon with gradient background
+• Clear hierarchy: title, category, description
+• Feature list with accent dots
+• Status badges for live/beta/coming-soon
+
+Process Steps:
+• Numbered with gradient text
+• Hover expansion effects
+• Smooth transitions
+• Clear progression indicators
+
+Testimonials:
+• Elegant card design
+• Subtle shadows
+• Professional imagery
+• Clean typography
+
+CONTENT TONE & MESSAGING
+------------------------
+Voice Characteristics:
+• Professional but conversational
+• Results-focused
+• Clear and direct
+• Confident without being arrogant
+• Educational and helpful
+
+Key Messaging Principles:
+• Focus on business value and outcomes
+• Use "we work side-by-side" language
+• Emphasize partnership and collaboration
+• Highlight strategic thinking
+• Demonstrate expertise without jargon
+
+Common Phrases:
+• "We work side-by-side until it's done"
+• "Strategy that works, design that converts"
+• "Business strategy, design & implementation working together"
+• "Professional brand systems that work for business"
+
+RESPONSIVE DESIGN
+-----------------
+Breakpoints:
+• Mobile: 320px+
+• Tablet: 768px+
+• Desktop: 1024px+
+• Large: 1280px+
+
+Mobile Considerations:
+• Simplified animations
+• Touch-friendly button sizes
+• Readable text sizes
+• Optimized spacing
+• Swipe-friendly interactions
+
+ACCESSIBILITY
+-------------
+• High contrast ratios (4.5:1 minimum)
+• Keyboard navigation support
+• Screen reader compatibility
+• Focus indicators
+• Alternative text for images
+• Semantic HTML structure
+
+IMPLEMENTATION NOTES
+-------------------
+CSS Variables:
+```css
+:root {
+  --obsidian: #0A0A0A;
+  --bone: #F5F4F1;
+  --accent: #FFE0D7;
+  --olive: #6B7264;
+}
+```
+
+Key Classes:
+• .font-display (Fraunces)
+• .liquid-glass (glassmorphism effect)
+• .animate-gradient (text gradient animation)
+• .bg-obsidian, .bg-bone, .bg-accent
+
+Animation Classes:
+• .animate-float (floating elements)
+• .animate-glow (pulse glow)
+• .animate-gradient (text gradient)
+• .transition-all (smooth transitions)
+
+BRAND ASSETS
+------------
+• Logo: "NextStage" in Fraunces font
+• Color palette: Obsidian, Bone, Accent, Olive
+• Typography: Geist Sans + Fraunces
+• Icons: Tabler Icons set
+• Photography: Professional, clean, business-focused
+
+QUALITY STANDARDS
+-----------------
+• Pixel-perfect implementation
+• Smooth 60fps animations
+• Fast loading times
+• Cross-browser compatibility
+• Mobile-first responsive design
+• Accessibility compliance
+• Consistent spacing and alignment
+
+This style guide should be used as the foundation for all NextStage brand applications in Lovable. The goal is to create a sophisticated, professional, and cohesive user experience that reflects our strategic approach and premium positioning. 

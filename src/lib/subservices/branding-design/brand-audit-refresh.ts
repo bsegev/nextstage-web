@@ -36,6 +36,11 @@ export const brandAuditRefresh: SubserviceData = {
       phase: 'Implementation',
       whatWeDo: 'Execute brand refresh across key touchpoints and provide guidance',
       whatEmerges: 'Refreshed brand that better supports business objectives'
+    },
+    {
+      phase: 'Optimization',
+      whatWeDo: 'Monitor brand performance and optimize based on results',
+      whatEmerges: 'Continuously improving brand impact and market position'
     }
   ],
   

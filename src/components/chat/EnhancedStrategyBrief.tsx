@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Download, Target, Lightbulb, TrendingUp, Users } from 'lucide-react';
+import { ArrowLeft, Download, Target, Lightbulb, TrendingUp, Users, BarChart3, Brain, Rocket, Calendar, Mail, CheckCircle, RotateCcw } from 'lucide-react';
 import Link from 'next/link';
 
 interface EnhancedStrategyBriefProps {
@@ -330,7 +330,7 @@ export const EnhancedStrategyBrief = ({
             className="text-center"
           >
             <div className="w-16 h-16 mx-auto mb-6 bg-accent rounded-full flex items-center justify-center">
-              <div className="w-8 h-8 text-obsidian animate-spin text-2xl">⟳</div>
+              <RotateCcw className="w-6 h-6 text-obsidian animate-spin" />
             </div>
             <h2 className="text-2xl font-serif font-medium text-bone mb-2">
               Regenerating strategic brief...
@@ -370,7 +370,7 @@ export const EnhancedStrategyBrief = ({
                 disabled={isRegenerating}
                 className="flex items-center space-x-2 text-bone/70 hover:text-bone transition-colors disabled:opacity-50"
               >
-                <span>{isRegenerating ? '⟳' : '🔄'}</span>
+                <RotateCcw className={`w-4 h-4 ${isRegenerating ? 'animate-spin' : ''}`} />
                 <span className="hidden sm:inline">{isRegenerating ? 'Regenerating...' : 'Regenerate'}</span>
               </button>
               <button 
@@ -407,8 +407,8 @@ export const EnhancedStrategyBrief = ({
             transition={{ delay: 0.1 }}
             className="bg-accent/5 border border-accent/10 rounded-2xl p-6"
           >
-            <h2 className="font-display text-xl font-semibold text-bone mb-6 flex items-center space-x-2">
-              <span>🎯</span>
+            <h2 className="font-display text-xl font-semibold text-bone mb-6 flex items-center space-x-3">
+              <BarChart3 className="w-5 h-5 text-accent" />
               <span>Strategic Analysis Overview</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -452,8 +452,8 @@ export const EnhancedStrategyBrief = ({
             transition={{ delay: 0.2 }}
             className="bg-accent/5 border border-accent/10 rounded-2xl p-6"
           >
-            <h2 className="font-display text-xl font-semibold text-accent mb-6 flex items-center space-x-2">
-              <span>🧠</span>
+            <h2 className="font-display text-xl font-semibold text-accent mb-6 flex items-center space-x-3">
+              <Brain className="w-5 h-5 text-accent" />
               <span>Strategic Reasoning Process</span>
             </h2>
             <div className="space-y-4">
@@ -464,7 +464,7 @@ export const EnhancedStrategyBrief = ({
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-1">
-                      <span className="text-green-400">✅</span>
+                      <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
                       <span className="text-bone font-medium">{step.title}</span>
                     </div>
                     {step.reasoning && (
@@ -507,8 +507,8 @@ export const EnhancedStrategyBrief = ({
             transition={{ delay: 0.6 }}
             className="bg-accent/10 border border-accent/20 rounded-2xl p-6"
           >
-            <h2 className="font-display text-xl font-semibold text-bone mb-6 flex items-center space-x-2">
-              <span>🚀</span>
+            <h2 className="font-display text-xl font-semibold text-bone mb-6 flex items-center space-x-3">
+              <Rocket className="w-5 h-5 text-accent" />
               <span>Priority NextStage Services</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -549,35 +549,44 @@ export const EnhancedStrategyBrief = ({
             Let's discuss how NextStage can help you implement these strategic recommendations and achieve your vision faster.
           </p>
           
-          <div className="flex flex-col gap-4 justify-center items-center">
-            <button
-              onClick={handleBookCall}
-              className="bg-accent text-obsidian px-8 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors"
-            >
-              📅 Schedule NextStage Consultation
-            </button>
-            
-            <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-bone/90 border border-bone/20 rounded-lg px-4 py-2 text-obsidian placeholder-obsidian/50 focus:border-accent focus:outline-none w-full sm:w-auto"
-              />
+          <div className="space-y-6">
+            {/* Primary CTA */}
+            <div className="flex justify-center">
               <button
-                onClick={handleSendEmail}
-                disabled={isLoadingEmail || !email.trim()}
-                className="bg-accent/20 text-bone px-4 py-2 rounded-lg hover:bg-accent/30 transition-colors disabled:opacity-50 w-full sm:w-auto"
+                onClick={handleBookCall}
+                className="bg-accent text-obsidian px-8 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors flex items-center space-x-2"
               >
-                {isLoadingEmail ? 'Sending...' : '📧 Email Brief'}
+                <Calendar className="w-4 h-4" />
+                <span>Schedule NextStage Consultation</span>
               </button>
+            </div>
+            
+            {/* Email Brief Section */}
+            <div className="max-w-md mx-auto">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 bg-bone/90 border border-bone/20 rounded-lg px-4 py-2 text-obsidian placeholder-obsidian/50 focus:border-accent focus:outline-none"
+                />
+                <button
+                  onClick={handleSendEmail}
+                  disabled={isLoadingEmail || !email.trim()}
+                  className="bg-accent/20 text-bone px-4 py-2 rounded-lg hover:bg-accent/30 transition-colors disabled:opacity-50 flex items-center justify-center space-x-2 whitespace-nowrap"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>{isLoadingEmail ? 'Sending...' : 'Email Brief'}</span>
+                </button>
+              </div>
             </div>
           </div>
           
           {emailSent && (
-            <p className="text-accent mt-4">
-              ✅ Brief sent to {email}
+            <p className="text-accent mt-4 flex items-center justify-center space-x-2">
+              <CheckCircle className="w-4 h-4" />
+              <span>Brief sent to {email}</span>
             </p>
           )}
 

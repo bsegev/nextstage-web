@@ -126,6 +126,7 @@ ${conversationSummary}
  3. **NextStage Integration**: Recommend 3-5 services that genuinely align with their needs (even if the need is clarity)
  4. **Implementation Logic**: Explain WHY each recommendation matters for their specific situation
  5. **Ben's Voice**: Sound like a strategic advisor who truly understands their business (or lack of clarity)
+ 6. **Professional Tone**: Use professional language only - NO emojis, emoticons, or symbols in any content
 
 **Response Format**: Return a comprehensive JSON object with these exact sections:
 

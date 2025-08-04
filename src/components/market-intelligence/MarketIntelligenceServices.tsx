@@ -61,7 +61,7 @@ export default function StrategyConsultingServices() {
   // Service ID to subservice slug mapping
   const serviceLinks = {
     'market-research-competitive': '/services/strategy-planning/market-research-competitive',
-    'go-to-market-launch': '/services/strategy-planning/go-to-market-launch',
+    'go-to-market-launch': '/services/strategy-planning/go-to-market-strategy',
     'positioning-messaging': '/services/strategy-planning/positioning-messaging',
     'business-strategy-growth': '/services/strategy-planning/business-strategy-growth'
   };
